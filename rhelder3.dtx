@@ -20,6 +20,7 @@
 ]{Opt}{opt}
 
 \NewDocumentCommand{\bool}{m}{\texttt{#1}}
+\NewDocumentCommand{\env}{m}{\texttt{#1}}
 \NewDocumentCommand{\num}{m}{#1}
 
 \begin{document}
@@ -192,6 +193,28 @@
 \let\@listI\@listi
 
 \@listi
+%    \end{macrocode}
+
+% \subsection{Block Environments Based on \env{list}}
+%
+% Define environments for setting block quotations.
+% Define both \env{quotation} and \env{quote},
+% as in the standard classes,
+% in case any packages expect one or the other.
+%
+%    \begin{macrocode}
+\NewDocumentEnvironment{quotation}{}{
+  \list{}{
+    \setlength\itemindent{0pt}
+    \setlength\listparindent{\parindent}
+    \setlength\rightmargin{\leftmargin}
+  }
+  \item\relax
+}{
+  \endlist
+}
+
+\NewEnvironmentCopy{quote}{quotation}
 %    \end{macrocode}
 
 % \section{Font}
