@@ -119,6 +119,7 @@
 \renewcommand\normalsize{
   \@setfontsize\normalsize{12pt}{15pt}
   \setlength\parindent{\baselineskip}
+  \let\@listi\@listI
 }
 
 \normalsize
@@ -164,6 +165,33 @@
     }
   }
 }
+%    \end{macrocode}
+
+% \section{Blocks}
+%
+% \subsection{Parameters of Generic \env{list} Environment}
+%
+% Align lists with the surrounding paragraph indent.
+%
+%    \begin{macrocode}
+\setlength\leftmargin{\parindent}
+\setlength\leftmargini{\parindent}
+%    \end{macrocode}
+
+% Don't put any stretchable space between list elements,
+% and set \cs{topsep} to half a \cs{baselineskip},
+% so that the text will snap back to baseline after the end of the list.
+%
+%    \begin{macrocode}
+\def\@listi{
+  \setlength\leftmargin{\leftmargini}
+  \setlength\topsep{0.5\baselineskip}
+  \setlength\parsep{0pt}
+  \setlength\itemsep{0pt}
+}
+\let\@listI\@listi
+
+\@listi
 %    \end{macrocode}
 
 % \section{Font}
