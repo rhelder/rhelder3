@@ -118,10 +118,26 @@
 %    \begin{macrocode}
 \renewcommand\normalsize{
   \@setfontsize\normalsize{12pt}{15pt}
+  \setlength\parindent{\baselineskip}
 }
 
 \normalsize
 \setlength\topskip{12pt}
+%    \end{macrocode}
+
+% \section{Paragraphs}
+%
+% Initialize \cs{parindent} to \cs{baselineskip},
+% although this is not strictly necessary
+% (\cs{parindent} will be set to \cs{baselineskip}
+% when \cs{normalsize} is called).
+%
+% Don't put any stretchable space between paragraphs,
+% so that the text snaps to baseline.
+%
+%    \begin{macrocode}
+\setlength\parindent{\baselineskip}
+\setlength\parskip{0pt}
 %    \end{macrocode}
 
 % \subsection{Baseline Grid}
