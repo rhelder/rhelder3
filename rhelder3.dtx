@@ -12,6 +12,14 @@
 
 \addbibresource{rhelder3.bib}
 
+\NewDocElement[
+  envlike,
+  idxtype=opt.,
+  idxgroup=options,
+  printtype=\textit{opt.}
+]{Opt}{opt}
+
+\NewDocumentCommand{\bool}{m}{\texttt{#1}}
 \NewDocumentCommand{\num}{m}{#1}
 
 \begin{document}
@@ -37,13 +45,35 @@
 %    \end{macrocode}
 % Check that we are running on top of \LaTeXe{}
 % and are using a recent version of the kernel
-% that contains the L3 programming layer and \pkg{xparse},
+% that contains the L3 programming layer,
+% \pkg{xparse},
+% and the command \cs{ProcessKeyOptions}.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 %    \end{macrocode}
 % Identify the class file and enable \pkg{expl3} syntax.
 %    \begin{macrocode}
 \ProvidesExplClass{rhelder3}{2026/07/18}{0.1.0}{Personal document class}
+%    \end{macrocode}
+
+% \section{Options}
+%
+% \begin{opt}{showgrid}
+%     Boolean (default \bool{false}).
+%     Show baseline grid. Useful for document design.
+% \end{opt}
+%
+%    \begin{macrocode}
+\keys_define:nn {rh}{
+  showgrid .code:n =
+    \RequirePackage{tikz}
+    \dim_new:N \l_@@_to_first_baseline
+    \dim_new:N \l_@@_yshift
+
+    \hook_gput_code:nnn{begindocument}{.}{\@@_show_baseline_grid:},
+}
+
+\ProcessKeyOptions[rh]
 %    \end{macrocode}
 
 % \section{Load Packages}
@@ -92,6 +122,32 @@
 
 \normalsize
 \setlength\topskip{12pt}
+%    \end{macrocode}
+
+% \subsection{Baseline Grid}
+%
+% Define the macro to be expanded if \opt{showgrid} is set.
+% Useful for document design.
+%
+%    \begin{macrocode}
+\cs_new:Npn \@@_show_baseline_grid: {
+  \dim_set:Nn \l_@@_to_first_baseline {\Gm@tmargin + \topskip}
+  \dim_set:Nn \l_@@_yshift {
+    \fp_eval:n {
+      \fp_to_int:n {\l_@@_to_first_baseline / \baselineskip} -
+      \l_@@_to_first_baseline / \baselineskip
+    }\baselineskip
+  }
+
+  \AddToHook{shipout/background}{
+    \put (0, 0){
+      \begin{tikzpicture}[remember~picture, overlay]
+        \draw [ystep=\baselineskip, xstep=0, help~lines]
+          (0, 0) [yshift=\l_@@_yshift] grid +(\pagewidth, -\pageheight);
+      \end{tikzpicture}
+    }
+  }
+}
 %    \end{macrocode}
 
 % \section{Font}
