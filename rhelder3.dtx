@@ -1,0 +1,164 @@
+% \iffalse meta-comment
+% Copyright (C) 2026 Russell Wright Helder
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{rhelder3.dtx}[2026/07/18 v0.1.0 Personal document class]
+\documentclass{ltxdoc}
+
+\usepackage{biblatex}
+\usepackage{xfrac}
+
+\addbibresource{rhelder3.bib}
+
+\NewDocumentCommand{\num}{m}{#1}
+
+\begin{document}
+  \DocInput{rhelder3.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \GetFileInfo{rhelder3.dtx}
+%
+% \title{The \cls{rhelder3} Class}
+% \author{Russell Wright Helder}
+% \date{\filedate \quad \fileversion}
+%
+% \maketitle
+%
+% \section{Identification}
+%
+% Define a prefix for internal commands (\pkg{docstrip} will replace
+% \texttt{@@} with this prefix when generating the class file).
+%    \begin{macrocode}
+%<@@=rh>
+%    \end{macrocode}
+% Check that we are running on top of \LaTeXe{}
+% and are using a recent version of the kernel
+% that contains the L3 programming layer and \pkg{xparse},
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}[2022-06-01]
+%    \end{macrocode}
+% Identify the class file and enable \pkg{expl3} syntax.
+%    \begin{macrocode}
+\ProvidesExplClass{rhelder3}{2026/07/18}{0.1.0}{Personal document class}
+%    \end{macrocode}
+
+% \section{Load Packages}
+%
+% Abstract from \LaTeX{}'s counterintuitive layout parameters
+% with the \pkg{geometry} package.
+%
+%    \begin{macrocode}
+\RequirePackage[letterpaper]{geometry}
+%    \end{macrocode}
+
+% \section{Horizontal Motion}
+%
+% \subsection{Measure}
+%
+% \begin{macro}{\SetTextwidth}
+%    \marg{integer}\\
+%    Sets \cs{textwidth}
+%    so that the line will contain
+%    an average of roughly \meta{integer} characters.
+%    This formula for calculating the line width
+%    is extracted from the copyfitting table at
+%    \autocite[28]{bringhurst1992ElementsTypographic}.
+%    \begin{macrocode}
+\NewDocumentCommand{\SetTextwidth}{m}{\@@_set_textwidth:n {#1}}
+
+\dim_new:N \l_@@_fontwidth
+
+\cs_new:Npn \@@_set_textwidth:n #1 {
+  \settowidth{\l_@@_fontwidth}{abcdefghijklmnopqrstuvwxyz}
+  \geometry{
+    textwidth=\dim_eval:n {
+      (0.0325\l_@@_fontwidth + 0.378pt) * #1
+    }
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \section{Leading}
+%
+%    \begin{macrocode}
+\renewcommand\normalsize{
+  \@setfontsize\normalsize{12pt}{15pt}
+}
+
+\normalsize
+\setlength\topskip{12pt}
+%    \end{macrocode}
+
+% \section{Font}
+%
+%    \begin{macrocode}
+\RequirePackage{ebgaramond}
+%    \end{macrocode}
+
+% \section{The Page}
+%
+% \subsection{Text Block}
+%
+% \begin{macro}{\SetTextheight}
+%    \marg{ratio}\\
+%    Set \(\sfrac{\cs{textheight}}{\cs{textwidth}}\)
+%    to be equal to \meta{ratio}.
+%    \begin{macrocode}
+\NewDocumentCommand{\SetTextheight}{m}{\@@_set_textheight:n {#1}}
+
+\int_new:N \l_@@_num_lines
+\dim_new:N \l_@@_tmp
+
+\cs_new:Npn \@@_set_textheight:n #1 {
+  \int_set:Nn \l_@@_num_lines {
+    \fp_to_int:n {
+      (#1\textwidth - \topskip) / \baselineskip
+    }
+  }
+  \geometry{
+    textheight=\dim_eval:n {
+      \topskip + \l_@@_num_lines\baselineskip
+    }
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+
+% Choose a proportion between text height and width
+% that appealingly contrasts with the letter page height and width.
+% A ratio of \num{1.701}
+% (tall pentagon; see \autocite[150]{bringhurst1992ElementsTypographic})
+% seems to work well.
+%
+%    \begin{macrocode}
+\SetTextwidth{70}
+\SetTextheight{1.701}
+%    \end{macrocode}
+%
+% Set the bottom margin equal to the horizontal margin.
+% This creates an appealing and undramatic
+% approximately \num{2:3} ratio
+% between the top and bottom margins,
+% at least when the line accommodates 70 characters on average.
+%
+%    \begin{macrocode}
+\geometry{
+  hcentering,
+  bmargin=\dim_eval:n {(\paperwidth - \textwidth) / 2}
+}
+%    \end{macrocode}
+
+% \subsection{Page Numbering}
+%
+%    \begin{macrocode}
+\geometry{footskip=3\baselineskip}
+\pagenumbering{arabic}
+\pagestyle{plain}
+%    \end{macrocode}
+%
+% \printbibliography
