@@ -234,6 +234,7 @@
   BoldItalicFont = *-BoldItalic,
   FontFace={m}{sw}{Font=*-Italic, Style=Swash},
   FontFace={b}{sw}{Font=*-BoldItalic, Style=Swash},
+  SmallCapsFeatures={LetterSpace=4.0},
 ]{EBGaramond}
 
 \newfontface\initfamily{EBGaramond-Initials}
@@ -259,6 +260,9 @@
 \DeclareTextFontCommand{\textin}{\infigures}
 
 \DeclareTextFontCommand{\textsw}{\swshape}
+
+\NewCommandCopy\MakeUppercaseCopy\MakeUppercase
+\RenewDocumentCommand{\MakeUppercase}{m}{\begingroup\addfontfeature{LetterSpace=9.0}\MakeUppercaseCopy{#1}\endgroup}
 %    \end{macrocode}
 
 % \section{The Page}
