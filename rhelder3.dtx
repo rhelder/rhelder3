@@ -114,6 +114,8 @@
   \let\@listi\@listI
 }
 
+\NewDocumentCommand{\large}{}{\@setfontsize\large{14pt}{18pt}}
+
 \normalsize
 \setlength\topskip{12pt}
 %    \end{macrocode}
@@ -208,6 +210,65 @@
 \NewEnvironmentCopy{quote}{quotation}
 %    \end{macrocode}
 
+% \section{Headings \& Subheads}
+%    \begin{macrocode}
+\newcommand\section{
+  \@startsection{section}{1}
+  {0pt}
+  {-\fp_to_dim:n {(45 - 18) / 2.701 * 1.701}}
+  {\fp_to_dim:n {(45 - 18) / 2.701 * 1}}
+  {\headfamily\scshape\large}%
+}
+
+\newcommand\subsection{
+  \@startsection{subsection}{2}
+  {0pt}
+  {-\fp_to_dim:n {(30 - 15) / 2.701 * 1.701}}
+  {\fp_to_dim:n {(30 - 15) / 2.701 * 1}}
+  {\rmfamily\scshape\normalsize}
+}
+
+\newcommand\subsubsection{
+  \@startsection{subsubsection}{3}
+  {0pt}
+  {-\fp_to_dim:n {(30 - 15) / 2.701 * 1.701}}
+  {\fp_to_dim:n {(30 - 15) / 2.701 * 1}}
+  {\rmfamily\itshape\normalsize}
+}
+
+\newcommand\paragraph{
+  \@startsection{paragraph}{4}
+  {0pt}
+  {\baselineskip}
+  {-1em}
+  {\rmfamily\bfseries\normalsize}
+}
+
+\newcommand\subparagraph{
+  \@startsection{subparagraph}{5}
+  {0pt}
+  {\baselineskip}
+  {-1em}
+  {\rmfamily\itshape\normalsize}
+}
+
+\setcounter{secnumdepth}{3}
+
+\def\@seccntformat#1{\normalfont\csname the#1\endcsname\quad}
+
+\newcounter{section}
+\newcounter{subsection}[section]
+\newcounter{subsubsection}[subsection]
+\newcounter{paragraph}[subsubsection]
+\newcounter{subparagraph}[paragraph]
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+\renewcommand\theparagraph{\thesubsubsection.\arabic{paragraph}}
+\renewcommand\thesubparagraph{\theparagraph.\arabic{subparagraph}}
+%    \end{macrocode}
+
 % \section{Load Packages}
 %
 %    \begin{macrocode}
@@ -263,6 +324,8 @@
 
 \NewCommandCopy\MakeUppercaseCopy\MakeUppercase
 \RenewDocumentCommand{\MakeUppercase}{m}{\begingroup\addfontfeature{LetterSpace=9.0}\MakeUppercaseCopy{#1}\endgroup}
+
+\newfontfamily{\headfamily}{CormorantGaramond}
 %    \end{macrocode}
 
 % \section{The Page}
