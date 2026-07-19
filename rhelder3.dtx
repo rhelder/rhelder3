@@ -210,6 +210,10 @@
 
 % \section{Load Packages}
 %
+%    \begin{macrocode}
+\RequirePackage{fontspec}
+%    \end{macrocode}
+%
 % Abstract from \LaTeX{}'s counterintuitive layout parameters
 % with the \pkg{geometry} package.
 %
@@ -220,7 +224,41 @@
 % \section{Font}
 %
 %    \begin{macrocode}
-\RequirePackage{ebgaramond}
+\defaultfontfeatures[EBGaramond]{Ligatures = TeX , Extension = .otf}
+
+\setmainfont[
+  Numbers = {Proportional, OldStyle},
+  UprightFont = *-Regular,
+  ItalicFont = *-Italic,
+  BoldFont = *-Bold,
+  BoldItalicFont = *-BoldItalic,
+  FontFace={m}{sw}{Font=*-Italic, Style=Swash},
+  FontFace={b}{sw}{Font=*-BoldItalic, Style=Swash},
+]{EBGaramond}
+
+\newfontface\initfamily{EBGaramond-Initials}
+\DeclareTextFontCommand{\textinit}{\initfamily}
+
+\DeclareTextFontCommand{\textfigures}{
+  \addfontfeatures{Numbers=OldStyle}
+}
+\DeclareTextFontCommand{\liningfigures}{
+  \addfontfeatures{Numbers=Lining}
+}
+\DeclareTextFontCommand{\tabularfigures}{
+  \addfontfeatures{Numbers=Tabular}
+}
+\DeclareTextFontCommand{\proportionalfigures}{
+  \addfontfeatures{Numbers=Proportional}
+}
+
+\newcommand\sufigures{\addfontfeatures{VerticalPosition=Superior}}
+\DeclareTextFontCommand{\textsu}{\sufigures}
+
+\newcommand\infigures{\addfontfeatures{VerticalPosition=ScientificInferior}}
+\DeclareTextFontCommand{\textin}{\infigures}
+
+\DeclareTextFontCommand{\textsw}{\swshape}
 %    \end{macrocode}
 
 % \section{The Page}
