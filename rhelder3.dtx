@@ -148,7 +148,7 @@
     }\baselineskip
   }
 
-  \AddToHook{shipout/background}{
+  \hook_gput_code:nnn {shipout/background}{.}{
     \put (0, 0){
       \begin{tikzpicture}[remember~picture, overlay]
         \draw [ystep=\baselineskip, xstep=0, help~lines]
