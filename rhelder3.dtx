@@ -39,6 +39,7 @@
 \NewDocumentCommand{\acro}{m}{\textsc{\MakeLowercase{#1}}}
 \NewDocumentCommand{\bool}{m}{\texttt{#1}}
 \NewDocumentCommand{\env}{m}{\texttt{#1}}
+\NewDocumentCommand{\hook}{m}{\texttt{#1}}
 \NewDocumentCommand{\num}{m}{#1}
 
 \begin{document}
@@ -269,7 +270,10 @@
   {0pt}
   {-\fp_to_dim:n {(45 - 18) / 2.701 * 1.701}}
   {\fp_to_dim:n {(45 - 18) / 2.701 * 1}}
-  {\headfamily\scshape\large}%
+  {
+    \savepos\RecordProperties{rh@ypos@\thesection}{ypos}
+    \headfamily\scshape\large
+  }
 }
 
 \newcommand\subsection{
@@ -277,7 +281,10 @@
   {0pt}
   {-\fp_to_dim:n {(30 - 15) / 2.701 * 1.701}}
   {\fp_to_dim:n {(30 - 15) / 2.701 * 1}}
-  {\rmfamily\scshape\normalsize}
+  {
+    \savepos\RecordProperties{rh@ypos@\thesubsection}{ypos}
+    \rmfamily\scshape\normalsize
+  }
 }
 
 \newcommand\subsubsection{
@@ -285,7 +292,10 @@
   {0pt}
   {-\fp_to_dim:n {(30 - 15) / 2.701 * 1.701}}
   {\fp_to_dim:n {(30 - 15) / 2.701 * 1}}
-  {\rmfamily\itshape\normalsize}
+  {
+    \savepos\RecordProperties{rh@ypos@\thesubsubsection}{ypos}
+    \rmfamily\itshape\normalsize
+  }
 }
 
 \newcommand\paragraph{
@@ -348,6 +358,82 @@
 \def\@seccntformat#1{\normalfont\csname the#1\endcsname\quad}
 %    \end{macrocode}
 % \end{macro}
+
+% If a display heading or subhead is on the first line of the page,
+% shift the heading or subhead down from the first baseline
+% so that the subsequent text snaps to the baseline grid.
+%    \begin{macrocode}
+\hook_gput_code:nnn {cmd/section/before}{.}{
+  % The section counter hasn't been incremented yet. Temporarily increment in
+  % order to reference the position of the right section.
+  \addtocounter{section}{1}
+  \@@_shift_if_at_top:n {section}{18pt}
+  \addtocounter{section}{-1}
+}
+
+\hook_gput_code:nnn {cmd/subsection/before}{.}{
+  % The subsection counter hasn't been incremented yet. Temporarily increment
+  % in order to reference the position of the right section.
+  \addtocounter{subsection}{1}
+  \@@_shift_if_at_top:n {subsection}{18pt}
+  \addtocounter{subsection}{-1}
+}
+
+\hook_gput_code:nnn {cmd/subsubsection/before}{.}{
+  % The subsubsection counter hasn't been incremented yet. Temporarily
+  % increment in order to reference the position of the right section.
+  \addtocounter{subsubsection}{1}
+  \@@_shift_if_at_top:n {subsubsection}{18pt}
+  \addtocounter{subsubsection}{-1}
+}
+%    \end{macrocode}
+
+% Get the y-coordinate of the top of the text block.
+%    \begin{macrocode}
+\hook_gput_code:nnn {begindocument/end}{.}{
+  \savepos\RecordProperties{rh@ypos@topofpage}{ypos}
+}
+%    \end{macrocode}
+
+% Define the macro that is expanded in the \hook{cmd/section/before} hook.
+% It accepts the \meta{csname} of the heading
+% plus the \meta{skip} by which to shift the header
+% as arguments.
+%
+% The macro works by inserting a dimensionless rule
+% (before the heading,
+% since the macro is expanded in the \hook{cmd/section/before} hook),
+% in order to make it possible to insert glue
+% between the heading and the top of the page.
+% As a consequence of this,
+% \cs{topskip} is inserted;
+% neutralize this effect by inserting a negative vertical skip
+% equal to \cs{topskip}.
+% Finally,
+% add an additional vertical skip
+% specified by the argument \meta{skip}.
+%    \begin{macrocode}
+\int_new:N \l_@@_ypos_top
+\int_new:N \l_@@_ypos_heading
+
+\cs_new:Npn \@@_shift_if_at_top:n #1#2 {
+  \int_set:Nn \l_@@_ypos_top {
+    \RefProperty{rh@ypos@topofpage}{ypos}
+  }
+  \int_set:Nn \l_@@_ypos_heading {
+    \RefProperty{rh@ypos@\cs:w the #1\cs_end:}{ypos}
+  }
+
+  \bool_if:nT {
+    \int_compare_p:nNn {\l_@@_ypos_heading} = {\l_@@_ypos_top}
+    || \int_compare_p:nNn {\l_@@_ypos_heading} > {\l_@@_ypos_top}
+  }{
+    \rule{0pt}{0pt}
+    \vspace{-\topskip}
+    \vspace{-#2}
+  }
+}
+%    \end{macrocode}
 
 % \section{Load Packages}
 %
