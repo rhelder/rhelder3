@@ -62,8 +62,6 @@
 % \begin{opt}{showgrid}
 %     Boolean (default \bool{false}).
 %     Show baseline grid. Useful for document design.
-% \end{opt}
-%
 %    \begin{macrocode}
 \keys_define:nn {rh}{
   showgrid .code:n =
@@ -71,11 +69,12 @@
     \dim_new:N \l_@@_to_first_baseline
     \dim_new:N \l_@@_yshift
 
-    \hook_gput_code:nnn{begindocument}{.}{\@@_show_baseline_grid:},
+    \hook_gput_code:nnn {begindocument}{.}{\@@_show_baseline_grid:},
 }
 
 \ProcessKeyOptions[rh]
 %    \end{macrocode}
+% \end{opt}
 
 % \section{Horizontal Motion}
 %
@@ -139,7 +138,6 @@
 %
 % Define the macro to be expanded if \opt{showgrid} is set.
 % Useful for document design.
-%
 %    \begin{macrocode}
 \cs_new:Npn \@@_show_baseline_grid: {
   \dim_set:Nn \l_@@_to_first_baseline {\Gm@tmargin + \topskip}
@@ -277,7 +275,6 @@
 %
 % Abstract from \LaTeX{}'s counterintuitive layout parameters
 % with the \pkg{geometry} package.
-%
 %    \begin{macrocode}
 \RequirePackage[letterpaper]{geometry}
 %    \end{macrocode}
@@ -323,7 +320,11 @@
 \DeclareTextFontCommand{\textsw}{\swshape}
 
 \NewCommandCopy\MakeUppercaseCopy\MakeUppercase
-\RenewDocumentCommand{\MakeUppercase}{m}{\begingroup\addfontfeature{LetterSpace=9.0}\MakeUppercaseCopy{#1}\endgroup}
+\RenewDocumentCommand{\MakeUppercase}{m}{
+  \begingroup
+    \addfontfeature{LetterSpace=9.0}\MakeUppercaseCopy{#1}
+  \endgroup
+}
 
 \newfontfamily{\headfamily}{CormorantGaramond}
 %    \end{macrocode}
@@ -362,7 +363,6 @@
 % A ratio of \num{1.701}
 % (tall pentagon; see \autocite[150]{bringhurst1992ElementsTypographic})
 % seems to work well.
-%
 %    \begin{macrocode}
 \SetTextwidth{70}
 \SetTextheight{1.701}
@@ -373,7 +373,6 @@
 % approximately \num{2:3} ratio
 % between the top and bottom margins,
 % at least when the line accommodates 70 characters on average.
-%
 %    \begin{macrocode}
 \geometry{
   hcentering,
