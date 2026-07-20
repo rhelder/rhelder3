@@ -15,10 +15,28 @@
 \NewDocElement[
   envlike,
   idxtype=opt.,
-  idxgroup=options,
   printtype=\textit{opt.}
 ]{Opt}{opt}
 
+\NewDocElement[
+  macrolike,
+  idxtype=dimen,
+  printtype=\textit{ldimen}
+]{LDimen}{ldimen}
+
+\NewDocElement[
+  macrolike,
+  idxtype=skip,
+  printtype=\textit{lskip}
+]{LSkip}{lskip}
+
+\NewDocElement[
+  envlike,
+  idxtype=counter,
+  printtype=\textit{counter}
+]{LCounter}{lcounter}
+
+\NewDocumentCommand{\acro}{m}{\textsc{\MakeLowercase{#1}}}
 \NewDocumentCommand{\bool}{m}{\texttt{#1}}
 \NewDocumentCommand{\env}{m}{\texttt{#1}}
 \NewDocumentCommand{\num}{m}{#1}
@@ -106,33 +124,57 @@
 
 % \section{Leading}
 %
+% \begin{macro}{\normalsize}
+%    Sets the font size and leading.
+%    Also set \cs{parskip} equal to one lead,
+%    and set generic list parameters.
 %    \begin{macrocode}
 \RenewDocumentCommand{\normalsize}{}{
   \@setfontsize\normalsize{12pt}{15pt}
   \setlength\parindent{\baselineskip}
   \let\@listi\@listI
 }
+%    \end{macrocode}
+% \end{macro}
 
+% \begin{macro}{\large}
+%    Set other font sizes.
+%    \begin{macrocode}
 \NewDocumentCommand{\large}{}{\@setfontsize\large{14pt}{18pt}}
+%    \end{macrocode}
+% \end{macro}
 
+% Initialize font size.
+%    \begin{macrocode}
 \normalsize
+%    \end{macrocode}
+%
+% \begin{lskip}{\topskip}
+%    Set leading for the first line on the page.
+%    \begin{macrocode}
 \setlength\topskip{12pt}
 %    \end{macrocode}
+% \end{lskip}
 
 % \section{Paragraphs}
 %
-% Initialize \cs{parindent} to \cs{baselineskip},
-% although this is not strictly necessary
-% (\cs{parindent} will be set to \cs{baselineskip}
-% when \cs{normalsize} is called).
-%
-% Don't put any stretchable space between paragraphs,
-% so that the text snaps to baseline.
-%
+% \begin{ldimen}{\parindent}
+%    Initialize \cs{parindent} to \cs{baselineskip},
+%    although this is not strictly necessary
+%    (\cs{parindent} will be set to \cs{baselineskip}
+%    when \cs{normalsize} is called).
 %    \begin{macrocode}
 \setlength\parindent{\baselineskip}
+%    \end{macrocode}
+% \end{ldimen}
+%
+% \begin{lskip}{\parskip}
+%    Don't put any stretchable space between paragraphs,
+%    so that the text snaps to baseline.
+%    \begin{macrocode}
 \setlength\parskip{0pt}
 %    \end{macrocode}
+% \end{lskip}
 
 % \subsection{Baseline Grid}
 %
@@ -163,17 +205,18 @@
 %
 % \subsection{Parameters of Generic \env{list} Environment}
 %
-% Align lists with the surrounding paragraph indent.
-%
+% \begin{ldimen}{\leftmargin, \leftmargini}
+%    Align lists with the surrounding paragraph indent.
 %    \begin{macrocode}
 \setlength\leftmargin{\parindent}
 \setlength\leftmargini{\parindent}
 %    \end{macrocode}
+% \end{ldimen}
 
-% Don't put any stretchable space between list elements,
-% and set \cs{topsep} to half a \cs{baselineskip},
-% so that the text will snap back to baseline after the end of the list.
-%
+% \begin{macro}{\@listi, \@listI}
+%    Don't put any stretchable space between list elements,
+%    and set \cs{topsep} to half a \cs{baselineskip},
+%    so that the text will snap back to baseline after the end of the list.
 %    \begin{macrocode}
 \def\@listi{
   \setlength\leftmargin{\leftmargini}
@@ -185,14 +228,15 @@
 
 \@listi
 %    \end{macrocode}
+% \end{macro}
 
 % \subsection{Block Environments Based on \env{list}}
 %
-% Define environments for setting block quotations.
-% Define both \env{quotation} and \env{quote},
-% as in the standard classes,
-% in case any packages expect one or the other.
-%
+% \begin{env}{quotation, quote}
+%    Define environments for setting block quotations.
+%    Define both \env{quotation} and \env{quote},
+%    as in the standard classes,
+%    in case any packages expect one or the other.
 %    \begin{macrocode}
 \NewDocumentEnvironment{quotation}{}{
   \list{}{
@@ -207,8 +251,18 @@
 
 \NewEnvironmentCopy{quote}{quotation}
 %    \end{macrocode}
+% \end{env}
 
 % \section{Headings \& Subheads}
+%
+% \begin{macro}{
+%   \section,
+%   \subsection,
+%   \subsubsection,
+%   \paragraph,
+%   \subparagraph
+% }
+%    Define all of the headings and subheads defined in the standard classes.
 %    \begin{macrocode}
 \newcommand\section{
   \@startsection{section}{1}
@@ -249,23 +303,51 @@
   {-1em}
   {\rmfamily\itshape\normalsize}
 }
+%    \end{macrocode}
+% \end{macro}
 
+% \begin{lcounter}{secnumdepth}
+%    Number all headings down to \cs{subsubsection}.
+%    \begin{macrocode}
 \setcounter{secnumdepth}{3}
+%    \end{macrocode}
+% \end{lcounter}
 
-\def\@seccntformat#1{\normalfont\csname the#1\endcsname\quad}
-
+% \begin{lcounter}{
+%   section,
+%   subsection,
+%   subsubsection,
+%   paragraph,
+%   subparagraph,
+% }
+%    Define counters used for section numbers.
+%    \begin{macrocode}
 \newcounter{section}
 \newcounter{subsection}[section]
 \newcounter{subsubsection}[subsection]
 \newcounter{paragraph}[subsubsection]
 \newcounter{subparagraph}[paragraph]
+%    \end{macrocode}
+% \end{lcounter}
 
+% \begin{macro}{
+%   \thesection,
+%   \thesubsection,
+%   \thesubsubsection,
+%   \theparagraph,
+%   \thesubparagraph
+% }
+%    Format section numbers.
+%    \begin{macrocode}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
 \renewcommand\theparagraph{\thesubsubsection.\arabic{paragraph}}
 \renewcommand\thesubparagraph{\theparagraph.\arabic{subparagraph}}
+
+\def\@seccntformat#1{\normalfont\csname the#1\endcsname\quad}
 %    \end{macrocode}
+% \end{macro}
 
 % \section{Load Packages}
 %
@@ -281,23 +363,60 @@
 
 % \section{Font}
 %
+% Set \acro{EB} Garamond as the default Roman font.
 %    \begin{macrocode}
-\defaultfontfeatures[EBGaramond]{Ligatures = TeX , Extension = .otf}
-
 \setmainfont[
-  Numbers = {Proportional, OldStyle},
+  Extension = .otf,
   UprightFont = *-Regular,
   ItalicFont = *-Italic,
   BoldFont = *-SemiBold,
   BoldItalicFont = *-SemiBoldItalic,
-  FontFace={m}{sw}{Font=*-Italic, Style=Swash},
-  FontFace={b}{sw}{Font=*-SemiBoldItalic, Style=Swash},
-  SmallCapsFeatures={LetterSpace=4.0},
+%    \end{macrocode}
+%
+% Use text figures by default.
+%    \begin{macrocode}
+  Numbers = {Proportional, OldStyle},
+%    \end{macrocode}
+%
+% Set up Swash font.
+%    \begin{macrocode}
+  FontFace = {m}{sw}{Font=*-Italic, Style=Swash},
+  FontFace = {b}{sw}{Font=*-SemiBoldItalic, Style=Swash},
+%    \end{macrocode}
+%
+% Letterspace small caps.
+%    \begin{macrocode}
+  SmallCapsFeatures = {LetterSpace=4.0},
 ]{EBGaramond}
+%    \end{macrocode}
 
+% \begin{macro}{\headfamily}
+%    Use Cormorant Garamond,
+%    which is lighter than \acro{EB} Garamond,
+%    as a display font.
+%    \begin{macrocode}
+\newfontfamily{\headfamily}{CormorantGaramond}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\initfamily, \textinit}
+%    Switches to \acro{EB} Garamond's font face
+%    with decorative initials.
+%    \begin{macrocode}
 \newfontface\initfamily{EBGaramond-Initials}
 \DeclareTextFontCommand{\textinit}{\initfamily}
+%    \end{macrocode}
+% \end{macro}
 
+% \begin{macro}{
+%   \textfigures,
+%   \liningfigures,
+%   \tabularfigures,
+%   \proportionalfigures
+% }
+%    Switch between text figures and lining figures,
+%    tabular figures and proportional figures.
+%    \begin{macrocode}
 \DeclareTextFontCommand{\textfigures}{
   \addfontfeatures{Numbers=OldStyle}
 }
@@ -310,24 +429,44 @@
 \DeclareTextFontCommand{\proportionalfigures}{
   \addfontfeatures{Numbers=Proportional}
 }
+%    \end{macrocode}
+% \end{macro}
 
+% \begin{macro}{\sufigures, \textsu}
+%    Typeset superior glyphs.
+%    \begin{macrocode}
 \newcommand\sufigures{\addfontfeatures{VerticalPosition=Superior}}
 \DeclareTextFontCommand{\textsu}{\sufigures}
+%    \end{macrocode}
+% \end{macro}
 
+% \begin{macro}{\infigures, \textin}
+%    Typeset inferior glyphs.
+%    \begin{macrocode}
 \newcommand\infigures{\addfontfeatures{VerticalPosition=ScientificInferior}}
 \DeclareTextFontCommand{\textin}{\infigures}
+%    \end{macrocode}
+% \end{macro}
 
+% \begin{macro}{\textsw}
+%    \marg{text}\\
+%    Typeset \meta{text} in Swash shape.
+%    \begin{macrocode}
 \DeclareTextFontCommand{\textsw}{\swshape}
+%    \end{macrocode}
+% \end{macro}
 
+% \begin{macro}{\MakeUppercase}
+%    Letterspace capitals.
+%    \begin{macrocode}
 \NewCommandCopy\MakeUppercaseCopy\MakeUppercase
 \RenewDocumentCommand{\MakeUppercase}{m}{
   \begingroup
     \addfontfeature{LetterSpace=9.0}\MakeUppercaseCopy{#1}
   \endgroup
 }
-
-\newfontfamily{\headfamily}{CormorantGaramond}
 %    \end{macrocode}
+% \end{macro}
 
 % \section{The Page}
 %
