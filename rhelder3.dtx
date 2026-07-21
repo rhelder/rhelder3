@@ -41,6 +41,7 @@
 \NewDocumentCommand{\env}{m}{\texttt{#1}}
 \NewDocumentCommand{\hook}{m}{\texttt{#1}}
 \NewDocumentCommand{\num}{m}{#1}
+\NewDocumentCommand{\unit}{m}{\texttt{#1}}
 
 \begin{document}
   \DocInput{rhelder3.dtx}
@@ -434,6 +435,52 @@
   }
 }
 %    \end{macrocode}
+%
+% \section{Footnotes}
+%
+% \begin{macro}{\footnotesize}
+%    Sets the font size and leading in footnotes.
+%    Also sets \cs{parskip} equal to one lead,
+%    and sets generic list parameters.
+%    \begin{macrocode}
+\NewDocumentCommand{\footnotesize}{}{
+  \@setfontsize\footnotesize{10pt}{12pt}
+  \setlength\parindent{\baselineskip}
+  \def\@listi{
+    \setlength\leftmargin{\leftmargini}
+    \setlength\topsep{0.5\baselineskip}
+    \setlength\parsep{0pt}
+    \setlength\itemsep{0pt}
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\@makefnmark}
+%    Generates the footnote mark.
+%    \begin{macrocode}
+\renewcommand\@makefnmark{
+  \mbox{\normalfont\sufigures \@thefnmark}
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\@makefntext}
+%    \marg{text}\\
+%    Called by \LaTeX{}'s \cs{footnote} and friends
+%    to typeset the actual footnote.
+%
+%    \cs{parskip} is set to \num{0}\unit{pt}
+%    by \cs{@parboxrestore},
+%    which is invoked before \cs{@makefntext} in \cs{@footnotetext},
+%    so place the footnote mark in a bos of size \cs{baselineskip},
+%    which is what \cs{parindent} is supposed to be.
+%    \begin{macrocode}
+\newcommand\@makefntext[1]{
+  \makebox[\baselineskip][r]{\@makefnmark}#1
+}
+%    \end{macrocode}
+% \end{macro}
 
 % \section{Load Packages}
 %
@@ -612,7 +659,10 @@
 % \subsection{Page Numbering}
 %
 %    \begin{macrocode}
-\geometry{footskip=3\baselineskip}
+\geometry{
+  footskip=3\baselineskip,
+  footnotesep=19pt plus 15pt minus 15pt,
+}
 \pagenumbering{arabic}
 \pagestyle{plain}
 %    \end{macrocode}
