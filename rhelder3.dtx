@@ -114,7 +114,8 @@
 \dim_new:N \l_@@_fontwidth
 
 \cs_new:Npn \@@_set_textwidth:n #1 {
-  \settowidth{\l_@@_fontwidth}{abcdefghijklmnopqrstuvwxyz}
+  \hbox_set:Nn \l_tmpa_box {abcdefghijklmnopqrstuvwxyz}
+  \dim_set:Nn \l_@@_fontwidth {\box_wd:N \l_tmpa_box}
   \geometry{
     textwidth=\dim_eval:n {
       (0.0325\l_@@_fontwidth + 0.378pt) * #1
@@ -133,7 +134,7 @@
 %    \begin{macrocode}
 \RenewDocumentCommand{\normalsize}{}{
   \@setfontsize\normalsize{12pt}{15pt}
-  \setlength\parindent{\baselineskip}
+  \dim_set:Nn \parindent {\baselineskip}
   \let\@listi\@listI
 }
 %    \end{macrocode}
@@ -154,7 +155,7 @@
 % \begin{lskip}{\topskip}
 %    Set leading for the first line on the page.
 %    \begin{macrocode}
-\setlength\topskip{12pt}
+\skip_set:Nn \topskip {12pt}
 %    \end{macrocode}
 % \end{lskip}
 
@@ -166,7 +167,7 @@
 %    (\cs{parindent} will be set to \cs{baselineskip}
 %    when \cs{normalsize} is called).
 %    \begin{macrocode}
-\setlength\parindent{\baselineskip}
+\dim_set:Nn \parindent {\baselineskip}
 %    \end{macrocode}
 % \end{ldimen}
 %
@@ -174,7 +175,7 @@
 %    Don't put any stretchable space between paragraphs,
 %    so that the text snaps to baseline.
 %    \begin{macrocode}
-\setlength\parskip{0pt}
+\skip_set:Nn \parskip {0pt}
 %    \end{macrocode}
 % \end{lskip}
 
@@ -210,8 +211,8 @@
 % \begin{ldimen}{\leftmargin, \leftmargini}
 %    Align lists with the surrounding paragraph indent.
 %    \begin{macrocode}
-\setlength\leftmargin{\parindent}
-\setlength\leftmargini{\parindent}
+\dim_set:Nn \leftmargin {\parindent}
+\dim_set:Nn \leftmargini {\parindent}
 %    \end{macrocode}
 % \end{ldimen}
 
@@ -221,10 +222,10 @@
 %    so that the text will snap back to baseline after the end of the list.
 %    \begin{macrocode}
 \def\@listi{
-  \setlength\leftmargin{\leftmargini}
-  \setlength\topsep{0.5\baselineskip}
-  \setlength\parsep{0pt}
-  \setlength\itemsep{0pt}
+  \dim_set:Nn \leftmargin {\leftmargini}
+  \skip_set:Nn \topsep {0.5\baselineskip}
+  \skip_set:Nn \parsep {0pt}
+  \skip_set:Nn \itemsep {0pt}
 }
 \let\@listI\@listi
 
@@ -242,9 +243,9 @@
 %    \begin{macrocode}
 \NewDocumentEnvironment{quotation}{}{
   \list{}{
-    \setlength\itemindent{0pt}
-    \setlength\listparindent{\parindent}
-    \setlength\rightmargin{\leftmargin}
+    \dim_set:Nn \itemindent {0pt}
+    \dim_set:Nn \listparindent {\parindent}
+    \dim_set:Nn \rightmargin {\leftmargin}
   }
   \item\relax
 }{
@@ -430,8 +431,8 @@
     || \int_compare_p:nNn {\l_@@_ypos_heading} > {\l_@@_ypos_top}
   }{
     \rule{0pt}{0pt}
-    \vspace{-\topskip}
-    \vspace{-#2}
+    \skip_vertical:n {-\topskip}
+    \skip_vertical:n {-#2}
   }
 }
 %    \end{macrocode}
@@ -445,12 +446,12 @@
 %    \begin{macrocode}
 \NewDocumentCommand{\footnotesize}{}{
   \@setfontsize\footnotesize{10pt}{12pt}
-  \setlength\parindent{\baselineskip}
+  \dim_set:Nn \parindent {\baselineskip}
   \def\@listi{
-    \setlength\leftmargin{\leftmargini}
-    \setlength\topsep{0.5\baselineskip}
-    \setlength\parsep{0pt}
-    \setlength\itemsep{0pt}
+    \dim_set:Nn \leftmargin {\leftmargini}
+    \skip:set:Nn \topsep {0.5\baselineskip}
+    \skip:set:Nn \parsep {0pt}
+    \skip:set:Nn \itemsep {0pt}
   }
 }
 %    \end{macrocode}
@@ -460,7 +461,7 @@
 %    Generates the footnote mark.
 %    \begin{macrocode}
 \renewcommand\@makefnmark{
-  \mbox{\normalfont\sufigures \@thefnmark}
+  \hbox:n {\normalfont\sufigures\@thefnmark}
 }
 %    \end{macrocode}
 % \end{macro}
@@ -598,9 +599,9 @@
 %    \begin{macrocode}
 \NewCommandCopy\MakeUppercaseCopy\MakeUppercase
 \RenewDocumentCommand{\MakeUppercase}{m}{
-  \begingroup
+  \group_begin:
     \addfontfeature{LetterSpace=9.0}\MakeUppercaseCopy{#1}
-  \endgroup
+  \group_end:
 }
 %    \end{macrocode}
 % \end{macro}
