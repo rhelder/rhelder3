@@ -496,6 +496,34 @@
 \renewcommand\footnoterule{}
 %    \end{macrocode}
 % \end{macro}
+%
+% \begin{ldimen}{\footnotesep}
+%    Affects the height of the box containing the footnote text
+%    by setting the height of a strut
+%    placed at the beginning of every footnote.
+%    The depth of the box containing the footnote text
+%    is determined by the depth of a strut
+%    placed at the end of every footnote,
+%    which is \num{0.3}\cs{baselineskip}.
+%    To get a total height of \cs{baselineskip},
+%    the first strut needs to have a height of \num{0.7}\cs{baselineskip}.
+%    If the height of the first strut
+%    is less than \num{0.7}\cs{baselineskip},
+%    there is less lead than normal between footnotes
+%    (or between the footnote rule and the first footnote).
+%    If the height of the first strut
+%    is more than \num{0.7}\cs{baselineskip},
+%    There will be more lead than normal between footnotes
+%    (or between the footnote rule and the first footnote).
+%    Set \cs{footnotesep} to \num{0.7}\cs{baselineskip}
+%    for uniform leading throughout the footnote block.
+%    \begin{macrocode}
+\group_begin:
+  \footnotesize
+  \dim_gset:Nn \footnotesep {0.7\baselineskip}
+\group_end:
+%    \end{macrocode}
+% \end{ldimen}
 
 % \section{Load Packages}
 %
