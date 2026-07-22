@@ -459,6 +459,7 @@
 %
 % \begin{macro}{\@makefnmark}
 %    Generates the footnote mark.
+%    Use superior figures rather than superscript.
 %    \begin{macrocode}
 \renewcommand\@makefnmark{
   \hbox:n {\normalfont\sufigures\@thefnmark}
@@ -470,6 +471,7 @@
 %    \marg{text}\\
 %    Called by \LaTeX{}'s \cs{footnote} and friends
 %    to typeset the actual footnote.
+%    Typesets the footnote label one \cs{parindent} into the left margin.
 %
 %    \cs{parskip} is set to \num{0}\unit{pt}
 %    by \cs{@parboxrestore},
@@ -478,7 +480,12 @@
 %    which is what \cs{parindent} is supposed to be.
 %    \begin{macrocode}
 \newcommand\@makefntext[1]{
-  \makebox[\baselineskip][r]{\@makefnmark}#1
+  % Enter horizontal mode, so that a new paragraph isn't created between the
+  % marker and the footnote text
+  \noindent
+  \hbox_overlap_left:n {
+    \hbox_to_wd:nn {\baselineskip}{\@thefnmark\hss}
+  }#1
 }
 %    \end{macrocode}
 % \end{macro}
