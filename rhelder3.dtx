@@ -127,14 +127,35 @@
 
 % \section{Leading}
 %
+% \begin{ldimen}{
+%   \g_@@_normal_size,
+%   \g_@@_normal_leading,
+%   \g_@@_large_size,
+%   \g_@@_large_leading,
+% }
+%    Dimensions to be used by size-changing commands like \cs{normalsize}.
+%    Will be set to \cs{baselineskip} by \cs{normalsize}.
+%    \begin{macrocode}
+\dim_new:N \g_@@_normal_size
+\dim_new:N \g_@@_normal_leading
+\dim_new:N \g_@@_large_size
+\dim_new:N \g_@@_large_leading
+
+\dim_set:Nn \g_@@_normal_size {12pt}
+\dim_set:Nn \g_@@_normal_leading {15pt}
+\dim_set:Nn \g_@@_large_size {14pt}
+\dim_set:Nn \g_@@_large_leading {18pt}
+%    \end{macrocode}
+% \end{ldimen}
+
 % \begin{macro}{\normalsize}
 %    Sets the font size and leading.
 %    Also sets \cs{parskip} equal to one lead,
 %    and sets generic list parameters.
 %    \begin{macrocode}
 \RenewDocumentCommand{\normalsize}{}{
-  \@setfontsize\normalsize{12pt}{15pt}
-  \dim_set:Nn \parindent {\baselineskip}
+  \@setfontsize\normalsize{\g_@@_normal_size}{\g_@@_normal_leading}
+  \dim_set_eq:NN \parindent \baselineskip
   \let\@listi\@listI
 }
 %    \end{macrocode}
@@ -143,7 +164,9 @@
 % \begin{macro}{\large}
 %    Set other font sizes.
 %    \begin{macrocode}
-\NewDocumentCommand{\large}{}{\@setfontsize\large{14pt}{18pt}}
+\NewDocumentCommand{\large}{}{
+  \@setfontsize\large{\g_@@_large_size}{\g_@@_large_leading}
+}
 %    \end{macrocode}
 % \end{macro}
 
@@ -155,7 +178,7 @@
 % \begin{lskip}{\topskip}
 %    Set leading for the first line on the page.
 %    \begin{macrocode}
-\skip_set:Nn \topskip {12pt}
+\skip_set_eq:NN \topskip \g_@@_normal_size
 %    \end{macrocode}
 % \end{lskip}
 
@@ -188,15 +211,15 @@
   \dim_set:Nn \l_@@_to_first_baseline {\Gm@tmargin + \topskip}
   \dim_set:Nn \l_@@_yshift {
     \fp_eval:n {
-      \fp_to_int:n {\l_@@_to_first_baseline / \baselineskip} -
-      \l_@@_to_first_baseline / \baselineskip
-    }\baselineskip
+      \fp_to_int:n {\l_@@_to_first_baseline / \g_@@_normal_leading} -
+      \l_@@_to_first_baseline / \g_@@_normal_leading
+    }\g_@@_normal_leading
   }
 
   \hook_gput_code:nnn {shipout/background}{.}{
     \put (0, 0){
       \begin{tikzpicture}[remember~picture, overlay]
-        \draw [ystep=\baselineskip, xstep=0, help~lines]
+        \draw [ystep=\g_@@_normal_leading, xstep=0, help~lines]
           (0, 0) [yshift=\l_@@_yshift] grid +(\pagewidth, -\pageheight);
       \end{tikzpicture}
     }
@@ -223,7 +246,7 @@
 %    \begin{macrocode}
 \def\@listi{
   \dim_set:Nn \leftmargin {\leftmargini}
-  \skip_set:Nn \topsep {0.5\baselineskip}
+  \skip_set:Nn \topsep {0.5\g_@@_normal_leading}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
 }
@@ -270,8 +293,16 @@
 \newcommand\section{
   \@startsection{section}{1}
   {0pt}
-  {-\fp_to_dim:n {(45 - 18) / 2.701 * 1.701}}
-  {\fp_to_dim:n {(45 - 18) / 2.701 * 1}}
+  {
+    -\fp_to_dim:n {
+      (3\g_@@_normal_leading - \g_@@_large_leading) / 2.701 * 1.701
+    }
+  }
+  {
+    \fp_to_dim:n {
+      (3\g_@@_normal_leading - \g_@@_large_leading) / 2.701 * 1
+    }
+  }
   {
     \savepos\RecordProperties{rh@ypos@\thesection}{ypos}
     \headfamily\scshape\large
@@ -281,8 +312,16 @@
 \newcommand\subsection{
   \@startsection{subsection}{2}
   {0pt}
-  {-\fp_to_dim:n {(30 - 15) / 2.701 * 1.701}}
-  {\fp_to_dim:n {(30 - 15) / 2.701 * 1}}
+  {
+    -\fp_to_dim:n {
+      (2\g_@@_normal_leading - \g_@@_normal_leading) / 2.701 * 1.701
+    }
+  }
+  {
+    \fp_to_dim:n {
+      (2\g_@@_normal_leading - \g_@@_normal_leading) / 2.701 * 1
+    }
+  }
   {
     \savepos\RecordProperties{rh@ypos@\thesubsection}{ypos}
     \rmfamily\scshape\normalsize
@@ -292,8 +331,16 @@
 \newcommand\subsubsection{
   \@startsection{subsubsection}{3}
   {0pt}
-  {-\fp_to_dim:n {(30 - 15) / 2.701 * 1.701}}
-  {\fp_to_dim:n {(30 - 15) / 2.701 * 1}}
+  {
+    -\fp_to_dim:n {
+      (2\g_@@_normal_leading - \g_@@_normal_leading) / 2.701 * 1.701
+    }
+  }
+  {
+    \fp_to_dim:n {
+      (2\g_@@_normal_leading - \g_@@_normal_leading) / 2.701 * 1
+    }
+  }
   {
     \savepos\RecordProperties{rh@ypos@\thesubsubsection}{ypos}
     \rmfamily\itshape\normalsize
@@ -303,7 +350,7 @@
 \newcommand\paragraph{
   \@startsection{paragraph}{4}
   {0pt}
-  {\baselineskip}
+  {\g_@@_normal_leading}
   {-1em}
   {\rmfamily\bfseries\normalsize}
 }
@@ -311,7 +358,7 @@
 \newcommand\subparagraph{
   \@startsection{subparagraph}{5}
   {0pt}
-  {\baselineskip}
+  {\g_@@_normal_leading}
   {-1em}
   {\rmfamily\itshape\normalsize}
 }
@@ -447,17 +494,28 @@
 %
 % \section{Footnotes}
 %
+% \begin{ldimen}{\g_@@_footnote_size, \g_@@_footnote_leading}
+%    Dimensions to be used by \cs{footnotesize}.
+%    \begin{macrocode}
+\dim_new:N \g_@@_footnote_size
+\dim_new:N \g_@@_footnote_leading
+
+\dim_set:Nn \g_@@_footnote_size {10pt}
+\dim_set:Nn \g_@@_footnote_leading {12pt}
+%    \end{macrocode}
+% \end{ldimen}
+
 % \begin{macro}{\footnotesize}
 %    Sets the font size and leading in footnotes.
 %    Also sets \cs{parskip} equal to one lead,
 %    and sets generic list parameters.
 %    \begin{macrocode}
 \NewDocumentCommand{\footnotesize}{}{
-  \@setfontsize\footnotesize{10pt}{12pt}
+  \@setfontsize\footnotesize{\g_@@_footnote_size}{\g_@@_footnote_leading}
   \dim_set:Nn \parindent {\baselineskip}
   \def\@listi{
     \dim_set:Nn \leftmargin {\leftmargini}
-    \skip:set:Nn \topsep {0.5\baselineskip}
+    \skip:set:Nn \topsep {0.5\g_@@_footnote_leading}
     \skip:set:Nn \parsep {0pt}
     \skip:set:Nn \itemsep {0pt}
   }
@@ -492,7 +550,7 @@
   % marker and the footnote text
   \noindent
   \hbox_overlap_left:n {
-    \hbox_to_wd:nn {\baselineskip}{\@thefnmark\hss}
+    \hbox_to_wd:nn {\g_@@_footnote_leading}{\@thefnmark\hss}
   }#1
 }
 %    \end{macrocode}
@@ -526,10 +584,7 @@
 %    Set \cs{footnotesep} to \num{0.7}\cs{baselineskip}
 %    for uniform leading throughout the footnote block.
 %    \begin{macrocode}
-\group_begin:
-  \footnotesize
-  \dim_gset:Nn \footnotesep {0.7\baselineskip}
-\group_end:
+\dim_set:Nn \footnotesep {0.7\g_@@_footnote_leading}
 %    \end{macrocode}
 % \end{ldimen}
 %
@@ -542,7 +597,12 @@
 %    which has a leading of 12pt,
 %    with the bottom of the text block).
 %    \begin{macrocode}
-\skip_gset:Nn {\skip\footins} {18pt plus 15pt}
+\skip_set:Nn {\skip\footins} {
+  \skip_eval:n {
+    \g_@@_normal_leading + (\g_@@_normal_leading - \g_@@_footnote_leading)
+  }
+  plus \g_@@_normal_leading
+}
 %    \end{macrocode}
 % \end{ldimen}
 
