@@ -419,6 +419,9 @@
 \int_new:N \l_@@_ypos_heading
 
 \cs_new:Npn \@@_shift_if_at_top:n #1#2 {
+  \RefUndefinedWarn{rh@ypos@topofpage}{ypos}
+  \RefUndefinedWarn{rh@ypos@\cs:w the #1\cs_end:}{ypos}
+
   \int_set:Nn \l_@@_ypos_top {
     \RefProperty{rh@ypos@topofpage}{ypos}
   }
@@ -426,14 +429,18 @@
     \RefProperty{rh@ypos@\cs:w the #1\cs_end:}{ypos}
   }
 
-  \bool_if:nT {
-    \int_compare_p:nNn {\l_@@_ypos_heading} = {\l_@@_ypos_top}
-    || \int_compare_p:nNn {\l_@@_ypos_heading} > {\l_@@_ypos_top}
-  }{
-    \rule{0pt}{0pt}
-    \skip_vertical:n {-\topskip}
-    \skip_vertical:n {-#2}
-    \penalty 10000\relax
+  % If zero, the property is undefined. Don't try to shift until the second
+  % LaTeX run, when the properties are defined in the .aux file.
+  \int_if_zero:nF {\l_@@_ypos_top} {
+    \bool_if:nT {
+      \int_compare_p:nNn {\l_@@_ypos_heading} = {\l_@@_ypos_top}
+      || \int_compare_p:nNn {\l_@@_ypos_heading} > {\l_@@_ypos_top}
+    }{
+      \rule{0pt}{0pt}
+      \skip_vertical:n {-\topskip}
+      \skip_vertical:n {-#2}
+      \penalty 10000\relax
+    }
   }
 }
 %    \end{macrocode}
