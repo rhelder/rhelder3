@@ -524,6 +524,19 @@
 \group_end:
 %    \end{macrocode}
 % \end{ldimen}
+%
+% \begin{ldimen}{\skip\footins}
+%    Determines the distance between the main text
+%    and the start of the footnotes.
+%    Requires at least one full \cs{baselineskip}
+%    between the main text and the start of the footnotes
+%    (15pt + 3pt to align the footnote text,
+%    which has a leading of 12pt,
+%    with the bottom of the text block).
+%    \begin{macrocode}
+\skip_gset:Nn {\skip\footins} {18pt plus 15pt}
+%    \end{macrocode}
+% \end{ldimen}
 
 % \section{Load Packages}
 %
@@ -702,10 +715,7 @@
 % \subsection{Page Numbering}
 %
 %    \begin{macrocode}
-\geometry{
-  footskip=3\baselineskip,
-  footnotesep=19pt plus 15pt minus 15pt,
-}
+\geometry{footskip=3\baselineskip}
 \pagenumbering{arabic}
 \pagestyle{plain}
 %    \end{macrocode}
