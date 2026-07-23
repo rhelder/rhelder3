@@ -190,7 +190,7 @@
 %    (\cs{parindent} will be set to \cs{baselineskip}
 %    when \cs{normalsize} is called).
 %    \begin{macrocode}
-\dim_set:Nn \parindent {\baselineskip}
+\dim_set_eq:NN \parindent \baselineskip
 %    \end{macrocode}
 % \end{ldimen}
 %
@@ -234,8 +234,8 @@
 % \begin{ldimen}{\leftmargin, \leftmargini}
 %    Align lists with the surrounding paragraph indent.
 %    \begin{macrocode}
-\dim_set:Nn \leftmargin {\parindent}
-\dim_set:Nn \leftmargini {\parindent}
+\dim_set_eq:NN \leftmargin \parindent
+\dim_set_eq:NN \leftmargini \parindent
 %    \end{macrocode}
 % \end{ldimen}
 
@@ -245,7 +245,7 @@
 %    so that the text will snap back to baseline after the end of the list.
 %    \begin{macrocode}
 \def\@listi{
-  \dim_set:Nn \leftmargin {\leftmargini}
+  \dim_set_eq:NN \leftmargin \leftmargini
   \skip_set:Nn \topsep {0.5\g_@@_normal_leading}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
@@ -267,8 +267,8 @@
 \NewDocumentEnvironment{quotation}{}{
   \list{}{
     \dim_set:Nn \itemindent {0pt}
-    \dim_set:Nn \listparindent {\parindent}
-    \dim_set:Nn \rightmargin {\leftmargin}
+    \dim_set_eq:NN \listparindent \parindent
+    \dim_set_eq:NN \rightmargin \leftmargin
   }
   \item\relax
 }{
@@ -512,9 +512,9 @@
 %    \begin{macrocode}
 \NewDocumentCommand{\footnotesize}{}{
   \@setfontsize\footnotesize{\g_@@_footnote_size}{\g_@@_footnote_leading}
-  \dim_set:Nn \parindent {\baselineskip}
+  \dim_set_eq:NN \parindent \baselineskip
   \def\@listi{
-    \dim_set:Nn \leftmargin {\leftmargini}
+    \dim_set_eq:NN \leftmargin \leftmargini
     \skip:set:Nn \topsep {0.5\g_@@_footnote_leading}
     \skip:set:Nn \parsep {0pt}
     \skip:set:Nn \itemsep {0pt}
