@@ -12,11 +12,12 @@
 
 \addbibresource{rhelder3.bib}
 
-\NewDocElement[
+\RenewDocElement[
   envlike,
-  idxtype=opt.,
-  printtype=\textit{opt.}
-]{Opt}{opt}
+  idxgroup = Package options,
+  idxtype = opt.,
+  printtype = \textit{opt.},
+]{Option}{optionenv}
 
 \NewDocElement[
   macrolike,
@@ -40,6 +41,7 @@
 \NewDocumentCommand{\bool}{m}{\texttt{#1}}
 \NewDocumentCommand{\hook}{m}{\texttt{#1}}
 \NewDocumentCommand{\num}{m}{#1}
+\NewDocumentCommand{\opt}{m}{\texttt{#1}}
 \NewDocumentCommand{\unit}{m}{\texttt{#1}}
 
 \begin{document}
@@ -78,13 +80,14 @@
 
 % \section{Options}
 %
-% \begin{opt}{showgrid}
+% \begin{optionenv}{showgrid}
 %     Boolean (default \bool{false}).
 %     Show baseline grid. Useful for document design.
 %    \begin{macrocode}
 \keys_define:nn {rh}{
   showgrid .code:n =
     \RequirePackage{tikz}
+
     \dim_new:N \l_@@_to_first_baseline
     \dim_new:N \l_@@_yshift
 
@@ -93,7 +96,7 @@
 
 \ProcessKeyOptions[rh]
 %    \end{macrocode}
-% \end{opt}
+% \end{optionenv}
 
 % \section{Horizontal Motion}
 %
@@ -203,8 +206,9 @@
 
 % \subsection{Baseline Grid}
 %
-% Define the macro to be expanded if \opt{showgrid} is set.
-% Useful for document design.
+% \begin{macro}{\@@_show_baseline_grid:}
+%    Typesets baseline grid.
+%    Called if \opt{showgrid} is set.
 %    \begin{macrocode}
 \cs_new:Npn \@@_show_baseline_grid: {
   \dim_set:Nn \l_@@_to_first_baseline {\Gm@tmargin + \topskip}
@@ -225,6 +229,7 @@
   }
 }
 %    \end{macrocode}
+% \end{macro}
 
 % \section{Blocks}
 %
