@@ -121,7 +121,7 @@
 %
 % \begin{imacro}{\SetTextwidth}
 %    \marg{integer}\\
-%    Sets \cs{textwidth}
+%    Sets \tn{textwidth}
 %    so that the line will contain
 %    an average of roughly \meta{integer} characters.
 %    This formula for calculating the line width
@@ -152,8 +152,8 @@
 %   \g_@@_large_size,
 %   \g_@@_large_leading,
 % }
-%    Dimensions to be used by size-changing commands like \cs{normalsize}.
-%    Will be set to \cs{baselineskip} by \cs{normalsize}.
+%    Dimensions to be used by size-changing commands like \tn{normalsize}.
+%    Will be set to \tn{baselineskip} by \tn{normalsize}.
 %    \begin{macrocode}
 \dim_new:N \g_@@_normal_size
 \dim_new:N \g_@@_normal_leading
@@ -169,7 +169,7 @@
 
 % \begin{imacro}{\normalsize}
 %    Sets the font size and leading.
-%    Also sets \cs{parskip} equal to one lead,
+%    Also sets \tn{parindent} equal to one lead,
 %    and sets generic list parameters.
 %    \begin{macrocode}
 \RenewDocumentCommand{\normalsize}{}{
@@ -204,10 +204,7 @@
 % \section{Paragraphs}
 %
 % \begin{ldimen}{\parindent}
-%    Initialize \cs{parindent} to \cs{baselineskip},
-%    although this is not strictly necessary
-%    (\cs{parindent} will be set to \cs{baselineskip}
-%    when \cs{normalsize} is called).
+%    Initialize \tn{parindent} to one lead.
 %    \begin{macrocode}
 \dim_set_eq:NN \parindent \baselineskip
 %    \end{macrocode}
@@ -262,7 +259,7 @@
 
 % \begin{lmacro}{\@listi, \@listI}
 %    Don't put any stretchable space between list elements,
-%    and set \cs{topsep} to half a \cs{baselineskip},
+%    and set \tn{topsep} to half a \tn{baselineskip},
 %    so that the text will snap back to baseline after the end of the list.
 %    \begin{macrocode}
 \def\@listi{
@@ -388,7 +385,7 @@
 % \end{imacro}
 
 % \begin{lcounter}{secnumdepth}
-%    Number all headings down to \cs{subsubsection}.
+%    Number all headings down to \tn{subsubsection}.
 %    \begin{macrocode}
 \setcounter{secnumdepth}{3}
 %    \end{macrocode}
@@ -466,20 +463,20 @@
 }
 %    \end{macrocode}
 
-% Define the macro that is expanded in the \hook{cmd/section/before} hook.
+% Define the function to be executed in the \hook{cmd/section/before} hook.
 % It accepts the \meta{csname} of the heading
 % plus the \meta{skip} by which to shift the header
 % as arguments.
 %
-% The macro works by inserting a dimensionless rule
+% The function works by inserting a dimensionless rule
 % (before the heading,
-% since the macro is expanded in the \hook{cmd/section/before} hook),
+% since the function is expanded in the \hook{cmd/section/before} hook),
 % in order to make it possible to insert glue
 % between the heading and the top of the page.
 % As a consequence of this,
-% \cs{topskip} is inserted;
+% \tn{topskip} is inserted;
 % neutralize this effect by inserting a negative vertical skip
-% equal to \cs{topskip}.
+% equal to \tn{topskip}.
 % Finally,
 % add an additional vertical skip
 % specified by the argument \meta{skip}.
@@ -519,7 +516,7 @@
 % \section{Footnotes}
 %
 % \begin{variable}{\g_@@_footnote_size, \g_@@_footnote_leading}
-%    Dimensions to be used by \cs{footnotesize}.
+%    Dimensions to be used by \tn{footnotesize}.
 %    \begin{macrocode}
 \dim_new:N \g_@@_footnote_size
 \dim_new:N \g_@@_footnote_leading
@@ -531,7 +528,7 @@
 
 % \begin{imacro}{\footnotesize}
 %    Sets the font size and leading in footnotes.
-%    Also sets \cs{parskip} equal to one lead,
+%    Also sets \tn{parindent} equal to one lead,
 %    and sets generic list parameters.
 %    \begin{macrocode}
 \NewDocumentCommand{\footnotesize}{}{
@@ -559,15 +556,15 @@
 
 % \begin{lmacro}{\@makefntext}
 %    \marg{text}\\
-%    Called by \LaTeX{}'s \cs{footnote} and friends
+%    Called by \LaTeX{}'s \tn{footnote} and friends
 %    to typeset the actual footnote.
-%    Typesets the footnote label one \cs{parindent} into the left margin.
+%    Typesets the footnote label one \tn{parindent} into the left margin.
 %
-%    \cs{parskip} is set to \num{0}\unit{pt}
-%    by \cs{@parboxrestore},
-%    which is invoked before \cs{@makefntext} in \cs{@footnotetext},
-%    so place the footnote mark in a bos of size \cs{baselineskip},
-%    which is what \cs{parindent} is supposed to be.
+%    \tn{parskip} is set to \num{0}\unit{pt}
+%    by \tn{@parboxrestore},
+%    which is invoked before \tn{@makefntext} in \tn{@footnotetext},
+%    so place the footnote mark in a box of size \tn{baselineskip},
+%    which is what \tn{parindent} is supposed to be.
 %    \begin{macrocode}
 \newcommand\@makefntext[1]{
   % Enter horizontal mode, so that a new paragraph isn't created between the
@@ -594,18 +591,18 @@
 %    The depth of the box containing the footnote text
 %    is determined by the depth of a strut
 %    placed at the end of every footnote,
-%    which is \num{0.3}\cs{baselineskip}.
-%    To get a total height of \cs{baselineskip},
-%    the first strut needs to have a height of \num{0.7}\cs{baselineskip}.
+%    which is \num{0.3}\tn{baselineskip}.
+%    To get a total height of \tn{baselineskip},
+%    the first strut needs to have a height of \num{0.7}\tn{baselineskip}.
 %    If the height of the first strut
-%    is less than \num{0.7}\cs{baselineskip},
+%    is less than \num{0.7}\tn{baselineskip},
 %    there is less lead than normal between footnotes
 %    (or between the footnote rule and the first footnote).
 %    If the height of the first strut
-%    is more than \num{0.7}\cs{baselineskip},
-%    There will be more lead than normal between footnotes
+%    is more than \num{0.7}\tn{baselineskip},
+%    there will be more lead than normal between footnotes
 %    (or between the footnote rule and the first footnote).
-%    Set \cs{footnotesep} to \num{0.7}\cs{baselineskip}
+%    Set \tn{footnotesep} to \num{0.7}\tn{baselineskip}
 %    for uniform leading throughout the footnote block.
 %    \begin{macrocode}
 \dim_set:Nn \footnotesep {0.7\g_@@_footnote_leading}
@@ -615,7 +612,7 @@
 % \begin{ldimen}{\skip\footins}
 %    Determines the distance between the main text
 %    and the start of the footnotes.
-%    Requires at least one full \cs{baselineskip}
+%    Requires at least one full \tn{baselineskip}
 %    between the main text and the start of the footnotes
 %    (15pt + 3pt to align the footnote text,
 %    which has a leading of 12pt,
@@ -759,7 +756,7 @@
 %
 % \begin{imacro}{\SetTextheight}
 %    \marg{ratio}\\
-%    Set \(\sfrac{\cs{textheight}}{\cs{textwidth}}\)
+%    Set \(\sfrac{\tn{textheight}}{\tn{textwidth}}\)
 %    to be equal to \meta{ratio}.
 %    \begin{macrocode}
 \NewDocumentCommand{\SetTextheight}{m}{\@@_set_textheight:n {#1}}
