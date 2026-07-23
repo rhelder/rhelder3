@@ -99,7 +99,8 @@
 %
 % \begin{optionenv}{showgrid}
 %     Boolean (default \bool{false}).
-%     Show baseline grid. Useful for document design.
+%     Show baseline grid.
+%     Useful for document design.
 %    \begin{macrocode}
 \keys_define:nn {rh}{
   showgrid .code:n =
@@ -189,7 +190,7 @@
 %    \end{macrocode}
 % \end{imacro}
 
-% Initialize font size.
+% Initialize font size and leading.
 %    \begin{macrocode}
 \normalsize
 %    \end{macrocode}
@@ -435,7 +436,7 @@
   % The section counter hasn't been incremented yet. Temporarily increment in
   % order to reference the position of the right section.
   \addtocounter{section}{1}
-  \@@_shift_if_at_top:n {section}{18pt}
+  \@@_shift_if_at_top:n {section}{18pt} % 18pt seems to work, not sure why
   \addtocounter{section}{-1}
 }
 
@@ -443,7 +444,7 @@
   % The subsection counter hasn't been incremented yet. Temporarily increment
   % in order to reference the position of the right section.
   \addtocounter{subsection}{1}
-  \@@_shift_if_at_top:n {subsection}{18pt}
+  \@@_shift_if_at_top:n {subsection}{18pt} % 18pt seems to work, not sure why
   \addtocounter{subsection}{-1}
 }
 
@@ -451,7 +452,7 @@
   % The subsubsection counter hasn't been incremented yet. Temporarily
   % increment in order to reference the position of the right section.
   \addtocounter{subsubsection}{1}
-  \@@_shift_if_at_top:n {subsubsection}{18pt}
+  \@@_shift_if_at_top:n {subsubsection}{18pt} % 18pt seems to work, not sure why
   \addtocounter{subsubsection}{-1}
 }
 %    \end{macrocode}
@@ -507,6 +508,7 @@
       \rule{0pt}{0pt}
       \skip_vertical:n {-\topskip}
       \skip_vertical:n {-#2}
+      % Make sure the previous skip is not seen by subsequent \addvspace
       \penalty 10000\relax
     }
   }
