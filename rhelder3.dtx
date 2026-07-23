@@ -483,6 +483,8 @@
       \int_compare_p:nNn {\l_@@_ypos_heading} = {\l_@@_ypos_top}
       || \int_compare_p:nNn {\l_@@_ypos_heading} > {\l_@@_ypos_top}
     }{
+      % Make sure the following is not added to end of previous page
+      \penalty -10000\relax
       \rule{0pt}{0pt}
       \skip_vertical:n {-\topskip}
       \skip_vertical:n {-#2}
