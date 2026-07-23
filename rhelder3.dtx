@@ -21,21 +21,36 @@
 
 \NewDocElement[
   macrolike,
-  idxtype=dimen,
-  printtype=\textit{ldimen}
-]{LDimen}{ldimen}
+  idxgroup = Package commands,
+  idxtype =,
+]{InterfaceMacro}{imacro}
 
 \NewDocElement[
   macrolike,
-  idxtype=skip,
-  printtype=\textit{lskip}
-]{LSkip}{lskip}
+  idxgroup = Internal LaTeX macros,
+  idxtype =,
+]{InternalMacro}{lmacro}
+
+\NewDocElement[
+  macrolike,
+  idxgroup = LaTeX length (dimen),
+  idxtype = dimen,
+  printtype = \textit{dimen},
+]{LaTeXDimen}{ldimen}
+
+\NewDocElement[
+  macrolike,
+  idxgroup = LaTeX length (skip),
+  idxtype = skip,
+  printtype = \textit{skip},
+]{LaTeXSkip}{lskip}
 
 \NewDocElement[
   envlike,
-  idxtype=counter,
-  printtype=\textit{counter}
-]{LCounter}{lcounter}
+  idxgroup = LaTeX counter,
+  idxtype = counter,
+  printtype = \textit{counter}
+]{LaTeXCounter}{lcounter}
 
 \NewDocumentCommand{\acro}{m}{\textsc{\MakeLowercase{#1}}}
 \NewDocumentCommand{\bool}{m}{\texttt{#1}}
@@ -57,6 +72,8 @@
 % \date{\filedate \quad \fileversion}
 %
 % \maketitle
+%
+% \begin{implementation}
 %
 % \section{Identification}
 %
@@ -102,7 +119,7 @@
 %
 % \subsection{Measure}
 %
-% \begin{macro}{\SetTextwidth}
+% \begin{imacro}{\SetTextwidth}
 %    \marg{integer}\\
 %    Sets \cs{textwidth}
 %    so that the line will contain
@@ -125,11 +142,11 @@
   }
 }
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
 % \section{Leading}
 %
-% \begin{ldimen}{
+% \begin{variable}{
 %   \g_@@_normal_size,
 %   \g_@@_normal_leading,
 %   \g_@@_large_size,
@@ -148,9 +165,9 @@
 \dim_set:Nn \g_@@_large_size {14pt}
 \dim_set:Nn \g_@@_large_leading {18pt}
 %    \end{macrocode}
-% \end{ldimen}
+% \end{variable}
 
-% \begin{macro}{\normalsize}
+% \begin{imacro}{\normalsize}
 %    Sets the font size and leading.
 %    Also sets \cs{parskip} equal to one lead,
 %    and sets generic list parameters.
@@ -161,16 +178,16 @@
   \let\@listi\@listI
 }
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
-% \begin{macro}{\large}
-%    Set other font sizes.
+% \begin{imacro}{\large}
+%    Set other font sizes and leadings.
 %    \begin{macrocode}
 \NewDocumentCommand{\large}{}{
   \@setfontsize\large{\g_@@_large_size}{\g_@@_large_leading}
 }
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
 % Initialize font size.
 %    \begin{macrocode}
@@ -243,7 +260,7 @@
 %    \end{macrocode}
 % \end{ldimen}
 
-% \begin{macro}{\@listi, \@listI}
+% \begin{lmacro}{\@listi, \@listI}
 %    Don't put any stretchable space between list elements,
 %    and set \cs{topsep} to half a \cs{baselineskip},
 %    so that the text will snap back to baseline after the end of the list.
@@ -254,11 +271,12 @@
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
 }
+
 \let\@listI\@listi
 
 \@listi
 %    \end{macrocode}
-% \end{macro}
+% \end{lmacro}
 
 % \subsection{Block Environments Based on \env{list}}
 %
@@ -285,7 +303,7 @@
 
 % \section{Headings \& Subheads}
 %
-% \begin{macro}{
+% \begin{imacro}{
 %   \section,
 %   \subsection,
 %   \subsubsection,
@@ -367,7 +385,7 @@
   {\rmfamily\itshape\normalsize}
 }
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
 % \begin{lcounter}{secnumdepth}
 %    Number all headings down to \cs{subsubsection}.
@@ -393,7 +411,7 @@
 %    \end{macrocode}
 % \end{lcounter}
 
-% \begin{macro}{
+% \begin{imacro}{
 %   \thesection,
 %   \thesubsection,
 %   \thesubsubsection,
@@ -410,7 +428,7 @@
 
 \def\@seccntformat#1{\normalfont\csname the#1\endcsname\quad}
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
 % If a display heading or subhead is on the first line of the page,
 % shift the heading or subhead down from the first baseline
@@ -500,7 +518,7 @@
 %
 % \section{Footnotes}
 %
-% \begin{ldimen}{\g_@@_footnote_size, \g_@@_footnote_leading}
+% \begin{variable}{\g_@@_footnote_size, \g_@@_footnote_leading}
 %    Dimensions to be used by \cs{footnotesize}.
 %    \begin{macrocode}
 \dim_new:N \g_@@_footnote_size
@@ -509,9 +527,9 @@
 \dim_set:Nn \g_@@_footnote_size {10pt}
 \dim_set:Nn \g_@@_footnote_leading {12pt}
 %    \end{macrocode}
-% \end{ldimen}
+% \end{variable}
 
-% \begin{macro}{\footnotesize}
+% \begin{imacro}{\footnotesize}
 %    Sets the font size and leading in footnotes.
 %    Also sets \cs{parskip} equal to one lead,
 %    and sets generic list parameters.
@@ -527,9 +545,9 @@
   }
 }
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 %
-% \begin{macro}{\@makefnmark}
+% \begin{lmacro}{\@makefnmark}
 %    Generates the footnote mark.
 %    Use superior figures rather than superscript.
 %    \begin{macrocode}
@@ -537,9 +555,9 @@
   \hbox:n {\normalfont\sufigures\@thefnmark}
 }
 %    \end{macrocode}
-% \end{macro}
+% \end{lmacro}
 
-% \begin{macro}{\@makefntext}
+% \begin{lmacro}{\@makefntext}
 %    \marg{text}\\
 %    Called by \LaTeX{}'s \cs{footnote} and friends
 %    to typeset the actual footnote.
@@ -560,14 +578,14 @@
   }#1
 }
 %    \end{macrocode}
-% \end{macro}
+% \end{lmacro}
 %
-% \begin{macro}{\footnoterule}
+% \begin{imacro}{\footnoterule}
 %    Suppress the footnote rule.
 %    \begin{macrocode}
 \renewcommand\footnoterule{}
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 %
 % \begin{ldimen}{\footnotesep}
 %    Affects the height of the box containing the footnote text
@@ -655,7 +673,7 @@
 ]{EBGaramond}
 %    \end{macrocode}
 
-% \begin{macro}{\headfamily}
+% \begin{imacro}{\headfamily}
 %    Use Cormorant Garamond,
 %    which is lighter than \acro{EB} Garamond,
 %    as a display font.
@@ -664,18 +682,18 @@
   SmallCapsFeatures = {Letters=UppercaseSmallCaps, LetterSpace=4.0},
 ]
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
-% \begin{macro}{\initfamily, \textinit}
+% \begin{imacro}{\initfamily, \textinit}
 %    Switches to \acro{EB} Garamond's font face
 %    with decorative initials.
 %    \begin{macrocode}
 \newfontface\initfamily{EBGaramond-Initials}
 \DeclareTextFontCommand{\textinit}{\initfamily}
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
-% \begin{macro}{
+% \begin{imacro}{
 %   \textfigures,
 %   \liningfigures,
 %   \tabularfigures,
@@ -697,33 +715,33 @@
   \addfontfeatures{Numbers=Proportional}
 }
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
-% \begin{macro}{\sufigures, \textsu}
+% \begin{imacro}{\sufigures, \textsu}
 %    Typeset superior glyphs.
 %    \begin{macrocode}
 \newcommand\sufigures{\addfontfeatures{VerticalPosition=Superior}}
 \DeclareTextFontCommand{\textsu}{\sufigures}
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
-% \begin{macro}{\infigures, \textin}
+% \begin{imacro}{\infigures, \textin}
 %    Typeset inferior glyphs.
 %    \begin{macrocode}
 \newcommand\infigures{\addfontfeatures{VerticalPosition=ScientificInferior}}
 \DeclareTextFontCommand{\textin}{\infigures}
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
-% \begin{macro}{\textsw}
+% \begin{imacro}{\textsw}
 %    \marg{text}\\
 %    Typeset \meta{text} in Swash shape.
 %    \begin{macrocode}
 \DeclareTextFontCommand{\textsw}{\swshape}
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
-% \begin{macro}{\MakeUppercase}
+% \begin{imacro}{\MakeUppercase}
 %    Letterspace capitals.
 %    \begin{macrocode}
 \NewCommandCopy\MakeUppercaseCopy\MakeUppercase
@@ -733,13 +751,13 @@
   \group_end:
 }
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
 % \section{The Page}
 %
 % \subsection{Text Block}
 %
-% \begin{macro}{\SetTextheight}
+% \begin{imacro}{\SetTextheight}
 %    \marg{ratio}\\
 %    Set \(\sfrac{\cs{textheight}}{\cs{textwidth}}\)
 %    to be equal to \meta{ratio}.
@@ -762,7 +780,7 @@
   }
 }
 %    \end{macrocode}
-% \end{macro}
+% \end{imacro}
 
 % Choose a proportion between text height and width
 % that appealingly contrasts with the letter page height and width.
@@ -793,5 +811,7 @@
 \pagenumbering{arabic}
 \pagestyle{plain}
 %    \end{macrocode}
+%
+% \end{implementation}
 %
 % \printbibliography
