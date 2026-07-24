@@ -106,8 +106,8 @@
   showgrid .code:n =
     \RequirePackage{tikz}
 
-    \dim_new:N \l_@@_to_first_baseline
-    \dim_new:N \l_@@_yshift
+    \dim_new:N \l_@@_to_first_baseline_dim
+    \dim_new:N \l_@@_yshift_dim
 
     \hook_gput_code:nnn {begindocument}{.}{\@@_show_baseline_grid:},
 }
@@ -131,14 +131,14 @@
 %    \begin{macrocode}
 \NewDocumentCommand{\SetTextwidth}{m}{\@@_set_textwidth:n {#1}}
 
-\dim_new:N \l_@@_fontwidth
+\dim_new:N \l_@@_fontwidth_dim
 
 \cs_new:Npn \@@_set_textwidth:n #1 {
   \hbox_set:Nn \l_tmpa_box {abcdefghijklmnopqrstuvwxyz}
-  \dim_set:Nn \l_@@_fontwidth {\box_wd:N \l_tmpa_box}
+  \dim_set:Nn \l_@@_fontwidth_dim {\box_wd:N \l_tmpa_box}
   \geometry{
     textwidth=\dim_eval:n {
-      (0.0325\l_@@_fontwidth + 0.378pt) * #1
+      (0.0325\l_@@_fontwidth_dim + 0.378pt) * #1
     }
   }
 }
@@ -148,23 +148,23 @@
 % \section{Leading}
 %
 % \begin{variable}{
-%   \g_@@_normal_size,
-%   \g_@@_normal_leading,
-%   \g_@@_large_size,
-%   \g_@@_large_leading,
+%   \g_@@_normal_size_dim,
+%   \g_@@_normal_leading_dim,
+%   \g_@@_large_size_dim,
+%   \g_@@_large_leading_dim,
 % }
 %    Dimensions to be used by size-changing commands like \tn{normalsize}.
 %    Will be set to \tn{baselineskip} by \tn{normalsize}.
 %    \begin{macrocode}
-\dim_new:N \g_@@_normal_size
-\dim_new:N \g_@@_normal_leading
-\dim_new:N \g_@@_large_size
-\dim_new:N \g_@@_large_leading
+\dim_new:N \g_@@_normal_size_dim
+\dim_new:N \g_@@_normal_leading_dim
+\dim_new:N \g_@@_large_size_dim
+\dim_new:N \g_@@_large_leading_dim
 
-\dim_set:Nn \g_@@_normal_size {12pt}
-\dim_set:Nn \g_@@_normal_leading {15pt}
-\dim_set:Nn \g_@@_large_size {14pt}
-\dim_set:Nn \g_@@_large_leading {18pt}
+\dim_set:Nn \g_@@_normal_size_dim {12pt}
+\dim_set:Nn \g_@@_normal_leading_dim {15pt}
+\dim_set:Nn \g_@@_large_size_dim {14pt}
+\dim_set:Nn \g_@@_large_leading_dim {18pt}
 %    \end{macrocode}
 % \end{variable}
 
@@ -174,7 +174,7 @@
 %    and sets generic list parameters.
 %    \begin{macrocode}
 \RenewDocumentCommand{\normalsize}{}{
-  \@setfontsize\normalsize{\g_@@_normal_size}{\g_@@_normal_leading}
+  \@setfontsize\normalsize\g_@@_normal_size_dim\g_@@_normal_leading_dim
   \dim_set_eq:NN \parindent \baselineskip
   \let\@listi\@listI
 }
@@ -185,7 +185,7 @@
 %    Set other font sizes and leadings.
 %    \begin{macrocode}
 \NewDocumentCommand{\large}{}{
-  \@setfontsize\large{\g_@@_large_size}{\g_@@_large_leading}
+  \@setfontsize\large\g_@@_large_size_dim\g_@@_large_leading_dim
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -198,7 +198,7 @@
 % \begin{lskip}{\topskip}
 %    Set leading for the first line on the page.
 %    \begin{macrocode}
-\skip_set_eq:NN \topskip \g_@@_normal_size
+\skip_set_eq:NN \topskip \g_@@_normal_size_dim
 %    \end{macrocode}
 % \end{lskip}
 
@@ -226,19 +226,19 @@
 %    Called if \opt{showgrid} is set.
 %    \begin{macrocode}
 \cs_new:Npn \@@_show_baseline_grid: {
-  \dim_set:Nn \l_@@_to_first_baseline {\Gm@tmargin + \topskip}
-  \dim_set:Nn \l_@@_yshift {
+  \dim_set:Nn \l_@@_to_first_baseline_dim {\Gm@tmargin + \topskip}
+  \dim_set:Nn \l_@@_yshift_dim {
     \fp_eval:n {
-      \fp_to_int:n {\l_@@_to_first_baseline / \g_@@_normal_leading} -
-      \l_@@_to_first_baseline / \g_@@_normal_leading
-    }\g_@@_normal_leading
+      \fp_to_int:n {\l_@@_to_first_baseline_dim / \g_@@_normal_leading_dim} -
+      \l_@@_to_first_baseline_dim / \g_@@_normal_leading_dim
+    }\g_@@_normal_leading_dim
   }
 
   \hook_gput_code:nnn {shipout/background}{.}{
     \put (0, 0){
       \begin{tikzpicture}[remember~picture, overlay]
-        \draw [ystep=\g_@@_normal_leading, xstep=0, help~lines]
-          (0, 0) [yshift=\l_@@_yshift] grid +(\pagewidth, -\pageheight);
+        \draw [ystep=\g_@@_normal_leading_dim, xstep=0, help~lines]
+          (0, 0) [yshift=\l_@@_yshift_dim] grid +(\pagewidth, -\pageheight);
       \end{tikzpicture}
     }
   }
@@ -265,7 +265,7 @@
 %    \begin{macrocode}
 \def\@listi{
   \dim_set_eq:NN \leftmargin \leftmargini
-  \skip_set:Nn \topsep {0.5\g_@@_normal_leading}
+  \skip_set:Nn \topsep {0.5\g_@@_normal_leading_dim}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
 }
@@ -310,17 +310,18 @@
 % }
 %    Define all of the headings and subheads defined in the standard classes.
 %    \begin{macrocode}
+% TODO: define function for defining headings and subheads
 \newcommand\section{
   \@startsection{section}{1}
   {0pt}
   {
     -\fp_to_dim:n {
-      (3\g_@@_normal_leading - \g_@@_large_leading) / 2.701 * 1.701
+      (3\g_@@_normal_leading_dim - \g_@@_large_leading_dim) / 2.701 * 1.701
     }
   }
   {
     \fp_to_dim:n {
-      (3\g_@@_normal_leading - \g_@@_large_leading) / 2.701 * 1
+      (3\g_@@_normal_leading_dim - \g_@@_large_leading_dim) / 2.701 * 1
     }
   }
   {
@@ -334,12 +335,12 @@
   {0pt}
   {
     -\fp_to_dim:n {
-      (2\g_@@_normal_leading - \g_@@_normal_leading) / 2.701 * 1.701
+      (2\g_@@_normal_leading_dim - \g_@@_normal_leading_dim) / 2.701 * 1.701
     }
   }
   {
     \fp_to_dim:n {
-      (2\g_@@_normal_leading - \g_@@_normal_leading) / 2.701 * 1
+      (2\g_@@_normal_leading_dim - \g_@@_normal_leading_dim) / 2.701 * 1
     }
   }
   {
@@ -353,12 +354,12 @@
   {0pt}
   {
     -\fp_to_dim:n {
-      (2\g_@@_normal_leading - \g_@@_normal_leading) / 2.701 * 1.701
+      (2\g_@@_normal_leading_dim - \g_@@_normal_leading_dim) / 2.701 * 1.701
     }
   }
   {
     \fp_to_dim:n {
-      (2\g_@@_normal_leading - \g_@@_normal_leading) / 2.701 * 1
+      (2\g_@@_normal_leading_dim - \g_@@_normal_leading_dim) / 2.701 * 1
     }
   }
   {
@@ -370,7 +371,7 @@
 \newcommand\paragraph{
   \@startsection{paragraph}{4}
   {0pt}
-  {\g_@@_normal_leading}
+  {\g_@@_normal_leading_dim}
   {-1em}
   {\rmfamily\bfseries\normalsize}
 }
@@ -378,7 +379,7 @@
 \newcommand\subparagraph{
   \@startsection{subparagraph}{5}
   {0pt}
-  {\g_@@_normal_leading}
+  {\g_@@_normal_leading_dim}
   {-1em}
   {\rmfamily\itshape\normalsize}
 }
@@ -482,26 +483,26 @@
 % add an additional vertical skip
 % specified by the argument \meta{skip}.
 %    \begin{macrocode}
-\int_new:N \l_@@_ypos_top
-\int_new:N \l_@@_ypos_heading
+\int_new:N \l_@@_ypos_top_int
+\int_new:N \l_@@_ypos_heading_int
 
 \cs_new:Npn \@@_shift_if_at_top:n #1#2 {
   \RefUndefinedWarn{rh@ypos@topofpage}{ypos}
   \RefUndefinedWarn{rh@ypos@\cs:w the #1\cs_end:}{ypos}
 
-  \int_set:Nn \l_@@_ypos_top {
+  \int_set:Nn \l_@@_ypos_top_int {
     \RefProperty{rh@ypos@topofpage}{ypos}
   }
-  \int_set:Nn \l_@@_ypos_heading {
+  \int_set:Nn \l_@@_ypos_heading_int {
     \RefProperty{rh@ypos@\cs:w the #1\cs_end:}{ypos}
   }
 
   % If zero, the property is undefined. Don't try to shift until the second
   % LaTeX run, when the properties are defined in the .aux file.
-  \int_if_zero:nF {\l_@@_ypos_top} {
+  \int_if_zero:nF {\l_@@_ypos_top_int} {
     \bool_if:nT {
-      \int_compare_p:nNn {\l_@@_ypos_heading} = {\l_@@_ypos_top}
-      || \int_compare_p:nNn {\l_@@_ypos_heading} > {\l_@@_ypos_top}
+      \int_compare_p:nNn {\l_@@_ypos_heading_int} = {\l_@@_ypos_top_int}
+      || \int_compare_p:nNn {\l_@@_ypos_heading_int} > {\l_@@_ypos_top_int}
     }{
       % Make sure the following is not added to end of previous page
       \penalty -10000\relax
@@ -517,14 +518,14 @@
 %
 % \section{Footnotes}
 %
-% \begin{variable}{\g_@@_footnote_size, \g_@@_footnote_leading}
+% \begin{variable}{\g_@@_footnote_size_dim, \g_@@_footnote_leading_dim}
 %    Dimensions to be used by \tn{footnotesize}.
 %    \begin{macrocode}
-\dim_new:N \g_@@_footnote_size
-\dim_new:N \g_@@_footnote_leading
+\dim_new:N \g_@@_footnote_size_dim
+\dim_new:N \g_@@_footnote_leading_dim
 
-\dim_set:Nn \g_@@_footnote_size {10pt}
-\dim_set:Nn \g_@@_footnote_leading {12pt}
+\dim_set:Nn \g_@@_footnote_size_dim {10pt}
+\dim_set:Nn \g_@@_footnote_leading_dim {12pt}
 %    \end{macrocode}
 % \end{variable}
 
@@ -534,11 +535,11 @@
 %    and sets generic list parameters.
 %    \begin{macrocode}
 \NewDocumentCommand{\footnotesize}{}{
-  \@setfontsize\footnotesize{\g_@@_footnote_size}{\g_@@_footnote_leading}
+  \@setfontsize\footnotesize\g_@@_footnote_size_dim\g_@@_footnote_leading_dim
   \dim_set_eq:NN \parindent \baselineskip
   \def\@listi{
     \dim_set_eq:NN \leftmargin \leftmargini
-    \skip:set:Nn \topsep {0.5\g_@@_footnote_leading}
+    \skip:set:Nn \topsep {0.5\g_@@_footnote_leading_dim}
     \skip:set:Nn \parsep {0pt}
     \skip:set:Nn \itemsep {0pt}
   }
@@ -607,7 +608,7 @@
 %    Set \tn{footnotesep} to \num{0.7}\tn{baselineskip}
 %    for uniform leading throughout the footnote block.
 %    \begin{macrocode}
-\dim_set:Nn \footnotesep {0.7\g_@@_footnote_leading}
+\dim_set:Nn \footnotesep {0.7\g_@@_footnote_leading_dim}
 %    \end{macrocode}
 % \end{ldimen}
 %
@@ -622,9 +623,10 @@
 %    \begin{macrocode}
 \skip_set:Nn {\skip\footins} {
   \skip_eval:n {
-    \g_@@_normal_leading + (\g_@@_normal_leading - \g_@@_footnote_leading)
+    \g_@@_normal_leading_dim +
+    (\g_@@_normal_leading_dim - \g_@@_footnote_leading_dim)
   }
-  plus \g_@@_normal_leading
+  plus \g_@@_normal_leading_dim
 }
 %    \end{macrocode}
 % \end{lskip}
@@ -763,18 +765,17 @@
 %    \begin{macrocode}
 \NewDocumentCommand{\SetTextheight}{m}{\@@_set_textheight:n {#1}}
 
-\int_new:N \l_@@_num_lines
-\dim_new:N \l_@@_tmp
+\int_new:N \l_@@_num_lines_int
 
 \cs_new:Npn \@@_set_textheight:n #1 {
-  \int_set:Nn \l_@@_num_lines {
+  \int_set:Nn \l_@@_num_lines_int {
     \fp_to_int:n {
       (#1\textwidth - \topskip) / \baselineskip
     }
   }
   \geometry{
     textheight=\dim_eval:n {
-      \topskip + \l_@@_num_lines\baselineskip
+      \topskip + \l_@@_num_lines_int\baselineskip
     }
   }
 }
