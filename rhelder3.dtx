@@ -284,6 +284,14 @@
   \skip_set:Nn \topsep {0.5\g_@@_normal_leading_dim}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
+
+  \bool_case:nT {
+    {! \int_if_zero_p:n {\@enumdepth}}
+      {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
+  }{
+    \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
+    \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
+  }
 }
 %    \end{macrocode}
 % \end{lmacro}
@@ -615,6 +623,14 @@
     \skip_set:Nn \topsep {0.5\g_@@_footnote_leading_dim}
     \skip_set:Nn \parsep {0pt}
     \skip_set:Nn \itemsep {0pt}
+
+    \bool_case:nT {
+      {! \int_if_zero_p:n {\@enumdepth}}
+        {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
+    }{
+      \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
+      \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
+    }
   }
 }
 %    \end{macrocode}
@@ -703,6 +719,43 @@
 }
 %    \end{macrocode}
 % \end{lskip}
+
+% \section{Lists}
+%
+% \subsection{\env{enumerate}}
+%
+% \begin{lmacro}{\theenumi, \theenumii, \theenumiii, \theenumiv}
+%    Define how the enumerate counters are represented.
+%    \begin{macrocode}
+\renewcommand\theenumi{\arabic{enumi}}
+\renewcommand\theenumii{\alph{enumii}}
+\renewcommand\theenumiii{\roman{enumiii}}
+\renewcommand\theenumiv{\Alph{enumiv}}
+%    \end{macrocode}
+% \end{lmacro}
+
+% \begin{lmacro}{\labelenumi, \labelenumii, \labelenumiii, \labelenumiv}
+%    Generates the label for each item.
+%    \begin{macrocode}
+\newcommand\labelenumi{\theenumi}
+\newcommand\labelenumii{\theenumii}
+\newcommand\labelenumiii{\theenumiii}
+\newcommand\labelenumiv{\theenumiv}
+%    \end{macrocode}
+% \end{lmacro}
+
+% \begin{lmacro}{\p@enumii, \p@enumiii, \p@enumiv}
+%    Define the prefix of the output of a \tn{ref} command
+%    when referencing an item of the Nth level of an enumerated list.
+%    The overall output of the \tn{ref} command will be
+%    \verb+\p@enumN\theenumN+.
+%    \begin{macrocode}
+\renewcommand\p@enumi{}
+\renewcommand\p@enumii{\theenumi.}
+\renewcommand\p@enumiii{\p@enumii.\theenumii.}
+\renewcommand\p@enumiv{\p@enumiii.\theenumiii.}
+%    \end{macrocode}
+% \end{lmacro}
 
 % \section{Load Packages}
 %
