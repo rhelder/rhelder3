@@ -137,7 +137,7 @@
   \hbox_set:Nn \l_tmpa_box {abcdefghijklmnopqrstuvwxyz}
   \dim_set:Nn \l_@@_fontwidth_dim {\box_wd:N \l_tmpa_box}
   \geometry{
-    textwidth=\dim_eval:n {
+    textwidth = \dim_eval:n {
       (0.0325\l_@@_fontwidth_dim + 0.378pt) * #1
     }
   }
@@ -237,8 +237,8 @@
   \hook_gput_code:nnn {shipout/background}{.}{
     \put (0, 0){
       \begin{tikzpicture}[remember~picture, overlay]
-        \draw [ystep=\g_@@_normal_leading_dim, xstep=0, help~lines]
-          (0, 0) [yshift=\l_@@_yshift_dim] grid +(\pagewidth, -\pageheight);
+        \draw [ystep = \g_@@_normal_leading_dim, xstep = 0, help~lines]
+          (0, 0) [yshift = \l_@@_yshift_dim] grid +(\pagewidth, -\pageheight);
       \end{tikzpicture}
     }
   }
@@ -662,15 +662,15 @@
 %
 % Set up Swash font.
 %    \begin{macrocode}
-  FontFace = {m}{sw}{Font=*-Italic, Style=Swash},
-  FontFace = {b}{sw}{Font=*-SemiBoldItalic, Style=Swash},
-  FontFace = {m}{scsw}{Font=*-Italic, Letters=SmallCaps, Style=Swash},
+  FontFace = {m}{sw}{Font = *-Italic, Style = Swash},
+  FontFace = {b}{sw}{Font = *-SemiBoldItalic, Style = Swash},
+  FontFace = {m}{scsw}{Font = *-Italic, Letters = SmallCaps, Style = Swash},
 %    \end{macrocode}
 %
 % Letterspace small caps,
 % and use small caps even for uppercase letters.
 %    \begin{macrocode}
-  SmallCapsFeatures = {Letters=UppercaseSmallCaps, LetterSpace=4.0},
+  SmallCapsFeatures = {Letters = UppercaseSmallCaps, LetterSpace = 4.0},
 ]{EBGaramond}
 %    \end{macrocode}
 
@@ -680,7 +680,7 @@
 %    as a display font.
 %    \begin{macrocode}
 \newfontfamily{\headfamily}{CormorantGaramond}[
-  SmallCapsFeatures = {Letters=UppercaseSmallCaps, LetterSpace=4.0},
+  SmallCapsFeatures = {Letters = UppercaseSmallCaps, LetterSpace = 4.0},
 ]
 %    \end{macrocode}
 % \end{imacro}
@@ -704,16 +704,16 @@
 %    tabular figures and proportional figures.
 %    \begin{macrocode}
 \DeclareTextFontCommand{\textfigures}{
-  \addfontfeatures{Numbers=OldStyle}
+  \addfontfeatures{Numbers = OldStyle}
 }
 \DeclareTextFontCommand{\liningfigures}{
-  \addfontfeatures{Numbers=Lining}
+  \addfontfeatures{Numbers = Lining}
 }
 \DeclareTextFontCommand{\tabularfigures}{
-  \addfontfeatures{Numbers=Tabular}
+  \addfontfeatures{Numbers = Tabular}
 }
 \DeclareTextFontCommand{\proportionalfigures}{
-  \addfontfeatures{Numbers=Proportional}
+  \addfontfeatures{Numbers = Proportional}
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -721,7 +721,7 @@
 % \begin{imacro}{\sufigures, \textsu}
 %    Typeset superior glyphs.
 %    \begin{macrocode}
-\newcommand\sufigures{\addfontfeatures{VerticalPosition=Superior}}
+\newcommand\sufigures{\addfontfeatures{VerticalPosition = Superior}}
 \DeclareTextFontCommand{\textsu}{\sufigures}
 %    \end{macrocode}
 % \end{imacro}
@@ -729,7 +729,7 @@
 % \begin{imacro}{\infigures, \textin}
 %    Typeset inferior glyphs.
 %    \begin{macrocode}
-\newcommand\infigures{\addfontfeatures{VerticalPosition=ScientificInferior}}
+\newcommand\infigures{\addfontfeatures{VerticalPosition = ScientificInferior}}
 \DeclareTextFontCommand{\textin}{\infigures}
 %    \end{macrocode}
 % \end{imacro}
@@ -748,7 +748,7 @@
 \NewCommandCopy\MakeUppercaseCopy\MakeUppercase
 \RenewDocumentCommand{\MakeUppercase}{m}{
   \group_begin:
-    \addfontfeature{LetterSpace=9.0}\MakeUppercaseCopy{#1}
+    \addfontfeature{LetterSpace = 9.0}\MakeUppercaseCopy{#1}
   \group_end:
 }
 %    \end{macrocode}
@@ -774,7 +774,7 @@
     }
   }
   \geometry{
-    textheight=\dim_eval:n {
+    textheight = \dim_eval:n {
       \topskip + \l_@@_num_lines_int\baselineskip
     }
   }
@@ -800,14 +800,14 @@
 %    \begin{macrocode}
 \geometry{
   hcentering,
-  bmargin=\dim_eval:n {(\paperwidth - \textwidth) / 2}
+  bmargin = \dim_eval:n {(\paperwidth - \textwidth) / 2}
 }
 %    \end{macrocode}
 
 % \subsection{Page Numbering}
 %
 %    \begin{macrocode}
-\geometry{footskip=3\baselineskip}
+\geometry{footskip = 3\baselineskip}
 \pagenumbering{arabic}
 \pagestyle{plain}
 %    \end{macrocode}
