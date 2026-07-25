@@ -768,6 +768,17 @@
 %    \begin{macrocode}
 \RequirePackage[letterpaper]{geometry}
 %    \end{macrocode}
+%
+% Warn if there are widows or orphans
+% without changing the default penalties much.
+% It's better to manually manage widows and orphans
+% than to encourage or force \LaTeX{} to make bad page breaks.
+%
+% Call \cs{WaOsetup}\verb+{draft}+
+% to suppress warnings about widows and orphans.
+%    \begin{macrocode}
+\RequirePackage{widows-and-orphans}
+%    \end{macrocode}
 
 % \section{Font}
 %
