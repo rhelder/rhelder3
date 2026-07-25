@@ -250,15 +250,31 @@
 %
 % \subsection{Parameters of Generic \env{list} Environment}
 %
-% \begin{ldimen}{\leftmargin, \leftmargini}
-%    Align lists with the surrounding paragraph indent.
+% \begin{ldimen}{
+%   \leftmargin,
+%   \leftmargini,
+%   \leftmarginii,
+%   \leftmarginiii,
+%   \leftmarginiv,
+%   \leftmarginv,
+%   \leftmarginvi,
+% }
+%    Align top-level lists with the surrounding paragraph indent.
+%    Indent nested lists by another \tn{parindent}.
 %    \begin{macrocode}
 \dim_set_eq:NN \leftmargin \parindent
 \dim_set_eq:NN \leftmargini \parindent
+\dim_set_eq:NN \leftmarginii \parindent
+\dim_set_eq:NN \leftmarginiii \parindent
+\dim_set_eq:NN \leftmarginiv \parindent
+\dim_set_eq:NN \leftmarginv \parindent
+\dim_set_eq:NN \leftmarginvi \parindent
 %    \end{macrocode}
 % \end{ldimen}
 
-% \begin{lmacro}{\@listi, \@listI}
+% \begin{lmacro}{\@listi}
+%    Sets parameters for top-level lists.
+%
 %    Don't put any stretchable space between list elements,
 %    and set \tn{topsep} to half a \tn{baselineskip},
 %    so that the text will snap back to baseline after the end of the list.
@@ -269,10 +285,67 @@
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
 }
+%    \end{macrocode}
+% \end{lmacro}
 
+% \begin{lmacro}{\@listI}
+%    The definition of \tn{@listi} is changed by some size-changing commands.
+%    Save this definition of \tn{@listi} in \tn{@listI}
+%    so that it can be restored by \tn{normalsize}.
+%    \begin{macrocode}
 \let\@listI\@listi
-
+%    \end{macrocode}
+% \end{lmacro}
+%
+% Initialize list parameters,
+% in case having access to them is useful.
+%    \begin{macrocode}
 \@listi
+%    \end{macrocode}
+
+% \begin{lmacro}{\@listii, \@listiii, \@listiv, \@listv, \@listvi}
+%    Set parameters for nested lists.
+%    Note that they don’t have saved versions
+%    and are not modified by the font size commands.
+%    In other words
+%    this class assumes that nested lists only appear in \tn{normalsize},
+%    i.e.\ the main document size.
+%    (TODO: overcome this limitation.)
+%    \begin{macrocode}
+\def\@listii{
+  \dim_set_eq:NN \leftmargin \leftmarginii
+  \skip_set:Nn \topsep {0pt}
+  \skip_set:Nn \parsep {0pt}
+  \skip_set:Nn \itemsep {0pt}
+}
+
+\def\@listiii{
+  \dim_set_eq:NN \leftmargin \leftmarginiii
+  \skip_set:Nn \topsep {0pt}
+  \skip_set:Nn \parsep {0pt}
+  \skip_set:Nn \itemsep {0pt}
+}
+
+\def\@listiv{
+  \dim_set_eq:NN \leftmargin \leftmarginiv
+  \skip_set:Nn \topsep {0pt}
+  \skip_set:Nn \parsep {0pt}
+  \skip_set:Nn \itemsep {0pt}
+}
+
+\def\@listv{
+  \dim_set_eq:NN \leftmargin \leftmarginv
+  \skip_set:Nn \topsep {0pt}
+  \skip_set:Nn \parsep {0pt}
+  \skip_set:Nn \itemsep {0pt}
+}
+
+\def\@listvi{
+  \dim_set_eq:NN \leftmargin \leftmarginvi
+  \skip_set:Nn \topsep {0pt}
+  \skip_set:Nn \parsep {0pt}
+  \skip_set:Nn \itemsep {0pt}
+}
 %    \end{macrocode}
 % \end{lmacro}
 
