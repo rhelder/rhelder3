@@ -80,6 +80,7 @@
 % Define a prefix for internal commands (\pkg{docstrip} will replace
 % \texttt{@@} with this prefix when generating the class file).
 %    \begin{macrocode}
+%<*class>
 %<@@=rh>
 %    \end{macrocode}
 % Check that we are running on top of \LaTeXe{}
@@ -95,7 +96,7 @@
 \ProvidesExplClass{rhelder3}{2026/07/18}{0.1.0}{Personal document class}
 %    \end{macrocode}
 
-% \section{Options}
+% \section{Declare Options}
 %
 % \begin{optionenv}{showgrid}
 %     Boolean (default \bool{false}).
@@ -254,41 +255,16 @@
 %    \end{macrocode}
 % \end{imacro}
 
-% Excecute the code for the specified options
-%    \begin{macrocode}
-\ProcessKeyOptions[rh]
-%    \end{macrocode}
-
-% \section{Horizontal Motion}
+% \section{Initialization}
 %
-% \subsection{Measure}
+% Provide the four things that a document class must provide:
+% a definition of \tn{normalsize},
+% values for \tn{textwidth} and \tn{textheight}
+% and a specification for page-numbering.
+% Provide these right away so that we can safely load required packages
+% and execute options.
 %
-% \begin{imacro}{\SetTextwidth}
-%    \marg{integer}\\
-%    Sets \tn{textwidth}
-%    so that the line will contain
-%    an average of roughly \meta{integer} characters.
-%    This formula for calculating the line width
-%    is extracted from the copyfitting table at
-%    \autocite[28]{bringhurst1992ElementsTypographic}.
-%    \begin{macrocode}
-\NewDocumentCommand{\SetTextwidth}{m}{\@@_set_textwidth:n {#1}}
-
-\dim_new:N \l_@@_fontwidth_dim
-
-\cs_new:Npn \@@_set_textwidth:n #1 {
-  \hbox_set:Nn \l_tmpa_box {abcdefghijklmnopqrstuvwxyz}
-  \dim_set:Nn \l_@@_fontwidth_dim {\box_wd:N \l_tmpa_box}
-  \geometry{
-    textwidth = \dim_eval:n {
-      (0.0325\l_@@_fontwidth_dim + 0.378pt) * #1
-    }
-  }
-}
-%    \end{macrocode}
-% \end{imacro}
-
-% \section{Leading}
+% \subsection{Leading}
 %
 % \begin{variable}{
 %   \g_@@_normal_size_dim,
@@ -324,6 +300,150 @@
 %    \end{macrocode}
 % \end{imacro}
 
+% Initialize font size and leading.
+%    \begin{macrocode}
+\normalsize
+%    \end{macrocode}
+
+% \begin{lskip}{\topskip}
+%    Set leading for the first line on the page.
+%    \begin{macrocode}
+\skip_set_eq:NN \topskip \g_@@_normal_size_dim
+%    \end{macrocode}
+% \end{lskip}
+
+% \subsection{Font}
+%
+% With \tn{normalsize} defined,
+% we can load \pkg{fontspec}
+% and define the main font,
+% so that \tn{textwidth} and \tn{textheight}
+% can be calculated.
+%    \begin{macrocode}
+\RequirePackage{fontspec}
+
+\setmainfont{EBGaramond}
+%    \end{macrocode}
+
+% \subsection{The Page}
+%
+% Abstract from \LaTeX{}'s counterintuitive layout parameters
+% with the \pkg{geometry} package.
+%
+% Right now only letter paper is supported.
+%    \begin{macrocode}
+\RequirePackage[letterpaper]{geometry}
+%    \end{macrocode}
+
+% \subsubsection{Measure}
+%
+% \begin{imacro}{\SetTextwidth}
+%    \marg{integer}\\
+%    Sets \tn{textwidth}
+%    so that the line will contain
+%    an average of roughly \meta{integer} characters.
+%    This formula for calculating the line width
+%    is extracted from the copyfitting table at
+%    \autocite[28]{bringhurst1992ElementsTypographic}.
+%    \begin{macrocode}
+\NewDocumentCommand{\SetTextwidth}{m}{\@@_set_textwidth:n {#1}}
+
+\dim_new:N \l_@@_fontwidth_dim
+
+\cs_new:Npn \@@_set_textwidth:n #1 {
+  \hbox_set:Nn \l_tmpa_box {abcdefghijklmnopqrstuvwxyz}
+  \dim_set:Nn \l_@@_fontwidth_dim {\box_wd:N \l_tmpa_box}
+  \geometry{
+    textwidth = \dim_eval:n {
+      (0.0325\l_@@_fontwidth_dim + 0.378pt) * #1
+    }
+  }
+}
+%    \end{macrocode}
+% \end{imacro}
+
+% \subsubsection{Text Block}
+%
+% \begin{imacro}{\SetTextheight}
+%    \marg{ratio}\\
+%    Set \(\sfrac{\tn{textheight}}{\tn{textwidth}}\)
+%    to be equal to \meta{ratio}.
+%    \begin{macrocode}
+\NewDocumentCommand{\SetTextheight}{m}{\@@_set_textheight:n {#1}}
+
+\int_new:N \l_@@_num_lines_int
+
+\cs_new:Npn \@@_set_textheight:n #1 {
+  \int_set:Nn \l_@@_num_lines_int {
+    \fp_to_int:n {
+      (#1\textwidth - \topskip) / \baselineskip
+    }
+  }
+  \geometry{
+    textheight = \dim_eval:n {
+      \topskip + \l_@@_num_lines_int\baselineskip
+    }
+  }
+}
+%    \end{macrocode}
+% \end{imacro}
+
+% Choose a proportion between text height and width
+% that appealingly contrasts with the letter page height and width.
+% A ratio of \num{1.701}
+% (tall pentagon; see \autocite[150]{bringhurst1992ElementsTypographic})
+% seems to work well.
+%    \begin{macrocode}
+\SetTextwidth{70}
+\SetTextheight{1.701}
+%    \end{macrocode}
+%
+% Set the bottom margin equal to the horizontal margin.
+% This creates an appealing and undramatic
+% approximately \num{2:3} ratio
+% between the top and bottom margins,
+% at least when the line accommodates 70 characters on average.
+%    \begin{macrocode}
+\geometry{
+  hcentering,
+  bmargin = \dim_eval:n {(\paperwidth - \textwidth) / 2}
+}
+%    \end{macrocode}
+
+% \subsubsection{Page Numbering}
+%
+%    \begin{macrocode}
+\geometry{footskip = 3\baselineskip}
+\pagenumbering{arabic}
+\pagestyle{plain}
+%    \end{macrocode}
+
+% \section{Execute Options}
+%
+% Excecute the code for the specified options
+%    \begin{macrocode}
+\ProcessKeyOptions[rh]
+%    \end{macrocode}
+
+% \section{Load Packages}
+%
+%    \begin{macrocode}
+\RequirePackage{pifont}
+%    \end{macrocode}
+%
+% Warn if there are widows or orphans
+% without changing the default penalties much.
+% It's better to manually manage widows and orphans
+% than to encourage or force \LaTeX{} to make bad page breaks.
+%
+% Call \cs{WaOsetup}\verb+{draft}+
+% to suppress warnings about widows and orphans.
+%    \begin{macrocode}
+\RequirePackage{widows-and-orphans}
+%    \end{macrocode}
+
+% \section{Leading}
+%
 % \begin{imacro}{\large}
 %    Set other font sizes and leadings.
 %    \begin{macrocode}
@@ -332,18 +452,6 @@
 }
 %    \end{macrocode}
 % \end{imacro}
-
-% Initialize font size and leading.
-%    \begin{macrocode}
-\normalsize
-%    \end{macrocode}
-%
-% \begin{lskip}{\topskip}
-%    Set leading for the first line on the page.
-%    \begin{macrocode}
-\skip_set_eq:NN \topskip \g_@@_normal_size_dim
-%    \end{macrocode}
-% \end{lskip}
 
 % \section{Paragraphs}
 %
@@ -830,35 +938,14 @@
 %    \end{macrocode}
 % \end{lmacro}
 
-% \section{Load Packages}
-%
-%    \begin{macrocode}
-\RequirePackage{fontspec}
-\RequirePackage{pifont}
-%    \end{macrocode}
-%
-% Abstract from \LaTeX{}'s counterintuitive layout parameters
-% with the \pkg{geometry} package.
-%    \begin{macrocode}
-\RequirePackage[letterpaper]{geometry}
-%    \end{macrocode}
-%
-% Warn if there are widows or orphans
-% without changing the default penalties much.
-% It's better to manually manage widows and orphans
-% than to encourage or force \LaTeX{} to make bad page breaks.
-%
-% Call \cs{WaOsetup}\verb+{draft}+
-% to suppress warnings about widows and orphans.
-%    \begin{macrocode}
-\RequirePackage{widows-and-orphans}
-%    \end{macrocode}
 
 % \section{Font}
 %
-% Set \acro{EB} Garamond as the default Roman font.
+% Configure \acro{EB} Garamond.
 %    \begin{macrocode}
-\setmainfont[
+%</class>
+%<*ebgaramond>
+\defaultfontfeatures[EBGaramond]{
   Extension = .otf,
   UprightFont = *-Regular,
   ItalicFont = *-Italic,
@@ -882,7 +969,9 @@
 % and use small caps even for uppercase letters.
 %    \begin{macrocode}
   SmallCapsFeatures = {Letters = UppercaseSmallCaps, LetterSpace = 4.0},
-]{EBGaramond}
+}
+%</ebgaramond>
+%<*class>
 %    \end{macrocode}
 
 % \begin{imacro}{\headfamily}
@@ -964,64 +1053,6 @@
 }
 %    \end{macrocode}
 % \end{imacro}
-
-% \section{The Page}
-%
-% \subsection{Text Block}
-%
-% \begin{imacro}{\SetTextheight}
-%    \marg{ratio}\\
-%    Set \(\sfrac{\tn{textheight}}{\tn{textwidth}}\)
-%    to be equal to \meta{ratio}.
-%    \begin{macrocode}
-\NewDocumentCommand{\SetTextheight}{m}{\@@_set_textheight:n {#1}}
-
-\int_new:N \l_@@_num_lines_int
-
-\cs_new:Npn \@@_set_textheight:n #1 {
-  \int_set:Nn \l_@@_num_lines_int {
-    \fp_to_int:n {
-      (#1\textwidth - \topskip) / \baselineskip
-    }
-  }
-  \geometry{
-    textheight = \dim_eval:n {
-      \topskip + \l_@@_num_lines_int\baselineskip
-    }
-  }
-}
-%    \end{macrocode}
-% \end{imacro}
-
-% Choose a proportion between text height and width
-% that appealingly contrasts with the letter page height and width.
-% A ratio of \num{1.701}
-% (tall pentagon; see \autocite[150]{bringhurst1992ElementsTypographic})
-% seems to work well.
-%    \begin{macrocode}
-\SetTextwidth{70}
-\SetTextheight{1.701}
-%    \end{macrocode}
-%
-% Set the bottom margin equal to the horizontal margin.
-% This creates an appealing and undramatic
-% approximately \num{2:3} ratio
-% between the top and bottom margins,
-% at least when the line accommodates 70 characters on average.
-%    \begin{macrocode}
-\geometry{
-  hcentering,
-  bmargin = \dim_eval:n {(\paperwidth - \textwidth) / 2}
-}
-%    \end{macrocode}
-
-% \subsection{Page Numbering}
-%
-%    \begin{macrocode}
-\geometry{footskip = 3\baselineskip}
-\pagenumbering{arabic}
-\pagestyle{plain}
-%    \end{macrocode}
 %
 % \end{implementation}
 %
