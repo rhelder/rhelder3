@@ -1,0 +1,119 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3}
+
+\showoutput
+\begin{document}
+\START
+
+\kantsection
+\AutoKant[2]
+
+\kantsubsection
+\AutoKant[2]
+
+\kantsubsubsection
+\AutoKant[2]
+
+\kantparagraph
+\AutoKant
+
+\kantsubparagraph
+\AutoKant
+
+\section{Nested Sections}
+\subsection{Nested Subections}
+\subsubsection{Nested Subsubsections}
+
+\AutoKant[2]
+
+\section{Block Quotes}
+
+\AutoKant
+\AutoKant*
+\begin{quote}
+  \AutoKant*[1][2]
+\end{quote}
+\AutoKant
+
+\section{Lists}
+
+\subsection{Enumerate}
+
+\AutoKant
+\AutoKant*
+\begin{enumerate}
+  \item \AutoKant*[1][1]
+  \item \AutoKant*[0][1]
+  \item \AutoKant*[0][1]
+\end{enumerate}
+\AutoKant
+
+\subsection{Itemize}
+
+\AutoKant
+\AutoKant*
+\begin{itemize}
+  \item \AutoKant*[1][1]
+  \item \AutoKant*[0][1]
+  \item \AutoKant*[0][1]
+\end{itemize}
+\AutoKant
+
+\subsection{Description}
+
+\AutoKant[2]
+\AutoKant*
+\begin{description}
+  \item[The Ideal] \AutoKant*[1][1]
+  \item[Practical Reason] \AutoKant*[0][1]
+  \item[The Categories] \AutoKant*[0][1]
+\end{description}
+\AutoKant
+
+\section{Nested Lists}
+
+\subsection{Enumerate}
+
+\AutoKant
+\AutoKant*
+\begin{enumerate}
+  \item \AutoKant*[1][1]
+    \begin{enumerate}
+      \item \AutoKant*[0][1]
+        \begin{enumerate}
+          \item \AutoKant*[0][1]
+            \begin{enumerate}
+              \item \AutoKant*[0][1]
+              \item \AutoKant*[1][1]
+            \end{enumerate}
+          \item \AutoKant*[0][1]
+        \end{enumerate}
+      \item \AutoKant*[0][1]
+    \end{enumerate}
+  \item \AutoKant*[0][1]
+\end{enumerate}
+\AutoKant
+
+\subsection{Itemize}
+
+\AutoKant[2]
+\AutoKant*
+\begin{itemize}
+  \item \AutoKant*[1][1]
+    \begin{itemize}
+      \item \AutoKant*[0][1]
+        \begin{itemize}
+          \item \AutoKant*[0][1]
+            \begin{itemize}
+              \item \AutoKant*[0][1]
+              \item \AutoKant*[1][1]
+            \end{itemize}
+          \item \AutoKant*[0][1]
+        \end{itemize}
+      \item \AutoKant*[0][1]
+    \end{itemize}
+  \item \AutoKant*[0][1]
+\end{itemize}
+\AutoKant
+
+\end{document}
