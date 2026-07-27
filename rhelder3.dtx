@@ -288,6 +288,8 @@
   \bool_case:nT {
     {! \int_if_zero_p:n {\@enumdepth}}
       {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
+    {! \int_if_zero_p:n {\@itemdepth}}
+      {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
   }{
     \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
     \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
@@ -627,6 +629,8 @@
     \bool_case:nT {
       {! \int_if_zero_p:n {\@enumdepth}}
         {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
+      {! \int_if_zero_p:n {\@itemdepth}}
+        {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
     }{
       \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
       \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
@@ -735,7 +739,7 @@
 % \end{lmacro}
 
 % \begin{lmacro}{\labelenumi, \labelenumii, \labelenumiii, \labelenumiv}
-%    Generates the label for each item.
+%    Define the label for each item.
 %    \begin{macrocode}
 \newcommand\labelenumi{\theenumi}
 \newcommand\labelenumii{\theenumii}
@@ -757,10 +761,62 @@
 %    \end{macrocode}
 % \end{lmacro}
 
+% \subsection{\env{itemize}}
+%
+% \begin{lmacro}{\labelitemi, \labelitemii, \labelitemiii, \labelitemiv}
+%    Define the label for each item.
+%    \begin{macrocode}
+\newcommand\labelitemi{\labelitemfont\textbullet}
+\newcommand\labelitemii{\labelitemfont\ding{"76}}
+\newcommand\labelitemiii{\labelitemfont\ding{"42}}
+\newcommand\labelitemiv{\labelitemfont\ding{"5B}}
+%    \end{macrocode}
+% \end{lmacro}
+
+% \begin{lmacro}{\labelitemfont}
+%    Defines the font to use in the \env{itemize} label.
+%    \begin{macrocode}
+\newcommand\labelitemfont{\normalfont}
+%    \end{macrocode}
+% \end{lmacro}
+
+% \subsection{\env{description}}
+%
+% \begin{environment}{description}
+%    While \env{enumerate} and \env{itemize}
+%    are defined in the \LaTeX{} format,
+%    \env{description} needs to be defined here.
+%
+%    This definition is borrowed from the \LaTeX{} standard classes.
+%    \begin{macrocode}
+\newenvironment{description}{
+  \list{}{
+    \labelwidth\z@ \itemindent-\leftmargin
+    \let\makelabel\descriptionlabel
+  }
+}{
+  \endlist
+}
+%    \end{macrocode}
+% \end{environment}
+
+% \begin{lmacro}{\descriptionlabel}
+%    Defines the formatting of the \env{description} label.
+%
+%    This definition is borrowed from the \LaTeX{} standard classes.
+%    \begin{macrocode}
+\newcommand*\descriptionlabel[1]{
+  \hspace\labelsep
+  \normalfont\bfseries #1
+}
+%    \end{macrocode}
+% \end{lmacro}
+
 % \section{Load Packages}
 %
 %    \begin{macrocode}
 \RequirePackage{fontspec}
+\RequirePackage{pifont}
 %    \end{macrocode}
 %
 % Abstract from \LaTeX{}'s counterintuitive layout parameters
