@@ -281,7 +281,7 @@
 %    \begin{macrocode}
 \def\@listi{
   \dim_set_eq:NN \leftmargin \leftmargini
-  \skip_set:Nn \topsep {0.5\g_@@_normal_leading_dim}
+  \skip_set:Nn \topsep {\g_@@_normal_leading_dim}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
 
@@ -384,87 +384,76 @@
 
 % \section{Headings \& Subheads}
 %
-% \begin{imacro}{
-%   \section,
-%   \subsection,
-%   \subsubsection,
-%   \paragraph,
-%   \subparagraph
-% }
-%    Define all of the headings and subheads defined in the standard classes.
+% \begin{imacro}{\section}
+%    Defines the top-level heading used in this class.
+%
+%    This heading takes up three leads of vertical space in total.
+%    The space before the heading is one lead,
+%    consistent with the subheadings,
+%    and the space after the heading is a little smaller,
+%    which looks attractive.
+%    Let the space after the heading stretch to one lead,
+%    so that subsequent text can snap to baseline
+%    if the heading is sitting at the top of a page
+%    (if \TeX{} is trying to fill that page, at any rate).
 %    \begin{macrocode}
-% TODO: define function for defining headings and subheads
-\newcommand\section{
-  \@startsection{section}{1}
-  {0pt}
-  {
-    -\fp_to_dim:n {
-      (3\g_@@_normal_leading_dim - \g_@@_large_leading_dim) / 2.701 * 1.701
-    }
-  }
-  {
-    \fp_to_dim:n {
-      (3\g_@@_normal_leading_dim - \g_@@_large_leading_dim) / 2.701 * 1
-    }
-  }
-  {
-    \savepos\RecordProperties{rh@ypos@\thesection}{ypos}
-    \headfamily\scshape\large
-  }
+\dim_set:Nn \g_tmpa_dim {
+  3\g_@@_normal_leading_dim
+  - \g_@@_normal_leading_dim
+  - \g_@@_large_leading_dim
 }
 
+\newcommand\section{
+  \@startsection{section}{1}{0pt}
+    {-\g_@@_normal_leading_dim}
+    {\g_tmpa_dim plus \dim_eval:n {\g_@@_normal_leading_dim - \g_tmpa_dim}}
+    {\headfamily\scshape\large}
+}
+%    \end{macrocode}
+%
+%    Tell \TeX{} to align the text with the bottom of the text block.
+%    Because there are no other rubber lengths in this document class
+%    and all of the the other lengths are in units of one lead,
+%    this will incentivize \TeX{} to stretch the space after this heading
+%    to return the text to baseline
+%    where nececessary.
+%    \begin{macrocode}
+\flushbottom
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{imacro}{\subsection, \subsubsection, \paragraph, \subparagraph}
+% Define the remaining subheadings provided by the standard classes.
+%
+% These headings also take up three leads of vertical space in total.
+% So that the subsequent text always returns to baseline,
+% surround the display headings with one lead of vertical space
+% before and after.
+%
+% As a result of this design,
+% the subsequent text will return to baseline
+% even if the headings are nested.
+%    \begin{macrocode}
 \newcommand\subsection{
-  \@startsection{subsection}{2}
-  {0pt}
-  {
-    -\fp_to_dim:n {
-      (2\g_@@_normal_leading_dim - \g_@@_normal_leading_dim) / 2.701 * 1.701
-    }
-  }
-  {
-    \fp_to_dim:n {
-      (2\g_@@_normal_leading_dim - \g_@@_normal_leading_dim) / 2.701 * 1
-    }
-  }
-  {
-    \savepos\RecordProperties{rh@ypos@\thesubsection}{ypos}
-    \rmfamily\scshape\normalsize
-  }
+  \@startsection{subsection}{2}{0pt}
+    {-\g_@@_normal_leading_dim}{\g_@@_normal_leading_dim}
+    {\rmfamily\scshape\normalsize}
 }
 
 \newcommand\subsubsection{
-  \@startsection{subsubsection}{3}
-  {0pt}
-  {
-    -\fp_to_dim:n {
-      (2\g_@@_normal_leading_dim - \g_@@_normal_leading_dim) / 2.701 * 1.701
-    }
-  }
-  {
-    \fp_to_dim:n {
-      (2\g_@@_normal_leading_dim - \g_@@_normal_leading_dim) / 2.701 * 1
-    }
-  }
-  {
-    \savepos\RecordProperties{rh@ypos@\thesubsubsection}{ypos}
-    \rmfamily\itshape\normalsize
-  }
+  \@startsection{subsubsection}{3}{0pt}
+    {-\g_@@_normal_leading_dim}{\g_@@_normal_leading_dim}
+    {\rmfamily\itshape\normalsize}
 }
 
 \newcommand\paragraph{
-  \@startsection{paragraph}{4}
-  {0pt}
-  {\g_@@_normal_leading_dim}
-  {-1em}
-  {\rmfamily\bfseries\normalsize}
+  \@startsection{paragraph}{4}{0pt}
+    {\g_@@_normal_leading_dim}{-1em}{\rmfamily\bfseries\normalsize}
 }
 
 \newcommand\subparagraph{
-  \@startsection{subparagraph}{5}
-  {0pt}
-  {\g_@@_normal_leading_dim}
-  {-1em}
-  {\rmfamily\itshape\normalsize}
+  \@startsection{subparagraph}{5}{0pt}
+    {\g_@@_normal_leading_dim}{-1em}{\rmfamily\itshape\normalsize}
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -512,93 +501,6 @@
 %    \end{macrocode}
 % \end{imacro}
 
-% If a display heading or subhead is on the first line of the page,
-% shift the heading or subhead down from the first baseline
-% so that the subsequent text snaps to the baseline grid.
-%    \begin{macrocode}
-\hook_gput_code:nnn {cmd/section/before}{.}{
-  % The section counter hasn't been incremented yet. Temporarily increment in
-  % order to reference the position of the right section.
-  \addtocounter{section}{1}
-  \@@_shift_if_at_top:n {section}{18pt} % 18pt seems to work, not sure why
-  \addtocounter{section}{-1}
-}
-
-\hook_gput_code:nnn {cmd/subsection/before}{.}{
-  % The subsection counter hasn't been incremented yet. Temporarily increment
-  % in order to reference the position of the right section.
-  \addtocounter{subsection}{1}
-  \@@_shift_if_at_top:n {subsection}{18pt} % 18pt seems to work, not sure why
-  \addtocounter{subsection}{-1}
-}
-
-\hook_gput_code:nnn {cmd/subsubsection/before}{.}{
-  % The subsubsection counter hasn't been incremented yet. Temporarily
-  % increment in order to reference the position of the right section.
-  \addtocounter{subsubsection}{1}
-  \@@_shift_if_at_top:n {subsubsection}{18pt} % 18pt seems to work, not sure why
-  \addtocounter{subsubsection}{-1}
-}
-%    \end{macrocode}
-
-% Get the y-coordinate of the top of the text block.
-%    \begin{macrocode}
-\hook_gput_code:nnn {begindocument/end}{.}{
-  \savepos\RecordProperties{rh@ypos@topofpage}{ypos}
-}
-%    \end{macrocode}
-
-% Define the function to be executed in the \hook{cmd/section/before} hook.
-% It accepts the \meta{csname} of the heading
-% plus the \meta{skip} by which to shift the header
-% as arguments.
-%
-% The function works by inserting a dimensionless rule
-% (before the heading,
-% since the function is expanded in the \hook{cmd/section/before} hook),
-% in order to make it possible to insert glue
-% between the heading and the top of the page.
-% As a consequence of this,
-% \tn{topskip} is inserted;
-% neutralize this effect by inserting a negative vertical skip
-% equal to \tn{topskip}.
-% Finally,
-% add an additional vertical skip
-% specified by the argument \meta{skip}.
-%    \begin{macrocode}
-\int_new:N \l_@@_ypos_top_int
-\int_new:N \l_@@_ypos_heading_int
-
-\cs_new:Npn \@@_shift_if_at_top:n #1#2 {
-  \RefUndefinedWarn{rh@ypos@topofpage}{ypos}
-  \RefUndefinedWarn{rh@ypos@\cs:w the #1\cs_end:}{ypos}
-
-  \int_set:Nn \l_@@_ypos_top_int {
-    \RefProperty{rh@ypos@topofpage}{ypos}
-  }
-  \int_set:Nn \l_@@_ypos_heading_int {
-    \RefProperty{rh@ypos@\cs:w the #1\cs_end:}{ypos}
-  }
-
-  % If zero, the property is undefined. Don't try to shift until the second
-  % LaTeX run, when the properties are defined in the .aux file.
-  \int_if_zero:nF {\l_@@_ypos_top_int} {
-    \bool_if:nT {
-      \int_compare_p:nNn {\l_@@_ypos_heading_int} = {\l_@@_ypos_top_int}
-      || \int_compare_p:nNn {\l_@@_ypos_heading_int} > {\l_@@_ypos_top_int}
-    }{
-      % Make sure the following is not added to end of previous page
-      \penalty -10000\relax
-      \rule{0pt}{0pt}
-      \skip_vertical:n {-\topskip}
-      \skip_vertical:n {-#2}
-      % Make sure the previous skip is not seen by subsequent \addvspace
-      \penalty 10000\relax
-    }
-  }
-}
-%    \end{macrocode}
-%
 % \section{Footnotes}
 %
 % \begin{variable}{\g_@@_footnote_size_dim, \g_@@_footnote_leading_dim}
@@ -622,7 +524,7 @@
   \dim_set_eq:NN \parindent \baselineskip
   \def\@listi{
     \dim_set_eq:NN \leftmargin \leftmargini
-    \skip_set:Nn \topsep {0.5\g_@@_footnote_leading_dim}
+    \skip_set:Nn \topsep {\g_@@_footnote_leading_dim}
     \skip_set:Nn \parsep {0pt}
     \skip_set:Nn \itemsep {0pt}
 
