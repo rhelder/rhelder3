@@ -106,10 +106,34 @@
   showgrid .code:n =
     \RequirePackage{tikz}
 
-    \dim_new:N \l_@@_to_first_baseline_dim
-    \dim_new:N \l_@@_yshift_dim
+    \dim_new:N \l_@@_showgrid_to_first_baseline_dim
+    \dim_new:N \l_@@_showgrid_yshift_dim
 
-    \hook_gput_code:nnn {begindocument}{.}{\@@_show_baseline_grid:},
+    \hook_gput_code:nnn {begindocument}{.}{
+      % Find the difference between the actual number of leads and the nearest
+      % whole number of leads between the top of the page and the first
+      % baseline. Shift the grid by that many leads.
+      \dim_set:Nn \l_@@_showgrid_to_first_baseline_dim {\Gm@tmargin + \topskip}
+      \dim_set:Nn \l_@@_showgrid_yshift_dim {
+        \fp_eval:n {
+          \fp_to_int:n {
+            \l_@@_showgrid_to_first_baseline_dim
+            / \g_@@_normal_leading_dim
+          }
+          - \l_@@_showgrid_to_first_baseline_dim / \g_@@_normal_leading_dim
+        }\g_@@_normal_leading_dim
+      }
+
+      \hook_gput_code:nnn {shipout/background}{.}{
+        \put (0, 0){
+          \begin{tikzpicture}[remember~picture, overlay]
+            \draw [ystep = \g_@@_normal_leading_dim, xstep = 0, help~lines]
+              (0, 0) [yshift = \l_@@_showgrid_yshift_dim]
+              grid +(\pagewidth, -\pageheight);
+          \end{tikzpicture}
+        }
+      }
+    },
 %    \end{macrocode}
 % \end{optionenv}
 
@@ -337,33 +361,6 @@
 \skip_set:Nn \parskip {0pt}
 %    \end{macrocode}
 % \end{lskip}
-
-% \subsection{Baseline Grid}
-%
-% \begin{macro}{\@@_show_baseline_grid:}
-%    Typesets baseline grid.
-%    Called if \opt{showgrid} is set.
-%    \begin{macrocode}
-\cs_new:Npn \@@_show_baseline_grid: {
-  \dim_set:Nn \l_@@_to_first_baseline_dim {\Gm@tmargin + \topskip}
-  \dim_set:Nn \l_@@_yshift_dim {
-    \fp_eval:n {
-      \fp_to_int:n {\l_@@_to_first_baseline_dim / \g_@@_normal_leading_dim} -
-      \l_@@_to_first_baseline_dim / \g_@@_normal_leading_dim
-    }\g_@@_normal_leading_dim
-  }
-
-  \hook_gput_code:nnn {shipout/background}{.}{
-    \put (0, 0){
-      \begin{tikzpicture}[remember~picture, overlay]
-        \draw [ystep = \g_@@_normal_leading_dim, xstep = 0, help~lines]
-          (0, 0) [yshift = \l_@@_yshift_dim] grid +(\pagewidth, -\pageheight);
-      \end{tikzpicture}
-    }
-  }
-}
-%    \end{macrocode}
-% \end{macro}
 
 % \section{Blocks}
 %
