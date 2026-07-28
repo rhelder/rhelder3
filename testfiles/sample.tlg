@@ -19540,6 +19540,25 @@ Completed box being shipped out [6]
 ....\glue 0.0 plus 1.0fil
 ....\TU/EBGaramond(0)/m/n/12 󰋚
 ....\glue 0.0 plus 1.0fil
+Package fontspec Info: 
+(fontspec)             Font family 'EBGaramond(1)' created for font 'EBGaramond' with options [Ligatures=TeX,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Numbers={Proportional,OldStyle},FontFace={m}{sw}{Font=*-Italic,Style=Swash},FontFace={b}{sw}{Font=*-SemiBoldItalic,Style=Swash},FontFace={m}{scsw}{Font=*-Italic,Letters=SmallCaps,Style=Swash},SmallCapsFeatures={Letters=UppercaseSmallCaps,LetterSpace=4.0},Numbers=Tabular].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'swash' (m/sw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+swsh;"
+(fontspec)             -  (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
+(fontspec)             - 'bold swash' (b/sw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+swsh;"
+(fontspec)             -  (b/scsw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
+(fontspec)             - (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+smcp;+swsh;"
+(fontspec)             -  (m/scscsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
 Underfull \vbox (badness 10000) has occurred while \output is active
 \vbox(567.0+0.0)x336.40823, direction TLT
 .\glue(\topskip) 3.528
@@ -20966,14 +20985,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active
 ...\localrightbox=null
 ..\hbox(4.872+0.036)x0.0, direction TLT
 ...\glue 0.0
-...\glue -6.084
-...\glue -8.916
-...\hbox(4.872+0.036)x6.084, glue set 6.084fil, direction TLT
+...\glue -5.76
+...\glue -9.24
+...\hbox(4.872+0.036)x5.76, glue set 5.76fil, direction TLT
 ....\glue 0.0 plus 1.0fil minus 1.0fil
-....\hbox(4.872+0.036)x0.0, glue set - 3.468fil, direction TLT
+....\hbox(4.872+0.036)x0.0, glue set - 5.76fil, direction TLT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\TU/EBGaramond(0)/m/n/12 󰋕
-...\glue 8.916
+.....\TU/EBGaramond(1)/m/n/12 󰋟
+.....\kern0.0 (italic)
+...\glue 9.24
 ..\penalty 0
 ..\TU/EBGaramond(0)/m/n/12 B
 ..\TU/EBGaramond(0)/m/n/12 e
@@ -21472,14 +21492,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active
 ...\localrightbox=null
 ..\hbox(4.968+0.048)x0.0, direction TLT
 ...\glue 0.0
-...\glue -6.084
-...\glue -8.916
-...\hbox(4.968+0.048)x6.084, glue set 6.084fil, direction TLT
+...\glue -5.76
+...\glue -9.24
+...\hbox(4.968+0.048)x5.76, glue set 5.76fil, direction TLT
 ....\glue 0.0 plus 1.0fil minus 1.0fil
-....\hbox(4.968+0.048)x0.0, glue set - 5.28fil, direction TLT
+....\hbox(4.968+0.048)x0.0, glue set - 5.76fil, direction TLT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\TU/EBGaramond(0)/m/n/12 󰋖
-...\glue 8.916
+.....\TU/EBGaramond(1)/m/n/12 󰋠
+.....\kern0.0 (italic)
+...\glue 9.24
 ..\penalty 0
 ..\TU/EBGaramond(0)/m/n/12 I
 ..\TU/EBGaramond(0)/m/n/12 t
@@ -21716,14 +21737,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active
 ...\localrightbox=null
 ..\hbox(4.956+2.28)x0.0, direction TLT
 ...\glue 0.0
-...\glue -6.084
-...\glue -8.916
-...\hbox(4.956+2.28)x6.084, glue set 6.084fil, direction TLT
+...\glue -5.76
+...\glue -9.24
+...\hbox(4.956+2.28)x5.76, glue set 5.76fil, direction TLT
 ....\glue 0.0 plus 1.0fil minus 1.0fil
-....\hbox(4.956+2.28)x0.0, glue set - 4.464fil, direction TLT
+....\hbox(4.956+2.28)x0.0, glue set - 5.76fil, direction TLT
 .....\glue 0.0 plus 1.0fil minus 1.0fil
-.....\TU/EBGaramond(0)/m/n/12 󰋗
-...\glue 8.916
+.....\TU/EBGaramond(1)/m/n/12 󰋡
+.....\kern0.0 (italic)
+...\glue 9.24
 ..\penalty 0
 ..\TU/EBGaramond(0)/m/n/12 T
 ..\TU/EBGaramond(0)/m/n/12 h
@@ -24209,14 +24231,15 @@ Completed box being shipped out [7]
 .....\localrightbox=null
 ....\hbox(4.872+0.036)x0.0, direction TLT
 .....\glue 0.0
-.....\glue -6.084
-.....\glue -8.916
-.....\hbox(4.872+0.036)x6.084, glue set 6.084fil, direction TLT
+.....\glue -5.76
+.....\glue -9.24
+.....\hbox(4.872+0.036)x5.76, glue set 5.76fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(4.872+0.036)x0.0, glue set - 3.468fil, direction TLT
+......\hbox(4.872+0.036)x0.0, glue set - 5.76fil, direction TLT
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\TU/EBGaramond(0)/m/n/12 󰋕
-.....\glue 8.916
+.......\TU/EBGaramond(1)/m/n/12 󰋟
+.......\kern0.0 (italic)
+.....\glue 9.24
 ....\penalty 0
 ....\TU/EBGaramond(0)/m/n/12 B
 ....\TU/EBGaramond(0)/m/n/12 e
@@ -24715,14 +24738,15 @@ Completed box being shipped out [7]
 .....\localrightbox=null
 ....\hbox(4.968+0.048)x0.0, direction TLT
 .....\glue 0.0
-.....\glue -6.084
-.....\glue -8.916
-.....\hbox(4.968+0.048)x6.084, glue set 6.084fil, direction TLT
+.....\glue -5.76
+.....\glue -9.24
+.....\hbox(4.968+0.048)x5.76, glue set 5.76fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(4.968+0.048)x0.0, glue set - 5.28fil, direction TLT
+......\hbox(4.968+0.048)x0.0, glue set - 5.76fil, direction TLT
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\TU/EBGaramond(0)/m/n/12 󰋖
-.....\glue 8.916
+.......\TU/EBGaramond(1)/m/n/12 󰋠
+.......\kern0.0 (italic)
+.....\glue 9.24
 ....\penalty 0
 ....\TU/EBGaramond(0)/m/n/12 I
 ....\TU/EBGaramond(0)/m/n/12 t
@@ -24959,14 +24983,15 @@ Completed box being shipped out [7]
 .....\localrightbox=null
 ....\hbox(4.956+2.28)x0.0, direction TLT
 .....\glue 0.0
-.....\glue -6.084
-.....\glue -8.916
-.....\hbox(4.956+2.28)x6.084, glue set 6.084fil, direction TLT
+.....\glue -5.76
+.....\glue -9.24
+.....\hbox(4.956+2.28)x5.76, glue set 5.76fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(4.956+2.28)x0.0, glue set - 4.464fil, direction TLT
+......\hbox(4.956+2.28)x0.0, glue set - 5.76fil, direction TLT
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\TU/EBGaramond(0)/m/n/12 󰋗
-.....\glue 8.916
+.......\TU/EBGaramond(1)/m/n/12 󰋡
+.......\kern0.0 (italic)
+.....\glue 9.24
 ....\penalty 0
 ....\TU/EBGaramond(0)/m/n/12 T
 ....\TU/EBGaramond(0)/m/n/12 h
@@ -40072,14 +40097,15 @@ Completed box being shipped out [12]
 .....\localrightbox=null
 ....\hbox(4.872+0.036)x0.0, direction TLT
 .....\glue 0.0
-.....\glue -4.464
-.....\glue -10.536
-.....\hbox(4.872+0.036)x4.464, glue set 4.464fil, direction TLT
+.....\glue -5.76
+.....\glue -9.24
+.....\hbox(4.872+0.036)x5.76, glue set 5.76fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(4.872+0.036)x0.0, glue set - 3.468fil, direction TLT
+......\hbox(4.872+0.036)x0.0, glue set - 5.76fil, direction TLT
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\TU/EBGaramond(0)/m/n/12 󰋕
-.....\glue 10.536
+.......\TU/EBGaramond(1)/m/n/12 󰋟
+.......\kern0.0 (italic)
+.....\glue 9.24
 ....\penalty 0
 ....\TU/EBGaramond(0)/m/n/12 I
 ....\TU/EBGaramond(0)/m/n/12 n
@@ -40231,14 +40257,14 @@ Completed box being shipped out [12]
 .....\localrightbox=null
 ....\hbox(4.968+0.168)x0.0, direction TLT
 .....\glue 0.0
-.....\glue -4.464
-.....\glue -10.536
-.....\hbox(4.968+0.168)x4.464, glue set 4.464fil, direction TLT
+.....\glue -5.76
+.....\glue -9.24
+.....\hbox(4.968+0.168)x5.76, glue set 5.76fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(4.968+0.168)x0.0, glue set - 4.788fil, direction TLT
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\TU/EBGaramond(0)/m/n/12 a
-.....\glue 10.536
+.....\glue 9.24
 ....\penalty 0
 ....\TU/EBGaramond(0)/m/n/12 A
 ....\TU/EBGaramond(0)/m/n/12 s
@@ -40520,14 +40546,14 @@ Completed box being shipped out [12]
 .....\localrightbox=null
 ....\hbox(7.404+0.036)x0.0, direction TLT
 .....\glue 0.0
-.....\glue -4.464
-.....\glue -10.536
-.....\hbox(7.404+0.036)x4.464, glue set 4.464fil, direction TLT
+.....\glue -5.76
+.....\glue -9.24
+.....\hbox(7.404+0.036)x5.76, glue set 5.76fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(7.404+0.036)x0.0, glue set - 2.94fil, direction TLT
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\TU/EBGaramond(0)/m/n/12 i
-.....\glue 10.536
+.....\glue 9.24
 ....\penalty 0
 ....\TU/EBGaramond(0)/m/n/12 M
 ....\kern-0.24 (font)
@@ -40647,14 +40673,14 @@ Completed box being shipped out [12]
 .....\localrightbox=null
 ....\hbox(8.232+0.06)x0.0, direction TLT
 .....\glue 0.0
-.....\glue -4.464
-.....\glue -10.536
-.....\hbox(8.232+0.06)x4.464, glue set 4.464fil, direction TLT
+.....\glue -5.76
+.....\glue -9.24
+.....\hbox(8.232+0.06)x5.76, glue set 5.76fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(8.232+0.06)x0.0, glue set - 8.304fil, direction TLT
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\TU/EBGaramond(0)/m/n/12 A
-.....\glue 10.536
+.....\glue 9.24
 ....\penalty 0
 ....\TU/EBGaramond(0)/m/n/12 I
 ....\TU/EBGaramond(0)/m/n/12 t
@@ -40869,14 +40895,14 @@ Completed box being shipped out [12]
 .....\localrightbox=null
 ....\hbox(7.884+0.06)x0.0, direction TLT
 .....\glue 0.0
-.....\glue -4.464
-.....\glue -10.536
-.....\hbox(7.884+0.06)x4.464, glue set 4.464fil, direction TLT
+.....\glue -5.76
+.....\glue -9.24
+.....\hbox(7.884+0.06)x5.76, glue set 5.76fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(7.884+0.06)x0.0, glue set - 7.044fil, direction TLT
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\TU/EBGaramond(0)/m/n/12 B
-.....\glue 10.536
+.....\glue 9.24
 ....\penalty 0
 ....\TU/EBGaramond(0)/m/n/12 A
 ....\TU/EBGaramond(0)/m/n/12 s
@@ -41010,15 +41036,15 @@ Completed box being shipped out [12]
 .....\localrightbox=null
 ....\hbox(7.404+0.036)x0.0, direction TLT
 .....\glue 0.0
-.....\glue -4.464
-.....\glue -10.536
-.....\hbox(7.404+0.036)x4.464, glue set 4.464fil, direction TLT
+.....\glue -5.76
+.....\glue -9.24
+.....\hbox(7.404+0.036)x5.76, glue set 5.76fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(7.404+0.036)x0.0, glue set - 5.88fil, direction TLT
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\TU/EBGaramond(0)/m/n/12 i
 .......\TU/EBGaramond(0)/m/n/12 i
-.....\glue 10.536
+.....\glue 9.24
 ....\penalty 0
 ....\TU/EBGaramond(0)/m/n/12 O
 ....\TU/EBGaramond(0)/m/n/12 n
@@ -41233,14 +41259,14 @@ Completed box being shipped out [12]
 .....\localrightbox=null
 ....\hbox(8.46+0.168)x0.0, direction TLT
 .....\glue 0.0
-.....\glue -4.464
-.....\glue -10.536
-.....\hbox(8.46+0.168)x4.464, glue set 4.464fil, direction TLT
+.....\glue -5.76
+.....\glue -9.24
+.....\hbox(8.46+0.168)x5.76, glue set 5.76fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(8.46+0.168)x0.0, glue set - 6.18fil, direction TLT
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\TU/EBGaramond(0)/m/n/12 b
-.....\glue 10.536
+.....\glue 9.24
 ....\penalty 0
 ....\TU/EBGaramond(0)/m/n/12 I
 ....\TU/EBGaramond(0)/m/n/12 t
@@ -41565,14 +41591,15 @@ Completed box being shipped out [12]
 .....\localrightbox=null
 ....\hbox(4.968+0.048)x0.0, direction TLT
 .....\glue 0.0
-.....\glue -4.464
-.....\glue -10.536
-.....\hbox(4.968+0.048)x4.464, glue set 4.464fil, direction TLT
+.....\glue -5.76
+.....\glue -9.24
+.....\hbox(4.968+0.048)x5.76, glue set 5.76fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-......\hbox(4.968+0.048)x0.0, glue set - 5.28fil, direction TLT
+......\hbox(4.968+0.048)x0.0, glue set - 5.76fil, direction TLT
 .......\glue 0.0 plus 1.0fil minus 1.0fil
-.......\TU/EBGaramond(0)/m/n/12 󰋖
-.....\glue 10.536
+.......\TU/EBGaramond(1)/m/n/12 󰋠
+.......\kern0.0 (italic)
+.....\glue 9.24
 ....\penalty 0
 ....\TU/EBGaramond(0)/m/n/12 I
 ....\TU/EBGaramond(0)/m/n/12 n

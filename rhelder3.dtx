@@ -517,6 +517,121 @@
 %    \end{macrocode}
 % \end{lskip}
 
+% \section{Font}
+%
+% Configure \acro{EB} Garamond.
+%    \begin{macrocode}
+%</class>
+%<*ebgaramond>
+\defaultfontfeatures[EBGaramond]{
+  Extension = .otf,
+  UprightFont = *-Regular,
+  ItalicFont = *-Italic,
+  BoldFont = *-SemiBold,
+  BoldItalicFont = *-SemiBoldItalic,
+%    \end{macrocode}
+%
+% Use text figures by default.
+%    \begin{macrocode}
+  Numbers = {Proportional, OldStyle},
+%    \end{macrocode}
+%
+% Set up Swash font.
+%    \begin{macrocode}
+  FontFace = {m}{sw}{Font = *-Italic, Style = Swash},
+  FontFace = {b}{sw}{Font = *-SemiBoldItalic, Style = Swash},
+  FontFace = {m}{scsw}{Font = *-Italic, Letters = SmallCaps, Style = Swash},
+%    \end{macrocode}
+%
+% Letterspace small caps,
+% and use small caps even for uppercase letters.
+%    \begin{macrocode}
+  SmallCapsFeatures = {Letters = UppercaseSmallCaps, LetterSpace = 4.0},
+}
+%</ebgaramond>
+%<*class>
+%    \end{macrocode}
+
+% \begin{imacro}{\headfamily}
+%    Use Cormorant Garamond,
+%    which is lighter than \acro{EB} Garamond,
+%    as a display font.
+%    \begin{macrocode}
+\newfontfamily{\headfamily}{CormorantGaramond}[
+  SmallCapsFeatures = {Letters = UppercaseSmallCaps, LetterSpace = 4.0},
+]
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{imacro}{\initfamily, \textinit}
+%    Switches to \acro{EB} Garamond's font face
+%    with decorative initials.
+%    \begin{macrocode}
+\newfontface\initfamily{EBGaramond-Initials}
+\DeclareTextFontCommand{\textinit}{\initfamily}
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{imacro}{
+%   \textfigures,
+%   \liningfigures,
+%   \tabularfigures,
+%   \proportionalfigures
+% }
+%    Switch between text figures and lining figures,
+%    tabular figures and proportional figures.
+%    \begin{macrocode}
+\DeclareTextFontCommand{\textfigures}{
+  \addfontfeatures{Numbers = OldStyle}
+}
+\DeclareTextFontCommand{\liningfigures}{
+  \addfontfeatures{Numbers = Lining}
+}
+\DeclareTextFontCommand{\tabularfigures}{
+  \addfontfeatures{Numbers = Tabular}
+}
+\DeclareTextFontCommand{\proportionalfigures}{
+  \addfontfeatures{Numbers = Proportional}
+}
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{imacro}{\sufigures, \textsu}
+%    Typeset superior glyphs.
+%    \begin{macrocode}
+\newcommand\sufigures{\addfontfeatures{VerticalPosition = Superior}}
+\DeclareTextFontCommand{\textsu}{\sufigures}
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{imacro}{\infigures, \textin}
+%    Typeset inferior glyphs.
+%    \begin{macrocode}
+\newcommand\infigures{\addfontfeatures{VerticalPosition = ScientificInferior}}
+\DeclareTextFontCommand{\textin}{\infigures}
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{imacro}{\textsw}
+%    \marg{text}\\
+%    Typeset \meta{text} in Swash shape.
+%    \begin{macrocode}
+\DeclareTextFontCommand{\textsw}{\swshape}
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{imacro}{\MakeUppercase}
+%    Letterspace capitals.
+%    \begin{macrocode}
+\NewCommandCopy\MakeUppercaseCopy\MakeUppercase
+\RenewDocumentCommand{\MakeUppercase}{m}{
+  \group_begin:
+    \addfontfeature{LetterSpace = 9.0}\MakeUppercaseCopy{#1}
+  \group_end:
+}
+%    \end{macrocode}
+% \end{imacro}
+
 % \section{Blocks}
 %
 % \subsection{Parameters of Generic \env{list} Environment}
@@ -668,7 +783,7 @@
 % \begin{lmacro}{\labelenumi, \labelenumii, \labelenumiii, \labelenumiv}
 %    Define the label for each item.
 %    \begin{macrocode}
-\newcommand\labelenumi{\theenumi}
+\newcommand\labelenumi{\tabularfigures\theenumi}
 \newcommand\labelenumii{\theenumii}
 \newcommand\labelenumiii{\theenumiii}
 \newcommand\labelenumiv{\theenumiv}
@@ -944,121 +1059,6 @@
 %    \end{macrocode}
 % \end{lskip}
 %
-
-% \section{Font}
-%
-% Configure \acro{EB} Garamond.
-%    \begin{macrocode}
-%</class>
-%<*ebgaramond>
-\defaultfontfeatures[EBGaramond]{
-  Extension = .otf,
-  UprightFont = *-Regular,
-  ItalicFont = *-Italic,
-  BoldFont = *-SemiBold,
-  BoldItalicFont = *-SemiBoldItalic,
-%    \end{macrocode}
-%
-% Use text figures by default.
-%    \begin{macrocode}
-  Numbers = {Proportional, OldStyle},
-%    \end{macrocode}
-%
-% Set up Swash font.
-%    \begin{macrocode}
-  FontFace = {m}{sw}{Font = *-Italic, Style = Swash},
-  FontFace = {b}{sw}{Font = *-SemiBoldItalic, Style = Swash},
-  FontFace = {m}{scsw}{Font = *-Italic, Letters = SmallCaps, Style = Swash},
-%    \end{macrocode}
-%
-% Letterspace small caps,
-% and use small caps even for uppercase letters.
-%    \begin{macrocode}
-  SmallCapsFeatures = {Letters = UppercaseSmallCaps, LetterSpace = 4.0},
-}
-%</ebgaramond>
-%<*class>
-%    \end{macrocode}
-
-% \begin{imacro}{\headfamily}
-%    Use Cormorant Garamond,
-%    which is lighter than \acro{EB} Garamond,
-%    as a display font.
-%    \begin{macrocode}
-\newfontfamily{\headfamily}{CormorantGaramond}[
-  SmallCapsFeatures = {Letters = UppercaseSmallCaps, LetterSpace = 4.0},
-]
-%    \end{macrocode}
-% \end{imacro}
-
-% \begin{imacro}{\initfamily, \textinit}
-%    Switches to \acro{EB} Garamond's font face
-%    with decorative initials.
-%    \begin{macrocode}
-\newfontface\initfamily{EBGaramond-Initials}
-\DeclareTextFontCommand{\textinit}{\initfamily}
-%    \end{macrocode}
-% \end{imacro}
-
-% \begin{imacro}{
-%   \textfigures,
-%   \liningfigures,
-%   \tabularfigures,
-%   \proportionalfigures
-% }
-%    Switch between text figures and lining figures,
-%    tabular figures and proportional figures.
-%    \begin{macrocode}
-\DeclareTextFontCommand{\textfigures}{
-  \addfontfeatures{Numbers = OldStyle}
-}
-\DeclareTextFontCommand{\liningfigures}{
-  \addfontfeatures{Numbers = Lining}
-}
-\DeclareTextFontCommand{\tabularfigures}{
-  \addfontfeatures{Numbers = Tabular}
-}
-\DeclareTextFontCommand{\proportionalfigures}{
-  \addfontfeatures{Numbers = Proportional}
-}
-%    \end{macrocode}
-% \end{imacro}
-
-% \begin{imacro}{\sufigures, \textsu}
-%    Typeset superior glyphs.
-%    \begin{macrocode}
-\newcommand\sufigures{\addfontfeatures{VerticalPosition = Superior}}
-\DeclareTextFontCommand{\textsu}{\sufigures}
-%    \end{macrocode}
-% \end{imacro}
-
-% \begin{imacro}{\infigures, \textin}
-%    Typeset inferior glyphs.
-%    \begin{macrocode}
-\newcommand\infigures{\addfontfeatures{VerticalPosition = ScientificInferior}}
-\DeclareTextFontCommand{\textin}{\infigures}
-%    \end{macrocode}
-% \end{imacro}
-
-% \begin{imacro}{\textsw}
-%    \marg{text}\\
-%    Typeset \meta{text} in Swash shape.
-%    \begin{macrocode}
-\DeclareTextFontCommand{\textsw}{\swshape}
-%    \end{macrocode}
-% \end{imacro}
-
-% \begin{imacro}{\MakeUppercase}
-%    Letterspace capitals.
-%    \begin{macrocode}
-\NewCommandCopy\MakeUppercaseCopy\MakeUppercase
-\RenewDocumentCommand{\MakeUppercase}{m}{
-  \group_begin:
-    \addfontfeature{LetterSpace = 9.0}\MakeUppercaseCopy{#1}
-  \group_end:
-}
-%    \end{macrocode}
-% \end{imacro}
 %
 % \end{implementation}
 %
