@@ -237,19 +237,19 @@
 %
 % Pre-define headings and subheadings with useful dummy text.
 %    \begin{macrocode}
-    \newcommand\kantsection{
+    \NewDocumentCommand{\kantsection}{}{
       \section{The~Paralogisms~of~Practical~Reason~(Section)}
     }
-    \newcommand\kantsubsection{
+    \NewDocumentCommand{\kantsubsection}{}{
       \subsection{Transcendental~Unity~of~Apperception~(Subsection)}
     }
-    \newcommand\kantsubsubsection{
+    \NewDocumentCommand{\kantsubsubsection}{}{
       \subsubsection{The~Writings~of~Aristotle~(Subsubsection)}
     }
-    \newcommand\kantparagraph{
+    \NewDocumentCommand{\kantparagraph}{}{
       \paragraph{The~Employment~of~Pure~Reason~(Paragraph)}
     }
-    \newcommand\kantsubparagraph{
+    \NewDocumentCommand{\kantsubparagraph}{}{
       \subparagraph{The~Validity~of~the~Categories~(Subparagraph)}
     },
 }
@@ -290,7 +290,7 @@
 \RenewDocumentCommand{\normalsize}{}{
   \@setfontsize\normalsize\c_@@_normal_size_dim\c_@@_normal_leading_dim
   \dim_set_eq:NN \parindent \baselineskip
-  \let\@listi\@listI
+  \cs_set_eq:NN \@listi \@listI
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -458,7 +458,7 @@
 \NewDocumentCommand{\footnotesize}{}{
   \@setfontsize\footnotesize\c_@@_footnote_size_dim\c_@@_footnote_leading_dim
   \dim_set_eq:NN \parindent \baselineskip
-  \def\@listi{
+  \cs_set_protected:Npn \@listi {
     \dim_set_eq:NN \leftmargin \leftmargini
     \skip_set:Nn \topsep {\c_@@_footnote_leading_dim}
     \skip_set:Nn \parsep {0pt}
@@ -602,7 +602,9 @@
 % \begin{imacro}{\sufigures, \textsu}
 %    Typeset superior glyphs.
 %    \begin{macrocode}
-\newcommand\sufigures{\addfontfeatures{VerticalPosition = Superior}}
+\NewDocumentCommand{\sufigures}{}{
+  \addfontfeatures{VerticalPosition = Superior}
+}
 \DeclareTextFontCommand{\textsu}{\sufigures}
 %    \end{macrocode}
 % \end{imacro}
@@ -610,7 +612,9 @@
 % \begin{imacro}{\infigures, \textin}
 %    Typeset inferior glyphs.
 %    \begin{macrocode}
-\newcommand\infigures{\addfontfeatures{VerticalPosition = ScientificInferior}}
+\NewDocumentCommand{\infigures}{}{
+  \addfontfeatures{VerticalPosition = ScientificInferior}
+}
 \DeclareTextFontCommand{\textin}{\infigures}
 %    \end{macrocode}
 % \end{imacro}
@@ -668,7 +672,7 @@
 %    and set \tn{topsep} to one lead,
 %    so that the text will snap back to baseline after the end of the list.
 %    \begin{macrocode}
-\def\@listi{
+\cs_new_protected:Npn \@listi {
   \dim_set_eq:NN \leftmargin \leftmargini
   \skip_set:Nn \topsep {\c_@@_normal_leading_dim}
   \skip_set:Nn \parsep {0pt}
@@ -694,7 +698,7 @@
 %    Save this definition of \tn{@listi} in \tn{@listI}
 %    so that it can be restored by \tn{normalsize}.
 %    \begin{macrocode}
-\let\@listI\@listi
+\cs_new_eq:NN \@listI \@listi
 %    \end{macrocode}
 % \end{lmacro}
 %
@@ -713,35 +717,35 @@
 %    i.e.\ the main document size.
 %    (TODO: overcome this limitation.)
 %    \begin{macrocode}
-\def\@listii{
+\cs_new_protected:Npn \@listii {
   \dim_set_eq:NN \leftmargin \leftmarginii
   \skip_set:Nn \topsep {0pt}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
 }
 
-\def\@listiii{
+\cs_new_protected:Npn \@listiii {
   \dim_set_eq:NN \leftmargin \leftmarginiii
   \skip_set:Nn \topsep {0pt}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
 }
 
-\def\@listiv{
+\cs_new_protected:Npn \@listiv {
   \dim_set_eq:NN \leftmargin \leftmarginiv
   \skip_set:Nn \topsep {0pt}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
 }
 
-\def\@listv{
+\cs_new_protected:Npn \@listv {
   \dim_set_eq:NN \leftmargin \leftmarginv
   \skip_set:Nn \topsep {0pt}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
 }
 
-\def\@listvi{
+\cs_new_protected:Npn \@listvi {
   \dim_set_eq:NN \leftmargin \leftmarginvi
   \skip_set:Nn \topsep {0pt}
   \skip_set:Nn \parsep {0pt}
@@ -778,20 +782,20 @@
 % \begin{lmacro}{\theenumi, \theenumii, \theenumiii, \theenumiv}
 %    Define how the enumerate counters are represented.
 %    \begin{macrocode}
-\renewcommand\theenumi{\arabic{enumi}}
-\renewcommand\theenumii{\alph{enumii}}
-\renewcommand\theenumiii{\roman{enumiii}}
-\renewcommand\theenumiv{\Alph{enumiv}}
+\cs_set:Npn \theenumi {\arabic{enumi}}
+\cs_set:Npn \theenumii {\alph{enumii}}
+\cs_set:Npn \theenumiii {\roman{enumiii}}
+\cs_set:Npn \theenumiv {\Alph{enumiv}}
 %    \end{macrocode}
 % \end{lmacro}
 
 % \begin{lmacro}{\labelenumi, \labelenumii, \labelenumiii, \labelenumiv}
 %    Define the label for each item.
 %    \begin{macrocode}
-\newcommand\labelenumi{\tabularfigures\theenumi}
-\newcommand\labelenumii{\theenumii}
-\newcommand\labelenumiii{\theenumiii}
-\newcommand\labelenumiv{\theenumiv}
+\cs_new_protected:Npn \labelenumi {\tabularfigures\theenumi}
+\cs_new_protected:Npn \labelenumii {\theenumii}
+\cs_new_protected:Npn \labelenumiii {\theenumiii}
+\cs_new_protected:Npn \labelenumiv {\theenumiv}
 %    \end{macrocode}
 % \end{lmacro}
 
@@ -801,10 +805,10 @@
 %    The overall output of the \tn{ref} command will be
 %    \verb+\p@enumN\theenumN+.
 %    \begin{macrocode}
-\renewcommand\p@enumi{}
-\renewcommand\p@enumii{\theenumi.}
-\renewcommand\p@enumiii{\p@enumii.\theenumii.}
-\renewcommand\p@enumiv{\p@enumiii.\theenumiii.}
+\cs_set:Npn \p@enumi {}
+\cs_set:Npn \p@enumii {\theenumi.}
+\cs_set:Npn \p@enumiii {\p@enumii.\theenumii.}
+\cs_set:Npn \p@enumiv {\p@enumiii.\theenumiii.}
 %    \end{macrocode}
 % \end{lmacro}
 
@@ -813,17 +817,17 @@
 % \begin{lmacro}{\labelitemi, \labelitemii, \labelitemiii, \labelitemiv}
 %    Define the label for each item.
 %    \begin{macrocode}
-\newcommand\labelitemi{\labelitemfont\textbullet}
-\newcommand\labelitemii{\labelitemfont\ding{"76}}
-\newcommand\labelitemiii{\labelitemfont\ding{"42}}
-\newcommand\labelitemiv{\labelitemfont\ding{"5B}}
+\cs_new_protected:Npn \labelitemi {\labelitemfont\textbullet}
+\cs_new_protected:Npn \labelitemii {\labelitemfont\ding{"76}}
+\cs_new_protected:Npn \labelitemiii {\labelitemfont\ding{"42}}
+\cs_new_protected:Npn \labelitemiv {\labelitemfont\ding{"5B}}
 %    \end{macrocode}
 % \end{lmacro}
 
 % \begin{lmacro}{\labelitemfont}
 %    Defines the font to use in the \env{itemize} label.
 %    \begin{macrocode}
-\newcommand\labelitemfont{\normalfont}
+\cs_new_protected:Npn \labelitemfont {\normalfont}
 %    \end{macrocode}
 % \end{lmacro}
 
@@ -882,7 +886,7 @@
   - \c_@@_large_leading_dim
 }
 
-\newcommand\section{
+\NewDocumentCommand{\section}{}{
   \@startsection{section}{1}{0pt}
     {-\c_@@_normal_leading_dim}
     {
@@ -916,24 +920,24 @@
 % the subsequent text will return to baseline
 % even if the headings are nested.
 %    \begin{macrocode}
-\newcommand\subsection{
+\NewDocumentCommand{\subsection}{}{
   \@startsection{subsection}{2}{0pt}
     {-\c_@@_normal_leading_dim}{\c_@@_normal_leading_dim}
     {\rmfamily\scshape\normalsize}
 }
 
-\newcommand\subsubsection{
+\NewDocumentCommand{\subsubsection}{}{
   \@startsection{subsubsection}{3}{0pt}
     {-\c_@@_normal_leading_dim}{\c_@@_normal_leading_dim}
     {\rmfamily\itshape\normalsize}
 }
 
-\newcommand\paragraph{
+\NewDocumentCommand{\paragraph}{}{
   \@startsection{paragraph}{4}{0pt}
     {\c_@@_normal_leading_dim}{-1em}{\rmfamily\bfseries\normalsize}
 }
 
-\newcommand\subparagraph{
+\NewDocumentCommand{\subparagraph}{}{
   \@startsection{subparagraph}{5}{0pt}
     {\c_@@_normal_leading_dim}{-1em}{\rmfamily\itshape\normalsize}
 }
@@ -973,13 +977,13 @@
 % }
 %    Format section numbers.
 %    \begin{macrocode}
-\renewcommand\thesection{\arabic{section}}
-\renewcommand\thesubsection{\thesection.\arabic{subsection}}
-\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
-\renewcommand\theparagraph{\thesubsubsection.\arabic{paragraph}}
-\renewcommand\thesubparagraph{\theparagraph.\arabic{subparagraph}}
+\cs_set:Npn \thesection {\arabic{section}}
+\cs_set:Npn \thesubsection {\thesection.\arabic{subsection}}
+\cs_set:Npn \thesubsubsection {\thesubsection.\arabic{subsubsection}}
+\cs_set:Npn \theparagraph {\thesubsubsection.\arabic{paragraph}}
+\cs_set:Npn \thesubparagraph {\theparagraph.\arabic{subparagraph}}
 
-\def\@seccntformat#1{\normalfont\csname the#1\endcsname\quad}
+\cs_set_protected:Npn \@seccntformat #1 {\normalfont\cs:w the#1\cs_end:\quad}
 %    \end{macrocode}
 % \end{imacro}
 
@@ -989,7 +993,7 @@
 %    Generates the footnote mark.
 %    Use superior figures rather than superscript.
 %    \begin{macrocode}
-\renewcommand\@makefnmark{
+\cs_set_protected:Npn \@makefnmark #1 {
   \hbox:n {\normalfont\sufigures\@thefnmark}
 }
 %    \end{macrocode}
@@ -1007,7 +1011,7 @@
 %    so place the footnote mark in a box of size \tn{baselineskip},
 %    which is what \tn{parindent} is supposed to be.
 %    \begin{macrocode}
-\newcommand\@makefntext[1]{
+\cs_new_protected:Npn \@makefntext #1 {
   % Enter horizontal mode, so that a new paragraph isn't created between the
   % marker and the footnote text
   \noindent
@@ -1021,7 +1025,7 @@
 % \begin{imacro}{\footnoterule}
 %    Suppress the footnote rule.
 %    \begin{macrocode}
-\renewcommand\footnoterule{}
+\cs_set:Npn \footnoterule {}
 %    \end{macrocode}
 % \end{imacro}
 %
