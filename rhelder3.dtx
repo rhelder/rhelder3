@@ -107,29 +107,29 @@
   showgrid .code:n =
     \RequirePackage{tikz}
 
-    \dim_new:N \l_@@_showgrid_to_first_baseline_dim
-    \dim_new:N \l_@@_showgrid_yshift_dim
+    \dim_new:N \g_@@_showgrid_to_first_baseline_dim
+    \dim_new:N \g_@@_showgrid_yshift_dim
 
     \hook_gput_code:nnn {begindocument}{.}{
       % Find the difference between the actual number of leads and the nearest
       % whole number of leads between the top of the page and the first
       % baseline. Shift the grid by that many leads.
-      \dim_set:Nn \l_@@_showgrid_to_first_baseline_dim {\Gm@tmargin + \topskip}
-      \dim_set:Nn \l_@@_showgrid_yshift_dim {
+      \dim_set:Nn \g_@@_showgrid_to_first_baseline_dim {\Gm@tmargin + \topskip}
+      \dim_set:Nn \g_@@_showgrid_yshift_dim {
         \fp_eval:n {
           \fp_to_int:n {
-            \l_@@_showgrid_to_first_baseline_dim
-            / \g_@@_normal_leading_dim
+            \g_@@_showgrid_to_first_baseline_dim
+            / \c_@@_normal_leading_dim
           }
-          - \l_@@_showgrid_to_first_baseline_dim / \g_@@_normal_leading_dim
-        }\g_@@_normal_leading_dim
+          - \g_@@_showgrid_to_first_baseline_dim / \c_@@_normal_leading_dim
+        }\c_@@_normal_leading_dim
       }
 
       \hook_gput_code:nnn {shipout/background}{.}{
         \put (0, 0){
           \begin{tikzpicture}[remember~picture, overlay]
-            \draw [ystep = \g_@@_normal_leading_dim, xstep = 0, help~lines]
-              (0, 0) [yshift = \l_@@_showgrid_yshift_dim]
+            \draw [ystep = \c_@@_normal_leading_dim, xstep = 0, help~lines]
+              (0, 0) [yshift = \g_@@_showgrid_yshift_dim]
               grid +(\pagewidth, -\pageheight);
           \end{tikzpicture}
         }
@@ -198,30 +198,31 @@
     \int_new:N \g_@@_kant_sent_int
 
     \NewDocumentCommand{\AutoKant}{sO{1}o}{
-      \tl_set:Nn \l_tmpa_tl {\kant}
-      \bool_if:nT {##1} {\tl_put_right:Nn \l_tmpa_tl {*}}
+      \group_begin:
+        \tl_set:Nn \l_tmpa_tl {\kant}
+        \bool_if:nT {##1} {\tl_put_right:Nn \l_tmpa_tl {*}}
 
-      \int_set_eq:NN \l_tmpa_int \g_@@_kant_par_int
-      \int_gset:Nn \g_@@_kant_par_int {\l_tmpa_int + ##2}
-      \int_if_zero:nF {##2} {\int_incr:N \l_tmpa_int}
-
-      \tl_put_right:Ne \l_tmpa_tl {
-        [\int_value:w \l_tmpa_int -\int_value:w \g_@@_kant_par_int]
-      }
-
-      \tl_if_novalue:nF {##3}{
-        \int_if_zero:nF {##2} {\int_gset:Nn \g_@@_kant_sent_int {0}}
-        \int_set_eq:NN \l_tmpa_int \g_@@_kant_sent_int
-        \int_gset:Nn \g_@@_kant_sent_int {\l_tmpa_int + ##3}
-        \int_if_zero:nF {##3} {\int_incr:N \l_tmpa_int}
+        \int_set_eq:NN \l_tmpa_int \g_@@_kant_par_int
+        \int_gset:Nn \g_@@_kant_par_int {\l_tmpa_int + ##2}
+        \int_if_zero:nF {##2} {\int_incr:N \l_tmpa_int}
 
         \tl_put_right:Ne \l_tmpa_tl {
-          [\int_value:w \l_tmpa_int -\int_value:w \g_@@_kant_sent_int]
+          [\int_value:w \l_tmpa_int -\int_value:w \g_@@_kant_par_int]
+        }
+
+        \tl_if_novalue:nF {##3}{
+          \int_if_zero:nF {##2} {\int_gset:Nn \g_@@_kant_sent_int {0}}
+          \int_set_eq:NN \l_tmpa_int \g_@@_kant_sent_int
+          \int_gset:Nn \g_@@_kant_sent_int {\l_tmpa_int + ##3}
+          \int_if_zero:nF {##3} {\int_incr:N \l_tmpa_int}
+
+          \tl_put_right:Ne \l_tmpa_tl {
+            [\int_value:w \l_tmpa_int -\int_value:w \g_@@_kant_sent_int]
           }
         }
-      }
 
-      \tl_use:N \l_tmpa_tl
+        \tl_use:N \l_tmpa_tl
+      \group_end:
     }
 %    \end{macrocode}
 % \end{imacro}
@@ -267,17 +268,17 @@
 % \subsection{Leading}
 %
 % \begin{variable}{
-%   \g_@@_normal_size_dim,
-%   \g_@@_normal_leading_dim,
+%   \c_@@_normal_size_dim,
+%   \c_@@_normal_leading_dim,
 % }
 %    Dimensions to be used by size-changing commands like \tn{normalsize}.
 %    Will be set to \tn{baselineskip} by \tn{normalsize}.
 %    \begin{macrocode}
-\dim_new:N \g_@@_normal_size_dim
-\dim_new:N \g_@@_normal_leading_dim
+\dim_new:N \c_@@_normal_size_dim
+\dim_new:N \c_@@_normal_leading_dim
 
-\dim_set:Nn \g_@@_normal_size_dim {12pt}
-\dim_set:Nn \g_@@_normal_leading_dim {15pt}
+\dim_set:Nn \c_@@_normal_size_dim {12pt}
+\dim_set:Nn \c_@@_normal_leading_dim {15pt}
 %    \end{macrocode}
 % \end{variable}
 
@@ -287,7 +288,7 @@
 %    and sets generic list parameters.
 %    \begin{macrocode}
 \RenewDocumentCommand{\normalsize}{}{
-  \@setfontsize\normalsize\g_@@_normal_size_dim\g_@@_normal_leading_dim
+  \@setfontsize\normalsize\c_@@_normal_size_dim\c_@@_normal_leading_dim
   \dim_set_eq:NN \parindent \baselineskip
   \let\@listi\@listI
 }
@@ -302,7 +303,7 @@
 % \begin{lskip}{\topskip}
 %    Set leading for the first line on the page.
 %    \begin{macrocode}
-\skip_set_eq:NN \topskip \g_@@_normal_size_dim
+\skip_set_eq:NN \topskip \c_@@_normal_size_dim
 %    \end{macrocode}
 % \end{lskip}
 
@@ -342,16 +343,18 @@
 %    \begin{macrocode}
 \NewDocumentCommand{\SetTextwidth}{m}{\@@_set_textwidth:n {#1}}
 
-\dim_new:N \l_@@_fontwidth_dim
+\dim_new:N \l_@@_settextwidth_fontwidth_dim
 
 \cs_new:Npn \@@_set_textwidth:n #1 {
-  \hbox_set:Nn \l_tmpa_box {abcdefghijklmnopqrstuvwxyz}
-  \dim_set:Nn \l_@@_fontwidth_dim {\box_wd:N \l_tmpa_box}
-  \geometry{
-    textwidth = \dim_eval:n {
-      (0.0325\l_@@_fontwidth_dim + 0.378pt) * #1
+  \group_begin:
+    \hbox_set:Nn \l_tmpa_box {abcdefghijklmnopqrstuvwxyz}
+    \dim_set:Nn \l_@@_settextwidth_fontwidth_dim {\box_wd:N \l_tmpa_box}
+    \dim_gset:Nn \textwidth {
+      (0.0325\l_@@_settextwidth_fontwidth_dim + 0.378pt) * #1
     }
-  }
+  \group_end:
+
+  \geometry{textwidth = \textwidth}
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -365,19 +368,21 @@
 %    \begin{macrocode}
 \NewDocumentCommand{\SetTextheight}{m}{\@@_set_textheight:n {#1}}
 
-\int_new:N \l_@@_num_lines_int
+\int_new:N \l_@@_settextheight_lines_int
 
 \cs_new:Npn \@@_set_textheight:n #1 {
-  \int_set:Nn \l_@@_num_lines_int {
-    \fp_to_int:n {
-      (#1\textwidth - \topskip) / \baselineskip
+  \group_begin:
+    \int_set:Nn \l_@@_settextheight_lines_int {
+      \fp_to_int:n {
+        (#1\textwidth - \topskip) / \baselineskip
+      }
     }
-  }
-  \geometry{
-    textheight = \dim_eval:n {
-      \topskip + \l_@@_num_lines_int\baselineskip
+    \dim_gset:Nn \textheight {
+      \topskip + \l_@@_settextheight_lines_int\baselineskip
     }
-  }
+  \group_end:
+
+  \geometry{textheight = \textheight}
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -438,14 +443,14 @@
 
 % \section{Leading}
 %
-% \begin{variable}{\g_@@_footnote_size_dim, \g_@@_footnote_leading_dim}
+% \begin{variable}{\c_@@_footnote_size_dim, \c_@@_footnote_leading_dim}
 %    Dimensions to be used by \tn{footnotesize}.
 %    \begin{macrocode}
-\dim_new:N \g_@@_footnote_size_dim
-\dim_new:N \g_@@_footnote_leading_dim
+\dim_new:N \c_@@_footnote_size_dim
+\dim_new:N \c_@@_footnote_leading_dim
 
-\dim_set:Nn \g_@@_footnote_size_dim {10pt}
-\dim_set:Nn \g_@@_footnote_leading_dim {12pt}
+\dim_set:Nn \c_@@_footnote_size_dim {10pt}
+\dim_set:Nn \c_@@_footnote_leading_dim {12pt}
 %    \end{macrocode}
 % \end{variable}
 
@@ -455,39 +460,41 @@
 %    and sets generic list parameters.
 %    \begin{macrocode}
 \NewDocumentCommand{\footnotesize}{}{
-  \@setfontsize\footnotesize\g_@@_footnote_size_dim\g_@@_footnote_leading_dim
+  \@setfontsize\footnotesize\c_@@_footnote_size_dim\c_@@_footnote_leading_dim
   \dim_set_eq:NN \parindent \baselineskip
   \def\@listi{
     \dim_set_eq:NN \leftmargin \leftmargini
-    \skip_set:Nn \topsep {\g_@@_footnote_leading_dim}
+    \skip_set:Nn \topsep {\c_@@_footnote_leading_dim}
     \skip_set:Nn \parsep {0pt}
     \skip_set:Nn \itemsep {0pt}
 
-    \bool_case:nT {
-      {! \int_if_zero_p:n {\@enumdepth}}
-        {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
-      {! \int_if_zero_p:n {\@itemdepth}}
-        {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
-    }{
-      \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
-      \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
-    }
+    \group_begin:
+      \bool_case:nT {
+        {! \int_if_zero_p:n {\@enumdepth}}
+          {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
+        {! \int_if_zero_p:n {\@itemdepth}}
+          {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
+      }{
+        \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
+        \dim_gset:Nn \labelwidth {\leftmargin - \labelsep}
+      }
+    \group_end:
   }
 }
 %    \end{macrocode}
 % \end{imacro}
 %
 % \begin{variable}{
-%   \g_@@_large_size_dim,
-%   \g_@@_large_leading_dim,
+%   \c_@@_large_size_dim,
+%   \c_@@_large_leading_dim,
 % }
 %    Dimensions to be used by other size-changing commands.
 %    \begin{macrocode}
-\dim_new:N \g_@@_large_size_dim
-\dim_new:N \g_@@_large_leading_dim
+\dim_new:N \c_@@_large_size_dim
+\dim_new:N \c_@@_large_leading_dim
 
-\dim_set:Nn \g_@@_large_size_dim {14pt}
-\dim_set:Nn \g_@@_large_leading_dim {18pt}
+\dim_set:Nn \c_@@_large_size_dim {14pt}
+\dim_set:Nn \c_@@_large_leading_dim {18pt}
 %    \end{macrocode}
 % \end{variable}
 
@@ -495,7 +502,7 @@
 %    Set other font sizes and leadings.
 %    \begin{macrocode}
 \NewDocumentCommand{\large}{}{
-  \@setfontsize\large\g_@@_large_size_dim\g_@@_large_leading_dim
+  \@setfontsize\large\c_@@_large_size_dim\c_@@_large_leading_dim
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -667,19 +674,21 @@
 %    \begin{macrocode}
 \def\@listi{
   \dim_set_eq:NN \leftmargin \leftmargini
-  \skip_set:Nn \topsep {\g_@@_normal_leading_dim}
+  \skip_set:Nn \topsep {\c_@@_normal_leading_dim}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \itemsep {0pt}
 
-  \bool_case:nT {
-    {! \int_if_zero_p:n {\@enumdepth}}
-      {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
-    {! \int_if_zero_p:n {\@itemdepth}}
-      {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
-  }{
-    \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
-    \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
-  }
+  \group_begin:
+    \bool_case:nT {
+      {! \int_if_zero_p:n {\@enumdepth}}
+        {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
+      {! \int_if_zero_p:n {\@itemdepth}}
+        {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
+    }{
+      \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
+      \dim_gset:Nn \labelwidth {\leftmargin - \labelsep}
+    }
+  \group_end:
 }
 %    \end{macrocode}
 % \end{lmacro}
@@ -869,16 +878,21 @@
 %    if the heading is sitting at the top of a page
 %    (if \TeX{} is trying to fill that page, at any rate).
 %    \begin{macrocode}
-\dim_set:Nn \g_tmpa_dim {
-  3\g_@@_normal_leading_dim
-  - \g_@@_normal_leading_dim
-  - \g_@@_large_leading_dim
+\dim_new:N \c_section_afterskip
+
+\dim_set:Nn \c_section_afterskip {
+  3\c_@@_normal_leading_dim
+  - \c_@@_normal_leading_dim
+  - \c_@@_large_leading_dim
 }
 
 \newcommand\section{
   \@startsection{section}{1}{0pt}
-    {-\g_@@_normal_leading_dim}
-    {\g_tmpa_dim plus \dim_eval:n {\g_@@_normal_leading_dim - \g_tmpa_dim}}
+    {-\c_@@_normal_leading_dim}
+    {
+      \c_section_afterskip
+      plus \dim_eval:n {\c_@@_normal_leading_dim - \c_section_afterskip}
+    }
     {\headfamily\scshape\large}
 }
 %    \end{macrocode}
@@ -908,24 +922,24 @@
 %    \begin{macrocode}
 \newcommand\subsection{
   \@startsection{subsection}{2}{0pt}
-    {-\g_@@_normal_leading_dim}{\g_@@_normal_leading_dim}
+    {-\c_@@_normal_leading_dim}{\c_@@_normal_leading_dim}
     {\rmfamily\scshape\normalsize}
 }
 
 \newcommand\subsubsection{
   \@startsection{subsubsection}{3}{0pt}
-    {-\g_@@_normal_leading_dim}{\g_@@_normal_leading_dim}
+    {-\c_@@_normal_leading_dim}{\c_@@_normal_leading_dim}
     {\rmfamily\itshape\normalsize}
 }
 
 \newcommand\paragraph{
   \@startsection{paragraph}{4}{0pt}
-    {\g_@@_normal_leading_dim}{-1em}{\rmfamily\bfseries\normalsize}
+    {\c_@@_normal_leading_dim}{-1em}{\rmfamily\bfseries\normalsize}
 }
 
 \newcommand\subparagraph{
   \@startsection{subparagraph}{5}{0pt}
-    {\g_@@_normal_leading_dim}{-1em}{\rmfamily\itshape\normalsize}
+    {\c_@@_normal_leading_dim}{-1em}{\rmfamily\itshape\normalsize}
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -1036,7 +1050,7 @@
 %    Set \tn{footnotesep} to \num{0.7}\tn{baselineskip}
 %    for uniform leading throughout the footnote block.
 %    \begin{macrocode}
-\dim_set:Nn \footnotesep {0.7\g_@@_footnote_leading_dim}
+\dim_set:Nn \footnotesep {0.7\c_@@_footnote_leading_dim}
 %    \end{macrocode}
 % \end{ldimen}
 %
@@ -1051,10 +1065,10 @@
 %    \begin{macrocode}
 \skip_set:Nn {\skip\footins} {
   \skip_eval:n {
-    \g_@@_normal_leading_dim +
-    (\g_@@_normal_leading_dim - \g_@@_footnote_leading_dim)
+    \c_@@_normal_leading_dim +
+    (\c_@@_normal_leading_dim - \c_@@_footnote_leading_dim)
   }
-  plus \g_@@_normal_leading_dim
+  plus \c_@@_normal_leading_dim
 }
 %    \end{macrocode}
 % \end{lskip}
