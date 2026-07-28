@@ -341,11 +341,9 @@
 %    is extracted from the copyfitting table at
 %    \autocite[28]{bringhurst1992ElementsTypographic}.
 %    \begin{macrocode}
-\NewDocumentCommand{\SetTextwidth}{m}{\@@_set_textwidth:n {#1}}
-
 \dim_new:N \l_@@_settextwidth_fontwidth_dim
 
-\cs_new:Npn \@@_set_textwidth:n #1 {
+\NewDocumentCommand{\SetTextwidth}{m}{
   \group_begin:
     \hbox_set:Nn \l_tmpa_box {abcdefghijklmnopqrstuvwxyz}
     \dim_set:Nn \l_@@_settextwidth_fontwidth_dim {\box_wd:N \l_tmpa_box}
@@ -366,11 +364,9 @@
 %    Set \(\sfrac{\tn{textheight}}{\tn{textwidth}}\)
 %    to be equal to \meta{ratio}.
 %    \begin{macrocode}
-\NewDocumentCommand{\SetTextheight}{m}{\@@_set_textheight:n {#1}}
-
 \int_new:N \l_@@_settextheight_lines_int
 
-\cs_new:Npn \@@_set_textheight:n #1 {
+\NewDocumentCommand{\SetTextheight}{m}{
   \group_begin:
     \int_set:Nn \l_@@_settextheight_lines_int {
       \fp_to_int:n {
