@@ -269,21 +269,15 @@
 % \begin{variable}{
 %   \g_@@_normal_size_dim,
 %   \g_@@_normal_leading_dim,
-%   \g_@@_large_size_dim,
-%   \g_@@_large_leading_dim,
 % }
 %    Dimensions to be used by size-changing commands like \tn{normalsize}.
 %    Will be set to \tn{baselineskip} by \tn{normalsize}.
 %    \begin{macrocode}
 \dim_new:N \g_@@_normal_size_dim
 \dim_new:N \g_@@_normal_leading_dim
-\dim_new:N \g_@@_large_size_dim
-\dim_new:N \g_@@_large_leading_dim
 
 \dim_set:Nn \g_@@_normal_size_dim {12pt}
 \dim_set:Nn \g_@@_normal_leading_dim {15pt}
-\dim_set:Nn \g_@@_large_size_dim {14pt}
-\dim_set:Nn \g_@@_large_leading_dim {18pt}
 %    \end{macrocode}
 % \end{variable}
 
@@ -444,6 +438,59 @@
 
 % \section{Leading}
 %
+% \begin{variable}{\g_@@_footnote_size_dim, \g_@@_footnote_leading_dim}
+%    Dimensions to be used by \tn{footnotesize}.
+%    \begin{macrocode}
+\dim_new:N \g_@@_footnote_size_dim
+\dim_new:N \g_@@_footnote_leading_dim
+
+\dim_set:Nn \g_@@_footnote_size_dim {10pt}
+\dim_set:Nn \g_@@_footnote_leading_dim {12pt}
+%    \end{macrocode}
+% \end{variable}
+
+% \begin{imacro}{\footnotesize}
+%    Sets the font size and leading in footnotes.
+%    Also sets \tn{parindent} equal to one lead,
+%    and sets generic list parameters.
+%    \begin{macrocode}
+\NewDocumentCommand{\footnotesize}{}{
+  \@setfontsize\footnotesize\g_@@_footnote_size_dim\g_@@_footnote_leading_dim
+  \dim_set_eq:NN \parindent \baselineskip
+  \def\@listi{
+    \dim_set_eq:NN \leftmargin \leftmargini
+    \skip_set:Nn \topsep {\g_@@_footnote_leading_dim}
+    \skip_set:Nn \parsep {0pt}
+    \skip_set:Nn \itemsep {0pt}
+
+    \bool_case:nT {
+      {! \int_if_zero_p:n {\@enumdepth}}
+        {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
+      {! \int_if_zero_p:n {\@itemdepth}}
+        {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
+    }{
+      \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
+      \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
+    }
+  }
+}
+%    \end{macrocode}
+% \end{imacro}
+%
+% \begin{variable}{
+%   \g_@@_large_size_dim,
+%   \g_@@_large_leading_dim,
+% }
+%    Dimensions to be used by other size-changing commands.
+%    \begin{macrocode}
+\dim_new:N \g_@@_large_size_dim
+\dim_new:N \g_@@_large_leading_dim
+
+\dim_set:Nn \g_@@_large_size_dim {14pt}
+\dim_set:Nn \g_@@_large_leading_dim {18pt}
+%    \end{macrocode}
+% \end{variable}
+
 % \begin{imacro}{\large}
 %    Set other font sizes and leadings.
 %    \begin{macrocode}
@@ -500,7 +547,7 @@
 %    Sets parameters for top-level lists.
 %
 %    Don't put any stretchable space between list elements,
-%    and set \tn{topsep} to half a \tn{baselineskip},
+%    and set \tn{topsep} to one lead,
 %    so that the text will snap back to baseline after the end of the list.
 %    \begin{macrocode}
 \def\@listi{
@@ -605,6 +652,92 @@
 \NewEnvironmentCopy{quote}{quotation}
 %    \end{macrocode}
 % \end{environment}
+
+% \subsection{\env{enumerate}}
+%
+% \begin{lmacro}{\theenumi, \theenumii, \theenumiii, \theenumiv}
+%    Define how the enumerate counters are represented.
+%    \begin{macrocode}
+\renewcommand\theenumi{\arabic{enumi}}
+\renewcommand\theenumii{\alph{enumii}}
+\renewcommand\theenumiii{\roman{enumiii}}
+\renewcommand\theenumiv{\Alph{enumiv}}
+%    \end{macrocode}
+% \end{lmacro}
+
+% \begin{lmacro}{\labelenumi, \labelenumii, \labelenumiii, \labelenumiv}
+%    Define the label for each item.
+%    \begin{macrocode}
+\newcommand\labelenumi{\theenumi}
+\newcommand\labelenumii{\theenumii}
+\newcommand\labelenumiii{\theenumiii}
+\newcommand\labelenumiv{\theenumiv}
+%    \end{macrocode}
+% \end{lmacro}
+
+% \begin{lmacro}{\p@enumii, \p@enumiii, \p@enumiv}
+%    Define the prefix of the output of a \tn{ref} command
+%    when referencing an item of the Nth level of an enumerated list.
+%    The overall output of the \tn{ref} command will be
+%    \verb+\p@enumN\theenumN+.
+%    \begin{macrocode}
+\renewcommand\p@enumi{}
+\renewcommand\p@enumii{\theenumi.}
+\renewcommand\p@enumiii{\p@enumii.\theenumii.}
+\renewcommand\p@enumiv{\p@enumiii.\theenumiii.}
+%    \end{macrocode}
+% \end{lmacro}
+
+% \subsection{\env{itemize}}
+%
+% \begin{lmacro}{\labelitemi, \labelitemii, \labelitemiii, \labelitemiv}
+%    Define the label for each item.
+%    \begin{macrocode}
+\newcommand\labelitemi{\labelitemfont\textbullet}
+\newcommand\labelitemii{\labelitemfont\ding{"76}}
+\newcommand\labelitemiii{\labelitemfont\ding{"42}}
+\newcommand\labelitemiv{\labelitemfont\ding{"5B}}
+%    \end{macrocode}
+% \end{lmacro}
+
+% \begin{lmacro}{\labelitemfont}
+%    Defines the font to use in the \env{itemize} label.
+%    \begin{macrocode}
+\newcommand\labelitemfont{\normalfont}
+%    \end{macrocode}
+% \end{lmacro}
+
+% \subsection{\env{description}}
+%
+% \begin{environment}{description}
+%    While \env{enumerate} and \env{itemize}
+%    are defined in the \LaTeX{} format,
+%    \env{description} needs to be defined here.
+%
+%    This definition is borrowed from the \LaTeX{} standard classes.
+%    \begin{macrocode}
+\newenvironment{description}{
+  \list{}{
+    \labelwidth\z@ \itemindent-\leftmargin
+    \let\makelabel\descriptionlabel
+  }
+}{
+  \endlist
+}
+%    \end{macrocode}
+% \end{environment}
+
+% \begin{lmacro}{\descriptionlabel}
+%    Defines the formatting of the \env{description} label.
+%
+%    This definition is borrowed from the \LaTeX{} standard classes.
+%    \begin{macrocode}
+\newcommand*\descriptionlabel[1]{
+  \hspace\labelsep
+  \normalfont\bfseries #1
+}
+%    \end{macrocode}
+% \end{lmacro}
 
 % \section{Headings \& Subheads}
 %
@@ -727,45 +860,6 @@
 
 % \section{Footnotes}
 %
-% \begin{variable}{\g_@@_footnote_size_dim, \g_@@_footnote_leading_dim}
-%    Dimensions to be used by \tn{footnotesize}.
-%    \begin{macrocode}
-\dim_new:N \g_@@_footnote_size_dim
-\dim_new:N \g_@@_footnote_leading_dim
-
-\dim_set:Nn \g_@@_footnote_size_dim {10pt}
-\dim_set:Nn \g_@@_footnote_leading_dim {12pt}
-%    \end{macrocode}
-% \end{variable}
-
-% \begin{imacro}{\footnotesize}
-%    Sets the font size and leading in footnotes.
-%    Also sets \tn{parindent} equal to one lead,
-%    and sets generic list parameters.
-%    \begin{macrocode}
-\NewDocumentCommand{\footnotesize}{}{
-  \@setfontsize\footnotesize\g_@@_footnote_size_dim\g_@@_footnote_leading_dim
-  \dim_set_eq:NN \parindent \baselineskip
-  \def\@listi{
-    \dim_set_eq:NN \leftmargin \leftmargini
-    \skip_set:Nn \topsep {\g_@@_footnote_leading_dim}
-    \skip_set:Nn \parsep {0pt}
-    \skip_set:Nn \itemsep {0pt}
-
-    \bool_case:nT {
-      {! \int_if_zero_p:n {\@enumdepth}}
-        {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
-      {! \int_if_zero_p:n {\@itemdepth}}
-        {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
-    }{
-      \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
-      \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
-    }
-  }
-}
-%    \end{macrocode}
-% \end{imacro}
-%
 % \begin{lmacro}{\@makefnmark}
 %    Generates the footnote mark.
 %    Use superior figures rather than superscript.
@@ -849,95 +943,7 @@
 }
 %    \end{macrocode}
 % \end{lskip}
-
-% \section{Lists}
 %
-% \subsection{\env{enumerate}}
-%
-% \begin{lmacro}{\theenumi, \theenumii, \theenumiii, \theenumiv}
-%    Define how the enumerate counters are represented.
-%    \begin{macrocode}
-\renewcommand\theenumi{\arabic{enumi}}
-\renewcommand\theenumii{\alph{enumii}}
-\renewcommand\theenumiii{\roman{enumiii}}
-\renewcommand\theenumiv{\Alph{enumiv}}
-%    \end{macrocode}
-% \end{lmacro}
-
-% \begin{lmacro}{\labelenumi, \labelenumii, \labelenumiii, \labelenumiv}
-%    Define the label for each item.
-%    \begin{macrocode}
-\newcommand\labelenumi{\theenumi}
-\newcommand\labelenumii{\theenumii}
-\newcommand\labelenumiii{\theenumiii}
-\newcommand\labelenumiv{\theenumiv}
-%    \end{macrocode}
-% \end{lmacro}
-
-% \begin{lmacro}{\p@enumii, \p@enumiii, \p@enumiv}
-%    Define the prefix of the output of a \tn{ref} command
-%    when referencing an item of the Nth level of an enumerated list.
-%    The overall output of the \tn{ref} command will be
-%    \verb+\p@enumN\theenumN+.
-%    \begin{macrocode}
-\renewcommand\p@enumi{}
-\renewcommand\p@enumii{\theenumi.}
-\renewcommand\p@enumiii{\p@enumii.\theenumii.}
-\renewcommand\p@enumiv{\p@enumiii.\theenumiii.}
-%    \end{macrocode}
-% \end{lmacro}
-
-% \subsection{\env{itemize}}
-%
-% \begin{lmacro}{\labelitemi, \labelitemii, \labelitemiii, \labelitemiv}
-%    Define the label for each item.
-%    \begin{macrocode}
-\newcommand\labelitemi{\labelitemfont\textbullet}
-\newcommand\labelitemii{\labelitemfont\ding{"76}}
-\newcommand\labelitemiii{\labelitemfont\ding{"42}}
-\newcommand\labelitemiv{\labelitemfont\ding{"5B}}
-%    \end{macrocode}
-% \end{lmacro}
-
-% \begin{lmacro}{\labelitemfont}
-%    Defines the font to use in the \env{itemize} label.
-%    \begin{macrocode}
-\newcommand\labelitemfont{\normalfont}
-%    \end{macrocode}
-% \end{lmacro}
-
-% \subsection{\env{description}}
-%
-% \begin{environment}{description}
-%    While \env{enumerate} and \env{itemize}
-%    are defined in the \LaTeX{} format,
-%    \env{description} needs to be defined here.
-%
-%    This definition is borrowed from the \LaTeX{} standard classes.
-%    \begin{macrocode}
-\newenvironment{description}{
-  \list{}{
-    \labelwidth\z@ \itemindent-\leftmargin
-    \let\makelabel\descriptionlabel
-  }
-}{
-  \endlist
-}
-%    \end{macrocode}
-% \end{environment}
-
-% \begin{lmacro}{\descriptionlabel}
-%    Defines the formatting of the \env{description} label.
-%
-%    This definition is borrowed from the \LaTeX{} standard classes.
-%    \begin{macrocode}
-\newcommand*\descriptionlabel[1]{
-  \hspace\labelsep
-  \normalfont\bfseries #1
-}
-%    \end{macrocode}
-% \end{lmacro}
-
 
 % \section{Font}
 %
