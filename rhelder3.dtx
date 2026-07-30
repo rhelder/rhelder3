@@ -285,11 +285,16 @@
 % \begin{imacro}{\normalsize}
 %    Sets the font size and leading.
 %    Also sets \tn{parindent} equal to one lead,
+%    sets display parameters,
 %    and sets generic list parameters.
 %    \begin{macrocode}
 \RenewDocumentCommand{\normalsize}{}{
   \@setfontsize\normalsize\c_@@_normal_size_dim\c_@@_normal_leading_dim
   \dim_set_eq:NN \parindent \baselineskip
+  \dim_set_eq:NN \abovedisplayskip \baselineskip
+  \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
+  \dim_set:Nn \abovedisplayshortskip {0pt}
+  \dim_set_eq:NN \belowdisplayshortskip \belowdisplayskip
   \cs_set_eq:NN \@listi \@listI
 }
 %    \end{macrocode}
@@ -509,12 +514,18 @@
 
 % \begin{imacro}{\small}
 %    Sets not only font size and leading,
-%    but also \tn{parindent} and generic list parameters,
+%    but also \tn{parindent},
+%    display parameters,
+%    and generic list parameters,
 %    like \tn{normalsize} does.
 %    \begin{macrocode}
 \NewDocumentCommand{\small}{}{
   \@setfontsize\small\c_@@_small_size_dim\c_@@_small_leading_dim
   \dim_set_eq:NN \parindent \baselineskip
+  \dim_set_eq:NN \abovedisplayskip \baselineskip
+  \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
+  \dim_set:Nn \abovedisplayshortskip {0pt}
+  \dim_set_eq:NN \belowdisplayshortskip \belowdisplayskip
   \cs_set_protected:Npn \@listi {
     \dim_set_eq:NN \leftmargin \leftmargini
     \skip_set:Nn \topsep {\c_@@_small_leading_dim}
@@ -540,12 +551,16 @@
 % \begin{imacro}{\footnotesize}
 %    Sets the font size and leading in footnotes.
 %    Also sets \tn{parindent} equal to one lead,
-%    and sets generic list parameters,
+%    and sets display and generic list parameters,
 %    like \tn{normalsize} does.
 %    \begin{macrocode}
 \NewDocumentCommand{\footnotesize}{}{
   \@setfontsize\footnotesize\c_@@_footnote_size_dim\c_@@_footnote_leading_dim
   \dim_set_eq:NN \parindent \baselineskip
+  \dim_set_eq:NN \abovedisplayskip \baselineskip
+  \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
+  \dim_set:Nn \abovedisplayshortskip {0pt}
+  \dim_set_eq:NN \belowdisplayshortskip \belowdisplayskip
   \cs_set_protected:Npn \@listi {
     \dim_set_eq:NN \leftmargin \leftmargini
     \skip_set:Nn \topsep {\c_@@_footnote_leading_dim}
