@@ -305,13 +305,6 @@
 \normalsize
 %    \end{macrocode}
 
-% \begin{lskip}{\topskip}
-%    Set leading for the first line on the page.
-%    \begin{macrocode}
-\skip_set_eq:NN \topskip \c_@@_normal_size_dim
-%    \end{macrocode}
-% \end{lskip}
-
 % \subsection{Font}
 %
 % With \tn{normalsize} defined,
@@ -364,6 +357,31 @@
 
 % \subsubsection{Text Block}
 %
+% \begin{lskip}{\topskip}
+%    Glue inserted before the first box on each page
+%    (in other words,
+%    the leading for the first line on the page).
+%    \begin{macrocode}
+\skip_set_eq:NN \topskip \c_@@_normal_size_dim
+%    \end{macrocode}
+% \end{lskip}
+
+% \begin{ldimen}{\maxdepth}
+%    \textcquote[113]{knuth1984TeXbook}[.]{%
+%      Tells \TeX{} to raise the bottom box on the page
+%      if that box has too much depth,
+%      so that the depth of the constructed page
+%      will not exceed a specified value%
+%    }
+%    Set this to half of \tn{topskip},
+%    so that \tn{topskip} + \tn{maxdepth}
+%    is equal to \num{1.5} times the type size,
+%    as in the standard classes.
+%    \begin{macrocode}
+\skip_set:Nn \maxdepth {0.5\topskip}
+%    \end{macrocode}
+% \end{ldimen}
+
 % \begin{imacro}{\SetTextheight}
 %    \marg{ratio}\\
 %    Set \(\sfrac{\tn{textheight}}{\tn{textwidth}}\)
