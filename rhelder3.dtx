@@ -439,21 +439,109 @@
 
 % \section{Leading}
 %
-% \begin{variable}{\c_@@_footnote_size_dim, \c_@@_footnote_leading_dim}
-%    Dimensions to be used by \tn{footnotesize}.
+% \begin{variable}{
+%   \c_@@_tiny_size_dim,
+%   \c_@@_tiny_leading_dim,
+%   \c_@@_scriptsize_size_dim,
+%   \c_@@_scriptsize_leading_dim,
+%   \c_@@_small_size_dim,
+%   \c_@@_small_leading_dim,
+%   \c_@@_footnote_size_dim,
+%   \c_@@_footnote_leading_dim,
+%   \c_@@_large_size_dim,
+%   \c_@@_large_leading_dim,
+%   \c_@@_Large_size_dim,
+%   \c_@@_Large_leading_dim,
+%   \c_@@_LARGE_size_dim,
+%   \c_@@_LARGE_leading_dim,
+%   \c_@@_huge_size_dim,
+%   \c_@@_huge_leading_dim,
+%   \c_@@_Huge_size_dim,
+%   \c_@@_Huge_leading_dim,
+%   \c_@@_HUGE_size_dim,
+%   \c_@@_HUGE_leading_dim,
+% }
+%    Dimensions to be used by size-changing commands.
 %    \begin{macrocode}
+\dim_new:N \c_@@_tiny_size_dim
+\dim_new:N \c_@@_tiny_leading_dim
+\dim_new:N \c_@@_scriptsize_size_dim
+\dim_new:N \c_@@_scriptsize_leading_dim
+\dim_new:N \c_@@_small_size_dim
+\dim_new:N \c_@@_small_leading_dim
 \dim_new:N \c_@@_footnote_size_dim
 \dim_new:N \c_@@_footnote_leading_dim
+\dim_new:N \c_@@_large_size_dim
+\dim_new:N \c_@@_large_leading_dim
+\dim_new:N \c_@@_Large_size_dim
+\dim_new:N \c_@@_Large_leading_dim
+\dim_new:N \c_@@_LARGE_size_dim
+\dim_new:N \c_@@_LARGE_leading_dim
+\dim_new:N \c_@@_huge_size_dim
+\dim_new:N \c_@@_huge_leading_dim
+\dim_new:N \c_@@_Huge_size_dim
+\dim_new:N \c_@@_Huge_leading_dim
+\dim_new:N \c_@@_HUGE_size_dim
+\dim_new:N \c_@@_HUGE_leading_dim
 
+\dim_set:Nn \c_@@_tiny_size_dim {8pt}
+\dim_set:Nn \c_@@_tiny_leading_dim {10pt}
+\dim_set:Nn \c_@@_scriptsize_size_dim {9pt}
+\dim_set:Nn \c_@@_scriptsize_leading_dim {11pt}
 \dim_set:Nn \c_@@_footnote_size_dim {10pt}
 \dim_set:Nn \c_@@_footnote_leading_dim {12pt}
+\dim_set:Nn \c_@@_small_size_dim {11pt}
+\dim_set:Nn \c_@@_small_leading_dim {13pt}
+\dim_set:Nn \c_@@_large_size_dim {14pt}
+\dim_set:Nn \c_@@_large_leading_dim {18pt}
+\dim_set:Nn \c_@@_Large_size_dim {18pt}
+\dim_set:Nn \c_@@_Large_leading_dim {22pt}
+\dim_set:Nn \c_@@_LARGE_size_dim {24pt}
+\dim_set:Nn \c_@@_LARGE_leading_dim {29pt}
+\dim_set:Nn \c_@@_huge_size_dim {30pt}
+\dim_set:Nn \c_@@_huge_leading_dim {36pt}
+\dim_set:Nn \c_@@_Huge_size_dim {36pt}
+\dim_set:Nn \c_@@_Huge_leading_dim {43pt}
+\dim_set:Nn \c_@@_HUGE_size_dim {72pt}
+\dim_set:Nn \c_@@_HUGE_leading_dim {85pt}
 %    \end{macrocode}
 % \end{variable}
+
+% \begin{imacro}{\small}
+%    Sets not only font size and leading,
+%    but also \tn{parindent} and generic list parameters,
+%    like \tn{normalsize} does.
+%    \begin{macrocode}
+\NewDocumentCommand{\small}{}{
+  \@setfontsize\small\c_@@_small_size_dim\c_@@_small_leading_dim
+  \dim_set_eq:NN \parindent \baselineskip
+  \cs_set_protected:Npn \@listi {
+    \dim_set_eq:NN \leftmargin \leftmargini
+    \skip_set:Nn \topsep {\c_@@_small_leading_dim}
+    \skip_set:Nn \parsep {0pt}
+    \skip_set:Nn \itemsep {0pt}
+
+    \group_begin:
+      \bool_case:nT {
+        {! \int_if_zero_p:n {\@enumdepth}}
+          {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
+        {! \int_if_zero_p:n {\@itemdepth}}
+          {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
+      }{
+        \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
+        \dim_gset:Nn \labelwidth {\leftmargin - \labelsep}
+      }
+    \group_end:
+  }
+}
+%    \end{macrocode}
+% \end{imacro}
 
 % \begin{imacro}{\footnotesize}
 %    Sets the font size and leading in footnotes.
 %    Also sets \tn{parindent} equal to one lead,
-%    and sets generic list parameters.
+%    and sets generic list parameters,
+%    like \tn{normalsize} does.
 %    \begin{macrocode}
 \NewDocumentCommand{\footnotesize}{}{
   \@setfontsize\footnotesize\c_@@_footnote_size_dim\c_@@_footnote_leading_dim
@@ -479,26 +567,42 @@
 }
 %    \end{macrocode}
 % \end{imacro}
-%
-% \begin{variable}{
-%   \c_@@_large_size_dim,
-%   \c_@@_large_leading_dim,
+
+% \begin{imacro}{
+%   \tiny,
+%   \scriptsize,
+%   \large,
+%   \Large,
+%   \LARGE,
+%   \huge,
+%   \Huge,
+%   \HUGE,
 % }
-%    Dimensions to be used by other size-changing commands.
-%    \begin{macrocode}
-\dim_new:N \c_@@_large_size_dim
-\dim_new:N \c_@@_large_leading_dim
-
-\dim_set:Nn \c_@@_large_size_dim {14pt}
-\dim_set:Nn \c_@@_large_leading_dim {18pt}
-%    \end{macrocode}
-% \end{variable}
-
-% \begin{imacro}{\large}
 %    Set other font sizes and leadings.
 %    \begin{macrocode}
+\NewDocumentCommand{\tiny}{}{
+  \@setfontsize\tiny\c_@@_tiny_size_dim\c_@@_tiny_leading_dim
+}
+\NewDocumentCommand{\scriptsize}{}{
+  \@setfontsize\scriptsize\c_@@_scriptsize_size_dim\c_@@_scriptsize_leading_dim
+}
 \NewDocumentCommand{\large}{}{
   \@setfontsize\large\c_@@_large_size_dim\c_@@_large_leading_dim
+}
+\NewDocumentCommand{\Large}{}{
+  \@setfontsize\Large\c_@@_Large_size_dim\c_@@_Large_leading_dim
+}
+\NewDocumentCommand{\LARGE}{}{
+  \@setfontsize\LARGE\c_@@_LARGE_size_dim\c_@@_LARGE_leading_dim
+}
+\NewDocumentCommand{\huge}{}{
+  \@setfontsize\huge\c_@@_huge_size_dim\c_@@_huge_leading_dim
+}
+\NewDocumentCommand{\Huge}{}{
+  \@setfontsize\Huge\c_@@_Huge_size_dim\c_@@_Huge_leading_dim
+}
+\NewDocumentCommand{\HUGE}{}{
+  \@setfontsize\HUGE\c_@@_HUGE_size_dim\c_@@_HUGE_leading_dim
 }
 %    \end{macrocode}
 % \end{imacro}
