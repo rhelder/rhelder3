@@ -460,6 +460,61 @@
 \RequirePackage{widows-and-orphans}
 %    \end{macrocode}
 
+% \section{Horizontal Motion}
+%
+% \begin{imacro}{\hairspace, \neghairspace}
+%    Provide a new spacing command that inserts a hair space.
+%    \begin{macrocode}
+\NewDocumentCommand{\hairspace}{}{\kern\dim_eval:n {1em / 24}}
+\NewDocumentCommand{\neghairspace}{}{\kern -\dim_eval:n {1em / 24}}
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{lmacro}{\tmspace}
+%    To redefine the remaining spacing commands,
+%    use the internal \tn{tmspace} macro.
+%    For reference,
+%    here is the definition given in the \LaTeX{} kernel.
+%    \begin{macrocode}
+% \DeclareRobustCommand\tmspace[3]{%
+%   \ifmmode\mskip#1#2\else\leavevmode@ifvmode\kern#1#3\fi\relax}
+%    \end{macrocode}
+% \end{lmacro}
+
+% \begin{imacro}{
+%   \,,
+%   \thinspace,
+%   \:,
+%   \>,
+%   \medspace,
+%   \;,
+%   \thickspace,
+%   \!,
+%   \negthinspace,
+%   \negmedspace,
+%   \negthickspace,
+% }
+%    Redefine the spacing commands provided by \LaTeX{}.
+%    (Math mode is the same, though.)
+%    \begin{macrocode}
+\RenewDocumentCommand{\,}{}{\tmspace+\thinmuskip{\dim_eval:n {1em / 6}}}
+\RenewCommandCopy\thinspace\,
+\RenewDocumentCommand{\:}{}{\tmspace+\medmuskip{\dim_eval:n {1em / 4}}}
+\RenewCommandCopy\medspace\:
+\RenewCommandCopy\>\:
+\RenewDocumentCommand{\;}{}{\tmspace+\thickmuskip{\dim_eval:n {1em / 3}}}
+\RenewCommandCopy\thickspace\;
+\RenewDocumentCommand{\!}{}{\tmspace-\thinmuskip{\dim_eval:n {1em / 6}}}
+\RenewCommandCopy\negthinspace\!
+\RenewDocumentCommand{\negmedspace}{}{
+  \tmspace-\medmuskip{\dim_eval:n {1em / 4}}
+}
+\RenewDocumentCommand{\negthickspace}{}{
+  \tmspace-\thickmuskip{\dim_eval:n {1em / 3}}
+}
+%    \end{macrocode}
+% \end{imacro}
+
 % \section{Leading}
 %
 % \begin{variable}{
