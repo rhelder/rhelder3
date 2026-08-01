@@ -1491,6 +1491,37 @@
 %    \end{macrocode}
 % \end{lskip}
 %
+
+% \section{Markup}
+%
+% \begin{imacro}{\initials}
+%    Typesets initials with a hair space between each initial.
+%    The unstarred form makes the subsequent space an interword space,
+%    and the starred form makes the subsequent space and intersentence space
+%    (which should be rarely needed).
+%    \begin{macrocode}
+\NewDocumentCommand{\initials}{>{\SplitList{.}} m}{
+  \tl_map_inline:nn {#1}{
+    \tl_set:Nn \l_tmpa_tl {##1}
+    \tl_if_empty:NTF \l_tmpa_tl {
+      \tl_log:N \l_tmpa_tl
+      \unkern\@
+    }{
+      \tl_log:N \l_tmpa_tl
+      \tl_use:N \l_tmpa_tl .\hairspace
+    }
+  }
+}
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{imacro}{\acro}
+%    Typesets acronyms with letterspaced small caps.
+%    \begin{macrocode}
+\NewDocumentCommand{\acro}{m}{\textsc{\MakeLowercase{#1}}}
+%    \end{macrocode}
+% \end{imacro}
+
 % \section{Load Typographically Useful Packages}
 %
 %    \begin{macrocode}
