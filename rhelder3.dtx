@@ -511,7 +511,9 @@
 %    \end{macrocode}
 % \end{imacro}
 
-% \section{Leading}
+% \section{Vertical Motion}
+%
+% \subsection{Leading}
 %
 % \begin{ldimen}{\lineskiplimit, \normallineskiplimit}
 %    Always use the current leading to determine the interline glue,
@@ -698,6 +700,22 @@
 }
 %    \end{macrocode}
 % \end{imacro}
+
+% \subsection{Intervals}
+%
+% \begin{lskip}{
+%   \smallskipamount,
+%   \medskipamount,
+%   \bigskipamount,
+% }
+%    Define small, medium, and large intervals of vertical space.
+%    TODO: incorporate into size-changing commands
+%    \begin{macrocode}
+\skip_set:Nn \smallskipamount {0.5\baselineskip}
+\skip_set_eq:NN \medskipamount \baselineskip
+\skip_set:Nn \bigskipamount {2\baselineskip}
+%    \end{macrocode}
+% \end{lskip}
 
 % \section{Paragraphs}
 %
