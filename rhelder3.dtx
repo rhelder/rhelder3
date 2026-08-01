@@ -465,6 +465,8 @@
 
 % \section{Horizontal Motion}
 %
+% \subsection{Intervals}
+%
 % \begin{imacro}{\hairspace, \neghairspace}
 %    Provide a new spacing command that inserts a hair space.
 %    \begin{macrocode}
@@ -517,6 +519,39 @@
 }
 %    \end{macrocode}
 % \end{imacro}
+
+% \subsection{Letterspacing}
+%
+% \begin{imacro}{\MakeUppercase}
+%    Letterspace capitals.
+%    \begin{macrocode}
+\NewCommandCopy\MakeUppercaseCopy\MakeUppercase
+
+\RenewDocumentCommand{\MakeUppercase}{m}{
+  \group_begin:
+    \addfontfeature{LetterSpace = 9.0}
+    \MakeUppercaseCopy{#1}
+  \group_end:
+}
+%    \end{macrocode}
+% \end{imacro}
+%
+% \begin{imacro}{\Digits}
+%    Letterspace strings of digits
+%    (good for strings of three or more digits).
+%    \begin{macrocode}
+\NewDocumentCommand{\Digits}{m}{
+  \group_begin:
+    \addfontfeature{LetterSpace = 4.0}
+    #1
+  \group_end:
+}
+%    \end{macrocode}
+% \end{imacro}
+%
+% Small caps should also be letterspaced;
+% this should be specified
+% in the current font's \pkg{fontspec} configuration.
 
 % \section{Vertical Motion}
 %
@@ -862,33 +897,6 @@
 %    Typeset \meta{text} in Swash shape.
 %    \begin{macrocode}
 \DeclareTextFontCommand{\textsw}{\swshape}
-%    \end{macrocode}
-% \end{imacro}
-
-% \begin{imacro}{\MakeUppercase}
-%    Letterspace capitals.
-%    \begin{macrocode}
-\NewCommandCopy\MakeUppercaseCopy\MakeUppercase
-
-\RenewDocumentCommand{\MakeUppercase}{m}{
-  \group_begin:
-    \addfontfeature{LetterSpace = 9.0}
-    \MakeUppercaseCopy{#1}
-  \group_end:
-}
-%    \end{macrocode}
-% \end{imacro}
-%
-% \begin{imacro}{\Digits}
-%    Letterspace strings of digits
-%    (good for strings of three or more digits).
-%    \begin{macrocode}
-\NewDocumentCommand{\Digits}{m}{
-  \group_begin:
-    \addfontfeature{LetterSpace = 4.0}
-    #1
-  \group_end:
-}
 %    \end{macrocode}
 % \end{imacro}
 
