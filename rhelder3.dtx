@@ -57,6 +57,7 @@
 \NewDocumentCommand{\hook}{m}{\texttt{#1}}
 \NewDocumentCommand{\num}{m}{#1}
 \NewDocumentCommand{\opt}{m}{\texttt{#1}}
+\NewDocumentCommand{\ps}{m}{\texttt{#1}}
 \NewDocumentCommand{\unit}{m}{\texttt{#1}}
 
 \begin{document}
@@ -854,6 +855,165 @@
 }
 %    \end{macrocode}
 % \end{imacro}
+
+% \section{Title}
+%
+% \begin{imacro}{\today}
+%    Prints the date of the \LaTeX{} run.
+%    \begin{macrocode}
+\NewDocumentCommand{\today}{}{
+  \if_case:w \c_sys_month_int
+    \or: January
+    \or: February
+    \or: March
+    \or: April
+    \or: May
+    \or: June
+    \or: July
+    \or: August
+    \or: September
+    \or: October
+    \or: November
+    \or: December
+  \fi:\space\int_use:N \c_sys_day_int ,~ \int_use:N \c_sys_year_int
+}
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{variable}{
+%   \g_@@_maketitle_title,
+%   \g_@@_maketitle_author,
+%   \g_@@_maketitle_date,
+% }
+%    Internal variables to be used by \tn{maketitle}.
+%    \begin{macrocode}
+\tl_new:N \g_@@_maketitle_title
+\tl_new:N \g_@@_maketitle_author
+\tl_new:N \g_@@_maketitle_date
+%    \end{macrocode}
+% \end{variable}
+
+% \begin{imacro}{\title, \author, \date}
+%    Store argument in an internal variable.
+%    Store the argument in the traditional \tn{@title},
+%    \tn{@author},
+%    and \tn{@date} defined by the \LaTeX{} format
+%    in case any packages expect them.
+%    \begin{macrocode}
+\RenewDocumentCommand{\title}{m}{
+  \tl_gset:Nn \g_@@_maketitle_title {#1}
+  \cs_gset:Npn \@title {#1}
+}
+\RenewDocumentCommand{\author}{m}{
+  \tl_gset:Nn \g_@@_maketitle_author {#1}
+  \cs_gset:Npn \@author {#1}
+}
+\RenewDocumentCommand{\date}{m}{
+  \tl_gset:Nn \g_@@_maketitle_date {#1}
+  \cs_gset:Npn \@date {#1}
+}
+%    \end{macrocode}
+%    Initialize \cs{g_@@_maketitle_date} and \tn{@date} to today's date.
+%    \begin{macrocode}
+\date{\today}
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{imacro}{\maketitle}
+%    Prints article title at top of (next) page.
+%    Implement using the macros provided by \LaTeX{}
+%    and used by the standard classes,
+%    in case any packages expect these.
+%    \begin{macrocode}
+\NewDocumentCommand{\maketitle}{}{
+  \group_begin:
+%    \end{macrocode}
+%    Use symbols instead of numerals for footnotes in the title.
+%    \begin{macrocode}
+    \cs_set:Npn \thefootnote {\fnsymbol{footnote}}
+    \cs_set_protected:Npn \@makefnmark {
+      \hbox:n {\normalfont\textsuperscript\@thefnmark}
+    }
+%    \end{macrocode}
+%    Start a new page,
+%    prevent floats from appearing on the top of this page,
+%    and print the title.
+%    \begin{macrocode}
+    \newpage
+    \int_gset:Nn \@topnum {0}
+    \@maketitle
+%    \end{macrocode}
+%    Set this page's style to \ps{plain},
+%    and print footnotes with \tn{@thanks}.
+%    \begin{macrocode}
+    \thispagestyle{plain}
+    \@thanks
+%    \end{macrocode}
+%    Close the group
+%    and reset the footnote counter.
+%    Disable commands that only make sense in \tn{maketitle},
+%    like \tn{thanks} and \tn{and}.
+%    Undefine other macros as in the standard classes,
+%    in case any packages expect them to be undefined.
+%    The variables \cs{g_@@_maketitle_title},
+%    \cs{g_@@_maketitle_author},
+%    and \cs{g_@@_maketitle_date}
+%    defined by this class are still available.
+%    \begin{macrocode}
+  \group_end:
+
+  \setcounter{footnote}{0}
+  \cs_undefine:N \maketitle
+  \cs_undefine:N \title
+  \cs_undefine:N \author
+  \cs_undefine:N \date
+  \cs_undefine:N \thanks
+  \cs_undefine:N \and
+  \cs_undefine:N \@maketitle
+  \cs_undefine:N \@title
+  \cs_undefine:N \@author
+  \cs_undefine:N \@date
+  \cs_undefine:N \@thanks
+}
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{lmacro}{\@maketitle}
+%    Handles the actual formatting of the title.
+%    \begin{macrocode}
+\cs_new_protected:Npn \@maketitle {
+  \vbox_set:Nn \l_tmpa_box {
+    \begin{center}
+      \large\normalfont\headfamily
+      \MakeUppercase{\tl_use:N \g_@@_maketitle_title}\par
+      \skip_vertical:n {\c_@@_large_leading_dim}
+      \begin{tabular}[t]{c}
+        \large\normalfont\headfamily
+        \tl_use:N \g_@@_maketitle_author
+      \end{tabular}\par
+      \skip_vertical:n {\c_@@_large_leading_dim - \c_@@_normal_leading_dim}
+      \normalsize\normalfont\headfamily\g_@@_maketitle_date
+    \end{center}
+  }
+
+  \group_begin:
+    \RenewCommandCopy\footnote\thanks
+    \dim_set:Nn \l_tmpa_dim {\box_ht_plus_dp:N \l_tmpa_box}
+    \legacy_if_gset_true:n {@nobreak}
+
+    \rule{0pt}{0pt}
+    \skip_vertical:n {
+      \fp_eval:n {
+        ceil((\l_tmpa_dim) / \baselineskip, 0)
+        - (\l_tmpa_dim) / \baselineskip
+      }\baselineskip
+    }
+    \box_use_drop:N \l_tmpa_box
+    \skip_vertical:n {\baselineskip}
+  \group_end:
+}
+%    \end{macrocode}
+% \end{lmacro}
 
 % \section{Blocks}
 %
