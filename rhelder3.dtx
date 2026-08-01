@@ -52,6 +52,13 @@
   printtype = \textit{counter}
 ]{LaTeXCounter}{lcounter}
 
+\NewDocElement[
+  macrolike,
+  idxgroup = TeX counter,
+  idxtype = counter,
+  printtype = \textit{counter}
+]{TeXCounter}{tcounter}
+
 \NewDocumentCommand{\acro}{m}{\textsc{\MakeLowercase{#1}}}
 \NewDocumentCommand{\bool}{m}{\texttt{#1}}
 \NewDocumentCommand{\hook}{m}{\texttt{#1}}
@@ -716,6 +723,18 @@
 \skip_set:Nn \bigskipamount {2\baselineskip}
 %    \end{macrocode}
 % \end{lskip}
+
+% \subsection{Penalties for Line and Page Breaks}
+%
+% \begin{tcounter}{\@lowpenalty, \@medpenalty, \@highpenalty}
+%    The penalties used by \tn{nopagebreak} and \tn{nolinebreak}.
+%    Set the same values as the standard classes.
+%    \begin{macrocode}
+\int_set:Nn \@lowpenalty {51}
+\int_set:Nn \@medpenalty {151}
+\int_set:Nn \@highpenalty {301}
+%    \end{macrocode}
+% \end{tcounter}
 
 % \section{Paragraphs}
 %
