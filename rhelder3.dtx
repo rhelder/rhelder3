@@ -284,13 +284,11 @@
 
 % \begin{imacro}{\normalsize}
 %    Sets the font size and leading.
-%    Also sets \tn{parindent} equal to one lead,
-%    sets display parameters,
-%    and sets generic list parameters.
+%    Also sets display parameters
+%    and generic list parameters.
 %    \begin{macrocode}
 \RenewDocumentCommand{\normalsize}{}{
   \@setfontsize\normalsize\c_@@_normal_size_dim\c_@@_normal_leading_dim
-  \dim_set_eq:NN \parindent \baselineskip
   \dim_set_eq:NN \abovedisplayskip \baselineskip
   \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
   \dim_set:Nn \abovedisplayshortskip {0pt}
@@ -588,14 +586,11 @@
 
 % \begin{imacro}{\small}
 %    Sets not only font size and leading,
-%    but also \tn{parindent},
-%    display parameters,
-%    and generic list parameters,
+%    display parameters and generic list parameters,
 %    like \tn{normalsize} does.
 %    \begin{macrocode}
 \NewDocumentCommand{\small}{}{
   \@setfontsize\small\c_@@_small_size_dim\c_@@_small_leading_dim
-  \dim_set_eq:NN \parindent \baselineskip
   \dim_set_eq:NN \abovedisplayskip \baselineskip
   \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
   \dim_set:Nn \abovedisplayshortskip {0pt}
@@ -625,13 +620,11 @@
 
 % \begin{imacro}{\footnotesize}
 %    Sets the font size and leading in footnotes.
-%    Also sets \tn{parindent} equal to one lead,
-%    and sets display and generic list parameters,
+%    Also sets display and generic list parameters,
 %    like \tn{normalsize} does.
 %    \begin{macrocode}
 \NewDocumentCommand{\footnotesize}{}{
   \@setfontsize\footnotesize\c_@@_footnote_size_dim\c_@@_footnote_leading_dim
-  \dim_set_eq:NN \parindent \baselineskip
   \dim_set_eq:NN \abovedisplayskip \baselineskip
   \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
   \dim_set:Nn \abovedisplayshortskip {0pt}
@@ -703,7 +696,7 @@
 % \section{Paragraphs}
 %
 % \begin{ldimen}{\parindent}
-%    Initialize \tn{parindent} to one lead.
+%    Set \tn{parindent} to one lead.
 %    \begin{macrocode}
 \dim_set_eq:NN \parindent \baselineskip
 %    \end{macrocode}
