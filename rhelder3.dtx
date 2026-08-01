@@ -513,6 +513,15 @@
 
 % \section{Leading}
 %
+% \begin{ldimen}{\lineskiplimit, \normallineskiplimit}
+%    Always use the current leading to determine the interline glue,
+%    never \tn{lineskip}.
+%    \begin{macrocode}
+\dim_set:Nn \lineskiplimit {-\c_max_dim}
+\dim_set_eq:NN \normallineskiplimit \lineskiplimit
+%    \end{macrocode}
+% \end{ldimen}
+%
 % \begin{variable}{
 %   \c_@@_tiny_size_dim,
 %   \c_@@_tiny_leading_dim,
