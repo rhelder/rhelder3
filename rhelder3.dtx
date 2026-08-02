@@ -1085,6 +1085,21 @@
 %    \end{macrocode}
 % \end{ldimen}
 
+% \begin{tcounter}{\@beginparpenalty, \@endparpenalty}
+%    Encourage page breaking before or after a list or paragraph environment.
+%    \begin{macrocode}
+\int_set:Nn \@beginparpenalty {-\@lowpenalty}
+\int_set:Nn \@endparpenalty {-\@lowpenalty}
+%    \end{macrocode}
+% \end{tcounter}
+%
+% \begin{tcounter}{\@itempenalty}
+%    Encourage page breaking between list items.
+%    \begin{macrocode}
+\int_set:Nn \@itempenalty {-\@lowpenalty}
+%    \end{macrocode}
+% \end{tcounter}
+
 % \begin{lmacro}{\@listi}
 %    Sets parameters for top-level lists.
 %
