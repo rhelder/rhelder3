@@ -1018,9 +1018,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@maketitle {
   \group_begin:
-    \hbox_set:Nn \l_tmpa_box {
-      \normalsize\normalfont\headfamily\g_@@_maketitle_date
-    }
+    \hbox_set:Nn \l_tmpa_box {\normalsize\normalfont\g_@@_maketitle_date}
     \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
 
     \vbox_set:Nn \l_tmpb_box {
