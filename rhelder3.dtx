@@ -1060,9 +1060,23 @@
         \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
       \end{center}
     }
+%    \end{macrocode}
+%    Save the total height of the title
+%    so that we can calculate how much space to insert before the title
+%    such that the total height of the space plus the title
+%    is equal to some integer multiple of \tn{baselineskip}.
+%    \begin{macrocode}
     \dim_set:Nn \l_tmpb_dim {\box_ht_plus_dp:N \l_tmpb_box}
 
     \RenewCommandCopy\footnote\thanks
+%    \end{macrocode}
+%    Set \bool{@nobreak} to \bool{true}
+%    so that no extra space will be inserted
+%    before an immediately subsequent section heading.
+%    (As designed in this document class,
+%    the text following the section heading
+%    will still snap to baseline).
+%    \begin{macrocode}
     \legacy_if_gset_true:n {@nobreak}
 
     \rule{0pt}{0pt}
