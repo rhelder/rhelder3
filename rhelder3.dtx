@@ -1081,10 +1081,8 @@
 
     \rule{0pt}{0pt}
     \skip_vertical:n {
-      \fp_eval:n {
-        ceil((\l_tmpb_dim) / \baselineskip, 0)
-        - (\l_tmpb_dim) / \baselineskip
-      }\baselineskip
+      \fp_eval:n {ceil(\l_tmpb_dim / \baselineskip, 0)}\baselineskip
+      - \l_tmpb_dim
     }
     \box_use_drop:N \l_tmpb_box
     \skip_vertical:n {\baselineskip}
