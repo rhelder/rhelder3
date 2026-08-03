@@ -1017,23 +1017,22 @@
 %    Handles the actual formatting of the title.
 %    \begin{macrocode}
 \cs_new_protected:Npn \@maketitle {
-  \vbox_set:Nn \l_tmpa_box {
-    \begin{center}
-      \large\normalfont\headfamily
-      \MakeUppercase{\tl_use:N \g_@@_maketitle_title}\par
-      \skip_vertical:n {\c_@@_large_leading_dim}
-      \begin{tabular}[t]{c}
-        \large\normalfont\headfamily
-        \tl_use:N \g_@@_maketitle_author
-      \end{tabular}\par
-      \skip_vertical:n {\c_@@_large_leading_dim - \c_@@_normal_leading_dim}
-      \normalsize\normalfont\headfamily\g_@@_maketitle_date
-    \end{center}
-  }
-
   \group_begin:
-    \RenewCommandCopy\footnote\thanks
+    \vbox_set:Nn \l_tmpa_box {
+      \begin{center}
+        \large\normalfont\headfamily
+        \MakeUppercase{\tl_use:N \g_@@_maketitle_title}\par
+        \skip_vertical:n {\c_@@_large_leading_dim}
+        \begin{tabular}[t]{c}
+          \tl_use:N \g_@@_maketitle_author
+        \end{tabular}\par
+        \skip_vertical:n {\c_@@_large_leading_dim - \c_@@_normal_leading_dim}
+        \normalsize\normalfont\headfamily\g_@@_maketitle_date
+      \end{center}
+    }
     \dim_set:Nn \l_tmpa_dim {\box_ht_plus_dp:N \l_tmpa_box}
+
+    \RenewCommandCopy\footnote\thanks
     \legacy_if_gset_true:n {@nobreak}
 
     \rule{0pt}{0pt}
