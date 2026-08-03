@@ -1018,19 +1018,51 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@maketitle {
   \group_begin:
-    \vbox_set:Nn \l_tmpa_box {
+    \hbox_set:Nn \l_tmpa_box {
+      \normalsize\normalfont\headfamily\g_@@_maketitle_date
+    }
+    \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
+
+    \vbox_set:Nn \l_tmpb_box {
       \begin{center}
         \large\normalfont\headfamily
         \MakeUppercase{\tl_use:N \g_@@_maketitle_title}\par
         \skip_vertical:n {\c_@@_large_leading_dim}
+%    \end{macrocode}
+%    If the \env{tabular} environment below contains one row,
+%    its height is equal to the height of \tn{strutbox}
+%    (which is \num{0.7}\tn{baselineskip})
+%    and its depth is equal to the depth of \tn{strutbox}
+%    (which is \num{0.3}\tn{baselineskip}).
+%    If the \env{tabular} environment contains multiple rows,
+%    its height stays the same,
+%    but its depth increases by another \tn{baselineskip}.
+%    Because its depth is larger than \tn{baselineskip},
+%    it is less than \tn{lineskiplimit}
+%    (which is \num{0}\unit{pt}, by default)
+%    from the next box,
+%    which means \tn{lineskip} is inserted
+%    between the \env{tabular} environment and the next box
+%    instead of \tn{baselineskip} minus the depth of the previous box
+%    and minus the height of the next box.
+%    Set \tn{lineskip} so that it is equal
+%    to the \tn{baselineskip} glue that would have been added
+%    if the \env{tabular} environment had consisted of one row:
+%    \tn{baselineskip} minus the height of the next box
+%    (saved in \cs{l_tmpa_dim})
+%    minus what the depth of the previous box would have been
+%    (which is the depth of \tn{strutbox}).
+%    \begin{macrocode}
+        \dim_set:Nn \lineskip {
+          \baselineskip - (\l_tmpa_dim + \box_dp:N \strutbox)
+        }
         \begin{tabular}[t]{c}
           \tl_use:N \g_@@_maketitle_author
         \end{tabular}\par
-        \skip_vertical:n {\c_@@_large_leading_dim - \c_@@_normal_leading_dim}
-        \normalsize\normalfont\headfamily\g_@@_maketitle_date
+        \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
       \end{center}
     }
-    \dim_set:Nn \l_tmpa_dim {\box_ht_plus_dp:N \l_tmpa_box}
+    \dim_set:Nn \l_tmpb_dim {\box_ht_plus_dp:N \l_tmpb_box}
 
     \RenewCommandCopy\footnote\thanks
     \legacy_if_gset_true:n {@nobreak}
@@ -1038,11 +1070,11 @@
     \rule{0pt}{0pt}
     \skip_vertical:n {
       \fp_eval:n {
-        ceil((\l_tmpa_dim) / \baselineskip, 0)
-        - (\l_tmpa_dim) / \baselineskip
+        ceil((\l_tmpb_dim) / \baselineskip, 0)
+        - (\l_tmpb_dim) / \baselineskip
       }\baselineskip
     }
-    \box_use_drop:N \l_tmpa_box
+    \box_use_drop:N \l_tmpb_box
     \skip_vertical:n {\baselineskip}
   \group_end:
 }
