@@ -1249,6 +1249,42 @@
 \NewEnvironmentCopy{quote}{quotation}
 %    \end{macrocode}
 % \end{environment}
+%
+% \begin{imacro}{\abstractname}
+%    Contains the name of the heading preceding the abstract.
+%    \begin{macrocode}
+\cs_new:Npn \abstractname {Abstract}
+%    \end{macrocode}
+% \end{imacro}
+%
+% \begin{environment}{abstract}
+%    Typesets an abstract.
+%    Uses the \env{quotation} environement,
+%    as in the standard classes.
+%    \begin{macrocode}
+\NewDocumentEnvironment{abstract}{+b}{
+  \vbox_set:Nn \l_tmpa_box {
+    \small
+    \begin{center}
+      \itshape\abstractname
+    \end{center}
+    \begin{quotation}
+      #1
+    \end{quotation}
+  }
+
+  \dim_set:Nn \l_tmpa_dim {\box_ht_plus_dp:N \l_tmpa_box}
+  \box_use_drop:N \l_tmpa_box
+  \skip_vertical:n {
+    \fp_eval:n {ceil(\l_tmpa_dim / \baselineskip, 0)}\baselineskip
+    - \l_tmpa_dim
+    + \baselineskip
+  }
+}{
+  \legacy_if_gset_true:n {@nobreak}
+}
+%    \end{macrocode}
+% \end{environment}
 
 % \subsection{\env{enumerate}}
 %
