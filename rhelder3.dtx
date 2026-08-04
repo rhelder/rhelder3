@@ -108,39 +108,16 @@
 %
 % \begin{optionenv}{showgrid}
 %     Boolean (default \bool{false}).
-%     Show baseline grid.
+%     Overlay baseline grid over the page
+%     (or,
+%     more precisely,
+%     over \cs{l_shipout_box}).
 %     Useful for document design.
 %    \begin{macrocode}
 \keys_define:nn {rh}{
   showgrid .code:n =
     \dim_new:N \g_@@_showgrid_to_first_baseline_dim
     \dim_new:N \g_@@_showgrid_yshift_dim
-
-    \cs_new:Npn \@@_showgrid: {
-      \vbox_to_zero:n {
-        \box_move_right:nn {-1in} {
-          \vbox_to_zero:n {
-            \skip_vertical:n {-1in}
-
-            \skip_vertical:n {\g_@@_showgrid_yshift_dim}
-            \vbox_to_zero:n {\hrule height 0.2pt depth 0pt width \paperwidth}
-
-            \group_begin:
-              \dim_set:Nn \g_tmpa_dim {\g_@@_showgrid_yshift_dim}
-
-              \dim_while_do:nNnn {\g_tmpa_dim} < {\paperheight} {
-                \skip_vertical:n {\c_@@_normal_leading_dim}
-                \vbox_to_zero:n {
-                  \hrule height 0.2pt depth 0pt width \paperwidth
-                }
-                \dim_add:Nn \g_tmpa_dim {\c_@@_normal_leading_dim}
-              }
-            \group_end:
-            \vss
-          }
-        }
-      }
-    }
 %    \end{macrocode}
 
 %    Calculate the remainder of dividing
@@ -150,7 +127,9 @@
 %    to align the grid with the first baseline.
 %    \begin{macrocode}
     \hook_gput_code:nnn {begindocument/before}{.}{
-      \dim_set:Nn \g_@@_showgrid_to_first_baseline_dim {\Gm@tmargin + \topskip}
+      \dim_set:Nn \g_@@_showgrid_to_first_baseline_dim {
+        \Gm@tmargin - 1in + \topskip
+      }
       \dim_set:Nn \g_@@_showgrid_yshift_dim {
         \fp_eval:n {
           \g_@@_showgrid_to_first_baseline_dim / \c_@@_normal_leading_dim
@@ -161,13 +140,10 @@
       }
 
       \hook_gput_code:nnn {shipout/before}{.}{
-        \vbox_set:Nn \l_shipout_box {
-          \skip_set:Nn \baselineskip {0pt}
-          \skip_set:Nn \lineskip {0pt}
-          \dim_set:Nn \lineskiplimit {0pt}
-          \@@_showgrid:
-          \box_use_drop:N \l_shipout_box
-        }
+        \ShowGrid
+          {\l_shipout_box}
+          {\c_@@_normal_leading_dim}
+          {\g_@@_showgrid_yshift_dim}
       }
     },
 %    \end{macrocode}
@@ -791,6 +767,50 @@
 %    \end{macrocode}
 % \end{imacro}
 
+% \begin{imacro}{\ShowGrid}
+%    \marg{vbox}\marg{step}\marg{yshift}\\
+%    Overlay \meta{vbox} with horizontal lines separated by \meta{step}.
+%    The first horizontal line is at \marg{yshift} from the top of the box.
+%    \begin{macrocode}
+\NewDocumentCommand{\ShowGrid}{mmm}{
+  \vbox_set:Nn #1 {
+    \skip_set:Nn \baselineskip {0pt}
+    \skip_set:Nn \lineskip {0pt}
+    \dim_set:Nn \lineskiplimit {0pt}
+    \@@_showgrid_vbox_to_zero:n {#1}{#2}{#3}
+    \box_use_drop:N #1
+  }
+}
+
+\cs_new:Npn \@@_showgrid_vbox_to_zero:n #1#2#3 {
+  \vbox_to_zero:n {
+    \vbox_to_zero:n {
+      \skip_vertical:n {#3}
+      \vbox_to_zero:n {
+        \vss
+        \hrule height 0.2pt depth 0pt width \box_wd:N #1
+      }
+
+      \group_begin:
+        \dim_set:Nn \l_tmpa_dim {#3}
+
+        \dim_while_do:nNnn {\l_tmpa_dim} < {\box_ht:N #1} {
+          \skip_vertical:n {#2}
+          \vbox_to_zero:n {
+            \vss
+            \hrule height 0.2pt depth 0pt width \box_wd:N #1
+          }
+          \dim_add:Nn \l_tmpa_dim {#2}
+        }
+      \group_end:
+
+      \vss
+    }
+  }
+}
+%    \end{macrocode}
+% \end{imacro}
+
 % \subsection{Penalties for Line and Page Breaks}
 %
 % \begin{tcounter}{\@lowpenalty, \@medpenalty, \@highpenalty}
@@ -1130,6 +1150,7 @@
       \fp_eval:n {ceil(\l_tmpb_dim / \baselineskip, 0)}\baselineskip
       - \l_tmpb_dim
     }
+    % \ShowGrid{\l_tmpb_box}{\c_@@_large_leading_dim}{6.156pt}
     \box_use_drop:N \l_tmpb_box
     \skip_vertical:n {\baselineskip}
   \group_end:
