@@ -13112,7 +13112,7 @@ Completed box being shipped out [5]
 ....\hbox(0.0+0.0)x336.40823, direction TLT
 ..\glue 0.0
 ..\glue(\lineskip) 0.0
-..\vbox(567.0+0.0)x336.40823, glue set 0.602, direction TLT
+..\vbox(567.0+0.0)x336.40823, glue set 0.7224, direction TLT
 ...\glue(\topskip) 3.528
 ...\hbox(8.472+3.42)x336.40823, glue set - 0.00441, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 d
@@ -13414,7 +13414,8 @@ Completed box being shipped out [5]
 ....\glue(\rightskip) 0.0
 ...\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {2}Nested Sections}{\thepage }{}\protected@file@percent }}
 ...\penalty 10000
-...\glue 12.0 plus 3.0
+...\glue 12.0
+...\glue 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.16199

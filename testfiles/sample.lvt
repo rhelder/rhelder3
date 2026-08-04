@@ -39,6 +39,7 @@
 \autokant*\unskip\footnote{\autokant[1][1]}
 
 \section{Nested Sections}
+\unskip\vspace{12pt}
 \subsection{Nested Subections}
 \subsubsection{Nested Subsubsections}
 
