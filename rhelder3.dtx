@@ -980,8 +980,13 @@
 %    Use symbols instead of numerals for footnotes in the title.
 %    \begin{macrocode}
     \cs_set:Npn \thefootnote {\fnsymbol{footnote}}
+%    \end{macrocode}
+%    Typeset the footnote marks in a box of zero width
+%    that protrudes to the right of the insertion point,
+%    so that the centering of authors' names looks better.
+%    \begin{macrocode}
     \cs_set_protected:Npn \@makefnmark {
-      \hbox:n {\normalfont\textsuperscript\@thefnmark}
+      \hbox_overlap_right:n {\normalfont\textsuperscript\@thefnmark}
     }
 %    \end{macrocode}
 %    Start a new page,
