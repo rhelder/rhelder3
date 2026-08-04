@@ -57,7 +57,7 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x336.40823, direction TLT
 ..\glue 0.0
 ..\glue(\lineskip) 0.0
-..\vbox(567.0+0.0)x336.40823, glue set 0.17667, direction TLT
+..\vbox(567.0+0.0)x336.40823, glue set 0.17334, direction TLT
 ...\glue(\topskip) 12.0
 ...\hbox(0.0+0.0)x336.40823, glue set 321.40823fil, direction TLT
 ....\localpar
@@ -1543,7 +1543,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0
 ....\penalty -51
 ....\glue 13.0
-...\glue 20.014
+...\glue 5.014
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.964
@@ -2423,6 +2423,105 @@ Completed box being shipped out [1]
 ....\TU/EBGaramond(0)/m/n/12 r
 ....\kern-0.204 (right margin)
 ....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 3.108
+...\hbox(8.472+3.48)x336.40823, glue set 0.01163, direction TLT
+....\TU/EBGaramond(0)/m/n/12 f
+....\kern-0.3 (font)
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 c
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 u
+....\TU/EBGaramond(0)/m/n/12 l
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 s
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 a
+....\kern-0.24 (font)
+....\TU/EBGaramond(0)/m/n/12 v
+....\kern-0.3 (font)
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 l
+....\TU/EBGaramond(0)/m/n/12 y
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 n
+....\TU/EBGaramond(0)/m/n/12 g
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 b
+....\TU/EBGaramond(0)/m/n/12 e
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 f
+....\kern-0.3 (font)
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 r
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 m
+....\TU/EBGaramond(0)/m/n/12 ,
+....\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 n
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 c
+....\kern-0.18 (font)
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 s
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 f
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 I
+....\TU/EBGaramond(0)/m/n/12 d
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 l
+....\TU/EBGaramond(0)/m/n/12 ,
+....\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 A
+....\TU/EBGaramond(0)/m/n/12 n
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 i
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 n
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 m
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 s
+....\TU/EBGaramond(0)/m/n/12 ;
+....\glue(\spaceskip) 2.4 plus 1.79999 minus 0.53333
+....\TU/EBGaramond(0)/m/n/12 s
+....\TU/EBGaramond(0)/m/n/12 o
+....\kern-0.3 (font)
+....\TU/EBGaramond(0)/m/n/12 ,
+....\kern-1.38 (right margin)
+....\glue(\rightskip) 0.0
 ...\glue 18.0 plus 15.0
 ...\hbox(8.39996+2.9)x336.40823, glue set 0.51804, direction TLT
 ....\localpar
@@ -2567,106 +2666,7 @@ Completed box being shipped out [2]
 ..\glue 0.0
 ..\glue(\lineskip) 0.0
 ..\vbox(567.0+0.0)x336.40823, direction TLT
-...\glue(\topskip) 3.528
-...\hbox(8.472+3.48)x336.40823, glue set 0.01163, direction TLT
-....\TU/EBGaramond(0)/m/n/12 f
-....\kern-0.3 (font)
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 c
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 u
-....\TU/EBGaramond(0)/m/n/12 l
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 s
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 a
-....\kern-0.24 (font)
-....\TU/EBGaramond(0)/m/n/12 v
-....\kern-0.3 (font)
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 l
-....\TU/EBGaramond(0)/m/n/12 y
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 n
-....\TU/EBGaramond(0)/m/n/12 g
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 b
-....\TU/EBGaramond(0)/m/n/12 e
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 f
-....\kern-0.3 (font)
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 r
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 m
-....\TU/EBGaramond(0)/m/n/12 ,
-....\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 n
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 c
-....\kern-0.18 (font)
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 s
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 f
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 I
-....\TU/EBGaramond(0)/m/n/12 d
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 l
-....\TU/EBGaramond(0)/m/n/12 ,
-....\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 A
-....\TU/EBGaramond(0)/m/n/12 n
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 i
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 n
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 m
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 s
-....\TU/EBGaramond(0)/m/n/12 ;
-....\glue(\spaceskip) 2.4 plus 1.79999 minus 0.53333
-....\TU/EBGaramond(0)/m/n/12 s
-....\TU/EBGaramond(0)/m/n/12 o
-....\kern-0.3 (font)
-....\TU/EBGaramond(0)/m/n/12 ,
-....\kern-1.38 (right margin)
-....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 3.06
+...\glue(\topskip) 3.54
 ...\hbox(8.46+3.444)x336.40823, glue set 0.00975, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 t
 ....\TU/EBGaramond(0)/m/n/12 h
@@ -6042,28 +6042,7 @@ Completed box being shipped out [2]
 ....\TU/EBGaramond(0)/m/n/12 l
 ....\TU/EBGaramond(0)/m/n/12 e
 ....\glue(\rightskip) 0.0
-...\glue -3.48
-..\glue(\baselineskip) 40.032
-..\hbox(4.968+0.048)x336.40823, direction TLT
-...\hbox(4.968+0.048)x336.40823, glue set 165.56412fil, direction TLT
-....\glue 0.0 plus 1.0fil
-....\TU/EBGaramond(0)/m/n/12 󰋖
-....\glue 0.0 plus 1.0fil
-Package microtype Info: Character `156' is missing
-(microtype)             in font `TU/EBGaramond(0)/m/it/12'.
-(microtype)             Ignoring protrusion settings for this character.
-Completed box being shipped out [3]
-\vbox(628.7566+2.28)x403.08162, direction TLT
-.\glue 16.7566
-.\vbox(612.0+2.28)x336.40823, shifted 66.67339, direction TLT
-..\vbox(0.0+0.0)x336.40823, direction TLT
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x336.40823, direction TLT
-....\hbox(0.0+0.0)x336.40823, direction TLT
-..\glue 0.0
-..\glue(\lineskip) 0.0
-..\vbox(567.0+0.0)x336.40823, direction TLT
-...\glue(\topskip) 3.528
+...\glue(\baselineskip) 3.048
 ...\hbox(8.472+3.48)x336.40823, glue set 0.13834, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 t
 ....\TU/EBGaramond(0)/m/n/12 o
@@ -6155,7 +6134,28 @@ Completed box being shipped out [3]
 ....\TU/EBGaramond(0)/m/n/12 s
 ....\TU/EBGaramond(0)/m/n/12 s
 ....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 3.048
+...\glue -3.48
+..\glue(\baselineskip) 40.032
+..\hbox(4.968+0.048)x336.40823, direction TLT
+...\hbox(4.968+0.048)x336.40823, glue set 165.56412fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\TU/EBGaramond(0)/m/n/12 󰋖
+....\glue 0.0 plus 1.0fil
+Package microtype Info: Character `156' is missing
+(microtype)             in font `TU/EBGaramond(0)/m/it/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Completed box being shipped out [3]
+\vbox(628.7566+2.28)x403.08162, direction TLT
+.\glue 16.7566
+.\vbox(612.0+2.28)x336.40823, shifted 66.67339, direction TLT
+..\vbox(0.0+0.0)x336.40823, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x336.40823, direction TLT
+....\hbox(0.0+0.0)x336.40823, direction TLT
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(567.0+0.0)x336.40823, direction TLT
+...\glue(\topskip) 3.528
 ...\hbox(8.472+3.42)x336.40823, glue set 0.17984, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 i
 ....\TU/EBGaramond(0)/m/n/12 n
@@ -9481,44 +9481,7 @@ Completed box being shipped out [3]
 ....\TU/EBGaramond(0)/m/n/12 h
 ....\TU/EBGaramond(0)/m/n/12 e
 ....\glue(\rightskip) 0.0
-...\glue -3.48
-..\glue(\baselineskip) 40.044
-..\hbox(4.956+2.28)x336.40823, direction TLT
-...\hbox(4.956+2.28)x336.40823, glue set 165.9721fil, direction TLT
-....\glue 0.0 plus 1.0fil
-....\TU/EBGaramond(0)/m/n/12 󰋗
-....\glue 0.0 plus 1.0fil
-Package fontspec Info: 
-(fontspec)             Font family 'EBGaramond(2)' created for font 'EBGaramond' with options [Ligatures=TeX,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Numbers={Proportional,OldStyle},FontFace={m}{sw}{Font=*-Italic,Style=Swash},FontFace={b}{sw}{Font=*-SemiBoldItalic,Style=Swash},FontFace={m}{scsw}{Font=*-Italic,Letters=SmallCaps,Style=Swash},SmallCapsFeatures={Letters=UppercaseSmallCaps,LetterSpace=2.0},VerticalPosition=Superior].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS series/shapes:
-(fontspec)              
-(fontspec)             - 'swash' (m/sw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;+swsh;"
-(fontspec)             -  (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
-(fontspec)             - 'bold swash' (b/sw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;+swsh;"
-(fontspec)             -  (b/scsw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
-(fontspec)             - (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;+smcp;+swsh;"
-(fontspec)             -  (m/scscsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
-(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
-(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
-(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
-Completed box being shipped out [4]
-\vbox(628.7566+2.172)x403.08162, direction TLT
-.\glue 16.7566
-.\vbox(612.0+2.172)x336.40823, shifted 66.67339, direction TLT
-..\vbox(0.0+0.0)x336.40823, direction TLT
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x336.40823, direction TLT
-....\hbox(0.0+0.0)x336.40823, direction TLT
-..\glue 0.0
-..\glue(\lineskip) 0.0
-..\vbox(567.0+0.0)x336.40823, direction TLT
-...\glue(\topskip) 3.528
+...\glue(\baselineskip) 3.048
 ...\hbox(8.472+3.42)x336.40823, glue set 0.00899, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 s
 ....\TU/EBGaramond(0)/m/n/12 e
@@ -9628,7 +9591,44 @@ Completed box being shipped out [4]
 ....\TU/EBGaramond(0)/m/n/12 o
 ....\TU/EBGaramond(0)/m/n/12 f
 ....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 3.108
+...\glue -3.42
+..\glue(\baselineskip) 40.044
+..\hbox(4.956+2.28)x336.40823, direction TLT
+...\hbox(4.956+2.28)x336.40823, glue set 165.9721fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\TU/EBGaramond(0)/m/n/12 󰋗
+....\glue 0.0 plus 1.0fil
+Package fontspec Info: 
+(fontspec)             Font family 'EBGaramond(2)' created for font 'EBGaramond' with options [Ligatures=TeX,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Numbers={Proportional,OldStyle},FontFace={m}{sw}{Font=*-Italic,Style=Swash},FontFace={b}{sw}{Font=*-SemiBoldItalic,Style=Swash},FontFace={m}{scsw}{Font=*-Italic,Letters=SmallCaps,Style=Swash},SmallCapsFeatures={Letters=UppercaseSmallCaps,LetterSpace=2.0},VerticalPosition=Superior].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'swash' (m/sw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;+swsh;"
+(fontspec)             -  (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
+(fontspec)             - 'bold swash' (b/sw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;+swsh;"
+(fontspec)             -  (b/scsw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
+(fontspec)             - (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;+smcp;+swsh;"
+(fontspec)             -  (m/scscsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
+Completed box being shipped out [4]
+\vbox(628.7566+2.172)x403.08162, direction TLT
+.\glue 16.7566
+.\vbox(612.0+2.172)x336.40823, shifted 66.67339, direction TLT
+..\vbox(0.0+0.0)x336.40823, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x336.40823, direction TLT
+....\hbox(0.0+0.0)x336.40823, direction TLT
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(567.0+0.0)x336.40823, direction TLT
+...\glue(\topskip) 3.528
 ...\hbox(8.472+3.48)x336.40823, glue set - 0.0073, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 t
 ....\TU/EBGaramond(0)/m/n/12 h
@@ -13001,25 +13001,7 @@ Completed box being shipped out [4]
 ....\TU/EBGaramond(0)/m/n/12 e
 ....\TU/EBGaramond(0)/m/n/12 n
 ....\glue(\rightskip) 0.0
-...\glue -3.42
-..\glue(\baselineskip) 39.948
-..\hbox(5.052+2.172)x336.40823, direction TLT
-...\hbox(5.052+2.172)x336.40823, glue set 165.2521fil, direction TLT
-....\glue 0.0 plus 1.0fil
-....\TU/EBGaramond(0)/m/n/12 󰋘
-....\glue 0.0 plus 1.0fil
-Completed box being shipped out [5]
-\vbox(628.7566+2.268)x403.08162, direction TLT
-.\glue 16.7566
-.\vbox(612.0+2.268)x336.40823, shifted 66.67339, direction TLT
-..\vbox(0.0+0.0)x336.40823, direction TLT
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x336.40823, direction TLT
-....\hbox(0.0+0.0)x336.40823, direction TLT
-..\glue 0.0
-..\glue(\lineskip) 0.0
-..\vbox(567.0+0.0)x336.40823, glue set 0.50667, direction TLT
-...\glue(\topskip) 3.528
+...\glue(\baselineskip) 3.108
 ...\hbox(8.472+3.42)x336.40823, glue set - 0.11674, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 a
 ....\TU/EBGaramond(0)/m/n/12 b
@@ -13116,7 +13098,25 @@ Completed box being shipped out [5]
 ....\TU/EBGaramond(0)/m/n/12 o
 ....\TU/EBGaramond(0)/m/n/12 f
 ....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 3.108
+...\glue -3.42
+..\glue(\baselineskip) 39.948
+..\hbox(5.052+2.172)x336.40823, direction TLT
+...\hbox(5.052+2.172)x336.40823, glue set 165.2521fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\TU/EBGaramond(0)/m/n/12 󰋘
+....\glue 0.0 plus 1.0fil
+Completed box being shipped out [5]
+\vbox(628.7566+2.268)x403.08162, direction TLT
+.\glue 16.7566
+.\vbox(612.0+2.268)x336.40823, shifted 66.67339, direction TLT
+..\vbox(0.0+0.0)x336.40823, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x336.40823, direction TLT
+....\hbox(0.0+0.0)x336.40823, direction TLT
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(567.0+0.0)x336.40823, glue set 0.602, direction TLT
+...\glue(\topskip) 3.528
 ...\hbox(8.472+3.42)x336.40823, glue set - 0.00441, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 d
 ....\TU/EBGaramond(0)/m/n/12 e
@@ -15568,6 +15568,101 @@ Completed box being shipped out [5]
 ....\TU/EBGaramond(0)/m/n/12 h
 ....\TU/EBGaramond(0)/m/n/12 e
 ....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 3.06
+...\hbox(8.46+1.764)x336.40823, glue set 0.14676, direction TLT
+....\TU/EBGaramond(0)/m/n/12 n
+....\TU/EBGaramond(0)/m/n/12 e
+....\kern-0.18 (font)
+....\TU/EBGaramond(0)/m/n/12 x
+....\TU/EBGaramond(0)/m/n/12 t
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 s
+....\TU/EBGaramond(0)/m/n/12 e
+....\kern-0.12 (font)
+....\TU/EBGaramond(0)/m/n/12 c
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 n
+....\TU/EBGaramond(0)/m/n/12 .
+....\glue(\spaceskip) 3.2 plus 3.59999 minus 0.26666
+....\TU/EBGaramond(0)/m/n/12 S
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 l
+....\TU/EBGaramond(0)/m/n/12 l
+....\TU/EBGaramond(0)/m/n/12 ,
+....\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 s
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 t
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 r
+....\TU/EBGaramond(0)/m/n/12 u
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 t
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 r
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 n
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 s
+....\TU/EBGaramond(0)/m/n/12 c
+....\kern-0.24 (font)
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 n
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 d
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 n
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 l
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 s
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 c
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 c
+....\kern-0.18 (font)
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 n
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 n
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 t
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 k
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\rightskip) 0.0
 ...\glue 18.0 plus 15.0
 ...\hbox(8.39996+2.9)x336.40823, glue set - 0.77501, direction TLT
 ....\localpar
@@ -16024,102 +16119,7 @@ Completed box being shipped out [6]
 ..\glue 0.0
 ..\glue(\lineskip) 0.0
 ..\vbox(567.0+0.0)x336.40823, direction TLT
-...\glue(\topskip) 3.54
-...\hbox(8.46+1.764)x336.40823, glue set 0.14676, direction TLT
-....\TU/EBGaramond(0)/m/n/12 n
-....\TU/EBGaramond(0)/m/n/12 e
-....\kern-0.18 (font)
-....\TU/EBGaramond(0)/m/n/12 x
-....\TU/EBGaramond(0)/m/n/12 t
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 s
-....\TU/EBGaramond(0)/m/n/12 e
-....\kern-0.12 (font)
-....\TU/EBGaramond(0)/m/n/12 c
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 n
-....\TU/EBGaramond(0)/m/n/12 .
-....\glue(\spaceskip) 3.2 plus 3.59999 minus 0.26666
-....\TU/EBGaramond(0)/m/n/12 S
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 l
-....\TU/EBGaramond(0)/m/n/12 l
-....\TU/EBGaramond(0)/m/n/12 ,
-....\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 s
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 t
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 r
-....\TU/EBGaramond(0)/m/n/12 u
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 t
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 r
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 n
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 s
-....\TU/EBGaramond(0)/m/n/12 c
-....\kern-0.24 (font)
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 n
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 d
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 n
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 l
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 s
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 c
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 c
-....\kern-0.18 (font)
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 n
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 n
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 t
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 k
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 4.76399
+...\glue(\topskip) 3.528
 ...\hbox(8.472+3.444)x336.40823, glue set - 0.00644, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 a
 ....\TU/EBGaramond(0)/m/n/12 c
@@ -19154,44 +19154,7 @@ Completed box being shipped out [6]
 ....\TU/EBGaramond(0)/m/n/12 y
 ....\kern-0.264 (right margin)
 ....\glue(\rightskip) 0.0
-...\glue -3.48
-..\glue(\baselineskip) 37.308
-..\hbox(7.692+0.168)x336.40823, direction TLT
-...\hbox(7.692+0.168)x336.40823, glue set 165.27011fil, direction TLT
-....\glue 0.0 plus 1.0fil
-....\TU/EBGaramond(0)/m/n/12 󰋚
-....\glue 0.0 plus 1.0fil
-Package fontspec Info: 
-(fontspec)             Font family 'EBGaramond(3)' created for font 'EBGaramond' with options [Ligatures=TeX,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Numbers={Proportional,OldStyle},FontFace={m}{sw}{Font=*-Italic,Style=Swash},FontFace={b}{sw}{Font=*-SemiBoldItalic,Style=Swash},FontFace={m}{scsw}{Font=*-Italic,Letters=SmallCaps,Style=Swash},SmallCapsFeatures={Letters=UppercaseSmallCaps,LetterSpace=2.0},Numbers=Tabular].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS series/shapes:
-(fontspec)              
-(fontspec)             - 'swash' (m/sw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+swsh;"
-(fontspec)             -  (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
-(fontspec)             - 'bold swash' (b/sw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+swsh;"
-(fontspec)             -  (b/scsw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
-(fontspec)             - (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+smcp;+swsh;"
-(fontspec)             -  (m/scscsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
-(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
-(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
-(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
-Completed box being shipped out [7]
-\vbox(628.7566+2.316)x403.08162, direction TLT
-.\glue 16.7566
-.\vbox(612.0+2.316)x336.40823, shifted 66.67339, direction TLT
-..\vbox(0.0+0.0)x336.40823, direction TLT
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x336.40823, direction TLT
-....\hbox(0.0+0.0)x336.40823, direction TLT
-..\glue 0.0
-..\glue(\lineskip) 0.0
-..\vbox(567.0+0.0)x336.40823, direction TLT
-...\glue(\topskip) 3.528
+...\glue(\baselineskip) 3.048
 ...\hbox(8.472+3.42)x336.40823, glue set 0.09384, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 r
 ....\TU/EBGaramond(0)/m/n/12 e
@@ -19300,7 +19263,44 @@ Completed box being shipped out [7]
 ....\TU/EBGaramond(0)/m/n/12 a
 ....\TU/EBGaramond(0)/m/n/12 l
 ....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 3.12
+...\glue -3.42
+..\glue(\baselineskip) 37.308
+..\hbox(7.692+0.168)x336.40823, direction TLT
+...\hbox(7.692+0.168)x336.40823, glue set 165.27011fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\TU/EBGaramond(0)/m/n/12 󰋚
+....\glue 0.0 plus 1.0fil
+Package fontspec Info: 
+(fontspec)             Font family 'EBGaramond(3)' created for font 'EBGaramond' with options [Ligatures=TeX,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Numbers={Proportional,OldStyle},FontFace={m}{sw}{Font=*-Italic,Style=Swash},FontFace={b}{sw}{Font=*-SemiBoldItalic,Style=Swash},FontFace={m}{scsw}{Font=*-Italic,Letters=SmallCaps,Style=Swash},SmallCapsFeatures={Letters=UppercaseSmallCaps,LetterSpace=2.0},Numbers=Tabular].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS series/shapes:
+(fontspec)              
+(fontspec)             - 'swash' (m/sw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+swsh;"
+(fontspec)             -  (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
+(fontspec)             - 'bold swash' (b/sw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+swsh;"
+(fontspec)             -  (b/scsw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
+(fontspec)             - (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+smcp;+swsh;"
+(fontspec)             -  (m/scscsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
+Completed box being shipped out [7]
+\vbox(628.7566+2.316)x403.08162, direction TLT
+.\glue 16.7566
+.\vbox(612.0+2.316)x336.40823, shifted 66.67339, direction TLT
+..\vbox(0.0+0.0)x336.40823, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x336.40823, direction TLT
+....\hbox(0.0+0.0)x336.40823, direction TLT
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(567.0+0.0)x336.40823, direction TLT
+...\glue(\topskip) 3.54
 ...\hbox(8.46+3.444)x336.40823, glue set - 0.01285, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 s
 ....\TU/EBGaramond(0)/m/n/12 c
@@ -22105,25 +22105,7 @@ Completed box being shipped out [7]
 ....\TU/EBGaramond(0)/m/n/12 ,
 ....\kern-1.38 (right margin)
 ....\glue(\rightskip) 0.0
-...\glue -3.444
-..\glue(\baselineskip) 40.116
-..\hbox(4.884+2.316)x336.40823, direction TLT
-...\hbox(4.884+2.316)x336.40823, glue set 165.44412fil, direction TLT
-....\glue 0.0 plus 1.0fil
-....\TU/EBGaramond(0)/m/n/12 󰋛
-....\glue 0.0 plus 1.0fil
-Completed box being shipped out [8]
-\vbox(628.7566+0.156)x403.08162, direction TLT
-.\glue 16.7566
-.\vbox(612.0+0.156)x336.40823, shifted 66.67339, direction TLT
-..\vbox(0.0+0.0)x336.40823, direction TLT
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x336.40823, direction TLT
-....\hbox(0.0+0.0)x336.40823, direction TLT
-..\glue 0.0
-..\glue(\lineskip) 0.0
-..\vbox(567.0+0.0)x336.40823, direction TLT
-...\glue(\topskip) 3.528
+...\glue(\baselineskip) 3.084
 ...\hbox(8.472+3.48)x336.40823, glue set - 0.01314, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 o
 ....\TU/EBGaramond(0)/m/n/12 u
@@ -22234,7 +22216,26 @@ Completed box being shipped out [8]
 ....\TU/EBGaramond(0)/m/n/12 a
 ....\TU/EBGaramond(0)/m/n/12 l
 ....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 3.048
+...\glue -3.48
+..\glue(\baselineskip) 40.116
+..\hbox(4.884+2.316)x336.40823, direction TLT
+...\hbox(4.884+2.316)x336.40823, glue set 165.44412fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\TU/EBGaramond(0)/m/n/12 󰋛
+....\glue 0.0 plus 1.0fil
+Package widows-and-orphans Warning: Hyphen in last line of page 8
+Completed box being shipped out [8]
+\vbox(628.7566+0.156)x403.08162, direction TLT
+.\glue 16.7566
+.\vbox(612.0+0.156)x336.40823, shifted 66.67339, direction TLT
+..\vbox(0.0+0.0)x336.40823, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x336.40823, direction TLT
+....\hbox(0.0+0.0)x336.40823, direction TLT
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(567.0+0.0)x336.40823, direction TLT
+...\glue(\topskip) 3.528
 ...\hbox(8.472+3.48)x336.40823, glue set 0.11882, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 j
 ....\TU/EBGaramond(0)/m/n/12 u
@@ -25250,25 +25251,7 @@ Completed box being shipped out [8]
 ....\TU/EBGaramond(0)/m/n/12 y
 ....\kern-0.264 (right margin)
 ....\glue(\rightskip) 0.0
-...\glue -3.48
-..\glue(\baselineskip) 37.932
-..\hbox(7.068+0.156)x336.40823, direction TLT
-...\hbox(7.068+0.156)x336.40823, glue set 165.49213fil, direction TLT
-....\glue 0.0 plus 1.0fil
-....\TU/EBGaramond(0)/m/n/12 󰋜
-....\glue 0.0 plus 1.0fil
-Completed box being shipped out [9]
-\vbox(628.7566+2.232)x403.08162, direction TLT
-.\glue 16.7566
-.\vbox(612.0+2.232)x336.40823, shifted 66.67339, direction TLT
-..\vbox(0.0+0.0)x336.40823, direction TLT
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x336.40823, direction TLT
-....\hbox(0.0+0.0)x336.40823, direction TLT
-..\glue 0.0
-..\glue(\lineskip) 0.0
-..\vbox(567.0+0.0)x336.40823, direction TLT
-...\glue(\topskip) 3.528
+...\glue(\baselineskip) 3.048
 ...\hbox(8.472+3.48)x336.40823, glue set 0.01279, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 p
 ....\kern-0.24 (font)
@@ -25373,8 +25356,25 @@ Completed box being shipped out [9]
 ....\kern-1.644 (right margin)
 ....\discretionary (penalty 50)
 ....\glue(\rightskip) 0.0
-...\penalty 100
-...\glue(\baselineskip) 3.06
+...\glue -3.48
+..\glue(\baselineskip) 37.932
+..\hbox(7.068+0.156)x336.40823, direction TLT
+...\hbox(7.068+0.156)x336.40823, glue set 165.49213fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\TU/EBGaramond(0)/m/n/12 󰋜
+....\glue 0.0 plus 1.0fil
+Completed box being shipped out [9]
+\vbox(628.7566+2.232)x403.08162, direction TLT
+.\glue 16.7566
+.\vbox(612.0+2.232)x336.40823, shifted 66.67339, direction TLT
+..\vbox(0.0+0.0)x336.40823, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x336.40823, direction TLT
+....\hbox(0.0+0.0)x336.40823, direction TLT
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(567.0+0.0)x336.40823, direction TLT
+...\glue(\topskip) 3.54
 ...\hbox(8.46+3.48)x336.40823, glue set 0.03003, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 d
 ....\TU/EBGaramond(0)/m/n/12 e
@@ -28238,25 +28238,7 @@ Completed box being shipped out [9]
 ....\TU/EBGaramond(0)/m/n/12 o
 ....\TU/EBGaramond(0)/m/n/12 f
 ....\glue(\rightskip) 0.0
-...\glue -3.42
-..\glue(\baselineskip) 40.032
-..\hbox(4.968+2.232)x336.40823, direction TLT
-...\hbox(4.968+2.232)x336.40823, glue set 165.40811fil, direction TLT
-....\glue 0.0 plus 1.0fil
-....\TU/EBGaramond(0)/m/n/12 󰋝
-....\glue 0.0 plus 1.0fil
-Completed box being shipped out [10]
-\vbox(628.7566+0.18)x403.08162, direction TLT
-.\glue 16.7566
-.\vbox(612.0+0.18)x336.40823, shifted 66.67339, direction TLT
-..\vbox(0.0+0.0)x336.40823, direction TLT
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x336.40823, direction TLT
-....\hbox(0.0+0.0)x336.40823, direction TLT
-..\glue 0.0
-..\glue(\lineskip) 0.0
-..\vbox(567.0+0.0)x336.40823, direction TLT
-...\glue(\topskip) 3.528
+...\glue(\baselineskip) 3.108
 ...\hbox(8.472+3.42)x336.40823, glue set 0.00137, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 a
 ....\TU/EBGaramond(0)/m/n/12 n
@@ -28361,7 +28343,25 @@ Completed box being shipped out [10]
 ....\TU/EBGaramond(0)/m/n/12 k
 ....\TU/EBGaramond(0)/m/n/12 e
 ....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 3.108
+...\glue -3.42
+..\glue(\baselineskip) 40.032
+..\hbox(4.968+2.232)x336.40823, direction TLT
+...\hbox(4.968+2.232)x336.40823, glue set 165.40811fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\TU/EBGaramond(0)/m/n/12 󰋝
+....\glue 0.0 plus 1.0fil
+Completed box being shipped out [10]
+\vbox(628.7566+0.18)x403.08162, direction TLT
+.\glue 16.7566
+.\vbox(612.0+0.18)x336.40823, shifted 66.67339, direction TLT
+..\vbox(0.0+0.0)x336.40823, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x336.40823, direction TLT
+....\hbox(0.0+0.0)x336.40823, direction TLT
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(567.0+0.0)x336.40823, direction TLT
+...\glue(\topskip) 3.528
 ...\hbox(8.472+3.48)x336.40823, glue set 0.58702, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 t
 ....\TU/EBGaramond(0)/m/n/12 h
@@ -31529,27 +31529,7 @@ Completed box being shipped out [10]
 ....\TU/EBGaramond(0)/m/n/12 t
 ....\kern-0.264 (right margin)
 ....\glue(\rightskip) 0.0
-...\glue -3.42
-..\glue(\baselineskip) 40.044
-..\hbox(4.956+0.18)x336.40823, direction TLT
-...\hbox(4.956+0.18)x336.40823, glue set 163.42812fil, direction TLT
-....\glue 0.0 plus 1.0fil
-....\TU/EBGaramond(0)/m/n/12 󰋕
-....\TU/EBGaramond(0)/m/n/12 󰋔
-....\glue 0.0 plus 1.0fil
-Package widows-and-orphans Warning: Orphan on page 11
-Completed box being shipped out [11]
-\vbox(628.7566+0.036)x403.08162, direction TLT
-.\glue 16.7566
-.\vbox(612.0+0.036)x336.40823, shifted 66.67339, direction TLT
-..\vbox(0.0+0.0)x336.40823, direction TLT
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x336.40823, direction TLT
-....\hbox(0.0+0.0)x336.40823, direction TLT
-..\glue 0.0
-..\glue(\lineskip) 0.0
-..\vbox(567.0+0.0)x336.40823, glue set 0.412, direction TLT
-...\glue(\topskip) 3.528
+...\glue(\baselineskip) 3.108
 ...\hbox(8.472+2.568)x336.40823, glue set 0.10811, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 o
 ....\TU/EBGaramond(0)/m/n/12 f
@@ -31645,7 +31625,26 @@ Completed box being shipped out [11]
 ....\TU/EBGaramond(0)/m/n/12 i
 ....\TU/EBGaramond(0)/m/n/12 n
 ....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 3.972
+...\glue -2.568
+..\glue(\baselineskip) 40.044
+..\hbox(4.956+0.18)x336.40823, direction TLT
+...\hbox(4.956+0.18)x336.40823, glue set 163.42812fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\TU/EBGaramond(0)/m/n/12 󰋕
+....\TU/EBGaramond(0)/m/n/12 󰋔
+....\glue 0.0 plus 1.0fil
+Completed box being shipped out [11]
+\vbox(628.7566+0.036)x403.08162, direction TLT
+.\glue 16.7566
+.\vbox(612.0+0.036)x336.40823, shifted 66.67339, direction TLT
+..\vbox(0.0+0.0)x336.40823, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x336.40823, direction TLT
+....\hbox(0.0+0.0)x336.40823, direction TLT
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(567.0+0.0)x336.40823, glue set 0.412, direction TLT
+...\glue(\topskip) 3.54
 ...\hbox(8.46+3.48)x336.40823, glue set 0.4109, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 a
 ....\TU/EBGaramond(0)/m/n/12 l
@@ -34252,6 +34251,104 @@ Completed box being shipped out [11]
 ....\TU/EBGaramond(0)/m/n/12 i
 ....\TU/EBGaramond(0)/m/n/12 s
 ....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 3.108
+...\hbox(8.472+3.42)x336.40823, glue set - 0.0016, direction TLT
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 s
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 c
+....\kern-0.18 (font)
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 s
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 )
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 w
+....\kern-0.3 (font)
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 u
+....\TU/EBGaramond(0)/m/n/12 l
+....\TU/EBGaramond(0)/m/n/12 d
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 r
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 b
+....\kern-0.3 (font)
+....\TU/EBGaramond(0)/m/n/12 y
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 b
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 m
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 d
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 o
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 c
+....\kern-0.24 (font)
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 n
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 r
+....\TU/EBGaramond(0)/m/n/12 a
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 d
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 c
+....\TU/EBGaramond(0)/m/n/12 t
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 d
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 s
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 c
+....\TU/EBGaramond(0)/m/n/12 i
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 p
+....\kern-0.18 (font)
+....\TU/EBGaramond(0)/m/n/12 l
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 n
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 f
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 p
+....\TU/EBGaramond(0)/m/n/12 r
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 c
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 i
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 c
+....\kern-0.18 (font)
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 l
+....\glue(\rightskip) 0.0
 ...\glue 18.0 plus 15.0
 ...\hbox(8.39996+2.9)x336.40823, glue set 0.01225, direction TLT
 ....\localpar
@@ -34559,104 +34656,7 @@ Completed box being shipped out [12]
 ..\glue 0.0
 ..\glue(\lineskip) 0.0
 ..\vbox(567.0+0.0)x336.40823, direction TLT
-...\glue(\topskip) 3.528
-...\hbox(8.472+3.42)x336.40823, glue set - 0.0016, direction TLT
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 s
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 c
-....\kern-0.18 (font)
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 s
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 )
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 w
-....\kern-0.3 (font)
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 u
-....\TU/EBGaramond(0)/m/n/12 l
-....\TU/EBGaramond(0)/m/n/12 d
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 r
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 b
-....\kern-0.3 (font)
-....\TU/EBGaramond(0)/m/n/12 y
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 b
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 m
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 d
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 o
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 c
-....\kern-0.24 (font)
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 n
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 r
-....\TU/EBGaramond(0)/m/n/12 a
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 d
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 c
-....\TU/EBGaramond(0)/m/n/12 t
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 d
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 s
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 c
-....\TU/EBGaramond(0)/m/n/12 i
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 p
-....\kern-0.18 (font)
-....\TU/EBGaramond(0)/m/n/12 l
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 n
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 f
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 p
-....\TU/EBGaramond(0)/m/n/12 r
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 c
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 i
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 c
-....\kern-0.18 (font)
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 l
-....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 3.12
+...\glue(\topskip) 3.54
 ...\hbox(8.46+3.48)x336.40823, glue set 0.1728, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 r
 ....\TU/EBGaramond(0)/m/n/12 e
@@ -37955,6 +37955,116 @@ Completed box being shipped out [12]
 ....\TU/EBGaramond(0)/m/n/12 o
 ....\TU/EBGaramond(0)/m/n/12 n
 ....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 3.12
+...\hbox(8.46+3.42)x336.40823, glue set 0.00923, direction TLT
+....\TU/EBGaramond(0)/m/n/12 c
+....\TU/EBGaramond(0)/m/n/12 l
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 s
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 e
+....\kern-0.18 (font)
+....\TU/EBGaramond(0)/m/n/12 x
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+.....= \kern-0.18 (font)
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 m
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 i
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 n
+....\TU/EBGaramond(0)/m/n/12 a
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 n
+....\TU/EBGaramond(0)/m/n/12 .
+....\glue(\spaceskip) 3.2 plus 3.59999 minus 0.26666
+....\TU/EBGaramond(0)/m/n/12 I
+....\TU/EBGaramond(0)/m/n/12 t
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 s
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 b
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+.....= \kern-0.18 (font)
+....\TU/EBGaramond(0)/m/n/12 v
+....\TU/EBGaramond(0)/m/n/12 i
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 o
+....\TU/EBGaramond(0)/m/n/12 u
+....\TU/EBGaramond(0)/m/n/12 s
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 t
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 e
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 r
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 n
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 s
+....\TU/EBGaramond(0)/m/n/12 c
+....\kern-0.24 (font)
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 n
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 d
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 n
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 l
+....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 s
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 h
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 c
+....\TU/EBGaramond(0)/m/n/12 ,
+....\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
+....\TU/EBGaramond(0)/m/n/12 c
+....\kern-0.24 (font)
+....\TU/EBGaramond(0)/m/n/12 e
+....\TU/EBGaramond(0)/m/n/12 r
+....\discretionary (penalty 50)
+.....< \TU/EBGaramond(0)/m/n/12 -
+....\TU/EBGaramond(0)/m/n/12 t
+....\TU/EBGaramond(0)/m/n/12 a
+....\TU/EBGaramond(0)/m/n/12 i
+....\TU/EBGaramond(0)/m/n/12 n
+....\TU/EBGaramond(0)/m/n/12 l
+....\TU/EBGaramond(0)/m/n/12 y
+....\kern-0.84 (font)
+....\TU/EBGaramond(0)/m/n/12 ,
+....\kern-1.38 (right margin)
+....\glue(\rightskip) 0.0
 ...\glue -3.42
 ..\glue(\baselineskip) 40.032
 ..\hbox(4.968+0.048)x336.40823, direction TLT
@@ -38145,117 +38255,7 @@ Completed box being shipped out [13]
 ..\glue 0.0
 ..\glue(\lineskip) 0.0
 ..\vbox(567.0+0.0)x336.40823, direction TLT
-...\glue(\topskip) 3.54
-...\hbox(8.46+3.42)x336.40823, glue set 0.00923, direction TLT
-....\TU/EBGaramond(0)/m/n/12 c
-....\TU/EBGaramond(0)/m/n/12 l
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 s
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 e
-....\kern-0.18 (font)
-....\TU/EBGaramond(0)/m/n/12 x
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-.....= \kern-0.18 (font)
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 m
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 i
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 n
-....\TU/EBGaramond(0)/m/n/12 a
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 n
-....\TU/EBGaramond(0)/m/n/12 .
-....\glue(\spaceskip) 3.2 plus 3.59999 minus 0.26666
-....\TU/EBGaramond(0)/m/n/12 I
-....\TU/EBGaramond(0)/m/n/12 t
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 s
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 b
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-.....= \kern-0.18 (font)
-....\TU/EBGaramond(0)/m/n/12 v
-....\TU/EBGaramond(0)/m/n/12 i
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 o
-....\TU/EBGaramond(0)/m/n/12 u
-....\TU/EBGaramond(0)/m/n/12 s
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 t
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 e
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 r
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 n
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 s
-....\TU/EBGaramond(0)/m/n/12 c
-....\kern-0.24 (font)
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 n
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 d
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 n
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 l
-....\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 s
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 h
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 c
-....\TU/EBGaramond(0)/m/n/12 ,
-....\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
-....\TU/EBGaramond(0)/m/n/12 c
-....\kern-0.24 (font)
-....\TU/EBGaramond(0)/m/n/12 e
-....\TU/EBGaramond(0)/m/n/12 r
-....\discretionary (penalty 50)
-.....< \TU/EBGaramond(0)/m/n/12 -
-....\TU/EBGaramond(0)/m/n/12 t
-....\TU/EBGaramond(0)/m/n/12 a
-....\TU/EBGaramond(0)/m/n/12 i
-....\TU/EBGaramond(0)/m/n/12 n
-....\TU/EBGaramond(0)/m/n/12 l
-....\TU/EBGaramond(0)/m/n/12 y
-....\kern-0.84 (font)
-....\TU/EBGaramond(0)/m/n/12 ,
-....\kern-1.38 (right margin)
-....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 3.108
+...\glue(\topskip) 3.528
 ...\hbox(8.472+3.42)x336.40823, glue set - 0.25833, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 i
 ....\TU/EBGaramond(0)/m/n/12 s
@@ -41103,26 +41103,7 @@ Completed box being shipped out [13]
 ....\TU/EBGaramond(0)/m/n/12 y
 ....\kern-0.264 (right margin)
 ....\glue(\rightskip) 0.0
-...\glue -3.48
-..\glue(\baselineskip) 40.044
-..\hbox(4.956+2.28)x336.40823, direction TLT
-...\hbox(4.956+2.28)x336.40823, glue set 164.23811fil, direction TLT
-....\glue 0.0 plus 1.0fil
-....\TU/EBGaramond(0)/m/n/12 󰋕
-....\TU/EBGaramond(0)/m/n/12 󰋗
-....\glue 0.0 plus 1.0fil
-Completed box being shipped out [14]
-\vbox(628.7566+2.172)x403.08162, direction TLT
-.\glue 16.7566
-.\vbox(612.0+2.172)x336.40823, shifted 66.67339, direction TLT
-..\vbox(0.0+0.0)x336.40823, direction TLT
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x336.40823, direction TLT
-....\hbox(0.0+0.0)x336.40823, direction TLT
-..\glue 0.0
-..\glue(\lineskip) 0.0
-..\vbox(567.0+0.0)x336.40823, glue set 480.0fil, direction TLT
-...\glue(\topskip) 3.528
+...\glue(\baselineskip) 3.048
 ...\hbox(8.472+3.42)x336.40823, glue set - 0.77324, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 b
 ....\TU/EBGaramond(0)/m/n/12 e
@@ -41222,7 +41203,26 @@ Completed box being shipped out [14]
 ....\TU/EBGaramond(0)/m/n/12 ,
 ....\kern-1.38 (right margin)
 ....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 3.108
+...\glue -3.42
+..\glue(\baselineskip) 40.044
+..\hbox(4.956+2.28)x336.40823, direction TLT
+...\hbox(4.956+2.28)x336.40823, glue set 164.23811fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\TU/EBGaramond(0)/m/n/12 󰋕
+....\TU/EBGaramond(0)/m/n/12 󰋗
+....\glue 0.0 plus 1.0fil
+Completed box being shipped out [14]
+\vbox(628.7566+2.172)x403.08162, direction TLT
+.\glue 16.7566
+.\vbox(612.0+2.172)x336.40823, shifted 66.67339, direction TLT
+..\vbox(0.0+0.0)x336.40823, direction TLT
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x336.40823, direction TLT
+....\hbox(0.0+0.0)x336.40823, direction TLT
+..\glue 0.0
+..\glue(\lineskip) 0.0
+..\vbox(567.0+0.0)x336.40823, glue set 495.0fil, direction TLT
+...\glue(\topskip) 3.528
 ...\hbox(8.472+3.42)x336.40823, glue set 0.00092, direction TLT
 ....\TU/EBGaramond(0)/m/n/12 s
 ....\TU/EBGaramond(0)/m/n/12 p
