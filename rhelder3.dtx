@@ -1372,6 +1372,21 @@
 %    \end{macrocode}
 % \end{lmacro}
 
+% \begin{lmacro}{\trivlist}
+%    Prepend \tn{@listi} to \tn{trivlist}
+%    so that the changes to \tn{@listi} made by size-changing commands
+%    affect \env{trivlist}-based environments
+%    like \env{center} or \env{flushright}.
+%    \begin{macrocode}
+\group_begin:
+  % rescan is necessary because \trivlist contains parameter tokens
+  \tl_set_rescan:NnV \l_tmpa_tl {} \trivlist
+  \tl_put_left:Nn \l_tmpa_tl {\@listi}
+  \exp_args:NNV \cs_gset:Npn \trivlist \l_tmpa_tl
+\group_end:
+%    \end{macrocode}
+% \end{lmacro}
+
 % \section{Headings \& Subheads}
 %
 % \begin{imacro}{\section}
