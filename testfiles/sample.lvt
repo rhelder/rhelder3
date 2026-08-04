@@ -1,9 +1,27 @@
 \input{regression-test}
 \documentclass[kant]{rhelder3}
 
+\title{The Paralogisms of Practical Reason Define the Phenomena}
+\author{%
+  \initials{R.W.} Helder%
+  \thanks{%
+    I want to thank God,
+    because God gave me this Dundie,
+    and I feel God in this Chili's tonight.%
+  }%
+  \\\acro{UC} Berkeley\and
+  Immanuel Kant\\University of Königsberg%
+}
+\date{August 3, \digits{2026}}
+
 \showoutput
 \begin{document}
 \START
+\maketitle
+
+\begin{abstract}
+  \autokant
+\end{abstract}
 
 \kantsection
 \autokant[2]
@@ -18,17 +36,18 @@
 \autokant
 
 \kantsubparagraph
-\autokant
+\autokant*\unskip\footnote{\autokant[1][1]}
 
 \section{Nested Sections}
 \subsection{Nested Subections}
 \subsubsection{Nested Subsubsections}
 
-\autokant[2]
+\autokant*\unskip\footnote{\autokant[0][1]}
+
+\autokant
 
 \section{Block Quotes}
 
-\autokant
 \autokant*
 \begin{quote}
   \autokant*[1][2]
@@ -39,7 +58,6 @@
 
 \subsection{Enumerate}
 
-\autokant
 \autokant*
 \begin{enumerate}
   \item \autokant*[1][1]
@@ -51,7 +69,6 @@
 \subsection{Itemize}
 
 \autokant
-\autokant*
 \begin{itemize}
   \item \autokant*[1][1]
   \item \autokant*[0][1]
@@ -61,8 +78,7 @@
 
 \subsection{Description}
 
-\autokant[2]
-\autokant*
+\autokant
 \begin{description}
   \item[The Ideal] \autokant*[1][1]
   \item[Practical Reason] \autokant*[0][1]
@@ -77,6 +93,7 @@
 \autokant
 \autokant*
 \begin{enumerate}
+  \RaggedRight
   \item \autokant*[1][1]
     \begin{enumerate}
       \item \autokant*[0][1]
@@ -90,15 +107,16 @@
         \end{enumerate}
       \item \autokant*[0][1]
     \end{enumerate}
-  \item \autokant*[0][1]
+  \item \autokant*[0][1]\unskip\footnote{\justifying\autokant[0][1]}
 \end{enumerate}
 \autokant
 
 \subsection{Itemize}
 
-\autokant[2]
+\autokant
 \autokant*
 \begin{itemize}
+  \RaggedRight
   \item \autokant*[1][1]
     \begin{itemize}
       \item \autokant*[0][1]
