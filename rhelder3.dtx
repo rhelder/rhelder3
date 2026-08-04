@@ -149,7 +149,7 @@
 % \begin{optionenv}{kant}
 %    Boolean (default \bool{false}).
 %    Load \pkg{kantlipsum}
-%    and define \cs{AutoKant} command
+%    and define \cs{autokant} command
 %    to easily generate complex sample texts.
 %    \begin{macrocode}
   kant .code:n =
@@ -157,7 +157,7 @@
 %    \end{macrocode}
 % \end{optionenv}
 
-% \begin{imacro}{\AutoKant}
+% \begin{imacro}{\autokant}
 %    \oarg{number of paragraphs}\oarg{number of sentences}\\
 %    Advance through the text provided by \pkg{kantlipsum}
 %    by \meta{number of paragraphs} and \meta{number of sentences}.
@@ -174,7 +174,7 @@
 %    due to the implementation of \cs{kant} by \pkg{kantlipsum}.
 %    If \meta{number of paragraphs} is \num{0},
 %    print the next \meta{number of sentences} of the current paragraph
-%    (note that \cs{AutoKant} doesn't check
+%    (note that \cs{autokant} doesn't check
 %    whether or not there are any sentences remaining in the current paragraph,
 %    because \cs{kant} doesn't check this).
 %    If \meta{number of paragraphs} is \num{1},
@@ -184,27 +184,27 @@
 %    (because it is undefined in \cs{kant}).
 %
 %    For example,
-%    if you have not yet called \cs{AutoKant}
-%    and you call \cs{AutoKant} without any arguments,
-%    \cs{AutoKant} will print the first \pkg{kantlipsum} paragraph
+%    if you have not yet called \cs{autokant}
+%    and you call \cs{autokant} without any arguments,
+%    \cs{autokant} will print the first \pkg{kantlipsum} paragraph
 %    (i.e., it will call \cs{kant}[1].
-%    If you then you call \cs{AutoKant}[3],
-%    \cs{AutoKant} will print the second, third, and fourth
+%    If you then you call \cs{autokant}[3],
+%    \cs{autokant} will print the second, third, and fourth
 %    \pkg{kantlipsum} paragraphs
 %    (i.e., it will call \cs{kant}[2-4]).
-%    If you then you call \cs{AutoKant}[1][3],
-%    \cs{AutoKant} will print the first three sentences
+%    If you then you call \cs{autokant}[1][3],
+%    \cs{autokant} will print the first three sentences
 %    of the fifth \pkg{kantlipsum} paragraph
 %    (i.e., it will call \cs{kant}[5][1-3]).
-%    Finally, if you then call \cs{AutoKant}[0][2],
-%    \cs{AutoKant} will print the next two sentences
+%    Finally, if you then call \cs{autokant}[0][2],
+%    \cs{autokant} will print the next two sentences
 %    of the fifth \pkg{kantlipsum} paragraph
 %    (i.e., it will call \cs{kant}[5][4-5]).
 %    \begin{macrocode}
     \int_new:N \g_@@_kant_par_int
     \int_new:N \g_@@_kant_sent_int
 
-    \NewDocumentCommand{\AutoKant}{sO{1}o}{
+    \NewDocumentCommand{\autokant}{sO{1}o}{
       \group_begin:
         \tl_set:Nn \l_tmpa_tl {\kant}
         \bool_if:nT {##1} {\tl_put_right:Nn \l_tmpa_tl {*}}
@@ -542,11 +542,11 @@
 %    \end{macrocode}
 % \end{imacro}
 %
-% \begin{imacro}{\Digits}
+% \begin{imacro}{\digits}
 %    Letterspace strings of digits
 %    (good for strings of three or more digits).
 %    \begin{macrocode}
-\NewDocumentCommand{\Digits}{m}{
+\NewDocumentCommand{\digits}{m}{
   \group_begin:
     \addfontfeature{LetterSpace = 4.0}
     #1

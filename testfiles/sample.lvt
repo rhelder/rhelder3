@@ -6,114 +6,114 @@
 \START
 
 \kantsection
-\AutoKant[2]
+\autokant[2]
 
 \kantsubsection
-\AutoKant[2]
+\autokant[2]
 
 \kantsubsubsection
-\AutoKant[2]
+\autokant[2]
 
 \kantparagraph
-\AutoKant
+\autokant
 
 \kantsubparagraph
-\AutoKant
+\autokant
 
 \section{Nested Sections}
 \subsection{Nested Subections}
 \subsubsection{Nested Subsubsections}
 
-\AutoKant[2]
+\autokant[2]
 
 \section{Block Quotes}
 
-\AutoKant
-\AutoKant*
+\autokant
+\autokant*
 \begin{quote}
-  \AutoKant*[1][2]
+  \autokant*[1][2]
 \end{quote}
-\AutoKant
+\autokant
 
 \section{Lists}
 
 \subsection{Enumerate}
 
-\AutoKant
-\AutoKant*
+\autokant
+\autokant*
 \begin{enumerate}
-  \item \AutoKant*[1][1]
-  \item \AutoKant*[0][1]
-  \item \AutoKant*[0][1]
+  \item \autokant*[1][1]
+  \item \autokant*[0][1]
+  \item \autokant*[0][1]
 \end{enumerate}
-\AutoKant
+\autokant
 
 \subsection{Itemize}
 
-\AutoKant
-\AutoKant*
+\autokant
+\autokant*
 \begin{itemize}
-  \item \AutoKant*[1][1]
-  \item \AutoKant*[0][1]
-  \item \AutoKant*[0][1]
+  \item \autokant*[1][1]
+  \item \autokant*[0][1]
+  \item \autokant*[0][1]
 \end{itemize}
-\AutoKant
+\autokant
 
 \subsection{Description}
 
-\AutoKant[2]
-\AutoKant*
+\autokant[2]
+\autokant*
 \begin{description}
-  \item[The Ideal] \AutoKant*[1][1]
-  \item[Practical Reason] \AutoKant*[0][1]
-  \item[The Categories] \AutoKant*[0][1]
+  \item[The Ideal] \autokant*[1][1]
+  \item[Practical Reason] \autokant*[0][1]
+  \item[The Categories] \autokant*[0][1]
 \end{description}
-\AutoKant
+\autokant
 
 \section{Nested Lists}
 
 \subsection{Enumerate}
 
-\AutoKant
-\AutoKant*
+\autokant
+\autokant*
 \begin{enumerate}
-  \item \AutoKant*[1][1]
+  \item \autokant*[1][1]
     \begin{enumerate}
-      \item \AutoKant*[0][1]
+      \item \autokant*[0][1]
         \begin{enumerate}
-          \item \AutoKant*[0][1]
+          \item \autokant*[0][1]
             \begin{enumerate}
-              \item \AutoKant*[0][1]
-              \item \AutoKant*[1][1]
+              \item \autokant*[0][1]
+              \item \autokant*[1][1]
             \end{enumerate}
-          \item \AutoKant*[0][1]
+          \item \autokant*[0][1]
         \end{enumerate}
-      \item \AutoKant*[0][1]
+      \item \autokant*[0][1]
     \end{enumerate}
-  \item \AutoKant*[0][1]
+  \item \autokant*[0][1]
 \end{enumerate}
-\AutoKant
+\autokant
 
 \subsection{Itemize}
 
-\AutoKant[2]
-\AutoKant*
+\autokant[2]
+\autokant*
 \begin{itemize}
-  \item \AutoKant*[1][1]
+  \item \autokant*[1][1]
     \begin{itemize}
-      \item \AutoKant*[0][1]
+      \item \autokant*[0][1]
         \begin{itemize}
-          \item \AutoKant*[0][1]
+          \item \autokant*[0][1]
             \begin{itemize}
-              \item \AutoKant*[0][1]
-              \item \AutoKant*[1][1]
+              \item \autokant*[0][1]
+              \item \autokant*[1][1]
             \end{itemize}
-          \item \AutoKant*[0][1]
+          \item \autokant*[0][1]
         \end{itemize}
-      \item \AutoKant*[0][1]
+      \item \autokant*[0][1]
     \end{itemize}
-  \item \AutoKant*[0][1]
+  \item \autokant*[0][1]
 \end{itemize}
-\AutoKant
+\autokant
 
 \end{document}
