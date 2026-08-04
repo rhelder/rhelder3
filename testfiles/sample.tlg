@@ -41,9 +41,6 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `GaramondMath' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-> \l_tmpa_tl=R.
-> \l_tmpa_tl=W.
-> \l_tmpa_tl=.
 Package microtype Info: Character `156' is missing
 (microtype)             in font `TU/EBGaramond(0)/m/it/11'.
 (microtype)             Ignoring protrusion settings for this character.
