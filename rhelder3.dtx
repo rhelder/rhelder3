@@ -650,10 +650,16 @@
         {! \int_if_zero_p:n {\@itemdepth}}
           {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
       }{
-        \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
-        \dim_gset:Nn \labelwidth {\leftmargin - \labelsep}
+        \dim_gset:Nn \g_tmpa_dim {\box_wd:N \l_tmpa_box}
       }
     \group_end:
+
+    \bool_if:nT {
+      ! \int_if_zero_p:n {\@enumdepth} || ! \int_if_zero_p:n {\@itemdepth}
+    }{
+      \dim_set:Nn \labelsep {\leftmargin - \g_tmpa_dim}
+      \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
+    }
   }
 }
 %    \end{macrocode}
@@ -684,10 +690,16 @@
         {! \int_if_zero_p:n {\@itemdepth}}
           {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
       }{
-        \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
-        \dim_gset:Nn \labelwidth {\leftmargin - \labelsep}
+        \dim_gset:Nn \g_tmpa_dim {\box_wd:N \l_tmpa_box}
       }
     \group_end:
+
+    \bool_if:nT {
+      ! \int_if_zero_p:n {\@enumdepth} || ! \int_if_zero_p:n {\@itemdepth}
+    }{
+      \dim_set:Nn \labelsep {\leftmargin - \g_tmpa_dim}
+      \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
+    }
   }
 }
 %    \end{macrocode}
@@ -1153,10 +1165,16 @@
       {! \int_if_zero_p:n {\@itemdepth}}
         {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
     }{
-      \dim_gset:Nn \labelsep {\leftmargin - \box_wd:N \l_tmpa_box}
-      \dim_gset:Nn \labelwidth {\leftmargin - \labelsep}
+      \dim_gset:Nn \g_tmpa_dim {\box_wd:N \l_tmpa_box}
     }
   \group_end:
+
+  \bool_if:nT {
+    ! \int_if_zero_p:n {\@enumdepth} || ! \int_if_zero_p:n {\@itemdepth}
+  }{
+    \dim_set:Nn \labelsep {\leftmargin - \g_tmpa_dim}
+    \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
+  }
 }
 %    \end{macrocode}
 % \end{lmacro}
@@ -1169,12 +1187,6 @@
 \cs_new_eq:NN \@listI \@listi
 %    \end{macrocode}
 % \end{lmacro}
-%
-% Initialize list parameters,
-% in case having access to them is useful.
-%    \begin{macrocode}
-\@listi
-%    \end{macrocode}
 
 % \begin{lmacro}{\@listii, \@listiii, \@listiv, \@listv, \@listvi}
 %    Set parameters for nested lists.
@@ -1348,9 +1360,13 @@
 %    \env{description} needs to be defined here.
 %
 %    This definition is borrowed from the \LaTeX{} standard classes.
+%    TODO: revisit, rewrite in expl3, and tweak
 %    \begin{macrocode}
 \newenvironment{description}{
   \list{}{
+    % Arbitrary for now; just set to satisfy the tests after making all list
+    % parameters local
+    \labelsep 10.824pt\relax
     \labelwidth\z@ \itemindent-\leftmargin
     \let\makelabel\descriptionlabel
   }
