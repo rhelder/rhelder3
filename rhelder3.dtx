@@ -113,33 +113,60 @@
 %    \begin{macrocode}
 \keys_define:nn {rh}{
   showgrid .code:n =
-    \RequirePackage{tikz}
-
     \dim_new:N \g_@@_showgrid_to_first_baseline_dim
     \dim_new:N \g_@@_showgrid_yshift_dim
 
-    \hook_gput_code:nnn {begindocument}{.}{
-      % Find the difference between the actual number of leads and the nearest
-      % whole number of leads between the top of the page and the first
-      % baseline. Shift the grid by that many leads.
+    \cs_new:Npn \@@_showgrid: {
+      \vbox_to_zero:n {
+        \box_move_right:nn {-1in} {
+          \vbox_to_zero:n {
+            \skip_vertical:n {-1in}
+
+            \skip_vertical:n {\g_@@_showgrid_yshift_dim}
+            \vbox_to_zero:n {\hrule height 0.2pt depth 0pt width \paperwidth}
+
+            \group_begin:
+              \dim_set:Nn \g_tmpa_dim {\g_@@_showgrid_yshift_dim}
+
+              \dim_while_do:nNnn {\g_tmpa_dim} < {\paperheight} {
+                \skip_vertical:n {\c_@@_normal_leading_dim}
+                \vbox_to_zero:n {
+                  \hrule height 0.2pt depth 0pt width \paperwidth
+                }
+                \dim_add:Nn \g_tmpa_dim {\c_@@_normal_leading_dim}
+              }
+            \group_end:
+            \vss
+          }
+        }
+      }
+    }
+%    \end{macrocode}
+
+%    Calculate the remainder of dividing
+%    the distance between the top of the page and the first baseline
+%    by the leading.
+%    Start the grid that far below the top of the page,
+%    to align the grid with the first baseline.
+%    \begin{macrocode}
+    \hook_gput_code:nnn {begindocument/before}{.}{
       \dim_set:Nn \g_@@_showgrid_to_first_baseline_dim {\Gm@tmargin + \topskip}
       \dim_set:Nn \g_@@_showgrid_yshift_dim {
         \fp_eval:n {
-          \fp_to_int:n {
-            \g_@@_showgrid_to_first_baseline_dim
-            / \c_@@_normal_leading_dim
-          }
-          - \g_@@_showgrid_to_first_baseline_dim / \c_@@_normal_leading_dim
+          \g_@@_showgrid_to_first_baseline_dim / \c_@@_normal_leading_dim
+          - ceil(
+            \g_@@_showgrid_to_first_baseline_dim / \c_@@_normal_leading_dim
+          )
         }\c_@@_normal_leading_dim
       }
 
-      \hook_gput_code:nnn {shipout/background}{.}{
-        \put (0, 0){
-          \begin{tikzpicture}[remember~picture, overlay]
-            \draw [ystep = \c_@@_normal_leading_dim, xstep = 0, help~lines]
-              (0, 0) [yshift = \g_@@_showgrid_yshift_dim]
-              grid +(\pagewidth, -\pageheight);
-          \end{tikzpicture}
+      \hook_gput_code:nnn {shipout/before}{.}{
+        \vbox_set:Nn \l_shipout_box {
+          \skip_set:Nn \baselineskip {0pt}
+          \skip_set:Nn \lineskip {0pt}
+          \dim_set:Nn \lineskiplimit {0pt}
+          \@@_showgrid:
+          \box_use_drop:N \l_shipout_box
         }
       }
     },
