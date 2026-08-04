@@ -296,10 +296,16 @@
 %    \begin{macrocode}
 \RenewDocumentCommand{\normalsize}{}{
   \@setfontsize\normalsize\c_@@_normal_size_dim\c_@@_normal_leading_dim
+
+  \skip_set:Nn \smallskipamount {0.5\baselineskip}
+  \skip_set_eq:NN \medskipamount \baselineskip
+  \skip_set:Nn \bigskipamount {2\baselineskip}
+
   \dim_set_eq:NN \abovedisplayskip \baselineskip
   \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
   \dim_set:Nn \abovedisplayshortskip {0pt}
   \dim_set_eq:NN \belowdisplayshortskip \belowdisplayskip
+
   \cs_set_eq:NN \@listi \@listI
 }
 %    \end{macrocode}
@@ -555,7 +561,7 @@
 
 % \section{Vertical Motion}
 %
-% \subsection{Leading}
+% \subsection{Leading and Other Intervals}
 %
 % \begin{variable}{
 %   \c_@@_tiny_size_dim,
@@ -632,10 +638,16 @@
 %    \begin{macrocode}
 \NewDocumentCommand{\small}{}{
   \@setfontsize\small\c_@@_small_size_dim\c_@@_small_leading_dim
+
+  \skip_set:Nn \smallskipamount {0.5\baselineskip}
+  \skip_set_eq:NN \medskipamount \baselineskip
+  \skip_set:Nn \bigskipamount {2\baselineskip}
+
   \dim_set_eq:NN \abovedisplayskip \baselineskip
   \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
   \dim_set:Nn \abovedisplayshortskip {0pt}
   \dim_set_eq:NN \belowdisplayshortskip \belowdisplayskip
+
   \cs_set_protected:Npn \@listi {
     \dim_set_eq:NN \leftmargin \leftmargini
     \skip_set:Nn \topsep {\c_@@_small_leading_dim}
@@ -672,10 +684,16 @@
 %    \begin{macrocode}
 \NewDocumentCommand{\footnotesize}{}{
   \@setfontsize\footnotesize\c_@@_footnote_size_dim\c_@@_footnote_leading_dim
+
+  \skip_set:Nn \smallskipamount {0.5\baselineskip}
+  \skip_set_eq:NN \medskipamount \baselineskip
+  \skip_set:Nn \bigskipamount {2\baselineskip}
+
   \dim_set_eq:NN \abovedisplayskip \baselineskip
   \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
   \dim_set:Nn \abovedisplayshortskip {0pt}
   \dim_set_eq:NN \belowdisplayshortskip \belowdisplayskip
+
   \cs_set_protected:Npn \@listi {
     \dim_set_eq:NN \leftmargin \leftmargini
     \skip_set:Nn \topsep {\c_@@_footnote_leading_dim}
@@ -745,22 +763,6 @@
 }
 %    \end{macrocode}
 % \end{imacro}
-
-% \subsection{Intervals}
-%
-% \begin{lskip}{
-%   \smallskipamount,
-%   \medskipamount,
-%   \bigskipamount,
-% }
-%    Define small, medium, and large intervals of vertical space.
-%    TODO: incorporate into size-changing commands
-%    \begin{macrocode}
-\skip_set:Nn \smallskipamount {0.5\baselineskip}
-\skip_set_eq:NN \medskipamount \baselineskip
-\skip_set:Nn \bigskipamount {2\baselineskip}
-%    \end{macrocode}
-% \end{lskip}
 
 % \subsection{Penalties for Line and Page Breaks}
 %
