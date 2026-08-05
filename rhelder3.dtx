@@ -511,21 +511,47 @@
 %    Redefine the spacing commands provided by \LaTeX{}.
 %    (Math mode is the same, though.)
 %    \begin{macrocode}
-\RenewDocumentCommand{\,}{}{\tmspace+\thinmuskip{\dim_eval:n {1em / 6}}}
+\RenewDocumentCommand{\,}{}{
+  \tmspace+\thinmuskip\thinspaceamount
+}
 \RenewCommandCopy\thinspace\,
-\RenewDocumentCommand{\:}{}{\tmspace+\medmuskip{\dim_eval:n {1em / 4}}}
+
+\RenewDocumentCommand{\:}{}{
+  \tmspace+\medmuskip{\dim_eval:n {\medspaceamount}}
+}
 \RenewCommandCopy\medspace\:
 \RenewCommandCopy\>\:
-\RenewDocumentCommand{\;}{}{\tmspace+\thickmuskip{\dim_eval:n {1em / 3}}}
+
+\RenewDocumentCommand{\;}{}{
+  \tmspace+\thickmuskip{\dim_eval:n {\thickspaceamount}}
+}
 \RenewCommandCopy\thickspace\;
-\RenewDocumentCommand{\!}{}{\tmspace-\thinmuskip{\dim_eval:n {1em / 6}}}
+
+\RenewDocumentCommand{\!}{}{
+  \tmspace-\thinmuskip{\dim_eval:n {\thinspaceamount}}
+}
 \RenewCommandCopy\negthinspace\!
+
 \RenewDocumentCommand{\negmedspace}{}{
-  \tmspace-\medmuskip{\dim_eval:n {1em / 4}}
+  \tmspace-\medmuskip{\dim_eval:n {\medspaceamount}}
 }
+
 \RenewDocumentCommand{\negthickspace}{}{
-  \tmspace-\thickmuskip{\dim_eval:n {1em / 3}}
+  \tmspace-\thickmuskip{\dim_eval:n {\thickspaceamount}}
 }
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{imacro}{\thinspaceamount, \medspaceamount, \thickspaceamount}
+%    Define the amount of space to be inserted by the spacing commands.
+%    (These are implemented as commands,
+%    rather than as dimensions,
+%    so that the dimension is evaluated at the time of insertion,
+%    rather than here.)
+%    \begin{macrocode}
+\NewDocumentCommand{\thinspaceamount}{}{\dimeval{1em / 6}}
+\NewDocumentCommand{\medspaceamount}{}{\dimeval{1em / 4}}
+\NewDocumentCommand{\thickspaceamount}{}{\dimeval{1em / 3}}
 %    \end{macrocode}
 % \end{imacro}
 
