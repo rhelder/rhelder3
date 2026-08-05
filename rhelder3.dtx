@@ -1727,6 +1727,8 @@
 %    \begin{macrocode}
 \RequirePackage{microtype}
 \RequirePackage{ragged2e}
+\RequirePackage[strict, style=british]{csquotes}
+\RequirePackage{ellipsis}
 %    \end{macrocode}
 %
 % Warn if there are widows or orphans
@@ -1738,6 +1740,20 @@
 % to suppress warnings about widows and orphans.
 %    \begin{macrocode}
 \RequirePackage{widows-and-orphans}
+%    \end{macrocode}
+%
+% \section{Configure Packages}
+%
+% Do not place brackets around ellipses in quotations.
+%    \begin{macrocode}
+\RenewDocumentCommand{\mktextelp}{}{\textellipsis}
+\RenewDocumentCommand{\mktextelpins}{m}{\textellipsis{}~[#1]}
+\RenewDocumentCommand{\mktextinselp}{m}{[#1]~\textellipsis}
+%    \end{macrocode}
+
+% Place a thin space between the dots of ellipses.
+%    \begin{macrocode}
+\RenewDocumentCommand{\ellipsisgap}{}{\thinspaceamount}
 %    \end{macrocode}
 %
 % \end{implementation}
