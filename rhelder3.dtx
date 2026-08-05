@@ -1750,12 +1750,47 @@
 %    \end{macrocode}
 % \end{imacro}
 
-% \section{Load Typographically Useful Packages}
+% \section{Typographically Useful Packages}
 %
+% \subsection{Load Packages}
+%
+% Support multilingual typesetting.
+% Set American English as the main language,
+% and load the \enquote{modern} variant of Latin
+% as a secondary language
+% with the \file{ldf} method.
+% (Load the modern variant for its alphabet:
+% in particular, the classical variant lacks the letter \enquote{v})
 %    \begin{macrocode}
-\RequirePackage{microtype}
+\RequirePackage[
+  shorthands=off,
+  latin,
+  english.american,
+]{babel}
+%    \end{macrocode}
+%
+% Optimize interword spacing in justified and unjustified text.
+%    \begin{macrocode}
+\RequirePackage[babel]{microtype}
 \RequirePackage{ragged2e}
-\RequirePackage[strict, style=british]{csquotes}
+%    \end{macrocode}
+%
+% Automatically select quoting style depending on language,
+% but use single quotes even for American English
+% (single quotes are less obtrusive than double quotes)
+% and also for Latin.
+%    \begin{macrocode}
+\RequirePackage[
+  strict,
+  autostyle,
+  english = british,
+  latin = britishquotes,
+]{csquotes}
+%    \end{macrocode}
+%
+% Obtain correct spacing after ellipses,
+% and control spacing within ellipses.
+%    \begin{macrocode}
 \RequirePackage{ellipsis}
 %    \end{macrocode}
 %
@@ -1770,7 +1805,21 @@
 \RequirePackage{widows-and-orphans}
 %    \end{macrocode}
 %
-% \section{Configure Packages}
+% \subsection{Languages}
+%
+% Load \pkg{babel} support for ancient Greek
+% with the \file{ini} method.
+%    \begin{macrocode}
+\babelprovide[import=grc]{ancientgreek}
+%    \end{macrocode}
+%
+% When typesetting Latin,
+% use the hyphenation rules for classical Latin.
+%    \begin{macrocode}
+\babelprovide[hyphenrules=classiclatin]{latin}
+%    \end{macrocode}
+
+% \subsection{Ellipses}
 %
 % Do not place brackets around ellipses in quotations.
 %    \begin{macrocode}
