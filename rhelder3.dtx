@@ -901,6 +901,28 @@
 %<*class>
 %    \end{macrocode}
 
+% Set a sans serif font.
+%    \begin{macrocode}
+\setsansfont{AlegreyaSans}[
+  Extension = .otf,
+  UprightFont = *-Regular,
+  ItalicFont = *-Italic,
+  BoldFont = *-Bold,
+  BoldItalicFont = *-BoldItalic,
+%    \end{macrocode}
+% Scale slightly to match main font.
+%    \begin{macrocode}
+  Scale = 0.95,
+%    \end{macrocode}
+% Use oldstyle numerals,
+% letterspace small caps,
+% and use small caps even for uppercase letters.
+%    \begin{macrocode}
+  Numbers = {Proportional, OldStyle},
+  SmallCapsFeatures = {Letters = UppercaseSmallCaps, LetterSpace = 5.0},
+]
+%    \end{macrocode}
+
 % \begin{imacro}{\headfamily}
 %    Use Cormorant Garamond,
 %    which is lighter than \acro{EB} Garamond,
