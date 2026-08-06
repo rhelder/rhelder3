@@ -687,9 +687,9 @@
     \group_begin:
       \bool_case:nT {
         {! \int_if_zero_p:n {\@enumdepth}}
-          {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
+          {\hbox_set:Nn \l_tmpa_box {\formatenumi{\labelenumi}}}
         {! \int_if_zero_p:n {\@itemdepth}}
-          {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
+          {\hbox_set:Nn \l_tmpa_box {\formatitemi{\labelitemi}}}
       }{
         \dim_gset:Nn \g_tmpa_dim {\box_wd:N \l_tmpa_box}
       }
@@ -733,9 +733,9 @@
     \group_begin:
       \bool_case:nT {
         {! \int_if_zero_p:n {\@enumdepth}}
-          {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
+          {\hbox_set:Nn \l_tmpa_box {\formatenumi{\labelenumi}}}
         {! \int_if_zero_p:n {\@itemdepth}}
-          {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
+          {\hbox_set:Nn \l_tmpa_box {\formatitemi{\labelitemi}}}
       }{
         \dim_gset:Nn \g_tmpa_dim {\box_wd:N \l_tmpa_box}
       }
@@ -1284,9 +1284,9 @@
   \group_begin:
     \bool_case:nT {
       {! \int_if_zero_p:n {\@enumdepth}}
-        {\hbox_set:Nn \l_tmpa_box {\labelenumi}}
+        {\hbox_set:Nn \l_tmpa_box {\formatenumi{\labelenumi}}}
       {! \int_if_zero_p:n {\@itemdepth}}
-        {\hbox_set:Nn \l_tmpa_box {\labelitemi}}
+        {\hbox_set:Nn \l_tmpa_box {\formatitemi{\labelitemi}}}
     }{
       \dim_gset:Nn \g_tmpa_dim {\box_wd:N \l_tmpa_box}
     }
@@ -1422,7 +1422,12 @@
 
 % \subsection{\env{enumerate}}
 %
-% \begin{lmacro}{\theenumi, \theenumii, \theenumiii, \theenumiv}
+% \begin{lmacro}{
+%   \theenumi,
+%   \theenumii,
+%   \theenumiii,
+%   \theenumiv
+% }
 %    Define how the enumerate counters are represented.
 %    \begin{macrocode}
 \cs_set:Npn \theenumi {\arabic{enumi}}
@@ -1432,13 +1437,46 @@
 %    \end{macrocode}
 % \end{lmacro}
 
-% \begin{lmacro}{\labelenumi, \labelenumii, \labelenumiii, \labelenumiv}
+% \begin{lmacro}{
+%   \labelenumi,
+%   \labelenumii,
+%   \labelenumiii,
+%   \labelenumiv
+% }
 %    Define the label for each item.
+%    (Note: these need to be expandable
+%    and safe in an expansion-only context.
+%    For example,
+%    \pkg{enumitem} expands their definitions with \tn{xdef}
+%    and then \tn{let}s them to their definition.
+%    So if they are protected,
+%    they will be \tn{let} to themselves
+%    and there will be an infinite loop.
+%    Or if they are not protected,
+%    but they contain material not safe in an expansion-only context,
+%    there will still be an error.)
 %    \begin{macrocode}
-\cs_new_protected:Npn \labelenumi {\tabularfigures\theenumi}
-\cs_new_protected:Npn \labelenumii {\theenumii}
-\cs_new_protected:Npn \labelenumiii {\theenumiii}
-\cs_new_protected:Npn \labelenumiv {\theenumiv}
+\cs_new:Npn \labelenumi {\theenumi}
+\cs_new:Npn \labelenumii {\theenumii}
+\cs_new:Npn \labelenumiii {\theenumiii}
+\cs_new:Npn \labelenumiv {\theenumiv}
+%    \end{macrocode}
+% \end{lmacro}
+
+% \begin{lmacro}{
+%   \formatenumi,
+%   \formatenumii,
+%   \formatenumiii,
+%   \formatenumiv
+% }
+%    Define the font for each item.
+%    The last command in the definition
+%    can take the label text as an argument.
+%    \begin{macrocode}
+\cs_new_protected:Npn \formatenumi {\tabularfigures}
+\cs_new_protected:Npn \formatenumii {}
+\cs_new_protected:Npn \formatenumiii {}
+\cs_new_protected:Npn \formatenumiv {}
 %    \end{macrocode}
 % \end{lmacro}
 
@@ -1455,24 +1493,99 @@
 %    \end{macrocode}
 % \end{lmacro}
 
+% \begin{environment}{enumerate}
+%    Provides a hook to set the label font;
+%    otherwise the same as the kernel definition.
+%    \begin{macrocode}
+\RenewDocumentEnvironment{enumerate}{}{
+  \int_compare:nNnTF {\@enumdepth} > {3} {
+    \@toodeep
+  }{
+    \int_incr:N \@enumdepth
+    \cs_set:Npe \@enumctr {enum\int_to_roman:n {\@enumdepth}}
+    \exp_args:Nc \list{label\@enumctr}{
+      \usecounter\@enumctr
+      \cs_set:Npn \makelabel ##1 {
+        \hss\hbox_overlap_left:n {
+          \use:c {formatenum\int_to_roman:n {\@enumdepth}}{##1}
+        }
+      }
+    }
+  }
+}{
+  \endlist
+}
+%    \end{macrocode}
+% \end{environment}
+
 % \subsection{\env{itemize}}
 %
-% \begin{lmacro}{\labelitemi, \labelitemii, \labelitemiii, \labelitemiv}
+% \begin{lmacro}{
+%   \labelitemi,
+%   \labelitemii,
+%   \labelitemiii,
+%   \labelitemiv
+% }
 %    Define the label for each item.
+%    (Note: these need to be expandable
+%    and safe in an expansion-only context.
+%    For example,
+%    \pkg{enumitem} expands their definitions with \tn{xdef}
+%    and then \tn{let}s them to their definition.
+%    So if they are protected,
+%    they will be \tn{let} to themselves
+%    and there will be an infinite loop.
+%    Or if they are not protected,
+%    but they contain material not safe in an expansion-only context,
+%    there will still be an error.)
 %    \begin{macrocode}
-\cs_new_protected:Npn \labelitemi {\labelitemfont\textbullet}
-\cs_new_protected:Npn \labelitemii {\labelitemfont\ding{"76}}
-\cs_new_protected:Npn \labelitemiii {\labelitemfont\ding{"42}}
-\cs_new_protected:Npn \labelitemiv {\labelitemfont\ding{"5B}}
+\cs_new:Npn \labelitemi {\textbullet}
+\cs_new:Npn \labelitemii {\ding{"76}}
+\cs_new:Npn \labelitemiii {\ding{"42}}
+\cs_new:Npn \labelitemiv {\ding{"5B}}
 %    \end{macrocode}
 % \end{lmacro}
 
-% \begin{lmacro}{\labelitemfont}
-%    Defines the font to use in the \env{itemize} label.
+% \begin{lmacro}{
+%   \formatitemi,
+%   \formatitemii,
+%   \formatitemiii,
+%   \formatitemiv
+% }
+%    Define the font for each item.
+%    The last command in the definition
+%    can take the label text as an argument.
 %    \begin{macrocode}
-\cs_new_protected:Npn \labelitemfont {\normalfont}
+\cs_new_protected:Npn \formatitemi {}
+\cs_new_protected:Npn \formatitemii {}
+\cs_new_protected:Npn \formatitemiii {}
+\cs_new_protected:Npn \formatitemiv {}
 %    \end{macrocode}
 % \end{lmacro}
+
+% \begin{environment}{itemize}
+%    Provides a hook to set the label font;
+%    otherwise the same as the kernel definition.
+%    \begin{macrocode}
+\RenewDocumentEnvironment{itemize}{}{
+  \int_compare:nNnTF {\@itemdepth} > {3} {
+    \@toodeep
+  }{
+    \int_incr:N \@itemdepth
+    \cs_set:Npe \@itemitem {labelitem\int_to_roman:n {\@itemdepth}}
+    \exp_args:Nc \list{\@itemitem}{
+      \cs_set:Npn \makelabel ##1 {
+        \hss\hbox_overlap_left:n {
+          \use:c {formatitem\int_to_roman:n {\@itemdepth}}{##1}
+        }
+      }
+    }
+  }
+}{
+  \endlist
+}
+%    \end{macrocode}
+% \end{environment}
 
 % \subsection{\env{description}}
 %
