@@ -923,6 +923,20 @@
 ]
 %    \end{macrocode}
 
+% Set a typewriter font.
+% (Because Latin Modern Mono's font files
+% are separated by optical size,
+% setting it up by font file,
+% as we set up the roman and the sans serif font,
+% would be more trouble than its worth.
+% Let \pkg{fontspec} handle which files to load.)
+%    \begin{macrocode}
+\setmonofont{Latin Modern Mono}[
+  Numbers = {Proportional, OldStyle},
+  SmallCapsFeatures = {Letters = UppercaseSmallCaps, LetterSpace = 3.0},
+]
+%    \end{macrocode}
+
 % \begin{imacro}{\headfamily}
 %    Use Cormorant Garamond,
 %    which is lighter than \acro{EB} Garamond,
