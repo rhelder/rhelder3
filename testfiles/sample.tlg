@@ -1,24 +1,24 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 Package fontspec Info: 
-(fontspec)             Font family 'EBGaramond(1)' created for font 'EBGaramond' with options [Ligatures=TeX,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Numbers={Proportional,OldStyle},FontFace={m}{sw}{Font=*-Italic,Style=Swash},FontFace={b}{sw}{Font=*-SemiBoldItalic,Style=Swash},FontFace={m}{scsw}{Font=*-Italic,Letters=SmallCaps,Style=Swash},SmallCapsFeatures={Letters=UppercaseSmallCaps,LetterSpace=2.0},LetterSpace=4.0].
+(fontspec)             Font family 'EBGaramond(1)' created for font 'EBGaramond' with options [Ligatures=TeX,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Numbers={Proportional,OldStyle},FontFace={m}{sw}{Font=*-Italic,Style=Swash},FontFace={b}{sw}{Font=*-SemiBoldItalic,Style=Swash},FontFace={m}{scsw}{Font=*-Italic,Letters=SmallCaps,Style=Swash},SmallCapsFeatures={Letters=UppercaseSmallCaps,LetterSpace=3.0},LetterSpace=4.0].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS series/shapes:
 (fontspec)              
 (fontspec)             - 'swash' (m/sw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+pnum;+onum;+swsh;"
-(fontspec)             -  (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=2.0;+tlig;+pnum;+onum;+swsh;+smcp;+c2sc;"
+(fontspec)             -  (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=3.0;+tlig;+pnum;+onum;+swsh;+smcp;+c2sc;"
 (fontspec)             - 'bold swash' (b/sw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+pnum;+onum;+swsh;"
-(fontspec)             -  (b/scsw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=2.0;+tlig;+pnum;+onum;+swsh;+smcp;+c2sc;"
+(fontspec)             -  (b/scsw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=3.0;+tlig;+pnum;+onum;+swsh;+smcp;+c2sc;"
 (fontspec)             - (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+pnum;+onum;+smcp;+swsh;"
-(fontspec)             -  (m/scscsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=2.0;+tlig;+pnum;+onum;+swsh;+smcp;+c2sc;"
+(fontspec)             -  (m/scscsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=3.0;+tlig;+pnum;+onum;+swsh;+smcp;+c2sc;"
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+pnum;+onum;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=2.0;+tlig;+pnum;+onum;+smcp;+c2sc;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=3.0;+tlig;+pnum;+onum;+smcp;+c2sc;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+pnum;+onum;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=2.0;+tlig;+pnum;+onum;+smcp;+c2sc;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=3.0;+tlig;+pnum;+onum;+smcp;+c2sc;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+pnum;+onum;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=2.0;+tlig;+pnum;+onum;+smcp;+c2sc;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=3.0;+tlig;+pnum;+onum;+smcp;+c2sc;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;+tlig;+pnum;+onum;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=2.0;+tlig;+pnum;+onum;+smcp;+c2sc;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=4.0;letterspace=3.0;+tlig;+pnum;+onum;+smcp;+c2sc;"
 Inserting `luaotfload.letterspace' in `pre_linebreak_filter'.
 Inserting `luaotfload.letterspace' in `hpack_filter'.
 Package microtype Info: Loading generic protrusion settings for font family
@@ -4124,7 +4124,7 @@ Completed box being shipped out [2]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 5.448
-...\hbox(6.072+1.68)x336.40823, glue set 20.7241fil, direction TLT
+...\hbox(6.072+1.68)x336.40823, glue set 15.44432fil, direction TLT
 ....\kern-0.168 (left margin)
 ....\localpar
 .....\localinterlinepenalty=0
@@ -4138,117 +4138,117 @@ Completed box being shipped out [2]
 .....\TU/EBGaramond(0)/m/n/12 󰋕
 .....\glue 12.0
 ....\TU/EBGaramond(0)/m/sc/12 󰄪
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅆
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆈
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆢
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅔
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆈
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅚
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆈
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆩
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅆
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆁
-....\glue(\spaceskip) 2.64 plus 1.31999 minus 0.88
+....\glue(\spaceskip) 2.76 plus 1.37999 minus 0.92
 ....\TU/EBGaramond(0)/m/sc/12 󰄮
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆈
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅱
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆩
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆽
-....\glue(\spaceskip) 2.64 plus 1.31999 minus 0.88
+....\glue(\spaceskip) 2.76 plus 1.37999 minus 0.92
 ....\TU/EBGaramond(0)/m/sc/12 󰆏
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅨
-....\glue(\spaceskip) 2.64 plus 1.31999 minus 0.88
+....\glue(\spaceskip) 2.76 plus 1.37999 minus 0.92
 ....\TU/EBGaramond(0)/m/sc/12 󰃍
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆛
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆛
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆞
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅔
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆛
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆩
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅱
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆏
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆈
-....\glue(\spaceskip) 2.64 plus 1.31999 minus 0.88
+....\glue(\spaceskip) 2.76 plus 1.37999 minus 0.92
 ....\TU/EBGaramond(0)/m/sc/12 󰌸
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰄥
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆭
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅑
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆢
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅔
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆩
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅱
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆏
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆈
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰌹
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -9597,24 +9597,24 @@ Completed box being shipped out [3]
 ....\TU/EBGaramond(0)/m/n/12 󰋗
 ....\glue 0.0 plus 1.0fil
 Package fontspec Info: 
-(fontspec)             Font family 'EBGaramond(2)' created for font 'EBGaramond' with options [Ligatures=TeX,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Numbers={Proportional,OldStyle},FontFace={m}{sw}{Font=*-Italic,Style=Swash},FontFace={b}{sw}{Font=*-SemiBoldItalic,Style=Swash},FontFace={m}{scsw}{Font=*-Italic,Letters=SmallCaps,Style=Swash},SmallCapsFeatures={Letters=UppercaseSmallCaps,LetterSpace=2.0},VerticalPosition=Superior].
+(fontspec)             Font family 'EBGaramond(2)' created for font 'EBGaramond' with options [Ligatures=TeX,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Numbers={Proportional,OldStyle},FontFace={m}{sw}{Font=*-Italic,Style=Swash},FontFace={b}{sw}{Font=*-SemiBoldItalic,Style=Swash},FontFace={m}{scsw}{Font=*-Italic,Letters=SmallCaps,Style=Swash},SmallCapsFeatures={Letters=UppercaseSmallCaps,LetterSpace=3.0},VerticalPosition=Superior].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS series/shapes:
 (fontspec)              
 (fontspec)             - 'swash' (m/sw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;+swsh;"
-(fontspec)             -  (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
+(fontspec)             -  (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
 (fontspec)             - 'bold swash' (b/sw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;+swsh;"
-(fontspec)             -  (b/scsw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
+(fontspec)             -  (b/scsw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
 (fontspec)             - (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;+smcp;+swsh;"
-(fontspec)             -  (m/scscsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
+(fontspec)             -  (m/scscsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+pnum;+onum;+sups;+swsh;+smcp;+c2sc;"
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+pnum;+onum;+sups;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+pnum;+onum;+sups;+smcp;+c2sc;"
 Completed box being shipped out [4]
 \vbox(628.7566+2.172)x403.08162, direction TLT
 .\glue 16.7566
@@ -13420,7 +13420,7 @@ Completed box being shipped out [5]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.16199
-...\hbox(5.628+0.168)x336.40823, glue set 208.30821fil, direction TLT
+...\hbox(5.628+0.168)x336.40823, glue set 206.50829fil, direction TLT
 ....\kern-0.264 (left margin)
 ....\localpar
 .....\localinterlinepenalty=0
@@ -13434,38 +13434,38 @@ Completed box being shipped out [5]
 .....\TU/EBGaramond(0)/m/n/12 󰋕
 .....\glue 12.0
 ....\TU/EBGaramond(0)/m/sc/12 󰄌
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆢
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆩
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅚
-....\glue(\spaceskip) 2.64 plus 1.31999 minus 0.88
+....\glue(\spaceskip) 2.76 plus 1.37999 minus 0.92
 ....\TU/EBGaramond(0)/m/sc/12 󰄥
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆭
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅑
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅔
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆩
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅱
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆏
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆈
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆢
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -19270,24 +19270,24 @@ Completed box being shipped out [6]
 ....\TU/EBGaramond(0)/m/n/12 󰋚
 ....\glue 0.0 plus 1.0fil
 Package fontspec Info: 
-(fontspec)             Font family 'EBGaramond(3)' created for font 'EBGaramond' with options [Ligatures=TeX,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Numbers={Proportional,OldStyle},FontFace={m}{sw}{Font=*-Italic,Style=Swash},FontFace={b}{sw}{Font=*-SemiBoldItalic,Style=Swash},FontFace={m}{scsw}{Font=*-Italic,Letters=SmallCaps,Style=Swash},SmallCapsFeatures={Letters=UppercaseSmallCaps,LetterSpace=2.0},Numbers=Tabular].
+(fontspec)             Font family 'EBGaramond(3)' created for font 'EBGaramond' with options [Ligatures=TeX,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Numbers={Proportional,OldStyle},FontFace={m}{sw}{Font=*-Italic,Style=Swash},FontFace={b}{sw}{Font=*-SemiBoldItalic,Style=Swash},FontFace={m}{scsw}{Font=*-Italic,Letters=SmallCaps,Style=Swash},SmallCapsFeatures={Letters=UppercaseSmallCaps,LetterSpace=3.0},Numbers=Tabular].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS series/shapes:
 (fontspec)              
 (fontspec)             - 'swash' (m/sw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+swsh;"
-(fontspec)             -  (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
+(fontspec)             -  (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
 (fontspec)             - 'bold swash' (b/sw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+swsh;"
-(fontspec)             -  (b/scsw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
+(fontspec)             -  (b/scsw) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
 (fontspec)             - (m/scsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;+smcp;+swsh;"
-(fontspec)             -  (m/scscsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
+(fontspec)             -  (m/scscsw) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+onum;+tnum;+swsh;+smcp;+c2sc;"
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"[EBGaramond-Regular.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"[EBGaramond-SemiBold.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: <->"[EBGaramond-Italic.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;+tlig;+onum;+tnum;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=2.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: <->"[EBGaramond-SemiBoldItalic.otf]:mode=node;script=latn;language=dflt;letterspace=3.0;+tlig;+onum;+tnum;+smcp;+c2sc;"
 Completed box being shipped out [7]
 \vbox(628.7566+2.316)x403.08162, direction TLT
 .\glue 16.7566
@@ -19586,7 +19586,7 @@ Completed box being shipped out [7]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 6.838
-...\hbox(5.628+2.172)x336.40823, glue set 251.06422fil, direction TLT
+...\hbox(5.628+2.172)x336.40823, glue set 250.10426fil, direction TLT
 ....\kern-0.3 (left margin)
 ....\localpar
 .....\localinterlinepenalty=0
@@ -19600,27 +19600,27 @@ Completed box being shipped out [7]
 .....\TU/EBGaramond(0)/m/n/12 󰋕
 .....\glue 12.0
 ....\TU/EBGaramond(0)/m/sc/12 󰃣
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆈
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆭
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆇
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆞
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅆
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆩
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -22515,7 +22515,7 @@ Completed box being shipped out [8]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 5.892
-...\hbox(5.628+2.172)x336.40823, glue set 269.28021fil, direction TLT
+...\hbox(5.628+2.172)x336.40823, glue set 268.56024fil, direction TLT
 ....\kern-0.3 (left margin)
 ....\localpar
 .....\localinterlinepenalty=0
@@ -22529,20 +22529,20 @@ Completed box being shipped out [8]
 .....\TU/EBGaramond(0)/m/n/12 󰋖
 .....\glue 12.0
 ....\TU/EBGaramond(0)/m/sc/12 󰃶
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆩
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆇
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅱
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰇁
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -25497,7 +25497,7 @@ Completed box being shipped out [9]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.144
-...\hbox(5.628+2.28)x336.40823, glue set 243.4922fil, direction TLT
+...\hbox(5.628+2.28)x336.40823, glue set 242.29225fil, direction TLT
 ....\kern-0.3 (left margin)
 ....\localpar
 .....\localinterlinepenalty=0
@@ -25511,31 +25511,31 @@ Completed box being shipped out [9]
 .....\TU/EBGaramond(0)/m/n/12 󰋗
 .....\glue 12.0
 ....\TU/EBGaramond(0)/m/sc/12 󰃟
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆢
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅔
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅱
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆛
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆩
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅱
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆏
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆈
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -28814,7 +28814,7 @@ Completed box being shipped out [10]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 6.726
-...\hbox(5.628+2.268)x336.40823, glue set 252.36023fil, direction TLT
+...\hbox(5.628+2.268)x336.40823, glue set 251.40027fil, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -28827,27 +28827,27 @@ Completed box being shipped out [10]
 .....\TU/EBGaramond(0)/m/n/12 󰋕
 .....\glue 12.0
 ....\TU/EBGaramond(0)/m/sc/12 󰃣
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆈
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆭
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆇
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆞
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅆
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆩
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -36705,7 +36705,7 @@ Completed box being shipped out [12]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.60799
-...\hbox(5.628+2.268)x336.40823, glue set 270.57623fil, direction TLT
+...\hbox(5.628+2.268)x336.40823, glue set 269.85626fil, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
@@ -36718,20 +36718,20 @@ Completed box being shipped out [12]
 .....\TU/EBGaramond(0)/m/n/12 󰋖
 .....\glue 12.0
 ....\TU/EBGaramond(0)/m/sc/12 󰃶
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆩
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰆇
 ....\discretionary (penalty 50)
-.....< \kern0.24 (font)
+.....< \kern0.36 (font)
 .....< \TU/EBGaramond(0)/m/sc/12 󰌶
-.....= \kern0.24 (font)
+.....= \kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅱
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰇁
-....\kern0.24 (font)
+....\kern0.36 (font)
 ....\TU/EBGaramond(0)/m/sc/12 󰅞
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
