@@ -1545,16 +1545,16 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 9.964
-...\hbox(8.036+1.484)x336.40823, glue set 19.30823fil, direction TLT
-....\kern-0.196 (left margin)
+...\hbox(8.036+1.484)x336.40823, glue set 18.74825fil, direction TLT
+....\kern-0.238 (left margin)
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\hbox(5.684+0.042)x18.046, direction TLT
+....\hbox(5.404+0.0)x18.648, direction TLT
 .....\glue 0.0
-.....\TU/EBGaramond(0)/m/n/14 󰋕
+.....\TU/CormorantGaramond(0)/m/n/14 1
 .....\glue 14.0
 ....\TU/CormorantGaramond(0)/m/sc/14 󰍁
 ....\kern0.28 (font)
@@ -13369,16 +13369,15 @@ Completed box being shipped out [5]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.56201
-...\hbox(6.958+0.21)x336.40823, glue set 216.13425fil, direction TLT
-....\kern-0.308 (left margin)
+...\hbox(6.958+0.21)x336.40823, glue set 216.35825fil, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\hbox(5.796+0.056)x20.16, direction TLT
+....\hbox(5.74+0.0)x19.628, direction TLT
 .....\glue 0.0
-.....\TU/EBGaramond(0)/m/n/14 󰋖
+.....\TU/CormorantGaramond(0)/m/n/14 2
 .....\glue 14.0
 ....\TU/CormorantGaramond(0)/m/sc/14 󰋇
 ....\kern0.28 (font)
@@ -16951,15 +16950,15 @@ Completed box being shipped out [6]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 10.81401
-...\hbox(6.958+3.388)x336.40823, glue set 231.31026fil, direction TLT
+...\hbox(6.958+3.864)x336.40823, glue set 231.07225fil, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\hbox(5.782+2.66)x19.208, direction TLT
+....\hbox(5.726+3.864)x19.446, direction TLT
 .....\glue 0.0
-.....\TU/EBGaramond(0)/m/n/14 󰋗
+.....\TU/CormorantGaramond(0)/m/n/14 3
 .....\glue 14.0
 ....\TU/CormorantGaramond(0)/m/sc/14 󰉑
 ....\kern0.28 (font)
@@ -16990,7 +16989,7 @@ Completed box being shipped out [6]
 ...\glue 12.0 plus 3.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.152
+...\glue(\baselineskip) 2.676
 ...\hbox(8.46+3.42)x336.40823, glue set - 0.00049, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
@@ -19557,16 +19556,16 @@ Completed box being shipped out [7]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.62201
-...\hbox(6.958+2.534)x336.40823, glue set 286.21826fil, direction TLT
-....\kern-0.35 (left margin)
+...\hbox(6.958+2.66)x336.40823, glue set 286.76425fil, direction TLT
+....\kern-0.322 (left margin)
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\hbox(5.894+2.534)x20.888, direction TLT
+....\hbox(5.572+2.66)x20.314, direction TLT
 .....\glue 0.0
-.....\TU/EBGaramond(0)/m/n/14 󰋘
+.....\TU/CormorantGaramond(0)/m/n/14 4
 .....\glue 14.0
 ....\TU/CormorantGaramond(0)/m/sc/14 󰊭
 ....\kern0.28 (font)
@@ -19585,7 +19584,7 @@ Completed box being shipped out [7]
 ...\glue 12.0 plus 3.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 6.838
+...\glue(\baselineskip) 6.71199
 ...\hbox(5.628+2.172)x336.40823, glue set 250.10426fil, direction TLT
 ....\kern-0.3 (left margin)
 ....\localpar
@@ -28774,15 +28773,15 @@ Completed box being shipped out [10]
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.62201
-...\hbox(6.958+2.646)x336.40823, glue set 241.40425fil, direction TLT
+...\hbox(6.958+3.85)x336.40823, glue set 240.70425fil, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0
 .....\localbrokenpenalty=0
 .....\localleftbox=null
 .....\localrightbox=null
-....\hbox(5.81+2.646)x19.026, direction TLT
+....\hbox(5.964+3.85)x19.726, direction TLT
 .....\glue 0.0
-.....\TU/EBGaramond(0)/m/n/14 󰋙
+.....\TU/CormorantGaramond(0)/m/n/14 5
 .....\glue 14.0
 ....\TU/CormorantGaramond(0)/m/sc/14 󰋇
 ....\kern0.28 (font)
@@ -28813,7 +28812,7 @@ Completed box being shipped out [10]
 ...\glue 12.0 plus 3.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 6.726
+...\glue(\baselineskip) 5.52199
 ...\hbox(5.628+2.268)x336.40823, glue set 251.40027fil, direction TLT
 ....\localpar
 .....\localinterlinepenalty=0

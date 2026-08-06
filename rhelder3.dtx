@@ -1645,7 +1645,11 @@
 \cs_set:Npn \theparagraph {\thesubsubsection.\arabic{paragraph}}
 \cs_set:Npn \thesubparagraph {\theparagraph.\arabic{subparagraph}}
 
-\cs_set_protected:Npn \@seccntformat #1 {\normalfont\cs:w the#1\cs_end:\quad}
+\cs_set_protected:Npn \@seccntformat #1 {
+  \normalfont
+  \tl_if_eq:nnT {#1} {section} {\headfamily}
+  \cs:w the#1\cs_end:\quad
+}
 %    \end{macrocode}
 % \end{imacro}
 
