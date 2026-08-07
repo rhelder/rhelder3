@@ -564,7 +564,7 @@
 
 \RenewDocumentCommand{\MakeUppercase}{m}{
   \group_begin:
-    \addfontfeature{LetterSpace = 9.0}
+    \addfontfeatures{LetterSpace = 9.0}
     \MakeUppercaseCopy{#1}
   \group_end:
 }
@@ -577,7 +577,7 @@
 %    \begin{macrocode}
 \NewDocumentCommand{\digits}{m}{
   \group_begin:
-    \addfontfeature{LetterSpace = 4.0}
+    \addfontfeatures{LetterSpace = 4.0}
     #1
   \group_end:
 }
