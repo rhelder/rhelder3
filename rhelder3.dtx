@@ -1429,6 +1429,12 @@
 %   \theenumiv
 % }
 %    Define how the enumerate counters are represented.
+%    (\textbf{Note}: the fourth level is included for compatibility only,
+%    in case any packages expect the fourth level
+%    provided by the standard classes.
+%    Lists with four levels of nesting never look good,
+%    and therefore this document class
+%    does not guarantee that they will look good.)
 %    \begin{macrocode}
 \cs_set:Npn \theenumi {\arabic{enumi}}
 \cs_set:Npn \theenumii {\alph{enumii}}
@@ -1519,6 +1525,13 @@
 % \end{environment}
 
 % \subsection{\env{itemize}}
+%
+%  (\textbf{Note}: the fourth level is included for compatibility only,
+%  in case any packages expect the fourth level
+%  provided by the standard classes.
+%  Lists with four levels of nesting never look good,
+%  and therefore this document class
+%  does not guarantee that they will look good.)
 %
 % \begin{lmacro}{
 %   \labelitemi,
