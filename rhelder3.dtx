@@ -1950,6 +1950,11 @@
 \RequirePackage{widows-and-orphans}
 %    \end{macrocode}
 %
+% Load \pkg{hyperref} last.
+%    \begin{macrocode}
+\RequirePackage{hyperref}
+%    \end{macrocode}
+
 % \subsection{Languages}
 %
 % Load \pkg{babel} support for ancient Greek
@@ -2001,6 +2006,31 @@
 % Place a thin space between the dots of ellipses.
 %    \begin{macrocode}
 \RenewDocumentCommand{\ellipsisgap}{}{\thinspaceamount}
+%    \end{macrocode}
+
+% \subsection{\pkg{hyperref}}
+%
+% Produce bookmarks for all headings
+% down to \tn{subsubsection}.
+%    \begin{macrocode}
+\setcounter{tocdepth}{3}
+%    \end{macrocode}
+
+% Don't color links.
+%    \begin{macrocode}
+\hypersetup{
+  hidelinks,
+%    \end{macrocode}
+% Provide minimal useful PDF metadata.
+%    \begin{macrocode}
+  pdftitle = \g_@@_maketitle_title,
+  pdfauthor = \g_@@_maketitle_author,
+%    \end{macrocode}
+% Don't force the PDF viewer to open the document
+% in any particular mode.
+%    \begin{macrocode}
+  pdfpagemode = UseNone,
+}
 %    \end{macrocode}
 %
 % \end{implementation}
