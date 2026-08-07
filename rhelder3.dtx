@@ -64,6 +64,7 @@
 \NewDocumentCommand{\hook}{m}{\texttt{#1}}
 \NewDocumentCommand{\num}{m}{#1}
 \NewDocumentCommand{\opt}{m}{\texttt{#1}}
+\NewDocumentCommand{\op}{m}{\texttt{#1}}
 \NewDocumentCommand{\ps}{m}{\texttt{#1}}
 \NewDocumentCommand{\unit}{m}{\texttt{#1}}
 
@@ -1220,7 +1221,13 @@
 
     \rule{0pt}{0pt}
     \skip_vertical:n {
-      \fp_eval:n {ceil(\l_tmpb_dim / \baselineskip, 0)}\baselineskip
+%    \end{macrocode}
+%    Use the \op{round} operation
+%    (as opposed to \op{floor} or \op{ceil}
+%    so that the title block is shifted
+%    by the smallest possible absolute value.
+%    \begin{macrocode}
+      \fp_eval:n {round(\l_tmpb_dim / \baselineskip, 0)}\baselineskip
       - \l_tmpb_dim
     }
     % \ShowGrid{\l_tmpb_box}{\c_@@_large_leading_dim}{6.156pt}
