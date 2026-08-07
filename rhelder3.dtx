@@ -1968,6 +1968,12 @@
 \DeclareQuoteStyle{latin}[\itshape][]{}{}{\textquoteleft}{\textquoteright}
 %    \end{macrocode}
 
+% If \pkg{biblatex} is loaded,
+% tell \pkg{csquotes} to use \cs{autocite} for citations.
+%    \begin{macrocode}
+\IfPackageLoadedT{biblatex}{\SetCiteCommand{\autocite}}
+%    \end{macrocode}
+
 % \subsection{Ellipses}
 %
 % Do not place brackets around ellipses in quotations.
