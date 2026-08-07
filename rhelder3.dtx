@@ -1230,7 +1230,13 @@
       \fp_eval:n {round(\l_tmpb_dim / \baselineskip, 0)}\baselineskip
       - \l_tmpb_dim
     }
-    % \ShowGrid{\l_tmpb_box}{\c_@@_large_leading_dim}{6.156pt}
+%    \end{macrocode}
+%    (Here's an example of how I used \cs{ShowGrid}
+%    to help design the title block.
+%    The offset is just the \tn{topsep}
+%    preceding the \env{center} environment.)
+%    \begin{macrocode}
+    % \ShowGrid{\l_tmpb_box}{\c__rh_large_leading_dim}{15pt}
     \box_use_drop:N \l_tmpb_box
     \skip_vertical:n {\baselineskip}
   \group_end:
