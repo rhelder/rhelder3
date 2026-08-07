@@ -1156,6 +1156,11 @@
     \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
 
     \vbox_set:Nn \l_tmpb_box {
+%    \end{macrocode}
+%    Insert a zero-width and zero-height rule
+%    So that \tn{baselineskip} is inserted before the first \tn{hbox}.
+%    \begin{macrocode}
+      \rule{0pt}{0pt}
       \begin{center}
         \large\normalfont\headfamily
         \MakeUppercase{\tl_use:N \g_@@_maketitle_title}\par
