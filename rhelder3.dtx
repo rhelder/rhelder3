@@ -1915,7 +1915,6 @@
   strict,
   autostyle,
   english = british,
-  latin = britishquotes,
 ]{csquotes}
 %    \end{macrocode}
 %
@@ -1948,6 +1947,25 @@
 % use the hyphenation rules for classical Latin.
 %    \begin{macrocode}
 \babelprovide[hyphenrules=classiclatin]{latin}
+%    \end{macrocode}
+
+% \subsection{Quotations}
+%
+% Typeset quotations in ancient Greek without quotation marks;
+% the contrasting Greek script is sufficient to set off the quotation.
+% For quotations within Greek quotations,
+% use double quotes,
+% as recommended by \autocite[79]{west1973TextualCriticism}.
+%    \begin{macrocode}
+\DeclareQuoteStyle{ancientgreek}{}{}{\textquotedblleft}{\textquotedblright}
+%    \end{macrocode}
+
+% Typeset quotations in Latin without quotation marks;
+% using italics is sufficient to set off the quotation.
+% For quotations within Latin quotations,
+% use single quotes.
+%    \begin{macrocode}
+\DeclareQuoteStyle{latin}[\itshape][]{}{}{\textquoteleft}{\textquoteright}
 %    \end{macrocode}
 
 % \subsection{Ellipses}
