@@ -663,7 +663,9 @@
 
 % \begin{imacro}{\small}
 %    Sets not only font size and leading,
-%    display parameters and generic list parameters,
+%    but also small/med/big skips,
+%    display parameters,
+%    and generic list parameters,
 %    like \tn{normalsize} does.
 %    \begin{macrocode}
 \NewDocumentCommand{\small}{}{
@@ -709,7 +711,9 @@
 
 % \begin{imacro}{\footnotesize}
 %    Sets the font size and leading in footnotes.
-%    Also sets display and generic list parameters,
+%    Also sets small/med/big skips,
+%    display parameters,
+%    and generic list parameters,
 %    like \tn{normalsize} does.
 %    \begin{macrocode}
 \NewDocumentCommand{\footnotesize}{}{
@@ -1218,7 +1222,12 @@
 %    will still snap to baseline).
 %    \begin{macrocode}
     \legacy_if_gset_true:n {@nobreak}
+%    \end{macrocode}
 
+%    Insert a zero-width and zero-height rule
+%    so that the vertical skip isn't discarded
+%    because it's at the top of a page.
+%    \begin{macrocode}
     \rule{0pt}{0pt}
     \skip_vertical:n {
 %    \end{macrocode}
@@ -1298,7 +1307,13 @@
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \partopsep {0pt}
   \skip_set:Nn \itemsep {0pt}
+%    \end{macrocode}
 
+%    Set the label width to the natural width of the label
+%    (with the counter set to zero).
+%    Calculate \tn{labelsep} from this so that
+%    \(\tn{labelwidth} + \tn{labelsep} = \tn{parindent}\).
+%    \begin{macrocode}
   \group_begin:
     \bool_case:nT {
       {! \int_if_zero_p:n {\@enumdepth}}
@@ -1968,15 +1983,17 @@
 \RequirePackage{widows-and-orphans}
 %    \end{macrocode}
 %
-% Load \pkg{hyperref} last.
+% Load \pkg{hyperref} last
+% to enable use of various useful \acro{PDF} features
+% such as bookmarks, links, and metadata.
 %    \begin{macrocode}
 \RequirePackage{hyperref}
 %    \end{macrocode}
 
 % \subsection{Languages}
 %
-% Load \pkg{babel} support for ancient Greek
-% with the \file{ini} method.
+% Load \pkg{babel} support for ancient Greek with the \file{ini} method
+% (support for ancient Greek is not available via the \file{ldf} method).
 %    \begin{macrocode}
 \babelprovide[import = grc]{ancientgreek}
 %    \end{macrocode}
