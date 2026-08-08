@@ -92,6 +92,7 @@
 %<*class>
 %<@@=rh>
 %    \end{macrocode}
+%
 % Check that we are running on top of \LaTeXe{}
 % and are using a recent version of the kernel
 % that contains the L3 programming layer,
@@ -109,7 +110,7 @@
 %
 % \begin{optionenv}{showgrid}
 %     Boolean (default \bool{false}).
-%     Overlay baseline grid over the page
+%     Overlay a baseline grid over the page
 %     (or,
 %     more precisely,
 %     over \cs{l_shipout_box}).
@@ -153,7 +154,7 @@
 % \begin{optionenv}{kant}
 %    Boolean (default \bool{false}).
 %    Load \pkg{kantlipsum}
-%    and define \cs{autokant} command
+%    and define the \cs{autokant} command
 %    to easily generate complex sample texts.
 %    \begin{macrocode}
   kant .code:n =
@@ -216,7 +217,6 @@
         \int_set_eq:NN \l_tmpa_int \g_@@_kant_par_int
         \int_gset:Nn \g_@@_kant_par_int {\l_tmpa_int + ##2}
         \int_if_zero:nF {##2} {\int_incr:N \l_tmpa_int}
-
         \tl_put_right:Ne \l_tmpa_tl {
           [\int_value:w \l_tmpa_int -\int_value:w \g_@@_kant_par_int]
         }
@@ -226,7 +226,6 @@
           \int_set_eq:NN \l_tmpa_int \g_@@_kant_sent_int
           \int_gset:Nn \g_@@_kant_sent_int {\l_tmpa_int + ##3}
           \int_if_zero:nF {##3} {\int_incr:N \l_tmpa_int}
-
           \tl_put_right:Ne \l_tmpa_tl {
             [\int_value:w \l_tmpa_int -\int_value:w \g_@@_kant_sent_int]
           }
@@ -271,7 +270,7 @@
 %
 % Provide the four things that a document class must provide:
 % a definition of \tn{normalsize},
-% values for \tn{textwidth} and \tn{textheight}
+% values for \tn{textwidth} and \tn{textheight},
 % and a specification for page-numbering.
 % Provide these right away so that we can safely load required packages
 % and execute options.
@@ -295,7 +294,8 @@
 
 % \begin{imacro}{\normalsize}
 %    Sets the font size and leading.
-%    Also sets display parameters
+%    Also sets small/med/big skips,
+%    display parameters,
 %    and generic list parameters.
 %    \begin{macrocode}
 \RenewDocumentCommand{\normalsize}{}{
@@ -461,7 +461,7 @@
 
 % \section{Execute Options}
 %
-% Excecute the code for the specified options
+% Excecute the code for the specified options.
 %    \begin{macrocode}
 \ProcessKeyOptions[rh]
 %    \end{macrocode}
@@ -495,7 +495,7 @@
 %   \ifmmode\mskip#1#2\else\leavevmode@ifvmode\kern#1#3\fi\relax}
 %    \end{macrocode}
 % \end{lmacro}
-
+%
 % \begin{imacro}{
 %   \,,
 %   \thinspace,
@@ -571,7 +571,7 @@
 }
 %    \end{macrocode}
 % \end{imacro}
-%
+
 % \begin{imacro}{\digits}
 %    Letterspace strings of digits
 %    (good for strings of three or more digits).
@@ -801,7 +801,7 @@
 % \begin{imacro}{\ShowGrid}
 %    \marg{vbox}\marg{step}\marg{yshift}\\
 %    Overlay \meta{vbox} with horizontal lines separated by \meta{step}.
-%    The first horizontal line is at \marg{yshift} from the top of the box.
+%    The first horizontal line is \meta{yshift} from the top of the box.
 %    \begin{macrocode}
 \NewDocumentCommand{\ShowGrid}{mmm}{
   \vbox_set:Nn #1 {
@@ -873,7 +873,7 @@
 
 % \section{Font}
 %
-% Configure \acro{EB} Garamond.
+% Configure EB Garamond.
 %    \begin{macrocode}
 %</class>
 %<*ebgaramond>
@@ -884,19 +884,16 @@
   BoldFont = *-SemiBold,
   BoldItalicFont = *-SemiBoldItalic,
 %    \end{macrocode}
-%
 % Use text figures by default.
 %    \begin{macrocode}
   Numbers = {Proportional, OldStyle},
 %    \end{macrocode}
-%
 % Set up Swash font.
 %    \begin{macrocode}
   FontFace = {m}{sw}{Font = *-Italic, Style = Swash},
   FontFace = {b}{sw}{Font = *-SemiBoldItalic, Style = Swash},
   FontFace = {m}{scsw}{Font = *-Italic, Letters = SmallCaps, Style = Swash},
 %    \end{macrocode}
-%
 % Letterspace small caps,
 % and use small caps even for uppercase letters.
 %    \begin{macrocode}
@@ -905,7 +902,7 @@
 %</ebgaramond>
 %<*class>
 %    \end{macrocode}
-
+%
 % Set a sans serif font.
 %    \begin{macrocode}
 \setsansfont{AlegreyaSans}[
@@ -944,7 +941,7 @@
 
 % \begin{imacro}{\headfamily}
 %    Use Cormorant Garamond,
-%    which is lighter than \acro{EB} Garamond,
+%    which is lighter than EB Garamond,
 %    as a display font.
 %    \begin{macrocode}
 \newfontfamily{\headfamily}{CormorantGaramond}[
@@ -960,7 +957,7 @@
 % \end{imacro}
 
 % \begin{imacro}{\initfamily, \textinit}
-%    Switches to \acro{EB} Garamond's font face
+%    Switches to EB Garamond's font face
 %    with decorative initials.
 %    \begin{macrocode}
 \newfontface\initfamily{EBGaramond-Initials}
@@ -1019,7 +1016,7 @@
 
 % \begin{imacro}{\textsw}
 %    \marg{text}\\
-%    Typeset \meta{text} in Swash shape.
+%    Typesets \meta{text} in Swash shape.
 %    \begin{macrocode}
 \DeclareTextFontCommand{\textsw}{\swshape}
 %    \end{macrocode}
@@ -1063,10 +1060,10 @@
 % \end{variable}
 
 % \begin{imacro}{\title, \author, \date}
-%    Store argument in an internal variable.
-%    Store the argument in the traditional \tn{@title},
+%    Each of these stores its argument in an internal variable.
+%    Each also stores the argument in the traditional \tn{@title},
 %    \tn{@author},
-%    and \tn{@date} defined by the \LaTeX{} format
+%    and \tn{@date} defined by the \LaTeX{} format,
 %    in case any packages expect them.
 %    \begin{macrocode}
 \RenewDocumentCommand{\title}{m}{
@@ -1082,6 +1079,7 @@
   \cs_gset:Npn \@date {#1}
 }
 %    \end{macrocode}
+
 %    Initialize \cs{g_@@_maketitle_date} and \tn{@date} to today's date.
 %    \begin{macrocode}
 \date{\today}
@@ -1089,7 +1087,7 @@
 % \end{imacro}
 
 % \begin{imacro}{\maketitle}
-%    Prints article title at top of (next) page.
+%    Prints the article title at the top of (the next) page.
 %    Implement using the macros provided by \LaTeX{}
 %    and used by the standard classes,
 %    in case any packages expect these.
@@ -1097,6 +1095,7 @@
 \NewDocumentCommand{\maketitle}{}{
   \group_begin:
 %    \end{macrocode}
+%
 %    Use symbols instead of numerals for footnotes in the title.
 %    \begin{macrocode}
     \cs_set:Npn \thefootnote {\fnsymbol{footnote}}
@@ -1109,6 +1108,7 @@
       \hbox_overlap_right:n {\normalfont\textsuperscript\@thefnmark}
     }
 %    \end{macrocode}
+%
 %    Start a new page,
 %    prevent floats from appearing on the top of this page,
 %    and print the title.
@@ -1123,6 +1123,7 @@
     \thispagestyle{plain}
     \@thanks
 %    \end{macrocode}
+%
 %    Close the group
 %    and reset the footnote counter.
 %    Disable commands that only make sense in \tn{maketitle},
@@ -1162,6 +1163,7 @@
 
     \vbox_set:Nn \l_tmpb_box {
 %    \end{macrocode}
+%
 %    Insert a zero-width and zero-height rule
 %    So that \tn{baselineskip} is inserted before the first \tn{hbox}.
 %    \begin{macrocode}
@@ -1171,6 +1173,7 @@
         \MakeUppercase{\tl_use:N \g_@@_maketitle_title}\par
         \skip_vertical:n {\baselineskip}
 %    \end{macrocode}
+%
 %    If the \env{tabular} environment below contains one row,
 %    its height is equal to the height of \tn{strutbox}
 %    (which is \num{0.7}\tn{baselineskip})
@@ -1184,7 +1187,7 @@
 %    (which is \num{0}\unit{pt}, by default)
 %    from the next box,
 %    which means \tn{lineskip} is inserted
-%    between the \env{tabular} environment and the next box
+%    between the \env{tabular} environment and the next box,
 %    instead of \tn{baselineskip} minus the depth of the previous box
 %    and minus the height of the next box.
 %    Set \tn{lineskip} so that it is equal
@@ -1205,8 +1208,9 @@
       \end{center}
     }
 %    \end{macrocode}
+%
 %    Save the total height of the title
-%    so that we can calculate how much space to insert before the title
+%    so that we can calculate how much space to insert before the title,
 %    such that the total height of the space plus the title
 %    is equal to some integer multiple of \tn{baselineskip}.
 %    \begin{macrocode}
@@ -1214,9 +1218,10 @@
 
     \RenewCommandCopy\footnote\thanks
 %    \end{macrocode}
+%
 %    Set \bool{@nobreak} to \bool{true}
 %    so that no extra space will be inserted
-%    before an immediately subsequent section heading.
+%    before an immediately following section heading.
 %    (As designed in this document class,
 %    the text following the section heading
 %    will still snap to baseline).
@@ -1231,6 +1236,7 @@
     \rule{0pt}{0pt}
     \skip_vertical:n {
 %    \end{macrocode}
+%
 %    Use the \op{round} operation
 %    (as opposed to \op{floor} or \op{ceil}
 %    so that the title block is shifted
@@ -1240,6 +1246,7 @@
       - \l_tmpb_dim
     }
 %    \end{macrocode}
+%
 %    (Here's an example of how I used \cs{ShowGrid}
 %    to help design the title block.
 %    The offset is just the \tn{topsep}
@@ -1280,7 +1287,8 @@
 % \end{ldimen}
 
 % \begin{tcounter}{\@beginparpenalty, \@endparpenalty}
-%    Encourage page breaking before or after a list or paragraph environment.
+%    Encourage page breaking before or after a list or paragraph environment,
+%    as in the standard classes.
 %    \begin{macrocode}
 \int_set:Nn \@beginparpenalty {-\@lowpenalty}
 \int_set:Nn \@endparpenalty {-\@lowpenalty}
@@ -1288,7 +1296,8 @@
 % \end{tcounter}
 %
 % \begin{tcounter}{\@itempenalty}
-%    Encourage page breaking between list items.
+%    Encourage page breaking between list items,
+%    as in the standard classes.
 %    \begin{macrocode}
 \int_set:Nn \@itempenalty {-\@lowpenalty}
 %    \end{macrocode}
@@ -1347,10 +1356,11 @@
 % \begin{lmacro}{\@listii, \@listiii, \@listiv, \@listv, \@listvi}
 %    Set parameters for nested lists.
 %    Note that they don’t have saved versions
-%    and are not modified by the font size commands.
+%    and are not modified by the font size commands,
+%    as in the standard classes.
 %    In other words
-%    this class assumes that nested lists only appear in \tn{normalsize},
-%    i.e.\ the main document size.
+%    this class assumes
+%    that nested lists only appear in in the normal font size.
 %    \begin{macrocode}
 \cs_new_protected:Npn \@listii {
   \dim_set_eq:NN \leftmargin \leftmarginii
@@ -1416,14 +1426,14 @@
 \NewEnvironmentCopy{quote}{quotation}
 %    \end{macrocode}
 % \end{environment}
-%
+
 % \begin{imacro}{\abstractname}
 %    Contains the name of the heading preceding the abstract.
 %    \begin{macrocode}
 \cs_new:Npn \abstractname {Abstract}
 %    \end{macrocode}
 % \end{imacro}
-%
+
 % \begin{environment}{abstract}
 %    Typesets an abstract.
 %    Uses the \env{quotation} environement,
@@ -1492,7 +1502,7 @@
 %    and there will be an infinite loop.
 %    Or if they are not protected,
 %    but they contain material not safe in an expansion-only context,
-%    there will still be an error.)
+%    there will be an error.)
 %    \begin{macrocode}
 \cs_new:Npn \labelenumi {\theenumi}
 \cs_new:Npn \labelenumii {\theenumii}
@@ -1520,7 +1530,7 @@
 
 % \begin{lmacro}{\p@enumii, \p@enumiii, \p@enumiv}
 %    Define the prefix of the output of a \tn{ref} command
-%    when referencing an item of the Nth level of an enumerated list.
+%    when referencing an item of the \(n\)th level of an enumerated list.
 %    The overall output of the \tn{ref} command will be
 %    \verb+\p@enumN\theenumN+.
 %    \begin{macrocode}
@@ -1582,7 +1592,7 @@
 %    and there will be an infinite loop.
 %    Or if they are not protected,
 %    but they contain material not safe in an expansion-only context,
-%    there will still be an error.)
+%    there will be an error.)
 %    \begin{macrocode}
 \cs_new:Npn \labelitemi {\textbullet}
 \cs_new:Npn \labelitemii {\ding{"76}}
@@ -1715,10 +1725,11 @@
     {\headfamily\scshape\large}
 }
 %    \end{macrocode}
-%
+
 %    Tell \TeX{} to align the text with the bottom of the text block.
-%    Because there are no other rubber lengths in this document class
-%    and all of the the other lengths are in units of one lead,
+%    Because the only other stretchable vertical space in this document class
+%    is \tn{skip}\tn{footins},
+%    and all of the the other vertical spaces are in units of one lead,
 %    this will incentivize \TeX{} to stretch the space after this heading
 %    to return the text to baseline
 %    where nececessary.
@@ -1826,6 +1837,7 @@
 %    \marg{text}\\
 %    Called by \LaTeX{}'s \tn{footnote} and friends
 %    to typeset the actual footnote.
+%
 %    Typesets the footnote label one \tn{parindent} into the left margin.
 %
 %    \tn{parskip} is set to \num{0}\unit{pt}
@@ -1844,14 +1856,14 @@
 }
 %    \end{macrocode}
 % \end{lmacro}
-%
+
 % \begin{imacro}{\footnoterule}
 %    Suppress the footnote rule.
 %    \begin{macrocode}
 \cs_set:Npn \footnoterule {}
 %    \end{macrocode}
 % \end{imacro}
-%
+
 % \begin{ldimen}{\footnotesep}
 %    Affects the height of the box containing the footnote text
 %    by setting the height of a strut
@@ -1876,15 +1888,17 @@
 \dim_set:Nn \footnotesep {0.7\c_@@_footnote_leading_dim}
 %    \end{macrocode}
 % \end{ldimen}
-%
+
 % \begin{lskip}{\skip\bslash footins}
 %    Determines the distance between the main text
 %    and the start of the footnotes.
-%    Requires at least one full \tn{baselineskip}
+%    At least one full \tn{baselineskip}
 %    between the main text and the start of the footnotes
+%    is required to clearly set off the footnotes from the main text
 %    (15pt + 3pt to align the footnote text,
 %    which has a leading of 12pt,
 %    with the bottom of the text block).
+%    Allow at least two full \tn{baselineskip}s.
 %    \begin{macrocode}
 \skip_set:Nn {\skip\footins} {
   \skip_eval:n {
@@ -1951,8 +1965,7 @@
 %
 % Automatically select quoting style depending on language,
 % but use single quotes even for American English
-% (single quotes are less obtrusive than double quotes)
-% and also for Latin.
+% (single quotes are less obtrusive than double quotes).
 %    \begin{macrocode}
 \RequirePackage[
   strict,
@@ -2014,7 +2027,7 @@
 %    \begin{macrocode}
 \DeclareQuoteStyle{ancientgreek}{}{}{\textquotedblleft}{\textquotedblright}
 %    \end{macrocode}
-
+%
 % Typeset quotations in Latin without quotation marks;
 % using italics is sufficient to set off the quotation.
 % For quotations within Latin quotations,
@@ -2031,16 +2044,16 @@
 
 % \subsection{Ellipses}
 %
+% Place a thin space between the dots of ellipses.
+%    \begin{macrocode}
+\RenewDocumentCommand{\ellipsisgap}{}{\thinspaceamount}
+%    \end{macrocode}
+
 % Do not place brackets around ellipses in quotations.
 %    \begin{macrocode}
 \RenewDocumentCommand{\mktextelp}{}{\textellipsis}
 \RenewDocumentCommand{\mktextelpins}{m}{\textellipsis{}~[#1]}
 \RenewDocumentCommand{\mktextinselp}{m}{[#1]~\textellipsis}
-%    \end{macrocode}
-
-% Place a thin space between the dots of ellipses.
-%    \begin{macrocode}
-\RenewDocumentCommand{\ellipsisgap}{}{\thinspaceamount}
 %    \end{macrocode}
 
 % \subsection{\pkg{hyperref}}
