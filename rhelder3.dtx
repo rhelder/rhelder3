@@ -2031,28 +2031,33 @@
 %    \end{macrocode}
 % \end{lcounter}
 
-% \begin{imacro}{
+% \begin{lmacro}{
 %   \thesection,
 %   \thesubsection,
 %   \thesubsubsection,
 %   \theparagraph,
 %   \thesubparagraph
 % }
-%    Format section numbers.
+%    Define the printed versions of section counters.
 %    \begin{macrocode}
 \cs_set:Npn \thesection {\arabic{section}}
 \cs_set:Npn \thesubsection {\thesection.\arabic{subsection}}
 \cs_set:Npn \thesubsubsection {\thesubsection.\arabic{subsubsection}}
 \cs_set:Npn \theparagraph {\thesubsubsection.\arabic{paragraph}}
 \cs_set:Npn \thesubparagraph {\theparagraph.\arabic{subparagraph}}
+%    \end{macrocode}
+% \end{lmacro}
 
+% \begin{lmacro}{\@seccntformat}
+%    Define how section numbers should be formatted.
+%    \begin{macrocode}
 \cs_set_protected:Npn \@seccntformat #1 {
   \normalfont
   \tl_if_eq:nnT {#1} {section} {\headfamily}
   \use:c {the#1}\quad
 }
 %    \end{macrocode}
-% \end{imacro}
+% \end{lmacro}
 
 % \section{Footnotes}
 %
@@ -2090,12 +2095,12 @@
 %    \end{macrocode}
 % \end{lmacro}
 
-% \begin{imacro}{\footnoterule}
+% \begin{lmacro}{\footnoterule}
 %    Suppress the footnote rule.
 %    \begin{macrocode}
 \cs_set:Npn \footnoterule {}
 %    \end{macrocode}
-% \end{imacro}
+% \end{lmacro}
 
 % \begin{ldimen}{\footnotesep}
 %    Affects the height of the box containing the footnote text
