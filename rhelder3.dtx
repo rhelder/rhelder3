@@ -304,7 +304,17 @@
   \skip_set:Nn \smallskipamount {0.5\baselineskip}
   \skip_set_eq:NN \medskipamount \baselineskip
   \skip_set:Nn \bigskipamount {2\baselineskip}
+%    \end{macrocode}
 
+%    Alignment to the baseline can't be guaranteed
+%    on pages with math displays
+%    without measuring the height of the display box
+%    before inserting it.
+%    It would be a lot of work to implement this,
+%    so in the meantime give \TeX{} broad latitude
+%    to determine the space before and after displays
+%    (anything between half a lead and a lead is fine).
+%    \begin{macrocode}
   \skip_set_eq:NN \abovedisplayskip 0.5\baselineskip plus 0.5\baselineskip
   \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
   \skip_set:Nn \abovedisplayshortskip {0pt}
@@ -674,7 +684,17 @@
   \skip_set:Nn \smallskipamount {0.5\baselineskip}
   \skip_set_eq:NN \medskipamount \baselineskip
   \skip_set:Nn \bigskipamount {2\baselineskip}
+%    \end{macrocode}
 
+%    Alignment to the baseline can't be guaranteed
+%    on pages with math displays
+%    without measuring the height of the display box
+%    before inserting it.
+%    It would be a lot of work to implement this,
+%    so in the meantime give \TeX{} broad latitude
+%    to determine the space before and after displays
+%    (anything between half a lead and a lead is fine).
+%    \begin{macrocode}
   \skip_set_eq:NN \abovedisplayskip 0.5\baselineskip plus 0.5\baselineskip
   \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
   \skip_set:Nn \abovedisplayshortskip {0pt}
@@ -722,7 +742,17 @@
   \skip_set:Nn \smallskipamount {0.5\baselineskip}
   \skip_set_eq:NN \medskipamount \baselineskip
   \skip_set:Nn \bigskipamount {2\baselineskip}
+%    \end{macrocode}
 
+%    Alignment to the baseline can't be guaranteed
+%    on pages with math displays
+%    without measuring the height of the display box
+%    before inserting it.
+%    It would be a lot of work to implement this,
+%    so in the meantime give \TeX{} broad latitude
+%    to determine the space before and after displays
+%    (anything between half a lead and a lead is fine).
+%    \begin{macrocode}
   \skip_set_eq:NN \abovedisplayskip 0.5\baselineskip plus 0.5\baselineskip
   \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
   \skip_set:Nn \abovedisplayshortskip {0pt}
@@ -1728,6 +1758,7 @@
 
 %    Tell \TeX{} to align the text with the bottom of the text block.
 %    Because the only other stretchable vertical space in this document class
+%    (other than skips before and after math displays)
 %    is \tn{skip}\tn{footins},
 %    and all of the the other vertical spaces are in units of one lead,
 %    this will incentivize \TeX{} to stretch the space after this heading
