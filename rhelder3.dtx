@@ -1847,7 +1847,7 @@
 \cs_set_protected:Npn \@seccntformat #1 {
   \normalfont
   \tl_if_eq:nnT {#1} {section} {\headfamily}
-  \cs:w the#1\cs_end:\quad
+  \use:c {the#1}\quad
 }
 %    \end{macrocode}
 % \end{imacro}
