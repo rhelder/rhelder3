@@ -1976,8 +1976,10 @@
 %
 % Obtain correct spacing after ellipses,
 % and control spacing within ellipses.
+% Load it after \pkg{hyperref},
+% because otherwise \pkg{hyperref} will redefine \tn{textellipsis}.
 %    \begin{macrocode}
-\RequirePackage{ellipsis}
+\AddToHook{package/hyperref/after}{\RequirePackage{ellipsis}}
 %    \end{macrocode}
 %
 % Disable page numbering if there is only one page.
