@@ -68,11 +68,206 @@
 \NewDocumentCommand{\ps}{m}{\texttt{#1}}
 \NewDocumentCommand{\unit}{m}{\texttt{#1}}
 
+\EnableCrossrefs
+\CodelineIndex
+
 \begin{document}
   \DocInput{rhelder3.dtx}
 \end{document}
 %</driver>
 % \fi
+%
+% \DoNotIndex{\addfontfeatures, \AddToHook, \Alph, \alph, \and, \arabic}
+% \DoNotIndex{\baselineskip, \begin, \bfseries}
+% \DoNotIndex{\bool_case:nT, \bool_if:nT}
+% \DoNotIndex{
+%   \box_dp:N,
+%   \box_ht:N,
+%   \box_ht_plus_dp:N,
+%   \box_use_drop:N,
+%   \box_wd:N,
+%   \l_tmpa_box,
+%   \l_tmpb_box,
+% }
+% \DoNotIndex{
+%   \cs_gset:Npn,
+%   \cs_new:Npn,
+%   \cs_new_eq:NN,
+%   \cs_new_protected:Npn,
+%   \cs_set:Npe,
+%   \cs_set:Npn,
+%   \cs_set_eq:NN,
+%   \cs_set_protected:Npn,
+%   \cs_undefine:N,
+% }
+% \DoNotIndex{
+%   \DeclareRobustCommand,
+%   \DeclareTextFontCommand,
+%   \defaultfontfeatures,
+% }
+% \DoNotIndex{
+%   \dim_add:Nn,
+%   \dim_eval:n,
+%   \dim_gset:Nn,
+%   \dim_new:N,
+%   \dim_set:Nn,
+%   \dim_set_eq:NN,
+%   \dim_while_do:nNnn,
+%   \g_tmpa_dim,
+%   \l_tmpa_dim,
+%   \l_tmpb_dim,
+% }
+% \DoNotIndex{\dimeval}
+% \DoNotIndex{\else, \emph, \end}
+% \DoNotIndex{\exp_args:Nc, \exp_args:NNV}
+% \DoNotIndex{\fnsymbol, \footnote, \fi}
+% \DoNotIndex{\fi:}
+% \DoNotIndex{\fp_eval:n, \fp_to_int:n}
+% \DoNotIndex{\group_begin:, \group_end:}
+% \DoNotIndex{
+%   \hbox:n,
+%   \hbox_overlap_left:n,
+%   \hbox_overlap_right:n,
+%   \hbox_set:Nn,
+%   \hbox_to_wd:nn,
+% }
+% \DoNotIndex{\hook_gput_code:nnn}
+% \DoNotIndex{\hrule, \hspace, \hss}
+% \DoNotIndex{\if_case:w}
+% \DoNotIndex{\ifmmode, \IfPackageLoadedT}
+% \DoNotIndex{
+%   \int_compare:nNnTF,
+%   \int_gset:Nn,
+%   \int_if_zero:nF,
+%   \int_if_zero_p:n,
+%   \int_incr:N,
+%   \int_new:N,
+%   \int_set:Nn,
+%   \int_set_eq:NN,
+%   \int_to_roman:n,
+%   \int_use:N,
+%   \int_value:w,
+%   \l_tmpa_int,
+% }
+% \DoNotIndex{\item, \itshape}
+% \DoNotIndex{\kant, \kern}
+% \DoNotIndex{\keys_define:nn}
+% \DoNotIndex{\legacy_if_gset_true:n}
+% \DoNotIndex{\let}
+% \DoNotIndex{\mode_leave_vertical:}
+% \DoNotIndex{\MakeLowercase, \MakeUppercaseCopy, \medmuskip, \mskip}
+% \DoNotIndex{
+%   \NeedsTeXFormat,
+%   \newcommand,
+%   \NewCommandCopy,
+%   \newcounter,
+%   \NewDocumentCommand,
+%   \NewDocumentEnvironment,
+%   \newenvironment,
+%   \NewEnvironmentCopy,
+%   \newfontface,
+%   \newfontfamily,
+%   \newpage,
+%   \noindent,
+%   \normalfont,
+% }
+% \DoNotIndex{\or:}
+% \DoNotIndex{\paperwidth, \par, \ProcessKeyOptions, \ProvidesExplClass}
+% \DoNotIndex{\quad}
+% \DoNotIndex{
+%   \relax,
+%   \RenewDocumentCommand,
+%   \RenewCommandCopy,
+%   \RenewDocumentEnvironment,
+%   \RequirePackage,
+%   \rmfamily,
+%   \roman,
+%   \rule
+% }
+% \DoNotIndex{
+%   \scshape,
+%   \setcounter,
+%   \setmainfont,
+%   \setmathfont,
+%   \setmonofont,
+%   \setsansfont,
+%   \skip,
+% }
+% \DoNotIndex{
+%   \skip_eval:n,
+%   \skip_set:Nn,
+%   \skip_set_eq:NN,
+%   \skip_vertical:n,
+% }
+% \DoNotIndex{\l_shipout_box}
+% \DoNotIndex{\space, \SplitList, \strutbox}
+% \DoNotIndex{\c_sys_day_int, \c_sys_month_int, \c_sys_year_int}
+% \DoNotIndex{
+%   \@,
+%   \@author,
+%   \@date,
+%   \@enumctr,
+%   \@enumdepth,
+%   \@footnotetext,
+%   \@itemdepth,
+%   \@itemitem,
+%   \@parboxrestore,
+%   \@setfontsize,
+%   \@startsection,
+%   \@thanks,
+%   \@thefnmark,
+%   \@title,
+%   \@toodeep,
+%   \@topnum,
+%   \and,
+%   \baselineskip,
+%   \footnote,
+%   \Gm@tmargin,
+%   \hbox,
+%   \leavevmode@ifvmode,
+%   \let,
+%   \ref,
+%   \strutbox,
+%   \textellipsis,
+%   \tmspace,
+%   \xdef,
+%   \z@,
+% }
+% \DoNotIndex{
+%   \textbullet,
+%   \textellipsis,
+%   \textquotedblleft,
+%   \textquotedblright,
+%   \textquoteleft,
+%   \textquoteright,
+%   \textsc,
+%   \textsuperscript,
+%   \thefootnote,
+%   \thickmuskip,
+%   \thinmuskip,
+%   \thispagestyle,
+%   \tmspace,
+% }
+% \DoNotIndex{
+%   \tl_gset:Nn,
+%   \tl_if_empty:NTF,
+%   \tl_if_eq:nnT,
+%   \tl_if_novalue:nF,
+%   \tl_map_inline:nn,
+%   \tl_new:N,
+%   \tl_put_left:Nn,
+%   \tl_put_right:Nn,
+%   \tl_put_right:Ne,
+%   \tl_set:Nn,
+%   \tl_set_rescan:NnV,
+%   \tl_use:N,
+%   \l_tmpa_tl,
+% }
+% \DoNotIndex{\unkern}
+% \DoNotIndex{\use:c}
+% \DoNotIndex{\usecounter}
+% \DoNotIndex{\vbox_set:Nn, \vbox_to_zero:n}
+% \DoNotIndex{\vss}
 %
 % \GetFileInfo{rhelder3.dtx}
 %
@@ -2125,3 +2320,5 @@
 % \end{implementation}
 %
 % \printbibliography
+%
+% \PrintIndex
