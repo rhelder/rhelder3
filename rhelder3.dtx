@@ -1346,7 +1346,7 @@
       \hbox_overlap_right:n {\normalfont\textsuperscript\@thefnmark}
     }
 %    \end{macrocode}
-%
+
 %    Start a new page,
 %    prevent floats from appearing on the top of this page,
 %    and print the title.
@@ -1396,7 +1396,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@maketitle {
   \group_begin:
-    \hbox_set:Nn \l_tmpa_box {\normalsize\normalfont\g_@@_maketitle_date}
+    \hbox_set:Nn \l_tmpa_box {\normalfont\normalsize\g_@@_maketitle_date}
     \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
 
     \vbox_set:Nn \l_tmpb_box {
@@ -1407,7 +1407,7 @@
 %    \begin{macrocode}
       \rule{0pt}{0pt}
       \begin{center}
-        \large\normalfont\headfamily
+        \normalfont\headfamily\large
         \MakeUppercase{\tl_use:N \g_@@_maketitle_title}\par
         \skip_vertical:n {\baselineskip}
 %    \end{macrocode}
@@ -1960,7 +1960,7 @@
       \c_@@_section_afterskip
       plus \dim_eval:n {\c_@@_normal_leading_dim - \c_@@_section_afterskip}
     }
-    {\headfamily\scshape\large}
+    {\normalfont\headfamily\scshape\large}
 }
 %    \end{macrocode}
 
@@ -1992,23 +1992,23 @@
 \NewDocumentCommand{\subsection}{}{
   \@startsection{subsection}{2}{0pt}
     {-\c_@@_normal_leading_dim}{\c_@@_normal_leading_dim}
-    {\rmfamily\scshape\normalsize}
+    {\normalfont\scshape\normalsize}
 }
 
 \NewDocumentCommand{\subsubsection}{}{
   \@startsection{subsubsection}{3}{0pt}
     {-\c_@@_normal_leading_dim}{\c_@@_normal_leading_dim}
-    {\rmfamily\itshape\normalsize}
+    {\normalfont\itshape\normalsize}
 }
 
 \NewDocumentCommand{\paragraph}{}{
   \@startsection{paragraph}{4}{0pt}
-    {\c_@@_normal_leading_dim}{-1em}{\rmfamily\bfseries\normalsize}
+    {\c_@@_normal_leading_dim}{-1em}{\normalfont\bfseries\normalsize}
 }
 
 \NewDocumentCommand{\subparagraph}{}{
   \@startsection{subparagraph}{5}{0pt}
-    {\c_@@_normal_leading_dim}{-1em}{\rmfamily\itshape\normalsize}
+    {\c_@@_normal_leading_dim}{-1em}{\normalfont\itshape\normalsize}
 }
 %    \end{macrocode}
 % \end{imacro}
