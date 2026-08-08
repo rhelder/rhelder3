@@ -27,16 +27,15 @@
 
 \NewDocElement[
   macrolike,
-  idxgroup = LaTeX internal commands,
+  idxgroup = Class internal commands,
   idxtype =,
-]{InternalMacro}{lmacro}
+]{ClassMacro}{cmacro}
 
 \NewDocElement[
   macrolike,
-  idxgroup = LaTeX lengths (dimens),
-  idxtype = dimen,
-  printtype = \textit{dimen},
-]{LaTeXDimen}{ldimen}
+  idxgroup = LaTeX internal commands,
+  idxtype =,
+]{LaTeXMacro}{lmacro}
 
 \RenewDocElement[
   envlike,
@@ -44,6 +43,13 @@
   idxtype = env.,
   printtype = \textit{env.},
 ]{Env}{environment}
+
+\NewDocElement[
+  macrolike,
+  idxgroup = LaTeX lengths (dimens),
+  idxtype = dimen,
+  printtype = \textit{dimen},
+]{LaTeXDimen}{ldimen}
 
 \NewDocElement[
   macrolike,
@@ -755,7 +761,7 @@
 %    \end{macrocode}
 % \end{imacro}
 
-% \begin{imacro}{\thinspaceamount, \medspaceamount, \thickspaceamount}
+% \begin{cmacro}{\thinspaceamount, \medspaceamount, \thickspaceamount}
 %    Define the amount of space to be inserted by the spacing commands.
 %    (These are implemented as commands,
 %    rather than as dimensions,
@@ -766,7 +772,7 @@
 \NewDocumentCommand{\medspaceamount}{}{\dimeval{1em / 4}}
 \NewDocumentCommand{\thickspaceamount}{}{\dimeval{1em / 3}}
 %    \end{macrocode}
-% \end{imacro}
+% \end{cmacro}
 
 % \subsection{Letterspacing}
 %
@@ -1659,12 +1665,12 @@
 %    \end{macrocode}
 % \end{environment}
 
-% \begin{imacro}{\abstractname}
+% \begin{cmacro}{\abstractname}
 %    Contains the name of the heading preceding the abstract.
 %    \begin{macrocode}
 \cs_new:Npn \abstractname {Abstract}
 %    \end{macrocode}
-% \end{imacro}
+% \end{cmacro}
 
 % \begin{environment}{abstract}
 %    Typesets an abstract.
@@ -1743,7 +1749,7 @@
 %    \end{macrocode}
 % \end{lmacro}
 
-% \begin{lmacro}{
+% \begin{cmacro}{
 %   \formatenumi,
 %   \formatenumii,
 %   \formatenumiii,
@@ -1758,7 +1764,7 @@
 \cs_new_protected:Npn \formatenumiii {}
 \cs_new_protected:Npn \formatenumiv {}
 %    \end{macrocode}
-% \end{lmacro}
+% \end{cmacro}
 
 % \begin{lmacro}{\p@enumii, \p@enumiii, \p@enumiv}
 %    Define the prefix of the output of a \tn{ref} command
@@ -1833,7 +1839,7 @@
 %    \end{macrocode}
 % \end{lmacro}
 
-% \begin{lmacro}{
+% \begin{cmacro}{
 %   \formatitemi,
 %   \formatitemii,
 %   \formatitemiii,
@@ -1848,7 +1854,7 @@
 \cs_new_protected:Npn \formatitemiii {}
 \cs_new_protected:Npn \formatitemiv {}
 %    \end{macrocode}
-% \end{lmacro}
+% \end{cmacro}
 
 % \begin{environment}{itemize}
 %    Provides a hook to set the label font;
