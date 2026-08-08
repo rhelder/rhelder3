@@ -1932,9 +1932,9 @@
 %    if the heading is sitting at the top of a page
 %    (if \TeX{} is trying to fill that page, at any rate).
 %    \begin{macrocode}
-\dim_new:N \c_section_afterskip
+\dim_new:N \c_@@_section_afterskip
 
-\dim_set:Nn \c_section_afterskip {
+\dim_set:Nn \c_@@_section_afterskip {
   3\c_@@_normal_leading_dim
   - \c_@@_normal_leading_dim
   - \c_@@_large_leading_dim
@@ -1944,8 +1944,8 @@
   \@startsection{section}{1}{0pt}
     {-\c_@@_normal_leading_dim}
     {
-      \c_section_afterskip
-      plus \dim_eval:n {\c_@@_normal_leading_dim - \c_section_afterskip}
+      \c_@@_section_afterskip
+      plus \dim_eval:n {\c_@@_normal_leading_dim - \c_@@_section_afterskip}
     }
     {\headfamily\scshape\large}
 }
