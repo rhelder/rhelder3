@@ -1432,7 +1432,7 @@
 %    to the \tn{baselineskip} glue that would have been added
 %    if the \env{tabular} environment had consisted of one row:
 %    \tn{baselineskip} minus the height of the next box
-%    (saved in \cs{l_tmpa_dim})
+%    (saved in \verb+\l_tmpa_dim+)
 %    minus what the depth of the previous box would have been
 %    (which is the depth of \tn{strutbox}).
 %    \begin{macrocode}
@@ -1967,7 +1967,7 @@
 %    Tell \TeX{} to align the text with the bottom of the text block.
 %    Because the only other stretchable vertical space in this document class
 %    (other than skips before and after math displays)
-%    is \tn{skip}\tn{footins},
+%    is \verb+\skip+\tn{footins},
 %    and all of the the other vertical spaces are in units of one lead,
 %    this will incentivize \TeX{} to stretch the space after this heading
 %    to return the text to baseline
