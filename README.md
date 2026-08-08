@@ -32,6 +32,12 @@ may be required at the last stage of document preparation (just as manual
 intervention will be required at that stage to e.g. deal with widows and
 orphans).
 
+In particular, grid typesetting cannot be guaranteed on pages where math
+displays are used. (To ensure grid typesetting on a page with a math display
+would require checking the height of the display before typesetting it, in
+order to calculate what the vertical space surrounding it should be. This is
+possible, but more work than I'm likely to be willing to give to it.)
+
 ## To-Do
 
 `rhelder3` is a work in progress. The goal is to eventually implement most of

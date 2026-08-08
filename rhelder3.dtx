@@ -305,10 +305,10 @@
   \skip_set_eq:NN \medskipamount \baselineskip
   \skip_set:Nn \bigskipamount {2\baselineskip}
 
-  \dim_set_eq:NN \abovedisplayskip \baselineskip
-  \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
-  \dim_set:Nn \abovedisplayshortskip {0pt}
-  \dim_set_eq:NN \belowdisplayshortskip \belowdisplayskip
+  \skip_set_eq:NN \abovedisplayskip 0.5\baselineskip plus 0.5\baselineskip
+  \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
+  \skip_set:Nn \abovedisplayshortskip {0pt}
+  \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
 
   \cs_set_eq:NN \@listi \@listI
 }
@@ -675,10 +675,10 @@
   \skip_set_eq:NN \medskipamount \baselineskip
   \skip_set:Nn \bigskipamount {2\baselineskip}
 
-  \dim_set_eq:NN \abovedisplayskip \baselineskip
-  \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
-  \dim_set:Nn \abovedisplayshortskip {0pt}
-  \dim_set_eq:NN \belowdisplayshortskip \belowdisplayskip
+  \skip_set_eq:NN \abovedisplayskip 0.5\baselineskip plus 0.5\baselineskip
+  \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
+  \skip_set:Nn \abovedisplayshortskip {0pt}
+  \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
 
   \cs_set_protected:Npn \@listi {
     \dim_set_eq:NN \leftmargin \leftmargini
@@ -723,10 +723,10 @@
   \skip_set_eq:NN \medskipamount \baselineskip
   \skip_set:Nn \bigskipamount {2\baselineskip}
 
-  \dim_set_eq:NN \abovedisplayskip \baselineskip
-  \dim_set_eq:NN \belowdisplayskip \abovedisplayskip
-  \dim_set:Nn \abovedisplayshortskip {0pt}
-  \dim_set_eq:NN \belowdisplayshortskip \belowdisplayskip
+  \skip_set_eq:NN \abovedisplayskip 0.5\baselineskip plus 0.5\baselineskip
+  \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
+  \skip_set:Nn \abovedisplayshortskip {0pt}
+  \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
 
   \cs_set_protected:Npn \@listi {
     \dim_set_eq:NN \leftmargin \leftmargini
