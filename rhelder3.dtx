@@ -309,6 +309,13 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}[2022-06-01]
 %    \end{macrocode}
+
+% Check that we are using \LuaTeX{}.
+%    \begin{macrocode}
+\RequirePackage{iftex}
+\RequireLuaTeX
+%    \end{macrocode}
+
 % Identify the class file and enable \pkg{expl3} syntax.
 %    \begin{macrocode}
 \ProvidesExplClass{rhelder3}{2026/08/07}{0.1.0}{Personal document class}

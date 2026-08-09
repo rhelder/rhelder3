@@ -61,6 +61,11 @@ Other goals include:
 
 1.  Use LaTeX's new mark mechanism with headings and subheads.
 
+## Requirements
+
+This class must be used with LuaLaTeX. Also required is a relatively recent
+release of the LaTeX kernel that includes the L3 programming layer.
+
 ## Installation
 
 Clone this repository:
