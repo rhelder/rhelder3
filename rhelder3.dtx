@@ -168,7 +168,7 @@
 % \DoNotIndex{\legacy_if_gset_true:n}
 % \DoNotIndex{\let}
 % \DoNotIndex{\mode_leave_vertical:}
-% \DoNotIndex{\MakeLowercase, \MakeUppercaseCopy, \medmuskip, \mskip}
+% \DoNotIndex{\MakeLowercase, \MakeUppercase, \medmuskip, \mskip}
 % \DoNotIndex{
 %   \NeedsTeXFormat,
 %   \newcommand,
@@ -781,15 +781,13 @@
 
 % \subsection{Letterspacing}
 %
-% \begin{imacro}{\MakeUppercase}
+% \begin{imacro}{\textcaps}
 %    Letterspace capitals.
 %    \begin{macrocode}
-\NewCommandCopy\MakeUppercaseCopy\MakeUppercase
-
-\RenewDocumentCommand{\MakeUppercase}{om}{
+\NewDocumentCommand{\textcaps}{m}{
   \group_begin:
     \addfontfeatures{LetterSpace = 9.0}
-    \MakeUppercaseCopy[#1]{#2}
+    \MakeUppercase{#1}
   \group_end:
 }
 %    \end{macrocode}
@@ -1413,7 +1411,7 @@
       \rule{0pt}{0pt}
       \begin{center}
         \normalfont\headfamily\large
-        \MakeUppercase{\tl_use:N \g_@@_maketitle_title}\par
+        \textcaps{\tl_use:N \g_@@_maketitle_title}\par
         \skip_vertical:n {\baselineskip}
 %    \end{macrocode}
 %
