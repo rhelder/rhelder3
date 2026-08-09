@@ -314,166 +314,6 @@
 \ProvidesExplClass{rhelder3}{2026/08/07}{0.1.0}{Personal document class}
 %    \end{macrocode}
 
-% \section{Declare Options}
-%
-% \begin{optionenv}{showgrid}
-%     Boolean (default \bool{false}).
-%     Overlay a baseline grid over the page
-%     (or,
-%     more precisely,
-%     over \cs{l_shipout_box}).
-%     Useful for document design.
-%    \begin{macrocode}
-\keys_define:nn {rh}{
-  showgrid .code:n =
-    \dim_new:N \g_@@_showgrid_to_first_baseline_dim
-    \dim_new:N \g_@@_showgrid_yshift_dim
-%    \end{macrocode}
-
-%    Calculate the remainder of dividing
-%    the distance between the top of the page and the first baseline
-%    by the leading.
-%    Start the grid that far below the top of the page,
-%    to align the grid with the first baseline.
-%    \begin{macrocode}
-    \hook_gput_code:nnn {begindocument/before}{.}{
-      \dim_set:Nn \g_@@_showgrid_to_first_baseline_dim {
-        \Gm@tmargin - 1in + \topskip
-      }
-      \dim_set:Nn \g_@@_showgrid_yshift_dim {
-        \fp_eval:n {
-          \g_@@_showgrid_to_first_baseline_dim / \c_@@_normal_leading_dim
-          - ceil(
-            \g_@@_showgrid_to_first_baseline_dim / \c_@@_normal_leading_dim
-          )
-        }\c_@@_normal_leading_dim
-      }
-
-      \hook_gput_code:nnn {shipout/before}{.}{
-        \ShowGrid
-          {\l_shipout_box}
-          {\c_@@_normal_leading_dim}
-          {\g_@@_showgrid_yshift_dim}
-      }
-    },
-%    \end{macrocode}
-% \end{optionenv}
-
-% \begin{optionenv}{kant}
-%    Boolean (default \bool{false}).
-%    Load \pkg{kantlipsum}
-%    and define the \cs{autokant} command
-%    to easily generate complex sample texts.
-%    \begin{macrocode}
-  kant .code:n =
-    \RequirePackage{kantlipsum}
-%    \end{macrocode}
-% \end{optionenv}
-
-% \begin{imacro}{\autokant}
-%    \oarg{number of paragraphs}\oarg{number of sentences}\\
-%    Advance through the text provided by \pkg{kantlipsum}
-%    by \meta{number of paragraphs} and \meta{number of sentences}.
-%
-%    With no arguments,
-%    print the next paragraph.
-%
-%    If only \meta{number of paragraphs} is provided,
-%    print the next \meta{number of paragraphs}.
-%
-%    If both \meta{number of paragraphs}
-%    and \meta{number of sentences} are provided,
-%    behavior varies
-%    due to the implementation of \cs{kant} by \pkg{kantlipsum}.
-%    If \meta{number of paragraphs} is \num{0},
-%    print the next \meta{number of sentences} of the current paragraph
-%    (note that \cs{autokant} doesn't check
-%    whether or not there are any sentences remaining in the current paragraph,
-%    because \cs{kant} doesn't check this).
-%    If \meta{number of paragraphs} is \num{1},
-%    print the first \meta{number of sentences} of the next paragraph.
-%    If the \meta{number of paragraphs} is more than \num{1},
-%    the behavior is undefined
-%    (because it is undefined in \cs{kant}).
-%
-%    For example,
-%    if you have not yet called \cs{autokant}
-%    and you call \cs{autokant} without any arguments,
-%    \cs{autokant} will print the first \pkg{kantlipsum} paragraph
-%    (i.e., it will call \cs{kant}[1].
-%    If you then you call \cs{autokant}[3],
-%    \cs{autokant} will print the second, third, and fourth
-%    \pkg{kantlipsum} paragraphs
-%    (i.e., it will call \cs{kant}[2-4]).
-%    If you then you call \cs{autokant}[1][3],
-%    \cs{autokant} will print the first three sentences
-%    of the fifth \pkg{kantlipsum} paragraph
-%    (i.e., it will call \cs{kant}[5][1-3]).
-%    Finally, if you then call \cs{autokant}[0][2],
-%    \cs{autokant} will print the next two sentences
-%    of the fifth \pkg{kantlipsum} paragraph
-%    (i.e., it will call \cs{kant}[5][4-5]).
-%    \begin{macrocode}
-    \int_new:N \g_@@_kant_par_int
-    \int_new:N \g_@@_kant_sent_int
-
-    \NewDocumentCommand{\autokant}{sO{1}o}{
-      \group_begin:
-        \tl_set:Nn \l_tmpa_tl {\kant}
-        \bool_if:nT {##1} {\tl_put_right:Nn \l_tmpa_tl {*}}
-
-        \int_set_eq:NN \l_tmpa_int \g_@@_kant_par_int
-        \int_gset:Nn \g_@@_kant_par_int {\l_tmpa_int + ##2}
-        \int_if_zero:nF {##2} {\int_incr:N \l_tmpa_int}
-        \tl_put_right:Ne \l_tmpa_tl {
-          [\int_value:w \l_tmpa_int -\int_value:w \g_@@_kant_par_int]
-        }
-
-        \tl_if_novalue:nF {##3}{
-          \int_if_zero:nF {##2} {\int_gset:Nn \g_@@_kant_sent_int {0}}
-          \int_set_eq:NN \l_tmpa_int \g_@@_kant_sent_int
-          \int_gset:Nn \g_@@_kant_sent_int {\l_tmpa_int + ##3}
-          \int_if_zero:nF {##3} {\int_incr:N \l_tmpa_int}
-          \tl_put_right:Ne \l_tmpa_tl {
-            [\int_value:w \l_tmpa_int -\int_value:w \g_@@_kant_sent_int]
-          }
-        }
-
-        \tl_use:N \l_tmpa_tl
-      \group_end:
-    }
-%    \end{macrocode}
-% \end{imacro}
-
-% \begin{imacro}{
-%   \kantsection,
-%   \kantsubsection,
-%   \kantsubsubsection,
-%   \kantparagrapph,
-%   \kantsubparagraph
-% }
-%
-% Pre-define headings and subheadings with useful dummy text.
-%    \begin{macrocode}
-    \NewDocumentCommand{\kantsection}{}{
-      \section{The~Paralogisms~of~Practical~Reason~(Section)}
-    }
-    \NewDocumentCommand{\kantsubsection}{}{
-      \subsection{Transcendental~Unity~of~Apperception~(Subsection)}
-    }
-    \NewDocumentCommand{\kantsubsubsection}{}{
-      \subsubsection{The~Writings~of~Aristotle~(Subsubsection)}
-    }
-    \NewDocumentCommand{\kantparagraph}{}{
-      \paragraph{The~Employment~of~Pure~Reason~(Paragraph)}
-    }
-    \NewDocumentCommand{\kantsubparagraph}{}{
-      \subparagraph{The~Validity~of~the~Categories~(Subparagraph)}
-    },
-}
-%    \end{macrocode}
-% \end{imacro}
-
 % \section{Initialization}
 %
 % Provide the four things that a document class must provide:
@@ -677,8 +517,166 @@
 \pagestyle{plain}
 %    \end{macrocode}
 
-% \section{Execute Options}
+% \section{Options}
 %
+% \begin{optionenv}{showgrid}
+%     Boolean (default \bool{false}).
+%     Overlay a baseline grid over the page
+%     (or,
+%     more precisely,
+%     over \cs{l_shipout_box}).
+%     Useful for document design.
+%    \begin{macrocode}
+\keys_define:nn {rh}{
+  showgrid .code:n =
+    \dim_new:N \g_@@_showgrid_to_first_baseline_dim
+    \dim_new:N \g_@@_showgrid_yshift_dim
+%    \end{macrocode}
+
+%    Calculate the remainder of dividing
+%    the distance between the top of the page and the first baseline
+%    by the leading.
+%    Start the grid that far below the top of the page,
+%    to align the grid with the first baseline.
+%    \begin{macrocode}
+    \hook_gput_code:nnn {begindocument/before}{.}{
+      \dim_set:Nn \g_@@_showgrid_to_first_baseline_dim {
+        \Gm@tmargin - 1in + \topskip
+      }
+      \dim_set:Nn \g_@@_showgrid_yshift_dim {
+        \fp_eval:n {
+          \g_@@_showgrid_to_first_baseline_dim / \c_@@_normal_leading_dim
+          - ceil(
+            \g_@@_showgrid_to_first_baseline_dim / \c_@@_normal_leading_dim
+          )
+        }\c_@@_normal_leading_dim
+      }
+
+      \hook_gput_code:nnn {shipout/before}{.}{
+        \ShowGrid
+          {\l_shipout_box}
+          {\c_@@_normal_leading_dim}
+          {\g_@@_showgrid_yshift_dim}
+      }
+    },
+%    \end{macrocode}
+% \end{optionenv}
+
+% \begin{optionenv}{kant}
+%    Boolean (default \bool{false}).
+%    Load \pkg{kantlipsum}
+%    and define the \cs{autokant} command
+%    to easily generate complex sample texts.
+%    \begin{macrocode}
+  kant .code:n =
+    \RequirePackage{kantlipsum}
+%    \end{macrocode}
+% \end{optionenv}
+
+% \begin{imacro}{\autokant}
+%    \oarg{number of paragraphs}\oarg{number of sentences}\\
+%    Advance through the text provided by \pkg{kantlipsum}
+%    by \meta{number of paragraphs} and \meta{number of sentences}.
+%
+%    With no arguments,
+%    print the next paragraph.
+%
+%    If only \meta{number of paragraphs} is provided,
+%    print the next \meta{number of paragraphs}.
+%
+%    If both \meta{number of paragraphs}
+%    and \meta{number of sentences} are provided,
+%    behavior varies
+%    due to the implementation of \cs{kant} by \pkg{kantlipsum}.
+%    If \meta{number of paragraphs} is \num{0},
+%    print the next \meta{number of sentences} of the current paragraph
+%    (note that \cs{autokant} doesn't check
+%    whether or not there are any sentences remaining in the current paragraph,
+%    because \cs{kant} doesn't check this).
+%    If \meta{number of paragraphs} is \num{1},
+%    print the first \meta{number of sentences} of the next paragraph.
+%    If the \meta{number of paragraphs} is more than \num{1},
+%    the behavior is undefined
+%    (because it is undefined in \cs{kant}).
+%
+%    For example,
+%    if you have not yet called \cs{autokant}
+%    and you call \cs{autokant} without any arguments,
+%    \cs{autokant} will print the first \pkg{kantlipsum} paragraph
+%    (i.e., it will call \cs{kant}[1].
+%    If you then you call \cs{autokant}[3],
+%    \cs{autokant} will print the second, third, and fourth
+%    \pkg{kantlipsum} paragraphs
+%    (i.e., it will call \cs{kant}[2-4]).
+%    If you then you call \cs{autokant}[1][3],
+%    \cs{autokant} will print the first three sentences
+%    of the fifth \pkg{kantlipsum} paragraph
+%    (i.e., it will call \cs{kant}[5][1-3]).
+%    Finally, if you then call \cs{autokant}[0][2],
+%    \cs{autokant} will print the next two sentences
+%    of the fifth \pkg{kantlipsum} paragraph
+%    (i.e., it will call \cs{kant}[5][4-5]).
+%    \begin{macrocode}
+    \int_new:N \g_@@_kant_par_int
+    \int_new:N \g_@@_kant_sent_int
+
+    \NewDocumentCommand{\autokant}{sO{1}o}{
+      \group_begin:
+        \tl_set:Nn \l_tmpa_tl {\kant}
+        \bool_if:nT {##1} {\tl_put_right:Nn \l_tmpa_tl {*}}
+
+        \int_set_eq:NN \l_tmpa_int \g_@@_kant_par_int
+        \int_gset:Nn \g_@@_kant_par_int {\l_tmpa_int + ##2}
+        \int_if_zero:nF {##2} {\int_incr:N \l_tmpa_int}
+        \tl_put_right:Ne \l_tmpa_tl {
+          [\int_value:w \l_tmpa_int -\int_value:w \g_@@_kant_par_int]
+        }
+
+        \tl_if_novalue:nF {##3}{
+          \int_if_zero:nF {##2} {\int_gset:Nn \g_@@_kant_sent_int {0}}
+          \int_set_eq:NN \l_tmpa_int \g_@@_kant_sent_int
+          \int_gset:Nn \g_@@_kant_sent_int {\l_tmpa_int + ##3}
+          \int_if_zero:nF {##3} {\int_incr:N \l_tmpa_int}
+          \tl_put_right:Ne \l_tmpa_tl {
+            [\int_value:w \l_tmpa_int -\int_value:w \g_@@_kant_sent_int]
+          }
+        }
+
+        \tl_use:N \l_tmpa_tl
+      \group_end:
+    }
+%    \end{macrocode}
+% \end{imacro}
+
+% \begin{imacro}{
+%   \kantsection,
+%   \kantsubsection,
+%   \kantsubsubsection,
+%   \kantparagrapph,
+%   \kantsubparagraph
+% }
+%
+% Pre-define headings and subheadings with useful dummy text.
+%    \begin{macrocode}
+    \NewDocumentCommand{\kantsection}{}{
+      \section{The~Paralogisms~of~Practical~Reason~(Section)}
+    }
+    \NewDocumentCommand{\kantsubsection}{}{
+      \subsection{Transcendental~Unity~of~Apperception~(Subsection)}
+    }
+    \NewDocumentCommand{\kantsubsubsection}{}{
+      \subsubsection{The~Writings~of~Aristotle~(Subsubsection)}
+    }
+    \NewDocumentCommand{\kantparagraph}{}{
+      \paragraph{The~Employment~of~Pure~Reason~(Paragraph)}
+    }
+    \NewDocumentCommand{\kantsubparagraph}{}{
+      \subparagraph{The~Validity~of~the~Categories~(Subparagraph)}
+    },
+}
+%    \end{macrocode}
+% \end{imacro}
+
 % Excecute the code for the specified options.
 %    \begin{macrocode}
 \ProcessKeyOptions[rh]
