@@ -1410,7 +1410,7 @@
 %    \begin{macrocode}
       \rule{0pt}{0pt}
       \begin{center}
-        \normalfont\headfamily\large
+        \normalfont\large
         \textcaps{\tl_use:N \g_@@_maketitle_title}\par
         \skip_vertical:n {\baselineskip}
 %    \end{macrocode}
@@ -1963,7 +1963,7 @@
       \c_@@_section_afterskip
       plus \dim_eval:n {\c_@@_normal_leading_dim - \c_@@_section_afterskip}
     }
-    {\normalfont\headfamily\scshape\large}
+    {\normalfont\scshape\large}
 }
 %    \end{macrocode}
 
@@ -2060,11 +2060,7 @@
 % \begin{lmacro}{\@seccntformat}
 %    Define how section numbers should be formatted.
 %    \begin{macrocode}
-\cs_set_protected:Npn \@seccntformat #1 {
-  \normalfont
-  \tl_if_eq:nnT {#1} {section} {\headfamily}
-  \use:c {the#1}\quad
-}
+\cs_set_protected:Npn \@seccntformat #1 {\normalfont\use:c {the#1}\quad}
 %    \end{macrocode}
 % \end{lmacro}
 
