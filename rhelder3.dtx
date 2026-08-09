@@ -786,10 +786,10 @@
 %    \begin{macrocode}
 \NewCommandCopy\MakeUppercaseCopy\MakeUppercase
 
-\RenewDocumentCommand{\MakeUppercase}{m}{
+\RenewDocumentCommand{\MakeUppercase}{om}{
   \group_begin:
     \addfontfeatures{LetterSpace = 9.0}
-    \MakeUppercaseCopy{#1}
+    \MakeUppercaseCopy[#1]{#2}
   \group_end:
 }
 %    \end{macrocode}
