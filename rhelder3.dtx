@@ -72,7 +72,7 @@
   printtype = \textit{counter}
 ]{TeXCounter}{tcounter}
 
-\NewDocumentCommand{\acro}{m}{\textsc{\MakeLowercase{#1}}}
+\NewDocumentCommand{\textacro}{m}{\textsc{\MakeLowercase{#1}}}
 \NewDocumentCommand{\bool}{m}{\texttt{#1}}
 \NewDocumentCommand{\hook}{m}{\texttt{#1}}
 \NewDocumentCommand{\num}{m}{#1}
@@ -793,11 +793,11 @@
 %    \end{macrocode}
 % \end{imacro}
 
-% \begin{imacro}{\digits}
+% \begin{imacro}{\textdigits}
 %    Letterspace strings of digits
 %    (good for strings of three or more digits).
 %    \begin{macrocode}
-\NewDocumentCommand{\digits}{m}{
+\NewDocumentCommand{\textdigits}{m}{
   \group_begin:
     \addfontfeatures{LetterSpace = 4.0}
     #1
@@ -2174,18 +2174,18 @@
 %    \end{macrocode}
 % \end{imacro}
 
-% \begin{imacro}{\acro}
+% \begin{imacro}{\textacro}
 %    Typesets acronyms with letterspaced small caps.
 %    \begin{macrocode}
-\NewDocumentCommand{\acro}{m}{\textsc{\MakeLowercase{#1}}}
+\NewDocumentCommand{\textacro}{m}{\textsc{\MakeLowercase{#1}}}
 %    \end{macrocode}
 % \end{imacro}
 
-% \begin{imacro}{\texttitle, \alialingua}
+% \begin{imacro}{\texttitle, \textalt}
 %    Italicize titles and words in foreign languages.
 %    \begin{macrocode}
 \NewCommandCopy\texttitle\emph
-\NewCommandCopy\alialingua\emph
+\NewCommandCopy\textalt\emph
 %    \end{macrocode}
 % \end{imacro}
 
@@ -2250,7 +2250,7 @@
 %    \end{macrocode}
 %
 % Load \pkg{hyperref} last
-% to enable use of various useful \acro{PDF} features
+% to enable use of various useful \textacro{PDF} features
 % such as bookmarks, links, and metadata.
 %    \begin{macrocode}
 \RequirePackage{hyperref}

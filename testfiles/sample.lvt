@@ -9,10 +9,10 @@
     because God gave me this Dundie,
     and I feel God in this Chili's tonight.%
   }%
-  \\\acro{UC} Berkeley\and
+  \\\textacro{UC} Berkeley\and
   Immanuel Kant\\University of Königsberg%
 }
-\date{August 3, \digits{2026}}
+\date{August 3, \textdigits{2026}}
 
 \showoutput
 \begin{document}
@@ -201,7 +201,7 @@ Aristotle perplexingly says
   ἐκ τῶν καθ' ἕκαστα γὰρ τὰ καθόλου·
   τούτων οὖν ἔχειν δεῖ αἴσθησιν, αὕτη δ' ἐστὶ νοῦς%
 },
-which actually means that \alialingua{nous}
+which actually means that \textalt{nous}
 is perception of universals.
 Perhaps Aristotle did not mean it seriously:
 \foreigntextquote{ancientgreek}[][.]{%
