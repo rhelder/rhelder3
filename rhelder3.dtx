@@ -2334,6 +2334,29 @@
 %    \end{macrocode}
 % \end{imacro}
 
+% \begin{environment}{presentations}
+%    Lists academic presentations (in \textacro{CV} subclass).
+%    \begin{macrocode}
+%<*cv>
+\NewDocumentEnvironment{presentations}{}{
+  \int_compare:nNnTF {\@itemdepth} > {0} {
+    \@toodeep
+  }{
+    \int_incr:N \@itemdepth
+    \list{}{
+      \int_decr:N \@itemdepth
+      \dim_sub:Nn \leftmargin {\labelsep}
+      \dim_sub:Nn \leftmargin {\labelwidth}
+      \dim_add:Nn \leftmarginii {\parindent}
+    }
+  }
+}{
+  \endlist
+}
+%</cv>
+%    \end{macrocode}
+% \end{environment}
+
 % \section{Typographically Useful Packages}
 %
 % \subsection{Load Packages}
