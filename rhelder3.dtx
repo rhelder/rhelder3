@@ -921,7 +921,10 @@
     \group_begin:
       \bool_case:nT {
         {! \int_if_zero_p:n {\@enumdepth}}
-          {\hbox_set:Nn \l_tmpa_box {\formatenumi{\labelenumi}}}
+          {
+            \setcounter{enumi}{0}
+            \hbox_set:Nn \l_tmpa_box {\formatenumi{\labelenumi}}
+          }
         {! \int_if_zero_p:n {\@itemdepth}}
           {\hbox_set:Nn \l_tmpa_box {\formatitemi{\labelitemi}}}
       }{
@@ -979,7 +982,10 @@
     \group_begin:
       \bool_case:nT {
         {! \int_if_zero_p:n {\@enumdepth}}
-          {\hbox_set:Nn \l_tmpa_box {\formatenumi{\labelenumi}}}
+          {
+            \setcounter{enumi}{0}
+            \hbox_set:Nn \l_tmpa_box {\formatenumi{\labelenumi}}
+          }
         {! \int_if_zero_p:n {\@itemdepth}}
           {\hbox_set:Nn \l_tmpa_box {\formatitemi{\labelitemi}}}
       }{
@@ -1567,7 +1573,10 @@
   \group_begin:
     \bool_case:nT {
       {! \int_if_zero_p:n {\@enumdepth}}
-        {\hbox_set:Nn \l_tmpa_box {\formatenumi{\labelenumi}}}
+        {
+          \setcounter{enumi}{0}
+          \hbox_set:Nn \l_tmpa_box {\formatenumi{\labelenumi}}
+        }
       {! \int_if_zero_p:n {\@itemdepth}}
         {\hbox_set:Nn \l_tmpa_box {\formatitemi{\labelitemi}}}
     }{
