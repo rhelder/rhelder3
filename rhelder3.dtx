@@ -2132,6 +2132,25 @@
     {\normalfont\scshape\large}
 }
 %</!cv>
+%    \end{macrocode}
+%
+%    Because the \textacro{CV} subclass is not trying
+%    to align the text to the baseline grid,
+%    give vertical spacing around headings more attractive proportions.
+%    The same proportion as the textblock,
+%    \num{1.701:1},
+%    works well.
+%    Allow the space before the section heading
+%    to stretch to as much as one large lead,
+%    and to shrink to as much as one normal lead.
+%    Allow the space after the section heading
+%    to shrink to as much as one normal led
+%    divided by \num{1.701}
+%    (such that,
+%    if maximum shrink were applied to the space
+%    both before and after the section heading,
+%    they would still have the proportion \num{1.701:1}).
+%    \begin{macrocode}
 %<*cv>
 \dim_set:Nn \c_@@_section_beforeafterskip {
   3\c_@@_normal_leading_dim - \c_@@_large_leading_dim
@@ -2173,6 +2192,9 @@
 %    this will incentivize \TeX{} to stretch the space after this heading
 %    to return the text to baseline
 %    where nececessary.
+%
+%    Don't do this in the \textacro{CV} subclass,
+%    since it is not trying to align the text to a baseline grid.
 %    \begin{macrocode}
 %<!cv>\flushbottom
 %    \end{macrocode}
@@ -2213,6 +2235,29 @@
     {\c_@@_normal_leading_dim}{-1em}{\normalfont\itshape\normalsize}
 }
 %</!cv>
+%    \end{macrocode}
+%
+%    Again,
+%    because the \textacro{CV} subclass is not trying
+%    to align the text to the baseline grid,
+%    give vertical spacing around headings more attractive proportions.
+%    The same proportion as the textblock,
+%    \num{1.701:1},
+%    works well.
+%    Again,
+%    because baseline alignment is not necessary,
+%    it is possible to use less space around the subhead,
+%    which can look more attractive.
+%    Therefore,
+%    the subhead and its surrounding space will span two leads.
+%    Allow the space before the subhead
+%    to stretch to as much as the space following a section heading.
+%    and to shrink to as little as the space following the subhead
+%    (such that there would be the same amount of space
+%    before and after the subhead,
+%    as in e.g.\ the article subclass,
+%    should maximum shrink be applied).
+%    \begin{macrocode}
 %<*cv>
 \dim_new:N \c_@@_subsection_beforeafterskip
 \dim_new:N \c_@@_subsection_beforeskip
