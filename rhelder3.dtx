@@ -2192,8 +2192,8 @@
 % \begin{imacro}{\texttitle, \textalt}
 %    Italicize titles and words in foreign languages.
 %    \begin{macrocode}
-\NewCommandCopy\texttitle\emph
-\NewCommandCopy\textalt\emph
+\NewDocumentCommand{\texttitle}{m}{\emph{#1}}
+\NewDocumentCommand{\textalt}{m}{\emph{#1}}
 %    \end{macrocode}
 % \end{imacro}
 
