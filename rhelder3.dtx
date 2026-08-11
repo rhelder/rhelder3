@@ -2122,6 +2122,7 @@
 % the subsequent text will return to baseline
 % even if the headings are nested.
 %    \begin{macrocode}
+%<*!cv>
 \NewDocumentCommand{\subsection}{}{
   \@startsection{subsection}{2}{0pt}
     {-\c_@@_normal_leading_dim}{\c_@@_normal_leading_dim}
@@ -2143,13 +2144,23 @@
   \@startsection{subparagraph}{5}{0pt}
     {\c_@@_normal_leading_dim}{-1em}{\normalfont\itshape\normalsize}
 }
+%</!cv>
+%<*cv>
+\NewDocumentCommand{\subsection}{}{
+  \@startsection{subsection}{2}{0pt}
+    {-\c_@@_normal_leading_dim}{\c_@@_normal_leading_dim}
+    {\normalfont\itshape\normalsize}
+}
+%</cv>
 %    \end{macrocode}
 % \end{imacro}
 
 % \begin{lcounter}{secnumdepth}
-%    Number all headings down to \tn{subsubsection}.
+%    Number all headings down to \tn{subsubsection},
+%    except in the \textacro{CV} subclass.
 %    \begin{macrocode}
-\setcounter{secnumdepth}{3}
+%<!cv>\setcounter{secnumdepth}{3}
+%<cv>\setcounter{secnumdepth}{-1}
 %    \end{macrocode}
 % \end{lcounter}
 
@@ -2164,9 +2175,11 @@
 %    \begin{macrocode}
 \newcounter{section}
 \newcounter{subsection}[section]
+%<*!cv>
 \newcounter{subsubsection}[subsection]
 \newcounter{paragraph}[subsubsection]
 \newcounter{subparagraph}[paragraph]
+%</!cv>
 %    \end{macrocode}
 % \end{lcounter}
 
@@ -2181,16 +2194,18 @@
 %    \begin{macrocode}
 \cs_set:Npn \thesection {\arabic{section}}
 \cs_set:Npn \thesubsection {\thesection.\arabic{subsection}}
+%<*!cv>
 \cs_set:Npn \thesubsubsection {\thesubsection.\arabic{subsubsection}}
 \cs_set:Npn \theparagraph {\thesubsubsection.\arabic{paragraph}}
 \cs_set:Npn \thesubparagraph {\theparagraph.\arabic{subparagraph}}
+%</!cv>
 %    \end{macrocode}
 % \end{lmacro}
 
 % \begin{lmacro}{\@seccntformat}
 %    Define how section numbers should be formatted.
 %    \begin{macrocode}
-\cs_set_protected:Npn \@seccntformat #1 {\normalfont\use:c {the#1}\quad}
+%<!cv>\cs_set_protected:Npn \@seccntformat #1 {\normalfont\use:c {the#1}\quad}
 %    \end{macrocode}
 % \end{lmacro}
 
