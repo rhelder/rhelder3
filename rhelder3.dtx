@@ -318,7 +318,8 @@
 
 % Identify the class file and enable \pkg{expl3} syntax.
 %    \begin{macrocode}
-\ProvidesExplClass{rhelder3}{2026/08/08}{0.1.0}{Personal document class}
+%<article>\ProvidesExplClass{rhelder3}{2026/08/08}{0.1.0}{Personal document class}
+%<cv>\ProvidesExplClass{rhelder3cv}{2026/08/08}{0.1.0}{Personal document class}
 %    \end{macrocode}
 
 % \section{Initialization}
@@ -693,6 +694,7 @@
 %
 %    \begin{macrocode}
 \RequirePackage{unicode-math}
+\RequirePackage{adforn}
 \RequirePackage{pifont}
 %    \end{macrocode}
 
@@ -1317,6 +1319,10 @@
 \tl_new:N \g_@@_maketitle_title
 \tl_new:N \g_@@_maketitle_author
 \tl_new:N \g_@@_maketitle_date
+%<*cv>
+\tl_new:N \g_@@_maketitle_affiliation
+\tl_new:N \g_@@_maketitle_contact
+%</cv>
 %    \end{macrocode}
 % \end{variable}
 
@@ -1329,7 +1335,10 @@
 %    \begin{macrocode}
 \RenewDocumentCommand{\title}{m}{
   \tl_gset:Nn \g_@@_maketitle_title {#1}
-  \cs_gset:Npn \@title {#1}
+%    \end{macrocode}
+%    (\tn{title} will be used for a different purpose in the CV subclass.)
+%    \begin{macrocode}
+%<!cv>  \cs_gset:Npn \@title {#1}
 }
 \RenewDocumentCommand{\author}{m}{
   \tl_gset:Nn \g_@@_maketitle_author {#1}
@@ -1347,6 +1356,26 @@
 %    \end{macrocode}
 % \end{imacro}
 
+% \begin{imacro}{
+%   \affiliation,
+%   \contact,
+% }
+%    The \tn{maketitle} command for the \textacro{CV} subclass
+%    needs to display the author's name,
+%    title,
+%    affiliation,
+%    and contact info.
+%    \begin{macrocode}
+%<*cv>
+\NewDocumentCommand{\affiliation}{m}{
+  \tl_gset:Nn \g_@@_maketitle_affiliation {#1}
+}
+\NewDocumentCommand{\contact}{m}{
+  \tl_gset:Nn \g_@@_maketitle_contact {#1}
+}
+%</cv>
+%    \end{macrocode}
+
 % \begin{imacro}{\maketitle}
 %    Prints the article title at the top of (the next) page.
 %    Implement using the macros provided by \LaTeX{}
@@ -1359,6 +1388,7 @@
 %
 %    Use symbols instead of numerals for footnotes in the title.
 %    \begin{macrocode}
+%<*article>
     \cs_set:Npn \thefootnote {\fnsymbol{footnote}}
 %    \end{macrocode}
 %    Typeset the footnote marks in a box of zero width
@@ -1368,6 +1398,7 @@
     \cs_set_protected:Npn \@makefnmark {
       \hbox_overlap_right:n {\normalfont\textsuperscript\@thefnmark}
     }
+%</article>
 %    \end{macrocode}
 
 %    Start a new page,
@@ -1382,7 +1413,7 @@
 %    and print footnotes with \tn{@thanks}.
 %    \begin{macrocode}
     \thispagestyle{plain}
-    \@thanks
+%<article>    \@thanks
 %    \end{macrocode}
 %
 %    Close the group
@@ -1398,18 +1429,22 @@
 %    \begin{macrocode}
   \group_end:
 
-  \setcounter{footnote}{0}
+%<article>  \setcounter{footnote}{0}
   \cs_undefine:N \maketitle
   \cs_undefine:N \title
-  \cs_undefine:N \author
+%<article>  \cs_undefine:N \author
   \cs_undefine:N \date
-  \cs_undefine:N \thanks
+%<article>  \cs_undefine:N \thanks
   \cs_undefine:N \and
   \cs_undefine:N \@maketitle
-  \cs_undefine:N \@title
+%<article>  \cs_undefine:N \@title
   \cs_undefine:N \@author
   \cs_undefine:N \@date
-  \cs_undefine:N \@thanks
+%<article>  \cs_undefine:N \@thanks
+%<*cv>
+  \cs_undefine:N \affiliation
+  \cs_undefine:N \contact
+%</cv>
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -1419,6 +1454,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@maketitle {
   \group_begin:
+%<*article>
     \hbox_set:Nn \l_tmpa_box {\normalfont\normalsize\g_@@_maketitle_date}
     \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
 
@@ -1478,8 +1514,57 @@
     \dim_set:Nn \l_tmpb_dim {\box_ht_plus_dp:N \l_tmpb_box}
 
     \RenewCommandCopy\footnote\thanks
+%</article>
 %    \end{macrocode}
 %
+%    In the \textacro{CV} subclass,
+%    the affiliation and contact info are printed in two columns
+%    (in a table)
+%    below the author's name and title.
+%    The columns of the table should meet at the middle of the page.
+%    To do this,
+%    place the table in a horizontal box that is as wide as the page,
+%    in a vertical box that is shifted left to the edge of the page.
+%    Find the width of the left column
+%    and the width of the ornament between the two columns,
+%    and then add enough horizontal space before the table
+%    to position the ornament in the middle of the page
+%    (this can be found by subtracting the width of the left column,
+%    and half of the ornament/intervening space,
+%    from half of the page width).
+%    \begin{macrocode}
+%<*cv>
+    \hbox_set:Nn \l_tmpa_box {
+      \begin{tabular}[t]{r}
+        \tl_use:N \g_@@_maketitle_affiliation
+      \end{tabular}
+    }
+    \dim_set:Nn \l_tmpa_dim {\box_wd:N \l_tmpa_box}
+
+    \hbox_set:Nn \l_tmpa_box {
+      \skip_horizontal:n {1em}
+      \adfflatleafright
+      \skip_horizontal:n {1em}
+    }
+    \dim_set:Nn \l_tmpb_dim {\box_wd:N \l_tmpa_box}
+
+    \vbox_set:Nn \l_tmpa_box {
+      \hbox_to_wd:nn {\paperwidth} {
+        \skip_horizontal:n {0.5\paperwidth - \l_tmpa_dim - 0.5\l_tmpb_dim}
+        \begin{tabular}[t]{r}
+          \tl_use:N \g_@@_maketitle_affiliation
+        \end{tabular}
+        \skip_horizontal:n {1em}
+        \adfflatleafright
+        \skip_horizontal:n {1em}
+        \begin{tabular}[t]{l}
+          \tl_use:N \g_@@_maketitle_contact
+        \end{tabular}
+      }
+    }
+%</cv>
+%    \end{macrocode}
+
 %    Set \bool{@nobreak} to \bool{true}
 %    so that no extra space will be inserted
 %    before an immediately following section heading.
@@ -1494,6 +1579,7 @@
 %    so that the vertical skip isn't discarded
 %    because it's at the top of a page.
 %    \begin{macrocode}
+%<*article>
     \rule{0pt}{0pt}
     \skip_vertical:n {
 %    \end{macrocode}
@@ -1516,6 +1602,28 @@
     % \ShowGrid{\l_tmpb_box}{\c__rh_large_leading_dim}{15pt}
     \box_use_drop:N \l_tmpb_box
     \skip_vertical:n {\baselineskip}
+%</article>
+%    \end{macrocode}
+%
+%    In the \textacro{CV} subclass,
+%    don't place any extra space between the top of the text block
+%    and the beginning of the title,
+%    and don't try to align with the baseline grid
+%    (which doesn't matter for non-continuous text like a \textacro{CV}).
+%    \begin{macrocode}
+%<*cv>
+    \begin{center}
+      \Large
+      \tl_use:N \g_@@_maketitle_author\par
+      \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_large_leading_dim}
+      \large
+      \tl_use:N \g_@@_maketitle_title\par
+      \normalsize
+      \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normal_leading_dim}
+      \box_move_right:nn {-\Gm@lmargin} {\box_use_drop:N \l_tmpa_box}
+    \end{center}
+    \skip_vertical:n {\baselineskip}
+%</cv>
   \group_end:
 }
 %    \end{macrocode}
@@ -2354,6 +2462,7 @@
 %    \begin{macrocode}
   pdfpagemode = UseNone,
 }
+%</class>
 %    \end{macrocode}
 %
 % \end{implementation}
