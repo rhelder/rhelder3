@@ -1583,16 +1583,6 @@
 %</cv>
 %    \end{macrocode}
 
-%    Set \bool{@nobreak} to \bool{true}
-%    so that no extra space will be inserted
-%    before an immediately following section heading.
-%    (As designed in this document class,
-%    the text following the section heading
-%    will still snap to baseline).
-%    \begin{macrocode}
-    \legacy_if_gset_true:n {@nobreak}
-%    \end{macrocode}
-
 %    Insert a zero-width and zero-height rule
 %    so that the vertical skip isn't discarded
 %    because it's at the top of a page.
@@ -1619,7 +1609,6 @@
 %    \begin{macrocode}
     % \ShowGrid{\l_tmpb_box}{\c__rh_large_leading_dim}{15pt}
     \box_use_drop:N \l_tmpb_box
-    \skip_vertical:n {\baselineskip}
 %</article>
 %    \end{macrocode}
 %
@@ -1640,8 +1629,18 @@
       \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normal_leading_dim}
       \box_move_right:nn {-\Gm@lmargin} {\box_use_drop:N \l_tmpa_box}
     \end{center}
-    \skip_vertical:n {\baselineskip}
 %</cv>
+%    \end{macrocode}
+%
+%    Set \bool{@nobreak} to \bool{true}
+%    so that no extra space will be inserted
+%    before an immediately following section heading.
+%    (As designed in this document class,
+%    the text following the section heading
+%    will still snap to baseline).
+%    \begin{macrocode}
+    \legacy_if_gset_true:n {@nobreak}
+    \skip_vertical:n {\baselineskip}
   \group_end:
 }
 %    \end{macrocode}
