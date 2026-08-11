@@ -2434,6 +2434,29 @@
 %    \end{macrocode}
 % \end{lskip}
 
+% \section{Page Styles}
+%
+%    \begin{macrocode}
+%<*cv>
+\cs_new_protected:Npn \ps@cv {
+  \ps@empty
+  \cs_set:Npn \@oddfoot {
+    \hbox_overlap_right:n {
+      \normalfont\normalsize
+      \tl_use:N \g_@@_maketitle_author
+    }\hfil
+    \normalfont\normalsize\thepage\hfil
+    \hbox_overlap_left:n {
+      \normalfont\normalsize
+      \tl_use:N \g_@@_maketitle_date
+    }
+  }
+}
+
+\pagestyle{cv}
+%</cv>
+%    \end{macrocode}
+%
 % \section{Markup}
 %
 % \begin{imacro}{\initials}
