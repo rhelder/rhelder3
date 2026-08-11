@@ -1903,11 +1903,10 @@
 %    \begin{macrocode}
 \newenvironment{description}{
   \list{}{
-    % Arbitrary for now; just set to satisfy the tests after making all list
-    % parameters local
-    \labelsep 10.824pt\relax
-    \labelwidth\z@ \itemindent-\leftmargin
-    \let\makelabel\descriptionlabel
+    \dim_set_eq:NN \labelsep \thickspaceamount
+    \dim_set:Nn \labelwidth {0pt}
+    \dim_set:Nn \itemindent {-\leftmargin}
+    \cs_set_eq:NN \makelabel \descriptionlabel
   }
 }{
   \endlist
@@ -1921,8 +1920,8 @@
 %    This definition is borrowed from the \LaTeX{} standard classes.
 %    \begin{macrocode}
 \newcommand*\descriptionlabel[1]{
-  \hspace\labelsep
-  \normalfont\bfseries #1
+  \skip_horizontal:n {\labelsep}
+  \normalfont\itshape #1\thickspace\textperiodcentered
 }
 %    \end{macrocode}
 % \end{lmacro}

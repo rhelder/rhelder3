@@ -54,8 +54,7 @@ following still have not been implemented:
 *   Table of contents
 
 These are not yet supported mainly because I don't use them often, so I don't
-have strong opinions about how they should be designed. (The `description`
-environment is also just borrowed straight from the standard classes.)
+have strong opinions about how they should be designed.
 
 Other goals include:
 
