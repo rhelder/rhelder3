@@ -1617,8 +1617,24 @@
 %    and the beginning of the title,
 %    and don't try to align with the baseline grid
 %    (which doesn't matter for non-continuous text like a \textacro{CV}).
+%    (Here is another example of how I used \cs{ShowGrid}
+%    in development.)
 %    \begin{macrocode}
 %<*cv>
+    % \vbox_set:Nn \l_tmpa_box {
+    %   \begin{center}
+    %     \Large
+    %     \tl_use:N \g_@@_maketitle_author\par
+    %     \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_large_leading_dim}
+    %     \large
+    %     \tl_use:N \g_@@_maketitle_title\par
+    %     \normalsize
+    %     \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normal_leading_dim}
+    %     \box_move_right:nn {-\Gm@lmargin} {\box_use_drop:N \l_tmpa_box}
+    %   \end{center}
+    % }
+    % \ShowGrid{\l_tmpa_box}{\c_@@_Large_leading_dim}{-22pt + 12.69pt}
+    % \vbox_unpack_drop:N \l_tmpa_box
     \begin{center}
       \Large
       \tl_use:N \g_@@_maketitle_author\par
