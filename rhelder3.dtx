@@ -2100,8 +2100,11 @@
 %    if the heading is sitting at the top of a page
 %    (if \TeX{} is trying to fill that page, at any rate).
 %    \begin{macrocode}
+%<cv>\dim_new:N \c_@@_section_beforeafterskip
+%<cv>\dim_new:N \c_@@_section_beforeskip
 \dim_new:N \c_@@_section_afterskip
 
+%<*!cv>
 \dim_set:Nn \c_@@_section_afterskip {
   3\c_@@_normal_leading_dim
   - \c_@@_normal_leading_dim
@@ -2117,6 +2120,57 @@
     }
     {\normalfont\scshape\large}
 }
+%</!cv>
+%    \end{macrocode}
+%
+%    Because the \textacro{CV} subclass is not trying
+%    to align the text to the baseline grid,
+%    give vertical spacing around headings more attractive proportions.
+%    The same proportion as the textblock,
+%    \num{1.701:1},
+%    works well.
+%    Allow the space before the section heading
+%    to stretch to as much as one large lead,
+%    and to shrink to as much as one normal lead.
+%    Allow the space after the section heading
+%    to shrink to as much as one normal lead
+%    divided by \num{1.701}
+%    (such that,
+%    if maximum shrink were applied to the space
+%    both before and after the section heading,
+%    they would still have the proportion \num{1.701:1}).
+%    \begin{macrocode}
+%<*cv>
+\dim_set:Nn \c_@@_section_beforeafterskip {
+  3\c_@@_normal_leading_dim - \c_@@_large_leading_dim
+}
+\dim_set:Nn \c_@@_section_afterskip {
+  \fp_to_dim:n {\c_@@_section_beforeafterskip / 2.701}
+}
+\dim_set:Nn \c_@@_section_beforeskip {
+  \c_@@_section_beforeafterskip - \c_@@_section_afterskip
+}
+
+\NewDocumentCommand{\section}{}{
+  \@startsection{section}{1}{0pt}
+    {
+      -\c_@@_section_beforeskip
+      plus -\dim_eval:n {
+        \c_@@_large_leading_dim - \c_@@_section_beforeskip
+      }
+      minus -\dim_eval:n {
+        \c_@@_section_beforeskip - \c_@@_normal_leading_dim
+      }
+    }{
+      \c_@@_section_afterskip
+      minus \dim_eval:n {
+        \c_@@_section_afterskip
+        - \fp_to_dim:n {\c_@@_normal_leading_dim / 1.701}
+      }
+    }
+    {\normalfont\scshape\large}
+}
+%</cv>
 %    \end{macrocode}
 
 %    Tell \TeX{} to align the text with the bottom of the text block.
@@ -2146,7 +2200,14 @@
 % As a result of this design,
 % the subsequent text will return to baseline
 % even if the headings are nested.
+%
+%    (In the \textacro{CV} subclass,
+%    these goals don't apply,
+%    and only \tn{section} and \tn{subsection} are provided.
+%    More subheads shouldn't be necessary,
+%    and I don't want to design them.)
 %    \begin{macrocode}
+%<*!cv>
 \NewDocumentCommand{\subsection}{}{
   \@startsection{subsection}{2}{0pt}
     {-\c_@@_normal_leading_dim}{\c_@@_normal_leading_dim}
@@ -2168,13 +2229,68 @@
   \@startsection{subparagraph}{5}{0pt}
     {\c_@@_normal_leading_dim}{-1em}{\normalfont\itshape\normalsize}
 }
+%</!cv>
+%    \end{macrocode}
+%
+%    Again,
+%    because the \textacro{CV} subclass is not trying
+%    to align the text to the baseline grid,
+%    give vertical spacing around headings more attractive proportions.
+%    The same proportion as the textblock,
+%    \num{1.701:1},
+%    works well.
+%    Allow the space before the subhead
+%    to shrink to as much as one lead.
+%    Allow the space after the subhead
+%    to shrink to as much as one normal lead
+%    divided by \num{1.701}
+%    (such that,
+%    if maximum shrink were applied to the space
+%    both before and after the subhead,
+%    they would still have the proportion \num{1.701:1}).
+%    \begin{macrocode}
+%<*cv>
+\dim_new:N \c_@@_subsection_beforeafterskip
+\dim_new:N \c_@@_subsection_beforeskip
+\dim_new:N \c_@@_subsection_afterskip
+
+\dim_set:Nn \c_@@_subsection_beforeafterskip {
+  3\c_@@_normal_leading_dim - \c_@@_normal_leading_dim
+}
+\dim_set:Nn \c_@@_subsection_afterskip {
+  \fp_to_dim:n {\c_@@_subsection_beforeafterskip / 2.701}
+}
+\dim_set:Nn \c_@@_subsection_beforeskip {
+  \c_@@_subsection_beforeafterskip - \c_@@_subsection_afterskip
+}
+
+\NewDocumentCommand{\subsection}{}{
+  \@startsection{subsection}{2}{0pt}
+    {
+      -\c_@@_subsection_beforeskip
+      minus -\dim_eval:n {
+         \c_@@_subsection_beforeskip - \c_@@_normal_leading_dim
+      }
+    }
+    {
+      \c_@@_subsection_afterskip
+      minus \dim_eval:n {
+        \c_@@_subsection_afterskip
+        - \fp_to_dim:n {\c_@@_normal_leading_dim / 1.701}
+      }
+    }
+    {\normalfont\itshape\normalsize}
+}
+%</cv>
 %    \end{macrocode}
 % \end{imacro}
 
 % \begin{lcounter}{secnumdepth}
-%    Number all headings down to \tn{subsubsection}.
+%    Number all headings down to \tn{subsubsection},
+%    except in the \textacro{CV} subclass.
 %    \begin{macrocode}
-\setcounter{secnumdepth}{3}
+%<!cv>\setcounter{secnumdepth}{3}
+%<cv>\setcounter{secnumdepth}{-1}
 %    \end{macrocode}
 % \end{lcounter}
 
@@ -2189,9 +2305,11 @@
 %    \begin{macrocode}
 \newcounter{section}
 \newcounter{subsection}[section]
+%<*!cv>
 \newcounter{subsubsection}[subsection]
 \newcounter{paragraph}[subsubsection]
 \newcounter{subparagraph}[paragraph]
+%</!cv>
 %    \end{macrocode}
 % \end{lcounter}
 
@@ -2206,16 +2324,18 @@
 %    \begin{macrocode}
 \cs_set:Npn \thesection {\arabic{section}}
 \cs_set:Npn \thesubsection {\thesection.\arabic{subsection}}
+%<*!cv>
 \cs_set:Npn \thesubsubsection {\thesubsection.\arabic{subsubsection}}
 \cs_set:Npn \theparagraph {\thesubsubsection.\arabic{paragraph}}
 \cs_set:Npn \thesubparagraph {\theparagraph.\arabic{subparagraph}}
+%</!cv>
 %    \end{macrocode}
 % \end{lmacro}
 
 % \begin{lmacro}{\@seccntformat}
 %    Define how section numbers should be formatted.
 %    \begin{macrocode}
-\cs_set_protected:Npn \@seccntformat #1 {\normalfont\use:c {the#1}\quad}
+%<!cv>\cs_set_protected:Npn \@seccntformat #1 {\normalfont\use:c {the#1}\quad}
 %    \end{macrocode}
 % \end{lmacro}
 
