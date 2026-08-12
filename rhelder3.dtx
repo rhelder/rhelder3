@@ -501,8 +501,22 @@
 % (tall pentagon; see \autocite[150]{bringhurst1992ElementsTypographic})
 % seems to work well.
 %    \begin{macrocode}
+%<*!cv>
 \SetTextwidth{70}
 \SetTextheight{1.701}
+%</!cv>
+%    \end{macrocode}
+%
+% For the \textacro{CV} subclass,
+% a slightly wider measure is better,
+% since a \textacro{CV} is meant for displaying information
+% rather than for continuous reading.
+% The same text block proportions work well, though.
+%    \begin{macrocode}
+%<*cv>
+\SetTextwidth{72}
+\SetTextheight{1.701}
+%</cv>
 %    \end{macrocode}
 %
 % Set the bottom margin equal to the horizontal margin.
@@ -510,6 +524,9 @@
 % approximately \num{2:3} ratio
 % between the top and bottom margins,
 % at least when the line accommodates 70 characters on average.
+% (For the \textacro{CV} subclass,
+% the ratio is a bit less than \num{3:5},
+% which still works well.)
 %    \begin{macrocode}
 \geometry{
   hcentering,
