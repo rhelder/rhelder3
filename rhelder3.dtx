@@ -2268,7 +2268,7 @@
 \dim_new:N \c_@@_subsection_afterskip
 
 \dim_set:Nn \c_@@_subsection_beforeafterskip {
-  2\c_@@_normal_leading_dim - \c_@@_normal_leading_dim
+  3\c_@@_normal_leading_dim - \c_@@_normal_leading_dim
 }
 \dim_set:Nn \c_@@_subsection_afterskip {
   \fp_to_dim:n {\c_@@_subsection_beforeafterskip / 2.701}
@@ -2281,14 +2281,17 @@
   \@startsection{subsection}{2}{0pt}
     {
       -\c_@@_subsection_beforeskip
-      plus -\dim_eval:n {
-        \c_@@_section_afterskip - \c_@@_subsection_beforeskip
-      }
       minus -\dim_eval:n {
-        \c_@@_subsection_beforeskip - \c_@@_subsection_afterskip
+         \c_@@_subsection_beforeskip - \c_@@_normal_leading_dim
       }
     }
-    {\c_@@_subsection_afterskip}
+    {
+      \c_@@_subsection_afterskip
+      minus \dim_eval:n {
+        \c_@@_subsection_afterskip
+        - \fp_to_dim:n {\c_@@_normal_leading_dim / 1.701}
+      }
+    }
     {\normalfont\itshape\normalsize}
 }
 %</cv>
