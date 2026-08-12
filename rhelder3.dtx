@@ -1409,7 +1409,7 @@
 %
 %    Use symbols instead of numerals for footnotes in the title.
 %    \begin{macrocode}
-%<*article>
+%<*!cv>
     \cs_set:Npn \thefootnote {\fnsymbol{footnote}}
 %    \end{macrocode}
 %    Typeset the footnote marks in a box of zero width
@@ -1419,7 +1419,7 @@
     \cs_set_protected:Npn \@makefnmark {
       \hbox_overlap_right:n {\normalfont\textsuperscript\@thefnmark}
     }
-%</article>
+%</!cv>
 %    \end{macrocode}
 
 %    Start a new page,
@@ -1434,7 +1434,7 @@
 %    and print footnotes with \tn{@thanks}.
 %    \begin{macrocode}
     \thispagestyle{plain}
-%<article>    \@thanks
+%<!cv>    \@thanks
 %    \end{macrocode}
 %
 %    Close the group
@@ -1450,18 +1450,18 @@
 %    \begin{macrocode}
   \group_end:
 
-%<article>  \setcounter{footnote}{0}
+%<!cv>  \setcounter{footnote}{0}
   \cs_undefine:N \maketitle
   \cs_undefine:N \title
-%<article>  \cs_undefine:N \author
+%<!cv>  \cs_undefine:N \author
   \cs_undefine:N \date
-%<article>  \cs_undefine:N \thanks
+%<!cv>  \cs_undefine:N \thanks
   \cs_undefine:N \and
   \cs_undefine:N \@maketitle
-%<article>  \cs_undefine:N \@title
+%<!cv>  \cs_undefine:N \@title
   \cs_undefine:N \@author
   \cs_undefine:N \@date
-%<article>  \cs_undefine:N \@thanks
+%<!cv>  \cs_undefine:N \@thanks
 %<*cv>
   \cs_undefine:N \affiliation
   \cs_undefine:N \contact
@@ -1475,7 +1475,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@maketitle {
   \group_begin:
-%<*article>
+%<*!cv>
     \hbox_set:Nn \l_tmpa_box {\normalfont\normalsize\g_@@_maketitle_date}
     \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
 
@@ -1535,7 +1535,7 @@
     \dim_set:Nn \l_tmpb_dim {\box_ht_plus_dp:N \l_tmpb_box}
 
     \RenewCommandCopy\footnote\thanks
-%</article>
+%</!cv>
 %    \end{macrocode}
 %
 %    In the \textacro{CV} subclass,
@@ -1591,7 +1591,7 @@
 %    so that the vertical skip isn't discarded
 %    because it's at the top of a page.
 %    \begin{macrocode}
-%<*article>
+%<*!cv>
     \rule{0pt}{0pt}
     \skip_vertical:n {
 %    \end{macrocode}
@@ -1613,7 +1613,7 @@
 %    \begin{macrocode}
     % \ShowGrid{\l_tmpb_box}{\c__rh_large_leading_dim}{15pt}
     \box_use_drop:N \l_tmpb_box
-%</article>
+%</!cv>
 %    \end{macrocode}
 %
 %    In the \textacro{CV} subclass,
