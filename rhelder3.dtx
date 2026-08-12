@@ -318,8 +318,8 @@
 
 % Identify the class file and enable \pkg{expl3} syntax.
 %    \begin{macrocode}
-%<article>\ProvidesExplClass{rhelder3}{2026/08/08}{0.1.0}{Personal document class}
-%<cv>\ProvidesExplClass{rhelder3cv}{2026/08/08}{0.1.0}{Personal document class}
+%<article>\ProvidesExplClass{rhelder3}{2026/08/08}{0.1.0}{Personal article class}
+%<cv>\ProvidesExplClass{rhelder3cv}{2026/08/08}{0.1.0}{Personal CV class}
 %    \end{macrocode}
 
 % \section{Initialization}
@@ -1292,7 +1292,7 @@
 
 % \section{Title}
 %
-% \begin[no-user-doc]{macro}
+% \begin{macro}[no-user-doc]{\@@_today:}
 %    An internal function
 %    that prints the date of the \LaTeX{} run.
 %    Use this internal function
@@ -1316,6 +1316,7 @@
   \fi:\space\int_use:N \c_sys_day_int,~\textdigits{\int_use:N \c_sys_year_int}
 }
 %    \end{macrocode}
+% \end{macro}
 
 % \begin{imacro}{\today}
 %    Set to \cs{@@_today} after \pkg{babel} redefined \tn{today}.
@@ -1394,6 +1395,7 @@
 }
 %</cv>
 %    \end{macrocode}
+% \end{imacro}
 
 % \begin{imacro}{\maketitle}
 %    Prints the article title at the top of (the next) page.
@@ -2642,9 +2644,13 @@
 
 % \subsection{Rag}
 %
+% Typeset \textacro{CV}s ragged right.
+% Since they do not consist of paragraphs
+% in the way that other documents do,
+% justification is not necessary
+% and may even look strange in some cases.
 %    \begin{macrocode}
 %<cv>\RaggedRight
-%    \end{macrocode}
 %</class>
 %    \end{macrocode}
 %
