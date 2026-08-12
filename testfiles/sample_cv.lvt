@@ -1,0 +1,292 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3cv}
+
+\author{Russell Wright Helder}
+\title{PhD Candidate}
+\affiliation{%
+  Joint Program in Ancient Philosophy \\
+  Department of Philosophy \\
+  University of California, Berkeley%
+}
+\contact{%
+  rwh@russellhelder.net \\
+  \textdigits{(913) 428-0466}%
+}
+\date{August 12, \textdigits{2026}}
+
+\showoutput
+\begin{document}
+\START
+\maketitle
+
+\section{Education}
+
+\begin{description}
+  \item[PhD Candidate, Philosophy] \textacro{UC} Berkeley,
+    \textdigits{2019}--present:
+    to be completed by December \textdigits{2026}
+  \item[MA with Distinction, Philosophy] Georgia State University,
+    \textdigits{2019}
+  \item[BSA, Chemistry \& BA, Classics] The University of Texas at Austin,
+    \textdigits{2016}
+\end{description}
+
+\section{Areas of Research}
+
+\begin{description}
+  \item[Areas of Specialization] Ancient Greek philosophy,
+    especially Aristotle’s ethics and moral psychology
+  \item[Areas of Competence] Early modern philosophy,
+    especially eighteenth century moral philosophy;
+    contemporary ethics;
+    philosophy of science
+\end{description}
+
+\section{Languages}
+
+\begin{itemize}
+  \item Ancient Greek (teaching experience)
+  \item Latin (tutoring experience)
+\end{itemize}
+
+\section{Teaching}
+
+\subsection{%
+  \texorpdfstring{%
+    Graduate Student Instructor
+    \textnormal{(}\textacro{UC} Berkeley\textnormal{)}%
+  }{%
+    Graduate Student Instructor (UC Berkeley)%
+  }%
+}
+
+\begin{enumerate}
+  \item Philosophy \textdigits{100}: Philosophical Methods
+    (Spring \textdigits{2026})
+
+    \emph{%
+      \small
+      Intended to improve the student’s ability to read and write philosophy,
+      with special emphasis placed on developing analytic skills.
+      Students meet one-on-one with the Graduate Student Instructor every week
+      to discuss the Instructor's feedback on their written assignments.%
+    }
+  \item Philosophy \textdigits{100}
+    (Fall \textdigits{2025})
+  \item Philosophy 2: Individual Morality and Social Justice
+    (Spring \textdigits{2025})
+
+    \emph{%
+      \small
+      An introduction to some central issues in moral and political philosophy.
+      Students meet with the Graduate Student Instructor every week
+      in small discussion sections.%
+    }
+  \item Philosophy \textdigits{25A}: Ancient Philosophy
+    (Fall \textdigits{2024})
+
+    \emph{%
+      \small
+      An introduction to ancient Greek philosophy,
+      focusing mainly on the thought of Socrates, Plato, and Aristotle.
+      Students meet with the Graduate Student Instructor every week
+      in small discussion sections.%
+    }
+  \item Philosophy \textdigits{25B}: Modern Philosophy
+    (Spring \textdigits{2023})
+
+    \emph{%
+      \small
+      An introduction to 17th- and 18th-century philosophy,
+      including Descartes, Elisabeth, Spinoza, Locke, Conway, Leibniz, Hume,
+      and Kant.
+      Students meet with the Graduate Student Instructor every week
+      in small discussion sections.%
+    }
+  \item Philosophy \textdigits{100}
+    (Fall \textdigits{2022})
+  \item Greek 15: The Greek Workshop, Part I
+    (Summer \textdigits{2022})
+
+    \emph{%
+      \small
+      The first six weeks of a ten-week intensive introductory language course
+      for students with little or no previous experience in Ancient Greek.
+      In the first six weeks,
+      students cover both semesters of elementary Greek.
+      Students meet with the Graduate Student Instructor daily
+      in small review sessions.%
+    }
+  \item Philosophy \textdigits{161}: Aristotle
+    (Spring \textdigits{2022})
+
+    \emph{%
+      \small
+      A concentrated study of Aristotle’s philosophy,
+      including logic, theory of explanation, natural philosophy, psychology,
+      metaphysics, and ethics.
+      Students learn how to read Aristotle’s dense prose
+      and form their own judgments
+      about controversial matters of interpretation.
+      Students meet with the Graduate Student Instructor every week
+      in small discussion sections.%
+    }
+  \item Philosophy \textdigits{25A}
+    (Fall \textdigits{2021})
+  \item Philosophy \textdigits{25A}
+    (Summer \textdigits{2021})
+  \item Philosophy \textdigits{100}
+    (Spring \textdigits{2021})
+  \item Philosophy \textdigits{25A}
+    (Fall \textdigits{2020})
+\end{enumerate}
+
+\subsection{%
+  Instructor of Record
+  \textnormal{(}Georgia State University\textnormal{)}%
+}
+
+\begin{enumerate}
+  \item Philosophy \textdigits{1010}: Critical Thinking
+    (Spring \textdigits{2019})
+
+    \emph{%
+      \small
+      Aims to help students improve their critical thinking skills
+      of identifying and evaluating arguments,
+      and to thereby help students succeed in their other college courses.
+      Instruction focuses on leading students through in-class exercises,
+      preparing students for written \enquote{Standardize \& Evaluate} exams.%
+    }
+  \item Philosophy \textdigits{1010}
+    (Fall \textdigits{2018})
+  \item Philosophy \textdigits{1010}
+    (Summer \textdigits{2018})
+\end{enumerate}
+
+\subsection{Other Teaching Positions}
+
+\begin{enumerate}
+  \item Tutor
+    (Fall \textdigits{2016}--Spring \textdigits{2018})
+
+    \emph{%
+      \small
+      Tutored middle-school students,
+      high-school students,
+      college students,
+      and postgraduate students
+      in Latin, chemistry, and academic writing,
+      as well as general study skills
+      and \textacro{ACT} preparation.%
+    }
+  \item Writing Across the Curriculum consultant
+    for Philosophy \textdigits{4030}:
+    Piety and the Gods in Ancient Philosophy
+    (Georgia State University, Spring \textdigits{2018})
+
+    \emph{%
+      \small
+      Gave feedback on rough drafts of all student papers.%
+    }
+  \item Supplemental Instruction leader for Philosophy \textdigits{1010}:
+    Critical Thinking
+    (Georgia State University, Fall \textdigits{2017})
+
+    \emph{%
+      Led small, student-led review sessions for Philosophy \textdigits{1010}.%
+    }
+\end{enumerate}
+
+\section{Service}
+
+\begin{description}
+  \item[Equity Task Force] Department of Philosophy,
+    \textacro{UC} Berkeley, \textdigits{2019}--\textdigits{2021}.
+    Researched and co-authored
+    \enquote{Best Practices Guide for Respectful Classroom Participation}
+\end{description}
+
+\section{Fellowships and Awards}
+
+\begin{description}
+  \item[Ralf F. Munster Fellowship] Department of Philosophy,
+    Georgia State University, \textdigits{2018}.
+    Awarded to an outstanding first-year graduate student
+\end{description}
+
+\section{Academic Presentations}
+
+\subsection{%
+  \texorpdfstring{%
+    Plato, \texttitle{Meno} \textdigits{70a1}--\textdigits{73c5}%
+  }{%
+    Plato, Meno 70a1--73c5%
+  }%
+}
+
+\begin{itemize}
+  \item Invited.
+    Seminar on Plato's \texttitle{Meno},
+    Yale University
+    (June 9--13, \textdigits{2025}).
+    Co-presented with Verity Harte
+\end{itemize}
+
+\subsection{%
+  \texorpdfstring{%
+    Practical \textalt{Nous} of Universal Minor Premises:
+    A New Interpretation of \texttitle{Nicomachean Ethics} \textdigits{6.11}%
+  }{%
+    Practical Nous of Universal Minor Premises:
+    A New Interpretation of Nicomachean Ethics 6.11%
+  }%
+}
+
+\begin{itemize}
+  \item The Fifth Annual Rackham
+    Interdisciplinary Workshop in Ancient Philosophy,
+    University of Michigan, Ann Arbor
+    (April 12, \textdigits{2024})
+  \item American Philosophical Association,
+    Pacific Division Meeting,
+    San Francisco, CA
+    (April 9, \textdigits{2023})
+\end{itemize}
+
+\subsection{%
+  \texorpdfstring{%
+    \texttitle{De Motu Animalium} 11: Involuntary and Non-Voluntary Movement%
+  }{%
+    De Motu Animalium 11: Involuntary and Non-Voluntary Movement%
+  }%
+}
+
+\begin{itemize}
+  \item Invited.
+    Seminar on Aristotle's \textalt{De motu animalium},
+    Yale University
+    (June 12--16, \textdigits{2023}).
+    Co-presented with \initials{M.M.} McCabe
+\end{itemize}
+
+\subsection{%
+  A Bridge to Nowhere: Ensembles in Equilibrium Statistical Mechanics%
+}
+
+\begin{itemize}
+  \item The 22nd Annual Conference
+    of the International Society for the Philosophy of Chemistry,
+    University of Bristol, UK
+    (July 18, \textdigits{2018})
+\end{itemize}
+
+\subsection{Virtue and Wealth in Adam Smith: What’s the Difference?}
+
+\begin{itemize}
+  \item Midsouth Philosophy Conference,
+    Rhodes College, Memphis, TN
+    (March 23, \textdigits{2018})
+\end{itemize}
+
+\end{document}
