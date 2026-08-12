@@ -2120,12 +2120,12 @@
 %    if the heading is sitting at the top of a page
 %    (if \TeX{} is trying to fill that page, at any rate).
 %    \begin{macrocode}
-%<cv>\dim_new:N \c_@@_section_beforeafterskip
-%<cv>\dim_new:N \c_@@_section_beforeskip
-\dim_new:N \c_@@_section_afterskip
+%<cv>\dim_new:N \c_@@_section_beforeafter_dim
+%<cv>\dim_new:N \c_@@_section_before_dim
+\dim_new:N \c_@@_section_after_dim
 
 %<*!cv>
-\dim_set:Nn \c_@@_section_afterskip {
+\dim_set:Nn \c_@@_section_after_dim {
   3\c_@@_normal_leading_dim
   - \c_@@_normal_leading_dim
   - \c_@@_large_leading_dim
@@ -2135,8 +2135,8 @@
   \@startsection{section}{1}{0pt}
     {-\c_@@_normal_leading_dim}
     {
-      \c_@@_section_afterskip
-      plus \dim_eval:n {\c_@@_normal_leading_dim - \c_@@_section_afterskip}
+      \c_@@_section_after_dim
+      plus \dim_eval:n {\c_@@_normal_leading_dim - \c_@@_section_after_dim}
     }
     {\normalfont\scshape\large}
 }
@@ -2161,30 +2161,30 @@
 %    they would still have the proportion \num{1.701:1}).
 %    \begin{macrocode}
 %<*cv>
-\dim_set:Nn \c_@@_section_beforeafterskip {
+\dim_set:Nn \c_@@_section_beforeafter_dim {
   3\c_@@_normal_leading_dim - \c_@@_large_leading_dim
 }
-\dim_set:Nn \c_@@_section_afterskip {
-  \fp_to_dim:n {\c_@@_section_beforeafterskip / 2.701}
+\dim_set:Nn \c_@@_section_after_dim {
+  \fp_to_dim:n {\c_@@_section_beforeafter_dim / 2.701}
 }
-\dim_set:Nn \c_@@_section_beforeskip {
-  \c_@@_section_beforeafterskip - \c_@@_section_afterskip
+\dim_set:Nn \c_@@_section_before_dim {
+  \c_@@_section_beforeafter_dim - \c_@@_section_after_dim
 }
 
 \NewDocumentCommand{\section}{}{
   \@startsection{section}{1}{0pt}
     {
-      -\c_@@_section_beforeskip
+      -\c_@@_section_before_dim
       plus -\dim_eval:n {
-        \c_@@_large_leading_dim - \c_@@_section_beforeskip
+        \c_@@_large_leading_dim - \c_@@_section_before_dim
       }
       minus -\dim_eval:n {
-        \c_@@_section_beforeskip - \c_@@_normal_leading_dim
+        \c_@@_section_before_dim - \c_@@_normal_leading_dim
       }
     }{
-      \c_@@_section_afterskip
+      \c_@@_section_after_dim
       minus \dim_eval:n {
-        \c_@@_section_afterskip
+        \c_@@_section_after_dim
         - \fp_to_dim:n {\c_@@_normal_leading_dim / 1.701}
       }
     }
@@ -2270,32 +2270,32 @@
 %    they would still have the proportion \num{1.701:1}).
 %    \begin{macrocode}
 %<*cv>
-\dim_new:N \c_@@_subsection_beforeafterskip
-\dim_new:N \c_@@_subsection_beforeskip
-\dim_new:N \c_@@_subsection_afterskip
+\dim_new:N \c_@@_subsection_beforeafter_dim
+\dim_new:N \c_@@_subsection_before_dim
+\dim_new:N \c_@@_subsection_after_dim
 
-\dim_set:Nn \c_@@_subsection_beforeafterskip {
+\dim_set:Nn \c_@@_subsection_beforeafter_dim {
   3\c_@@_normal_leading_dim - \c_@@_normal_leading_dim
 }
-\dim_set:Nn \c_@@_subsection_afterskip {
-  \fp_to_dim:n {\c_@@_subsection_beforeafterskip / 2.701}
+\dim_set:Nn \c_@@_subsection_after_dim {
+  \fp_to_dim:n {\c_@@_subsection_beforeafter_dim / 2.701}
 }
-\dim_set:Nn \c_@@_subsection_beforeskip {
-  \c_@@_subsection_beforeafterskip - \c_@@_subsection_afterskip
+\dim_set:Nn \c_@@_subsection_before_dim {
+  \c_@@_subsection_beforeafter_dim - \c_@@_subsection_after_dim
 }
 
 \NewDocumentCommand{\subsection}{}{
   \@startsection{subsection}{2}{0pt}
     {
-      -\c_@@_subsection_beforeskip
+      -\c_@@_subsection_before_dim
       minus -\dim_eval:n {
-         \c_@@_subsection_beforeskip - \c_@@_normal_leading_dim
+         \c_@@_subsection_before_dim - \c_@@_normal_leading_dim
       }
     }
     {
-      \c_@@_subsection_afterskip
+      \c_@@_subsection_after_dim
       minus \dim_eval:n {
-        \c_@@_subsection_afterskip
+        \c_@@_subsection_after_dim
         - \fp_to_dim:n {\c_@@_normal_leading_dim / 1.701}
       }
     }
