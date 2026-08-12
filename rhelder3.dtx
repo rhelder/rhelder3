@@ -915,7 +915,8 @@
 
   \cs_set_protected:Npn \@listi {
     \dim_set_eq:NN \leftmargin \leftmargini
-    \skip_set:Nn \topsep {\c_@@_small_leading_dim}
+%<!cv>    \skip_set:Nn \topsep {\c_@@_small_leading_dim}
+%<cv>    \skip_set:Nn \topsep {\dim_use:N \medskipamount plus \dim_use:N \medskipamount}
     \skip_set:Nn \parsep {0pt}
     \skip_set:Nn \partopsep {0pt}
     \skip_set:Nn \itemsep {0pt}
@@ -976,7 +977,8 @@
 
   \cs_set_protected:Npn \@listi {
     \dim_set_eq:NN \leftmargin \leftmargini
-    \skip_set:Nn \topsep {\c_@@_footnote_leading_dim}
+%<!cv>    \skip_set:Nn \topsep {\c_@@_footnote_leading_dim}
+%<cv>    \skip_set:Nn \topsep {\dim_use:N \medskipamount plus \dim_use:N \medskipamount}
     \skip_set:Nn \parsep {0pt}
     \skip_set:Nn \partopsep {0pt}
     \skip_set:Nn \itemsep {0pt}
@@ -1703,7 +1705,8 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@listi {
   \dim_set_eq:NN \leftmargin \leftmargini
-  \skip_set:Nn \topsep {\c_@@_normal_leading_dim}
+%<!cv>  \skip_set:Nn \topsep {\c_@@_normal_leading_dim}
+%<cv>  \skip_set:Nn \topsep {\dim_use:N \medskipamount plus \dim_use:N \medskipamount}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \partopsep {0pt}
   \skip_set:Nn \itemsep {0pt}
