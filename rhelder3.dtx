@@ -340,11 +340,8 @@
 %    Dimensions to be used by size-changing commands like \tn{normalsize}.
 %    Will be set to \tn{baselineskip} by \tn{normalsize}.
 %    \begin{macrocode}
-\dim_new:N \c_@@_normal_size_dim
-\dim_new:N \c_@@_normal_leading_dim
-
-\dim_set:Nn \c_@@_normal_size_dim {12pt}
-\dim_set:Nn \c_@@_normal_leading_dim {15pt}
+\dim_const:Nn \c_@@_normal_size_dim {12pt}
+\dim_const:Nn \c_@@_normal_leading_dim {15pt}
 %    \end{macrocode}
 % \end{variable}
 
@@ -857,47 +854,26 @@
 % }
 %    Dimensions to be used by size-changing commands.
 %    \begin{macrocode}
-\dim_new:N \c_@@_tiny_size_dim
-\dim_new:N \c_@@_tiny_leading_dim
-\dim_new:N \c_@@_scriptsize_size_dim
-\dim_new:N \c_@@_scriptsize_leading_dim
-\dim_new:N \c_@@_small_size_dim
-\dim_new:N \c_@@_small_leading_dim
-\dim_new:N \c_@@_footnote_size_dim
-\dim_new:N \c_@@_footnote_leading_dim
-\dim_new:N \c_@@_large_size_dim
-\dim_new:N \c_@@_large_leading_dim
-\dim_new:N \c_@@_Large_size_dim
-\dim_new:N \c_@@_Large_leading_dim
-\dim_new:N \c_@@_LARGE_size_dim
-\dim_new:N \c_@@_LARGE_leading_dim
-\dim_new:N \c_@@_huge_size_dim
-\dim_new:N \c_@@_huge_leading_dim
-\dim_new:N \c_@@_Huge_size_dim
-\dim_new:N \c_@@_Huge_leading_dim
-\dim_new:N \c_@@_HUGE_size_dim
-\dim_new:N \c_@@_HUGE_leading_dim
-
-\dim_set:Nn \c_@@_tiny_size_dim {8pt}
-\dim_set:Nn \c_@@_tiny_leading_dim {10pt}
-\dim_set:Nn \c_@@_scriptsize_size_dim {9pt}
-\dim_set:Nn \c_@@_scriptsize_leading_dim {11pt}
-\dim_set:Nn \c_@@_footnote_size_dim {10pt}
-\dim_set:Nn \c_@@_footnote_leading_dim {12pt}
-\dim_set:Nn \c_@@_small_size_dim {11pt}
-\dim_set:Nn \c_@@_small_leading_dim {13pt}
-\dim_set:Nn \c_@@_large_size_dim {14pt}
-\dim_set:Nn \c_@@_large_leading_dim {18pt}
-\dim_set:Nn \c_@@_Large_size_dim {18pt}
-\dim_set:Nn \c_@@_Large_leading_dim {22pt}
-\dim_set:Nn \c_@@_LARGE_size_dim {24pt}
-\dim_set:Nn \c_@@_LARGE_leading_dim {29pt}
-\dim_set:Nn \c_@@_huge_size_dim {30pt}
-\dim_set:Nn \c_@@_huge_leading_dim {36pt}
-\dim_set:Nn \c_@@_Huge_size_dim {36pt}
-\dim_set:Nn \c_@@_Huge_leading_dim {43pt}
-\dim_set:Nn \c_@@_HUGE_size_dim {72pt}
-\dim_set:Nn \c_@@_HUGE_leading_dim {85pt}
+\dim_const:Nn \c_@@_tiny_size_dim {8pt}
+\dim_const:Nn \c_@@_tiny_leading_dim {10pt}
+\dim_const:Nn \c_@@_scriptsize_size_dim {9pt}
+\dim_const:Nn \c_@@_scriptsize_leading_dim {11pt}
+\dim_const:Nn \c_@@_footnote_size_dim {10pt}
+\dim_const:Nn \c_@@_footnote_leading_dim {12pt}
+\dim_const:Nn \c_@@_small_size_dim {11pt}
+\dim_const:Nn \c_@@_small_leading_dim {13pt}
+\dim_const:Nn \c_@@_large_size_dim {14pt}
+\dim_const:Nn \c_@@_large_leading_dim {18pt}
+\dim_const:Nn \c_@@_Large_size_dim {18pt}
+\dim_const:Nn \c_@@_Large_leading_dim {22pt}
+\dim_const:Nn \c_@@_LARGE_size_dim {24pt}
+\dim_const:Nn \c_@@_LARGE_leading_dim {29pt}
+\dim_const:Nn \c_@@_huge_size_dim {30pt}
+\dim_const:Nn \c_@@_huge_leading_dim {36pt}
+\dim_const:Nn \c_@@_Huge_size_dim {36pt}
+\dim_const:Nn \c_@@_Huge_leading_dim {43pt}
+\dim_const:Nn \c_@@_HUGE_size_dim {72pt}
+\dim_const:Nn \c_@@_HUGE_leading_dim {85pt}
 %    \end{macrocode}
 % \end{variable}
 
@@ -2120,22 +2096,19 @@
 %    if the heading is sitting at the top of a page
 %    (if \TeX{} is trying to fill that page, at any rate).
 %    \begin{macrocode}
-\dim_new:N \c_@@_section_beforeafter_dim
-\skip_new:N \c_@@_section_before_skip
-\skip_new:N \c_@@_section_after_skip
-
-\dim_set:Nn \c_@@_section_beforeafter_dim {
+\dim_const:Nn \c_@@_section_beforeafter_dim {
   3\c_@@_normal_leading_dim - \c_@@_large_leading_dim
 }
 %<*!cv>
-\skip_set:Nn \c_@@_section_before_skip {\c_@@_normal_leading_dim}
+\skip_const:Nn \c_@@_section_before_skip {\c_@@_normal_leading_dim}
 
 \group_begin:
   \dim_set:Nn \l_tmpa_dim {
     \c_@@_section_beforeafter_dim
     - \c_@@_section_before_skip
   }
-  \skip_gset:Nn \c_@@_section_after_skip {
+
+  \skip_const:Nn \c_@@_section_after_skip {
     \l_tmpa_dim plus \dim_eval:n {\c_@@_normal_leading_dim - \l_tmpa_dim}
   }
 \group_end:
@@ -2168,12 +2141,13 @@
   \dim_set:Nn \l_tmpb_dim {
     \c_@@_section_beforeafter_dim - \l_tmpa_dim
   }
-  \skip_gset:Nn \c_@@_section_before_skip {
+
+  \skip_const:Nn \c_@@_section_before_skip {
     \l_tmpb_dim
     plus \dim_eval:n {\c_@@_large_leading_dim - \l_tmpb_dim}
     minus \dim_eval:n {\l_tmpb_dim - \c_@@_normal_leading_dim}
   }
-  \skip_gset:Nn \c_@@_section_after_skip {
+  \skip_const:Nn \c_@@_section_after_skip {
     \l_tmpa_dim
     minus \dim_eval:n {
       \l_tmpa_dim
@@ -2267,11 +2241,7 @@
 %    they would still have the proportion \num{1.701:1}).
 %    \begin{macrocode}
 %<*cv>
-\dim_new:N \c_@@_subsection_beforeafter_dim
-\skip_new:N \c_@@_subsection_before_skip
-\skip_new:N \c_@@_subsection_after_skip
-
-\dim_set:Nn \c_@@_subsection_beforeafter_dim {
+\dim_const:Nn \c_@@_subsection_beforeafter_dim {
   3\c_@@_normal_leading_dim - \c_@@_normal_leading_dim
 }
 
@@ -2282,11 +2252,12 @@
   \dim_set:Nn \l_tmpb_dim {
     \c_@@_subsection_beforeafter_dim - \l_tmpa_dim
   }
-  \skip_gset:Nn \c_@@_subsection_before_skip {
+
+  \skip_const:Nn \c_@@_subsection_before_skip {
     \l_tmpb_dim
     minus \dim_eval:n {\l_tmpb_dim - \c_@@_normal_leading_dim}
   }
-  \skip_gset:Nn \c_@@_subsection_after_skip {
+  \skip_const:Nn \c_@@_subsection_after_skip {
     \l_tmpa_dim
     minus \dim_eval:n {
       \l_tmpa_dim
