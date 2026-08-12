@@ -2120,26 +2120,25 @@
 %    if the heading is sitting at the top of a page
 %    (if \TeX{} is trying to fill that page, at any rate).
 %    \begin{macrocode}
-%<cv>\dim_new:N \c_@@_section_beforeafter_dim
-%<cv>\dim_new:N \c_@@_section_before_dim
-\dim_new:N \c_@@_section_after_dim
+\dim_new:N \c_@@_section_beforeafter_dim
+\skip_new:N \c_@@_section_before_skip
+\skip_new:N \c_@@_section_after_skip
 
+\dim_set:Nn \c_@@_section_beforeafter_dim {
+  3\c_@@_normal_leading_dim - \c_@@_large_leading_dim
+}
 %<*!cv>
-\dim_set:Nn \c_@@_section_after_dim {
-  3\c_@@_normal_leading_dim
-  - \c_@@_normal_leading_dim
-  - \c_@@_large_leading_dim
-}
+\skip_set:Nn \c_@@_section_before_skip {\c_@@_normal_leading_dim}
 
-\NewDocumentCommand{\section}{}{
-  \@startsection{section}{1}{0pt}
-    {-\c_@@_normal_leading_dim}
-    {
-      \c_@@_section_after_dim
-      plus \dim_eval:n {\c_@@_normal_leading_dim - \c_@@_section_after_dim}
-    }
-    {\normalfont\scshape\large}
-}
+\group_begin:
+  \dim_set:Nn \l_tmpa_dim {
+    \c_@@_section_beforeafter_dim
+    - \c_@@_section_before_skip
+  }
+  \skip_gset:Nn \c_@@_section_after_skip {
+    \l_tmpa_dim plus \dim_eval:n {\c_@@_normal_leading_dim - \l_tmpa_dim}
+  }
+\group_end:
 %</!cv>
 %    \end{macrocode}
 %
@@ -2161,36 +2160,34 @@
 %    they would still have the proportion \num{1.701:1}).
 %    \begin{macrocode}
 %<*cv>
-\dim_set:Nn \c_@@_section_beforeafter_dim {
-  3\c_@@_normal_leading_dim - \c_@@_large_leading_dim
-}
-\dim_set:Nn \c_@@_section_after_dim {
-  \fp_to_dim:n {\c_@@_section_beforeafter_dim / 2.701}
-}
-\dim_set:Nn \c_@@_section_before_dim {
-  \c_@@_section_beforeafter_dim - \c_@@_section_after_dim
-}
+
+\group_begin:
+  \dim_set:Nn \l_tmpa_dim {
+    \fp_to_dim:n {\c_@@_section_beforeafter_dim / 2.701}
+  }
+  \dim_set:Nn \l_tmpb_dim {
+    \c_@@_section_beforeafter_dim - \l_tmpa_dim
+  }
+  \skip_gset:Nn \c_@@_section_before_skip {
+    \l_tmpb_dim
+    plus \dim_eval:n {\c_@@_large_leading_dim - \l_tmpb_dim}
+    minus \dim_eval:n {\l_tmpb_dim - \c_@@_normal_leading_dim}
+  }
+  \skip_gset:Nn \c_@@_section_after_skip {
+    \l_tmpa_dim
+    minus \dim_eval:n {
+      \l_tmpa_dim
+      - \fp_to_dim:n {\c_@@_normal_leading_dim / 1.701}
+    }
+  }
+\group_end:
+%</cv>
 
 \NewDocumentCommand{\section}{}{
   \@startsection{section}{1}{0pt}
-    {
-      -\c_@@_section_before_dim
-      plus -\dim_eval:n {
-        \c_@@_large_leading_dim - \c_@@_section_before_dim
-      }
-      minus -\dim_eval:n {
-        \c_@@_section_before_dim - \c_@@_normal_leading_dim
-      }
-    }{
-      \c_@@_section_after_dim
-      minus \dim_eval:n {
-        \c_@@_section_after_dim
-        - \fp_to_dim:n {\c_@@_normal_leading_dim / 1.701}
-      }
-    }
+    {-\c_@@_section_before_skip}{\c_@@_section_after_skip}
     {\normalfont\scshape\large}
 }
-%</cv>
 %    \end{macrocode}
 
 %    Tell \TeX{} to align the text with the bottom of the text block.
@@ -2271,34 +2268,36 @@
 %    \begin{macrocode}
 %<*cv>
 \dim_new:N \c_@@_subsection_beforeafter_dim
-\dim_new:N \c_@@_subsection_before_dim
-\dim_new:N \c_@@_subsection_after_dim
+\skip_new:N \c_@@_subsection_before_skip
+\skip_new:N \c_@@_subsection_after_skip
 
 \dim_set:Nn \c_@@_subsection_beforeafter_dim {
   3\c_@@_normal_leading_dim - \c_@@_normal_leading_dim
 }
-\dim_set:Nn \c_@@_subsection_after_dim {
-  \fp_to_dim:n {\c_@@_subsection_beforeafter_dim / 2.701}
-}
-\dim_set:Nn \c_@@_subsection_before_dim {
-  \c_@@_subsection_beforeafter_dim - \c_@@_subsection_after_dim
-}
+
+\group_begin:
+  \dim_set:Nn \l_tmpa_dim {
+    \fp_to_dim:n {\c_@@_subsection_beforeafter_dim / 2.701}
+  }
+  \dim_set:Nn \l_tmpb_dim {
+    \c_@@_subsection_beforeafter_dim - \l_tmpa_dim
+  }
+  \skip_gset:Nn \c_@@_subsection_before_skip {
+    \l_tmpb_dim
+    minus \dim_eval:n {\l_tmpb_dim - \c_@@_normal_leading_dim}
+  }
+  \skip_gset:Nn \c_@@_subsection_after_skip {
+    \l_tmpa_dim
+    minus \dim_eval:n {
+      \l_tmpa_dim
+      - \fp_to_dim:n {\c_@@_normal_leading_dim / 1.701}
+    }
+  }
+\group_end:
 
 \NewDocumentCommand{\subsection}{}{
   \@startsection{subsection}{2}{0pt}
-    {
-      -\c_@@_subsection_before_dim
-      minus -\dim_eval:n {
-         \c_@@_subsection_before_dim - \c_@@_normal_leading_dim
-      }
-    }
-    {
-      \c_@@_subsection_after_dim
-      minus \dim_eval:n {
-        \c_@@_subsection_after_dim
-        - \fp_to_dim:n {\c_@@_normal_leading_dim / 1.701}
-      }
-    }
+    {-\c_@@_subsection_before_skip}{\c_@@_subsection_after_skip}
     {\normalfont\itshape\normalsize}
 }
 %</cv>
