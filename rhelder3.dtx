@@ -372,8 +372,6 @@
   \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
   \skip_set:Nn \abovedisplayshortskip {0pt}
   \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
-
-  \cs_set_eq:NN \@listi \@listI
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -897,36 +895,6 @@
   \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
   \skip_set:Nn \abovedisplayshortskip {0pt}
   \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
-
-  \cs_set_protected:Npn \@listi {
-    \dim_set_eq:NN \leftmargin \leftmargini
-%<!cv>    \skip_set:Nn \topsep {\c_@@_small_leading_dim}
-%<cv>    \skip_set:Nn \topsep {1\medskipamount plus 1\medskipamount}
-    \skip_set:Nn \parsep {0pt}
-    \skip_set:Nn \partopsep {0pt}
-    \skip_set:Nn \itemsep {0pt}
-
-    \group_begin:
-      \bool_case:nT {
-        {! \int_if_zero_p:n {\@enumdepth}}
-          {
-            \setcounter{enumi}{0}
-            \hbox_set:Nn \l_tmpa_box {\formatenumi{\labelenumi}}
-          }
-        {! \int_if_zero_p:n {\@itemdepth}}
-          {\hbox_set:Nn \l_tmpa_box {\formatitemi{\labelitemi}}}
-      }{
-        \dim_gset:Nn \g_tmpa_dim {\box_wd:N \l_tmpa_box}
-      }
-    \group_end:
-
-    \bool_if:nT {
-      ! \int_if_zero_p:n {\@enumdepth} || ! \int_if_zero_p:n {\@itemdepth}
-    }{
-      \dim_set:Nn \labelsep {\leftmargin - \g_tmpa_dim}
-      \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
-    }
-  }
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -959,36 +927,6 @@
   \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
   \skip_set:Nn \abovedisplayshortskip {0pt}
   \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
-
-  \cs_set_protected:Npn \@listi {
-    \dim_set_eq:NN \leftmargin \leftmargini
-%<!cv>    \skip_set:Nn \topsep {\c_@@_footnote_leading_dim}
-%<cv>    \skip_set:Nn \topsep {1\medskipamount plus 1\medskipamount}
-    \skip_set:Nn \parsep {0pt}
-    \skip_set:Nn \partopsep {0pt}
-    \skip_set:Nn \itemsep {0pt}
-
-    \group_begin:
-      \bool_case:nT {
-        {! \int_if_zero_p:n {\@enumdepth}}
-          {
-            \setcounter{enumi}{0}
-            \hbox_set:Nn \l_tmpa_box {\formatenumi{\labelenumi}}
-          }
-        {! \int_if_zero_p:n {\@itemdepth}}
-          {\hbox_set:Nn \l_tmpa_box {\formatitemi{\labelitemi}}}
-      }{
-        \dim_gset:Nn \g_tmpa_dim {\box_wd:N \l_tmpa_box}
-      }
-    \group_end:
-
-    \bool_if:nT {
-      ! \int_if_zero_p:n {\@enumdepth} || ! \int_if_zero_p:n {\@itemdepth}
-    }{
-      \dim_set:Nn \labelsep {\leftmargin - \g_tmpa_dim}
-      \dim_set:Nn \labelwidth {\leftmargin - \labelsep}
-    }
-  }
 }
 %    \end{macrocode}
 % \end{imacro}
@@ -1690,7 +1628,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@listi {
   \dim_set_eq:NN \leftmargin \leftmargini
-%<!cv>  \skip_set:Nn \topsep {\c_@@_normal_leading_dim}
+%<!cv>  \skip_set:Nn \topsep {\baselineskip}
 %<cv>  \skip_set:Nn \topsep {1\medskipamount plus 1\medskipamount}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \partopsep {0pt}
@@ -1727,9 +1665,11 @@
 % \end{lmacro}
 
 % \begin{lmacro}{\@listI}
-%    The definition of \tn{@listi} is changed by some size-changing commands.
-%    Save this definition of \tn{@listi} in \tn{@listI}
-%    so that it can be restored by \tn{normalsize}.
+%    In the standard classes,
+%    the definition of \tn{@listi} is changed by some size-changing commands,
+%    so the normal definition of \tn{@listi} is saved in \tn{@listI}.
+%    Do the same here,
+%    in case any packages expect it.
 %    \begin{macrocode}
 \cs_new_eq:NN \@listI \@listi
 %    \end{macrocode}
