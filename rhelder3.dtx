@@ -1614,54 +1614,30 @@
 %    \end{macrocode}
 % \end{lmacro}
 
-% \begin{lmacro}{\@listii, \@listiii, \@listiv, \@listv, \@listvi}
-%    Set parameters for nested lists.
-%    Note that they don’t have saved versions
-%    and are not modified by the font size commands,
-%    as in the standard classes.
-%    In other words
-%    this class assumes
-%    that nested lists only appear in in the normal font size.
+% \begin{macro}[no-user-doc]{\@@_list_def:n}
+%    \marg{int}\\
+%    Defines \verb+\@list+ commands
+%    for nested lists.
 %    \begin{macrocode}
-\cs_new_protected:Npn \@listii {
-  \dim_set_eq:NN \leftmargin \leftmarginii
-  \skip_set:Nn \topsep {0pt}
-  \skip_set:Nn \parsep {0pt}
-  \skip_set:Nn \partopsep {0pt}
-  \skip_set:Nn \itemsep {0pt}
+\cs_new:Npn \@@_list_def:n #1 {
+  \cs_new_protected:cpn {@list\int_to_roman:n {#1}} {
+    \dim_set_eq:Nc \leftmargin {leftmargin\int_to_roman:n {#1}}
+    \skip_set:Nn \topsep {0pt}
+    \skip_set:Nn \parsep {0pt}
+    \skip_set:Nn \partopsep {0pt}
+    \skip_set:Nn \itemsep {0pt}
+  }
 }
+%    \end{macrocode}
+% \end{macro}
 
-\cs_new_protected:Npn \@listiii {
-  \dim_set_eq:NN \leftmargin \leftmarginiii
-  \skip_set:Nn \topsep {0pt}
-  \skip_set:Nn \parsep {0pt}
-  \skip_set:Nn \partopsep {0pt}
-  \skip_set:Nn \itemsep {0pt}
-}
-
-\cs_new_protected:Npn \@listiv {
-  \dim_set_eq:NN \leftmargin \leftmarginiv
-  \skip_set:Nn \topsep {0pt}
-  \skip_set:Nn \parsep {0pt}
-  \skip_set:Nn \partopsep {0pt}
-  \skip_set:Nn \itemsep {0pt}
-}
-
-\cs_new_protected:Npn \@listv {
-  \dim_set_eq:NN \leftmargin \leftmarginv
-  \skip_set:Nn \topsep {0pt}
-  \skip_set:Nn \parsep {0pt}
-  \skip_set:Nn \partopsep {0pt}
-  \skip_set:Nn \itemsep {0pt}
-}
-
-\cs_new_protected:Npn \@listvi {
-  \dim_set_eq:NN \leftmargin \leftmarginvi
-  \skip_set:Nn \topsep {0pt}
-  \skip_set:Nn \parsep {0pt}
-  \skip_set:Nn \partopsep {0pt}
-  \skip_set:Nn \itemsep {0pt}
-}
+% \begin{lmacro}{\@listii, \@listiii, \@listiv, \@listv, \@listvi}
+%    \begin{macrocode}
+\@@_list_def:n {2}
+\@@_list_def:n {3}
+\@@_list_def:n {4}
+\@@_list_def:n {5}
+\@@_list_def:n {6}
 %    \end{macrocode}
 % \end{lmacro}
 
