@@ -2284,14 +2284,19 @@
 %    by \tn{@parboxrestore},
 %    which is invoked before \tn{@makefntext} in \tn{@footnotetext},
 %    so place the footnote mark in a box of size \tn{baselineskip},
-%    which is what \tn{parindent} is supposed to be.
+%    which is what \tn{parindent} is supposed to be
+%    (actually, \tn{parindent} is supposed to be \tn{baselineskip}
+%    at normal size.
+%    But that doesn't look as good as \tn{baselineskip}
+%    at footnote size,
+%    so use \tn{baselineskip} at footnote size).
 %    \begin{macrocode}
 \cs_new_protected:Npn \@makefntext #1 {
   % Enter horizontal mode, so that a new paragraph isn't created between the
   % marker and the footnote text
   \noindent
   \hbox_overlap_left:n {
-    \hbox_to_wd:nn {\baselineskip}{\normalfont\@thefnmark\hss}
+    \hbox_to_wd:nn {\baselineskip} {\normalfont\@thefnmark\hss}
   }#1
 }
 %    \end{macrocode}
