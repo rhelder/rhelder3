@@ -377,7 +377,7 @@
 %    to determine the space before and after displays
 %    (anything between half a lead and a lead is fine).
 %    \begin{macrocode}
-    \skip_set:Nn \abovedisplayskip {1\medskipamount plus 1\medskipamount}
+    \skip_set:Nn \abovedisplayskip {0.5\baselineskip plus 0.5\baselineskip}
     \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
     \skip_set:Nn \abovedisplayshortskip {0pt}
     \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
@@ -1498,7 +1498,7 @@
       \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normalsize_leading_dim}
       \box_move_right:nn {-\Gm@lmargin} {\box_use_drop:N \l_tmpa_box}
     \end{center}
-    \medskip
+    \skip_vertical:n {0.5\baselineskip}
 %</cv>
 %    \end{macrocode}
 %
@@ -1572,7 +1572,7 @@
 \cs_new_protected:Npn \@listi {
   \dim_set_eq:NN \leftmargin \leftmargini
 %<!cv>  \skip_set:Nn \topsep {\baselineskip}
-%<cv>  \skip_set:Nn \topsep {1\medskipamount plus 1\medskipamount}
+%<cv>  \skip_set:Nn \topsep {0.5\baselineskip plus 0.5\baselineskip}
   \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \partopsep {0pt}
   \skip_set:Nn \itemsep {0pt}
