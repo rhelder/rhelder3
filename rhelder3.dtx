@@ -334,29 +334,38 @@
 % \subsection{Leading}
 %
 % \begin{variable}{
-%   \c_@@_normal_size_dim,
-%   \c_@@_normal_leading_dim,
+%   \c_@@_normalsize_size_dim,
+%   \c_@@_normalsize_leading_dim,
 % }
 %    Dimensions to be used by size-changing commands like \tn{normalsize}.
 %    Will be set to \tn{baselineskip} by \tn{normalsize}.
 %    \begin{macrocode}
-\dim_const:Nn \c_@@_normal_size_dim {12pt}
-\dim_const:Nn \c_@@_normal_leading_dim {15pt}
+\dim_const:Nn \c_@@_normalsize_size_dim {12pt}
+\dim_const:Nn \c_@@_normalsize_leading_dim {15pt}
 %    \end{macrocode}
 % \end{variable}
 
-% \begin{imacro}{\normalsize}
-%    Sets the font size and leading.
-%    Also sets small/med/big skips,
-%    display parameters,
-%    and generic list parameters.
+% \begin{macro}[no-user-doc]{\@@_size_def:n}
+%    \marg{csname}\\
+%    Defines size-changing commands.
+%    As in the standard classes,
+%    size-changing commands set the font size and leading
+%    and display parameters.
+%    Unlike in the standard classes,
+%    size-changing commands set small/med/big skip amounts,
+%    and they never redefine \tn{@listi}.
+%    \tn{@listi} makes assignments using size-dependent parameters
+%    like \tn{baselineskip},
+%    so \tn{@listi} does not need to be redefined by size-changing commands
+%    in this class.
 %    \begin{macrocode}
-\RenewDocumentCommand{\normalsize}{}{
-  \@setfontsize\normalsize\c_@@_normal_size_dim\c_@@_normal_leading_dim
+\cs_new:Npn \@@_size_def:n #1 {
+  \exp_args:Nc \DeclareDocumentCommand{#1}{}{
+    \exp_args:Nccc \@setfontsize{#1}{c_@@_#1_size_dim}{c_@@_#1_leading_dim}
 
-  \skip_set:Nn \smallskipamount {0.25\baselineskip}
-  \skip_set:Nn \medskipamount {0.5\baselineskip}
-  \skip_set_eq:NN \bigskipamount \baselineskip
+    \skip_set:Nn \smallskipamount {0.25\baselineskip}
+    \skip_set:Nn \medskipamount {0.5\baselineskip}
+    \skip_set_eq:NN \bigskipamount \baselineskip
 %    \end{macrocode}
 
 %    Alignment to the baseline can't be guaranteed
@@ -368,15 +377,25 @@
 %    to determine the space before and after displays
 %    (anything between half a lead and a lead is fine).
 %    \begin{macrocode}
-  \skip_set:Nn \abovedisplayskip {0.5\baselineskip plus 0.5\baselineskip}
-  \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
-  \skip_set:Nn \abovedisplayshortskip {0pt}
-  \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
+    \skip_set:Nn \abovedisplayskip {1\medskipamount plus 1\medskipamount}
+    \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
+    \skip_set:Nn \abovedisplayshortskip {0pt}
+    \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
+  }
 }
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{imacro}{\normalsize}
+%    Sets main document font size and leading,
+%    as well as small/med/big skip amounts and display parameters.
+%    \begin{macrocode}
+\@@_size_def:n {normalsize}
 %    \end{macrocode}
 % \end{imacro}
 
-% Initialize font size and leading.
+% Initialize font size and leading,
+% as well as small/med/big skip amounts and display parameters.
 %    \begin{macrocode}
 \normalsize
 %    \end{macrocode}
@@ -444,7 +463,7 @@
 %    (in other words,
 %    the leading for the first line on the page).
 %    \begin{macrocode}
-\skip_set_eq:NN \topskip \c_@@_normal_size_dim
+\skip_set_eq:NN \topskip \c_@@_normalsize_size_dim
 %    \end{macrocode}
 % \end{lskip}
 
@@ -558,16 +577,16 @@
         \fp_set:Nn \l_tmpa_fp {\dim_to_fp:n {-1in + \Gm@tmargin + \topskip}}
         \dim_gset:Nn \g_@@_showgrid_yshift_dim {
           \fp_eval:n {
-            \l_tmpa_fp / \c_@@_normal_leading_dim
-            - ceil(\l_tmpa_fp / \c_@@_normal_leading_dim)
-          }\c_@@_normal_leading_dim
+            \l_tmpa_fp / \c_@@_normalsize_leading_dim
+            - ceil(\l_tmpa_fp / \c_@@_normalsize_leading_dim)
+          }\c_@@_normalsize_leading_dim
         }
       \group_end:
 
       \hook_gput_code:nnn {shipout/before}{.}{
         \ShowGrid
           {\l_shipout_box}
-          {\c_@@_normal_leading_dim}
+          {\c_@@_normalsize_leading_dim}
           {\g_@@_showgrid_yshift_dim}
       }
     },
@@ -827,8 +846,8 @@
 %   \c_@@_scriptsize_leading_dim,
 %   \c_@@_small_size_dim,
 %   \c_@@_small_leading_dim,
-%   \c_@@_footnote_size_dim,
-%   \c_@@_footnote_leading_dim,
+%   \c_@@_footnotesize_size_dim,
+%   \c_@@_footnotesize_leading_dim,
 %   \c_@@_large_size_dim,
 %   \c_@@_large_leading_dim,
 %   \c_@@_Large_size_dim,
@@ -848,8 +867,8 @@
 \dim_const:Nn \c_@@_tiny_leading_dim {10pt}
 \dim_const:Nn \c_@@_scriptsize_size_dim {9pt}
 \dim_const:Nn \c_@@_scriptsize_leading_dim {11pt}
-\dim_const:Nn \c_@@_footnote_size_dim {10pt}
-\dim_const:Nn \c_@@_footnote_leading_dim {12pt}
+\dim_const:Nn \c_@@_footnotesize_size_dim {10pt}
+\dim_const:Nn \c_@@_footnotesize_leading_dim {12pt}
 \dim_const:Nn \c_@@_small_size_dim {11pt}
 \dim_const:Nn \c_@@_small_leading_dim {13pt}
 \dim_const:Nn \c_@@_large_size_dim {14pt}
@@ -867,73 +886,11 @@
 %    \end{macrocode}
 % \end{variable}
 
-% \begin{imacro}{\small}
-%    Sets not only font size and leading,
-%    but also small/med/big skips,
-%    display parameters,
-%    and generic list parameters,
-%    like \tn{normalsize} does.
-%    \begin{macrocode}
-\NewDocumentCommand{\small}{}{
-  \@setfontsize\small\c_@@_small_size_dim\c_@@_small_leading_dim
-
-  \skip_set:Nn \smallskipamount {0.25\baselineskip}
-  \skip_set:Nn \medskipamount {0.5\baselineskip}
-  \skip_set_eq:NN \bigskipamount \baselineskip
-%    \end{macrocode}
-
-%    Alignment to the baseline can't be guaranteed
-%    on pages with math displays
-%    without measuring the height of the display box
-%    before inserting it.
-%    It would be a lot of work to implement this,
-%    so in the meantime give \TeX{} broad latitude
-%    to determine the space before and after displays
-%    (anything between half a lead and a lead is fine).
-%    \begin{macrocode}
-  \skip_set:Nn \abovedisplayskip {0.5\baselineskip plus 0.5\baselineskip}
-  \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
-  \skip_set:Nn \abovedisplayshortskip {0pt}
-  \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
-}
-%    \end{macrocode}
-% \end{imacro}
-
-% \begin{imacro}{\footnotesize}
-%    Sets the font size and leading in footnotes.
-%    Also sets small/med/big skips,
-%    display parameters,
-%    and generic list parameters,
-%    like \tn{normalsize} does.
-%    \begin{macrocode}
-\NewDocumentCommand{\footnotesize}{}{
-  \@setfontsize\footnotesize\c_@@_footnote_size_dim\c_@@_footnote_leading_dim
-
-  \skip_set:Nn \smallskipamount {0.25\baselineskip}
-  \skip_set:Nn \medskipamount {0.5\baselineskip}
-  \skip_set_eq:NN \bigskipamount \baselineskip
-%    \end{macrocode}
-
-%    Alignment to the baseline can't be guaranteed
-%    on pages with math displays
-%    without measuring the height of the display box
-%    before inserting it.
-%    It would be a lot of work to implement this,
-%    so in the meantime give \TeX{} broad latitude
-%    to determine the space before and after displays
-%    (anything between half a lead and a lead is fine).
-%    \begin{macrocode}
-  \skip_set:Nn \abovedisplayskip {0.5\baselineskip plus 0.5\baselineskip}
-  \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
-  \skip_set:Nn \abovedisplayshortskip {0pt}
-  \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
-}
-%    \end{macrocode}
-% \end{imacro}
-
 % \begin{imacro}{
 %   \tiny,
 %   \scriptsize,
+%   \footnotesize,
+%   \small,
 %   \large,
 %   \Large,
 %   \LARGE,
@@ -945,30 +902,16 @@
 %    defined in the standard classes.
 %    These only change the font size and leading.
 %    \begin{macrocode}
-\NewDocumentCommand{\tiny}{}{
-  \@setfontsize\tiny\c_@@_tiny_size_dim\c_@@_tiny_leading_dim
-}
-\NewDocumentCommand{\scriptsize}{}{
-  \@setfontsize\scriptsize\c_@@_scriptsize_size_dim\c_@@_scriptsize_leading_dim
-}
-\NewDocumentCommand{\large}{}{
-  \@setfontsize\large\c_@@_large_size_dim\c_@@_large_leading_dim
-}
-\NewDocumentCommand{\Large}{}{
-  \@setfontsize\Large\c_@@_Large_size_dim\c_@@_Large_leading_dim
-}
-\NewDocumentCommand{\LARGE}{}{
-  \@setfontsize\LARGE\c_@@_LARGE_size_dim\c_@@_LARGE_leading_dim
-}
-\NewDocumentCommand{\huge}{}{
-  \@setfontsize\huge\c_@@_huge_size_dim\c_@@_huge_leading_dim
-}
-\NewDocumentCommand{\Huge}{}{
-  \@setfontsize\Huge\c_@@_Huge_size_dim\c_@@_Huge_leading_dim
-}
-\NewDocumentCommand{\HUGE}{}{
-  \@setfontsize\HUGE\c_@@_HUGE_size_dim\c_@@_HUGE_leading_dim
-}
+\@@_size_def:n {tiny}
+\@@_size_def:n {scriptsize}
+\@@_size_def:n {footnotesize}
+\@@_size_def:n {small}
+\@@_size_def:n {large}
+\@@_size_def:n {Large}
+\@@_size_def:n {LARGE}
+\@@_size_def:n {huge}
+\@@_size_def:n {Huge}
+\@@_size_def:n {HUGE}
 %    \end{macrocode}
 % \end{imacro}
 
@@ -1539,7 +1482,7 @@
     %     \large
     %     \tl_use:N \g_@@_maketitle_title\par
     %     \normalsize
-    %     \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normal_leading_dim}
+    %     \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normalsize_leading_dim}
     %     \box_move_right:nn {-\Gm@lmargin} {\box_use_drop:N \l_tmpa_box}
     %   \end{center}
     % }
@@ -1552,7 +1495,7 @@
       \large
       \tl_use:N \g_@@_maketitle_title\par
       \normalsize
-      \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normal_leading_dim}
+      \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normalsize_leading_dim}
       \box_move_right:nn {-\Gm@lmargin} {\box_use_drop:N \l_tmpa_box}
     \end{center}
     \medskip
@@ -2029,10 +1972,10 @@
 %    (if \TeX{} is trying to fill that page, at any rate).
 %    \begin{macrocode}
 \dim_const:Nn \c_@@_section_beforeafter_dim {
-  3\c_@@_normal_leading_dim - \c_@@_large_leading_dim
+  3\c_@@_normalsize_leading_dim - \c_@@_large_leading_dim
 }
 %<*!cv>
-\skip_const:Nn \c_@@_section_before_skip {\c_@@_normal_leading_dim}
+\skip_const:Nn \c_@@_section_before_skip {\c_@@_normalsize_leading_dim}
 
 \group_begin:
   \dim_set:Nn \l_tmpa_dim {
@@ -2041,7 +1984,7 @@
   }
 
   \skip_const:Nn \c_@@_section_after_skip {
-    \l_tmpa_dim plus \dim_eval:n {\c_@@_normal_leading_dim - \l_tmpa_dim}
+    \l_tmpa_dim plus \dim_eval:n {\c_@@_normalsize_leading_dim - \l_tmpa_dim}
   }
 \group_end:
 %</!cv>
@@ -2077,13 +2020,13 @@
   \skip_const:Nn \c_@@_section_before_skip {
     \l_tmpb_dim
     plus \dim_eval:n {\c_@@_large_leading_dim - \l_tmpb_dim}
-    minus \dim_eval:n {\l_tmpb_dim - \c_@@_normal_leading_dim}
+    minus \dim_eval:n {\l_tmpb_dim - \c_@@_normalsize_leading_dim}
   }
   \skip_const:Nn \c_@@_section_after_skip {
     \l_tmpa_dim
     minus \dim_eval:n {
       \l_tmpa_dim
-      - \fp_to_dim:n {\c_@@_normal_leading_dim / 1.701}
+      - \fp_to_dim:n {\c_@@_normalsize_leading_dim / 1.701}
     }
   }
 \group_end:
@@ -2133,24 +2076,24 @@
 %<*!cv>
 \NewDocumentCommand{\subsection}{}{
   \@startsection{subsection}{2}{0pt}
-    {-\c_@@_normal_leading_dim}{\c_@@_normal_leading_dim}
+    {-\c_@@_normalsize_leading_dim}{\c_@@_normalsize_leading_dim}
     {\normalfont\scshape\normalsize}
 }
 
 \NewDocumentCommand{\subsubsection}{}{
   \@startsection{subsubsection}{3}{0pt}
-    {-\c_@@_normal_leading_dim}{\c_@@_normal_leading_dim}
+    {-\c_@@_normalsize_leading_dim}{\c_@@_normalsize_leading_dim}
     {\normalfont\itshape\normalsize}
 }
 
 \NewDocumentCommand{\paragraph}{}{
   \@startsection{paragraph}{4}{0pt}
-    {\c_@@_normal_leading_dim}{-1em}{\normalfont\bfseries\normalsize}
+    {\c_@@_normalsize_leading_dim}{-1em}{\normalfont\bfseries\normalsize}
 }
 
 \NewDocumentCommand{\subparagraph}{}{
   \@startsection{subparagraph}{5}{0pt}
-    {\c_@@_normal_leading_dim}{-1em}{\normalfont\itshape\normalsize}
+    {\c_@@_normalsize_leading_dim}{-1em}{\normalfont\itshape\normalsize}
 }
 %</!cv>
 %    \end{macrocode}
@@ -2174,7 +2117,7 @@
 %    \begin{macrocode}
 %<*cv>
 \dim_const:Nn \c_@@_subsection_beforeafter_dim {
-  3\c_@@_normal_leading_dim - \c_@@_normal_leading_dim
+  3\c_@@_normalsize_leading_dim - \c_@@_normalsize_leading_dim
 }
 
 \group_begin:
@@ -2187,13 +2130,13 @@
 
   \skip_const:Nn \c_@@_subsection_before_skip {
     \l_tmpb_dim
-    minus \dim_eval:n {\l_tmpb_dim - \c_@@_normal_leading_dim}
+    minus \dim_eval:n {\l_tmpb_dim - \c_@@_normalsize_leading_dim}
   }
   \skip_const:Nn \c_@@_subsection_after_skip {
     \l_tmpa_dim
     minus \dim_eval:n {
       \l_tmpa_dim
-      - \fp_to_dim:n {\c_@@_normal_leading_dim / 1.701}
+      - \fp_to_dim:n {\c_@@_normalsize_leading_dim / 1.701}
     }
   }
 \group_end:
@@ -2330,7 +2273,7 @@
 %    Set \tn{footnotesep} to \num{0.7}\tn{baselineskip}
 %    for uniform leading throughout the footnote block.
 %    \begin{macrocode}
-\dim_set:Nn \footnotesep {0.7\c_@@_footnote_leading_dim}
+\dim_set:Nn \footnotesep {0.7\c_@@_footnotesize_leading_dim}
 %    \end{macrocode}
 % \end{ldimen}
 
@@ -2346,9 +2289,9 @@
 %    Allow at least two full \tn{baselineskip}s.
 %    \begin{macrocode}
 \skip_set:Nn {\skip\footins} {
-  \c_@@_normal_leading_dim +
-  \dim_eval:n {\c_@@_normal_leading_dim - \c_@@_footnote_leading_dim}
-  plus \c_@@_normal_leading_dim
+  \c_@@_normalsize_leading_dim +
+  \dim_eval:n {\c_@@_normalsize_leading_dim - \c_@@_footnotesize_leading_dim}
+  plus \c_@@_normalsize_leading_dim
 }
 %    \end{macrocode}
 % \end{lskip}
