@@ -1412,9 +1412,7 @@
     \dim_set:Nn \l_tmpa_dim {\box_wd:N \l_tmpa_box}
 
     \hbox_set:Nn \l_tmpa_box {
-      \skip_horizontal:n {1em}
-      \adfflatleafright
-      \skip_horizontal:n {1em}
+      \quad\adfflatleafright\quad
     }
     \dim_set:Nn \l_tmpb_dim {\box_wd:N \l_tmpa_box}
 
@@ -1424,9 +1422,7 @@
         \begin{tabular}[t]{r}
           \tl_use:N \g_@@_maketitle_affiliation
         \end{tabular}
-        \skip_horizontal:n {1em}
-        \adfflatleafright
-        \skip_horizontal:n {1em}
+        \quad\adfflatleafright\quad
         \begin{tabular}[t]{l}
           \tl_use:N \g_@@_maketitle_contact
         \end{tabular}
