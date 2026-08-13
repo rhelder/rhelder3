@@ -425,14 +425,12 @@
 %    is extracted from the copyfitting table at
 %    \autocite[28]{bringhurst1992ElementsTypographic}.
 %    \begin{macrocode}
-\dim_new:N \l_@@_settextwidth_fontwidth_dim
-
 \NewDocumentCommand{\SetTextwidth}{m}{
   \group_begin:
     \hbox_set:Nn \l_tmpa_box {abcdefghijklmnopqrstuvwxyz}
-    \dim_set:Nn \l_@@_settextwidth_fontwidth_dim {\box_wd:N \l_tmpa_box}
+    \dim_set:Nn \l_tmpa_dim {\box_wd:N \l_tmpa_box}
     \dim_gset:Nn \textwidth {
-      (0.0325\l_@@_settextwidth_fontwidth_dim + 0.378pt) * #1
+      (0.0325\l_tmpa_dim + 0.378pt) * #1
     }
   \group_end:
 
@@ -471,21 +469,16 @@
 % \begin{imacro}{\SetTextheight}
 %    \marg{ratio}\\
 %    Set \(\sfrac{\tn{textheight}}{\tn{textwidth}}\)
-%    to be equal to \meta{ratio}.
+%    to be closest multiple of \tn{baselineskip},
+%    plus \tn{topskip},
+%    to \meta{ratio}.
 %    \begin{macrocode}
-\int_new:N \l_@@_settextheight_lines_int
-
 \NewDocumentCommand{\SetTextheight}{m}{
-  \group_begin:
-    \int_set:Nn \l_@@_settextheight_lines_int {
-      \fp_to_int:n {
-        (#1\textwidth - \topskip) / \baselineskip
-      }
-    }
-    \dim_gset:Nn \textheight {
-      \topskip + \l_@@_settextheight_lines_int\baselineskip
-    }
-  \group_end:
+  \dim_set:Nn \textheight {
+    \topskip + \fp_to_int:n {
+      (#1\textwidth - \topskip) / \baselineskip
+    }\baselineskip
+  }
 
   \geometry{textheight = \textheight}
 }
@@ -551,28 +544,27 @@
 %    \begin{macrocode}
 \keys_define:nn {rh}{
   showgrid .code:n =
-    \dim_new:N \g_@@_showgrid_to_first_baseline_dim
     \dim_new:N \g_@@_showgrid_yshift_dim
 %    \end{macrocode}
 
 %    Calculate the remainder of dividing
-%    the distance between the top of the page and the first baseline
+%    the distance between the top of the shipout box
+%    (which starts 1in from the top of the page)
+%    and the first baseline
 %    by the leading.
 %    Start the grid that far below the top of the page,
 %    to align the grid with the first baseline.
 %    \begin{macrocode}
     \hook_gput_code:nnn {begindocument/before}{.}{
-      \dim_set:Nn \g_@@_showgrid_to_first_baseline_dim {
-        \Gm@tmargin - 1in + \topskip
-      }
-      \dim_set:Nn \g_@@_showgrid_yshift_dim {
-        \fp_eval:n {
-          \g_@@_showgrid_to_first_baseline_dim / \c_@@_normal_leading_dim
-          - ceil(
-            \g_@@_showgrid_to_first_baseline_dim / \c_@@_normal_leading_dim
-          )
-        }\c_@@_normal_leading_dim
-      }
+      \group_begin:
+        \fp_set:Nn \l_tmpa_fp {\dim_to_fp:n {-1in + \Gm@tmargin + \topskip}}
+        \dim_gset:Nn \g_@@_showgrid_yshift_dim {
+          \fp_eval:n {
+            \l_tmpa_fp / \c_@@_normal_leading_dim
+            - ceil(\l_tmpa_fp / \c_@@_normal_leading_dim)
+          }\c_@@_normal_leading_dim
+        }
+      \group_end:
 
       \hook_gput_code:nnn {shipout/before}{.}{
         \ShowGrid
