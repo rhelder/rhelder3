@@ -9,12 +9,12 @@ breaking_always_bump_major = false
 [changelog]
 body = """
 {% if version %}\
-  ## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
+  # `rhelder3` {{ version }} ({{ timestamp | date(timezone="America/Los_Angeles") | date(format="%Y/%m/%d") }})
 {% else %}\
-  ## [unreleased]
+  # [unreleased]
 {% endif %}
 {% for group, commits in commits | group_by(attribute="group") %}\
-  ### {{ group | upper_first }}\n
+  ## {{ group | upper_first }}\n
   {% for commit in commits %}\
     * {% if commit.scope %}{{ commit.scope | upper_first }}: {% endif %}\
       {% if commit.breaking %}[**breaking**] {% endif %}\

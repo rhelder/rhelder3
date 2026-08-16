@@ -1,6 +1,6 @@
-## [0.1.0] - 2026-08-09
+# `rhelder3` v0.1.0 (2026/08/09)
 
-### Bug Fixes
+## Bug Fixes
 
 * Load packages as late as possible
   - To ensure that necessary things (e.g., `\normalsize`) that packages
@@ -133,7 +133,7 @@
     In general, select the font, then select the size. This generally
     doesn't matter, but it's nice to have a rule of thumb.
 
-### Documentation
+## Documentation
 
 * Describe all defined or modified elements
 * Use indicative, not imperative
@@ -172,7 +172,7 @@
     instead.
 * Use `sample` test also as sample of class
 
-### Features
+## Features
 
 * Initial commit of minimal document class
 * Add option to show baseline grid
@@ -243,7 +243,7 @@
     typewriter font is loaded by name, not by file, it will only work for
     LuaTeX.
 
-### Refactor
+## Refactor
 
 * [**breaking**] Directly specify font settings
   - And rename many of the commands to match what is described as common in
