@@ -56,9 +56,8 @@ following still have not been implemented:
 These are not yet supported mainly because I don't use them often, so I don't
 have strong opinions about how they should be designed.
 
-Other goals include:
-
-1.  Use LaTeX's new mark mechanism with headings and subheads.
+There is also no user-facing documentation yet. For any additional macros
+`rhelder3` provides, consult the implementation documentation.
 
 ## Requirements
 
