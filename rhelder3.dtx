@@ -439,6 +439,18 @@
 \setmainfont{EBGaramond}
 %    \end{macrocode}
 
+% Set \tn{tracinglostchars} to \num{5} to get errors,
+% instead of warnings,
+% if a character typeset in a document or in a box
+% is missing from the font.
+% (For other engines,
+% the correct setting would be \num{3},
+% but \LuaTeX{} requires \num{5};
+% see \url{https://github.com/latex3/latex2e/pull/1691}.
+%    \begin{macrocode}
+\int_set:Nn \tracinglostchars {5}
+%    \end{macrocode}
+
 % \subsection{The Page}
 %
 % Abstract from \LaTeX{}'s counterintuitive layout parameters
