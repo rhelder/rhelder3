@@ -93,6 +93,7 @@
 \NewDocumentCommand{\textacro}{m}{\textsc{\MakeLowercase{#1}}}
 \NewDocumentCommand{\bool}{m}{\texttt{#1}}
 \NewDocumentCommand{\hook}{m}{\texttt{#1}}
+\NewDocumentCommand{\module}{m}{\texttt{#1}}
 \NewDocumentCommand{\num}{m}{#1}
 \NewDocumentCommand{\opt}{m}{\texttt{#1}}
 \NewDocumentCommand{\op}{m}{\texttt{#1}}
@@ -101,6 +102,7 @@
 
 \EnableCrossrefs
 \CodelineIndex
+\RecordChanges
 
 \begin{document}
   \DocInput{rhelder3.dtx}
@@ -376,6 +378,7 @@
 %    like \tn{baselineskip},
 %    so \tn{@listi} does not need to be redefined by size-changing commands
 %    in this class.
+% \changes{v0.2.0}{2026/08/13}{Generate the size-changing commands}
 %    \begin{macrocode}
 \cs_new:Npn \@@_size_def:n #1 {
   \exp_args:Nc \DeclareDocumentCommand{#1}{}{
@@ -838,6 +841,8 @@
 %
 % \begin{imacro}{\textcaps}
 %    Letterspace capitals.
+% \changes{v0.2.0}{2026/08/09}{Include optional arg in \cs{MakeUppercase} spec}
+% \changes{v0.2.0}{2026/08/09}{Replace redefined \cs{MakeUppercase} with \cs{textcaps}}
 %    \begin{macrocode}
 \NewDocumentCommand{\textcaps}{m}{
   \group_begin:
@@ -1199,6 +1204,7 @@
 
 % \begin{imacro}{\today}
 %    Set to \cs{@@_today} after \pkg{babel} redefined \tn{today}.
+% \changes{v0.2.0}{2026/08/11}{Letterspace year in \tn{today}}
 %    \begin{macrocode}
 \hook_gput_code:nnn {package/babel/after} {.} {
   \hook_gput_code:nnn {begindocument} {.} {
@@ -1432,6 +1438,7 @@
 %    (this can be found by subtracting the width of the left column,
 %    and half of the ornament/intervening space,
 %    from half of the page width).
+% \changes{v0.2.0}{2026/08/13}{Use more descriptive \tn{quad} to insert 1em}
 %    \begin{macrocode}
 %<*cv>
     \hbox_set:Nn \l_tmpa_box {
@@ -1608,6 +1615,8 @@
 %    (with the counter set to zero).
 %    Calculate \tn{labelsep} from this so that
 %    \(\tn{labelwidth} + \tn{labelsep} = \tn{parindent}\).
+% \changes{v0.2.0}{2026/08/10}{Always use same label sep and width for \env{enumerate}}
+% \changes{v0.2.0}{2026/08/11}{Make vertical skip amounts more useful}
 %    \begin{macrocode}
   \group_begin:
     \bool_case:nT {
@@ -1648,6 +1657,7 @@
 %    \marg{int}\\
 %    Defines \verb+\@list+ commands
 %    for nested lists.
+% \changes{v0.2.0}{2026/08/13}{Generate \tn{@list} commands for nested lists}
 %    \begin{macrocode}
 \cs_new:Npn \@@_list_def:n #1 {
   \cs_new_protected:cpn {@list\int_to_roman:n {#1}} {
@@ -1917,6 +1927,7 @@
 %    \env{description} needs to be defined here.
 %
 %    This definition is borrowed from the \LaTeX{} standard classes.
+% \changes{v0.2.0}{2026/08/10}{Design a \env{description} environment}
 %    \begin{macrocode}
 \newenvironment{description}{
   \list{}{
@@ -1972,6 +1983,8 @@
 %    so that subsequent text can snap to baseline
 %    if the heading is sitting at the top of a page
 %    (if \TeX{} is trying to fill that page, at any rate).
+% \changes{v0.2.0}{2026/08/13}{Give correct names to section spacing constants}
+% \changes{v0.2.0}{2026/08/13}{Calculate section skips only once}
 %    \begin{macrocode}
 \dim_const:Nn \c_@@_section_beforeafter_dim {
   3\c_@@_normalsize_leading_dim - \c_@@_large_leading_dim
@@ -2351,6 +2364,7 @@
 
 % \begin{imacro}{\texttitle, \textalt}
 %    Italicize titles and words in foreign languages.
+% \changes{v0.2.0}{2026/08/11}{Expand to \tn{emph} rather than copying \tn{emph}}
 %    \begin{macrocode}
 \NewDocumentCommand{\texttitle}{m}{\emph{#1}}
 \NewDocumentCommand{\textalt}{m}{\emph{#1}}
@@ -2529,8 +2543,28 @@
 %</class>
 %    \end{macrocode}
 %
+% \changes{v0.2.0}{2026/08/09}{Don't use separate display font for 14pt font}
+% \changes{v0.2.0}{2026/08/10}{Make inline markup command names consistent}
+% \changes{v0.2.0}{2026/08/12}{Doc: Use correct \env{macro} env syntax}
+% \changes{v0.2.0}{2026/08/12}{Provide class for typesetting CVs}
+% \changes{v0.2.0}{2026/08/12}{CV: Redesign headings and subheads}
+% \changes{v0.2.0}{2026/08/12}{CV: Use smaller \tn{topsep}, and allow stretch}
+% \changes{v0.2.0}{2026/08/12}{CV: Set text ragged right}
+% \changes{v0.2.0}{2026/08/12}{CV: Widen the measure}
+% \changes{v0.2.0}{2026/08/12}{CV: Provide and set a \ps{cv} page style}
+% \changes{v0.2.0}{2026/08/13}{CV: Add sample CV}
+% \changes{v0.2.0}{2026/08/13}{Declare and set constants correctly}
+% \changes{v0.2.0}{2026/08/13}{Correct various syntax errors in skip expressions}
+% \changes{v0.2.0}{2026/08/13}{Don't create unnecessary \module{dim}s}
+% \changes{v0.2.0}{2026/08/13}{Define \tn{@listi} only once}
+% \changes{v0.2.0}{2026/08/13}{Clarify choice of width for footnote label box}
+% \changes{v0.2.0}{2026/08/13}{Avoid small/med/bigskip language}
+% \changes{v0.2.0}{2026/08/16}{Disable \pkg{microtype} features in some situations}
+% \changes{v0.2.0}{2026/08/16}{Throw error if any characters are missing}
+%
 % \end{implementation}
 %
 % \printbibliography
 %
 % \PrintIndex
+% \PrintChanges
