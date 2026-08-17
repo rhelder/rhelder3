@@ -2489,7 +2489,23 @@
   pdfpagemode = UseNone,
 }
 
-% \subsection{Rag}
+% \subsection{Paragraphs}
+%
+% Disable \pkg{microtype} in \env{verbatim} environments
+% as suggested in \autocite[137]{mittelbach2023LaTeXCompanion}.
+%    \begin{macrocode}
+\AddToHook{env/verbatim/begin}{\microtypesetup{activate=false}}
+%    \end{macrocode}
+%
+% Disable expansion when text is set ragged right,
+% as suggested in \autocite[137]{mittelbach2023LaTeXCompanion}.
+% (Disable expansion completely
+% until expansion contexts are fixed in \LuaTeX{}).
+%    \begin{macrocode}
+% \SetExpansion[context = ragged, stretch = 0, shrink = 20]{encoding = *}{}
+% \AddToHook{cmd/RaggedRight/before}{\microtypecontext{expansion=ragged}}
+\AddToHook{cmd/RaggedRight/before}{\microtypesetup{expansion=false}}
+%    \end{macrocode}
 %
 % Typeset \textacro{CV}s ragged right.
 % Since they do not consist of paragraphs
