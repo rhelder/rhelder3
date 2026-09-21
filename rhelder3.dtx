@@ -1085,9 +1085,27 @@
 % would be more trouble than its worth.
 % Let \pkg{fontspec} handle which files to load.)
 %    \begin{macrocode}
-\setmonofont{Latin Modern Mono}[
-  Numbers = {Proportional, OldStyle},
-  SmallCapsFeatures = {Letters = UppercaseSmallCaps, LetterSpace = 3.0},
+\setmonofont{lmmono12-regular.otf}[
+  ItalicFont = lmmono10-italic.otf,
+  BoldFont = lmmonolt10-bold.otf,
+  SlantedFont = lmmonoslant10-regular.otf,
+  UprightFeatures = {
+    SmallCapsFont = lmmonocaps10-regular.otf,
+    SizeFeatures = {
+      {Size = 11.1-, Font = lmmono12-regular.otf, },
+      {Size = 9.6-11.1, Font = lmmono10-regular.otf, },
+      {Size = 8.6-9.6, Font = lmmono9-regular.otf, },
+      {Size = -8.6, Font = lmmono8-regular.otf, },
+    },
+  },
+  SlantedFeatures = {
+    SmallCapsFont = lmmonocaps10-oblique.otf,
+  },
+  Scale = MatchLowercase,
+  SmallCapsFeatures = {
+    Letters = UppercaseSmallCaps,
+    LetterSpace = 3.0
+  },
 ]
 %    \end{macrocode}
 
