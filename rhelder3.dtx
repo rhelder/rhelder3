@@ -1538,7 +1538,8 @@
 %    Set \bool{@nobreak} to \bool{true}
 %    so that no extra space will be inserted
 %    before an immediately following section heading.
-%    (The subclasses other than the \textacro{CV} subclass
+%    (The section headings
+%    in the subclasses other than the \textacro{CV} subclass
 %    are designed so that the text following the section heading
 %    will snap back to baseline.
 %    Even in the \textacro{CV} subclass,
@@ -1546,6 +1547,22 @@
 %    if the space before a subsequent section heading is suppressed.)
 %    \begin{macrocode}
     \legacy_if_gset_true:n {@nobreak}
+%    \end{macrocode}
+%    Set \bool{@nobreak} back to \bool{false}
+%    at the beginning of the paragraph after the next paragraph.
+%    Do this,
+%    rather than e.g. after the next paragraph,
+%    because for some reason this is required
+%    to avoid setting \bool{@nobreak} back to \bool{false}
+%    before the subsequent section heading,
+%    if there is one
+%    (I think because of the \tn{par} at the beginning of \tn{@startsection}).
+%    \begin{macrocode}
+    \hook_gput_next_code:nn {para/before}{
+      \hook_gput_next_code:nn {para/before}{
+        \legacy_if_gset_false:n {@nobreak}
+      }
+    }
     \skip_vertical:n {\baselineskip}
   \group_end:
 }
