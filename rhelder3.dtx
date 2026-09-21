@@ -2250,11 +2250,12 @@
 %    so use \tn{baselineskip} at footnote size).
 %    \begin{macrocode}
 \cs_new_protected:Npn \@makefntext #1 {
+  \dim_set_eq:NN \parindent \baselineskip
   % Enter horizontal mode, so that a new paragraph isn't created between the
   % marker and the footnote text
   \noindent
   \hbox_overlap_left:n {
-    \hbox_to_wd:nn {\baselineskip} {\normalfont\@thefnmark\hss}
+    \hbox_to_wd:nn {\parindent} {\normalfont\@thefnmark\hss}
   }#1
 }
 %    \end{macrocode}

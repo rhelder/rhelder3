@@ -16052,13 +16052,13 @@ Completed box being shipped out [5]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 9.15
-....\hbox(0.0+3.60004)x336.40823, glue set 336.40823fil, direction TLT
+....\hbox(0.0+3.60004)x336.40823, glue set 324.40823fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(0.0+0.0)x12.0, direction TLT
 .....\rule(0.0+3.60004)x0.0
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -16234,13 +16234,13 @@ Completed box being shipped out [5]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 9.1
-....\hbox(0.0+3.60004)x336.40823, glue set 336.40823fil, direction TLT
+....\hbox(0.0+3.60004)x336.40823, glue set 324.40823fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\hbox(0.0+0.0)x12.0, direction TLT
 .....\rule(0.0+3.60004)x0.0
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
