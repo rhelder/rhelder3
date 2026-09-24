@@ -2488,6 +2488,22 @@
 \babelprovide[hyphenrules = classiclatin]{latin}
 %    \end{macrocode}
 
+% When typesetting languages other than Greek,
+% italicize.\label{section:languages}
+%    \begin{macrocode}
+\AddBabelHook{italic}{foreign}{
+  \bool_if:nTF {
+    \str_if_eq_p:Vn {\localename}{ancientgreek}
+    ||
+    \str_if_eq_p:Vn {\localename}{greek}
+  }{
+    \BabelWrapText{##1}
+  }{
+    \BabelWrapText{\textalt{##1}}
+  }
+}
+%    \end{macrocode}
+
 % \subsection{Quotations}
 %
 % Typeset quotations in ancient Greek without quotation marks;
