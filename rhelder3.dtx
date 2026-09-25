@@ -1639,11 +1639,15 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@listi {
   \dim_set_eq:NN \leftmargin \leftmargini
-%<!cv>  \skip_set:Nn \topsep {\baselineskip}
+%<!cv>  \skip_set_eq:NN \topsep \baselineskip
 %<cv>  \skip_set:Nn \topsep {0.5\baselineskip plus 0.5\baselineskip}
-  \skip_set:Nn \parsep {0pt}
   \skip_set:Nn \partopsep {0pt}
   \skip_set:Nn \itemsep {0pt}
+%    \end{macrocode}
+%    Style paragraphs as in the main body text.
+%    \begin{macrocode}
+  \skip_set:Nn \parsep {0pt}
+  \dim_set_eq:NN \listparindent \parindent
 %    \end{macrocode}
 
 %    Set the label width to the natural width of the label
@@ -1698,9 +1702,10 @@
   \cs_new_protected:cpn {@list\int_to_roman:n {#1}} {
     \dim_set_eq:Nc \leftmargin {leftmargin\int_to_roman:n {#1}}
     \skip_set:Nn \topsep {0pt}
-    \skip_set:Nn \parsep {0pt}
     \skip_set:Nn \partopsep {0pt}
     \skip_set:Nn \itemsep {0pt}
+    \skip_set:Nn \parsep {0pt}
+    \dim_set_eq:NN \listparindent \parindent
   }
 }
 %    \end{macrocode}
