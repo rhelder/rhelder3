@@ -1010,18 +1010,42 @@
 % \section{Paragraphs}
 %
 % \begin{ldimen}{\parindent}
-%    Set \tn{parindent} to one lead.
+%    In the article subclass,
+%    set \tn{parindent} to one lead.
 %    \begin{macrocode}
-\dim_set_eq:NN \parindent \baselineskip
+%<!parskip>\dim_set_eq:NN \parindent \baselineskip
+%    \end{macrocode}
+%    In other subclasses,
+%    where \tn{parskip} will be non-zero,
+%    set \tn{parindent} to zero.
+%    \begin{macrocode}
+%<parskip>\dim_set_eq:NN \parindent \c_zero_dim
 %    \end{macrocode}
 % \end{ldimen}
 %
 % \begin{lskip}{\parskip}
-%    Don't put any stretchable space between paragraphs,
+%    In the article subclass,
+%    don't put any stretchable space between paragraphs,
 %    so that the text snaps to baseline.
 %    \begin{macrocode}
-\skip_set_eq:NN \parskip \c_zero_dim
+%<!parskip>\skip_set_eq:NN \parskip \c_zero_dim
 %    \end{macrocode}
+% \begin{variable}{\g_@@_parskip}
+%    In other subclasses,
+%    put stretchable space between paragraphs,
+%    and set \cs{g_@@_parskip} equal to \tn{parskip},
+%    so that calculations can be made
+%    based on the global value of \tn{parskip}
+%    even if the value of \tn{parskip} has changed locally.
+%    \begin{macrocode}
+%<*parskip>
+\skip_new:N \g_@@_parskip
+
+\skip_set:Nn \parskip {0.5\baselineskip plus 2pt minus 2pt}
+\skip_set_eq:NN \g_@@_parskip \parskip
+%</parskip>
+%    \end{macrocode}
+% \end{variable}
 % \end{lskip}
 
 % \section{Font}
@@ -1383,6 +1407,7 @@
     \hbox_set:Nn \l_tmpa_box {\normalfont\normalsize\g_@@_maketitle_date}
     \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
 
+%<*article>
     \vbox_set:Nn \l_tmpb_box {
 %    \end{macrocode}
 %
@@ -1437,6 +1462,7 @@
 %    is equal to some integer multiple of \tn{baselineskip}.
 %    \begin{macrocode}
     \dim_set:Nn \l_tmpb_dim {\box_ht_plus_dp:N \l_tmpb_box}
+%</article>
 
     \RenewCommandCopy\footnote\thanks
 %</!cv>
@@ -1492,7 +1518,7 @@
 %    so that the vertical skip isn't discarded
 %    because it's at the top of a page.
 %    \begin{macrocode}
-%<*!cv>
+%<*article>
     \rule{\c_zero_dim}{\c_zero_dim}
     \skip_vertical:n {
 %    \end{macrocode}
@@ -1514,7 +1540,7 @@
 %    \begin{macrocode}
     % \ShowGrid{\l_tmpb_box}{\c__rh_large_leading_dim}{15pt}
     \box_use_drop:N \l_tmpb_box
-%</!cv>
+%</article>
 %    \end{macrocode}
 %
 %    In the \textacro{CV} subclass,
@@ -1528,6 +1554,7 @@
 %<*cv>
     % \vbox_set:Nn \l_tmpa_box {
     %   \begin{center}
+    %     \skip_set_eq:NN \parskip \c_zero_skip
     %     \Large
     %     \tl_use:N \g_@@_maketitle_author\par
     %     \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_large_leading_dim}
@@ -1541,6 +1568,11 @@
     % \ShowGrid{\l_tmpa_box}{\c_@@_Large_leading_dim}{-22pt + 12.69pt}
     % \vbox_unpack_drop:N \l_tmpa_box
     \begin{center}
+%    \end{macrocode}
+%    Locally set \tn{parskip} to zero
+%    to avoid inserting excess white space into the title heading.
+%    \begin{macrocode}
+      \skip_set_eq:NN \parskip \c_zero_skip
       \Large
       \tl_use:N \g_@@_maketitle_author\par
       \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_large_leading_dim}
@@ -1601,9 +1633,11 @@
 %   \leftmarginv,
 %   \leftmarginvi,
 % }
-%    Align top-level lists with the surrounding paragraph indent.
+%    In the article subclass,
+%    align top-level lists with the surrounding paragraph indent.
 %    Indent nested lists by another \tn{parindent}.
 %    \begin{macrocode}
+%<*!parskip>
 \dim_set_eq:NN \leftmargin \parindent
 \dim_set_eq:NN \leftmargini \parindent
 \dim_set_eq:NN \leftmarginii \parindent
@@ -1611,6 +1645,21 @@
 \dim_set_eq:NN \leftmarginiv \parindent
 \dim_set_eq:NN \leftmarginv \parindent
 \dim_set_eq:NN \leftmarginvi \parindent
+%</!parskip>
+%    \end{macrocode}
+%    In subclasses where \tn{parindent} is zero,
+%    set the left margin to one lead
+%    (i.e., the same as \tn{parindent} in the article subclass).
+%    \begin{macrocode}
+%<*parskip>
+\dim_set_eq:NN \leftmargin \baselineskip
+\dim_set_eq:NN \leftmargini \baselineskip
+\dim_set_eq:NN \leftmarginii \baselineskip
+\dim_set_eq:NN \leftmarginiii \baselineskip
+\dim_set_eq:NN \leftmarginiv \baselineskip
+\dim_set_eq:NN \leftmarginv \baselineskip
+\dim_set_eq:NN \leftmarginvi \baselineskip
+%</parskip>
 %    \end{macrocode}
 % \end{ldimen}
 
@@ -1634,20 +1683,39 @@
 % \begin{lmacro}{\@listi}
 %    Sets parameters for top-level lists.
 %
-%    Don't put any stretchable space between list elements,
+%    In the article subclass,
+%    don't put any stretchable space between list elements,
 %    and set \tn{topsep} to one lead,
 %    so that the text will snap back to baseline after the end of the list.
 %    \begin{macrocode}
 \cs_new_protected:Npn \@listi {
   \dim_set_eq:NN \leftmargin \leftmargini
-%<!cv>  \skip_set_eq:NN \topsep \baselineskip
-%<cv>  \skip_set:Nn \topsep {0.5\baselineskip plus 0.5\baselineskip}
+%<*!parskip>
+  \skip_set_eq:NN \topsep \baselineskip
   \skip_set_eq:NN \partopsep \c_zero_skip
   \skip_set_eq:NN \itemsep \c_zero_skip
+%</!parskip>
+%    \begin{macrocode}
+%    In other subclasses,
+%    where \tn{parskip} is non-zero,
+%    set a more modest \tn{topsep},
+%    which is attractive
+%    (and possible,
+%    since we are not trying to align the text to the baseline);
+%    set \tn{partopsep} to offset the outer \tn{parskip};
+%    and set \tn{itemsep} to offset the inner \tn{parskip}
+%    (given by \tn{parsep}, just below).
+%    \end{macrocode}
+%<*parskip>
+  \skip_set:Nn \topsep {0.5\baselineskip plus 0.5\baselineskip}
+  \skip_set:Nn \partopsep {-\g_@@_parskip}
+  \skip_set:Nn \itemsep {-\g_@@_parskip}
+%</parskip>
 %    \end{macrocode}
 %    Style paragraphs as in the main body text.
 %    \begin{macrocode}
-  \skip_set_eq:NN \parsep \c_zero_skip
+%<!parskip>  \skip_set_eq:NN \parsep \c_zero_skip
+%<parskip>  \skip_set_eq:NN \parsep \g_@@_parskip
   \dim_set_eq:NN \listparindent \parindent
 %    \end{macrocode}
 
@@ -1702,9 +1770,16 @@
   \cs_new_protected:cpn {@list\int_to_roman:n {#1}} {
     \dim_set_eq:Nc \leftmargin {leftmargin\int_to_roman:n {#1}}
     \skip_set_eq:NN \topsep \c_zero_skip
+%<*!parskip>
     \skip_set_eq:NN \partopsep \c_zero_skip
     \skip_set_eq:NN \itemsep \c_zero_skip
     \skip_set_eq:NN \parsep \c_zero_skip
+%</!parskip>
+%<*parskip>
+    \skip_set:Nn \partopsep {-\g_@@_parskip}
+    \skip_set:Nn \itemsep {-\g_@@_parskip}
+    \skip_set_eq:NN \parsep \g_@@_parskip
+%</parskip>
     \dim_set_eq:NN \listparindent \parindent
   }
 }
@@ -2029,7 +2104,7 @@
 \dim_const:Nn \c_@@_section_beforeafter_dim {
   3\c_@@_normalsize_leading_dim - \c_@@_large_leading_dim
 }
-%<*!cv>
+%<*!parskip>
 \skip_const:Nn \c_@@_section_before_skip {\c_@@_normalsize_leading_dim}
 
 \group_begin:
@@ -2042,11 +2117,11 @@
     \l_tmpa_dim plus \dim_eval:n {\c_@@_normalsize_leading_dim - \l_tmpa_dim}
   }
 \group_end:
-%</!cv>
+%</!parskip>
 %    \end{macrocode}
 %
-%    Because the \textacro{CV} subclass is not trying
-%    to align the text to the baseline grid,
+%    Because subclasses with a non-zero \tn{parskip}
+%    are not trying to align the text to the baseline grid,
 %    give vertical spacing around headings more attractive proportions.
 %    The same proportion as the textblock,
 %    \num{1.701:1},
@@ -2062,7 +2137,7 @@
 %    both before and after the section heading,
 %    they would still have the proportion \num{1.701:1}).
 %    \begin{macrocode}
-%<*cv>
+%<*parskip>
 
 \group_begin:
   \dim_set:Nn \l_tmpa_dim {
@@ -2076,6 +2151,7 @@
     \l_tmpb_dim
     plus \dim_eval:n {\c_@@_large_leading_dim - \l_tmpb_dim}
     minus \dim_eval:n {\l_tmpb_dim - \c_@@_normalsize_leading_dim}
+    - \g_@@_parskip
   }
   \skip_const:Nn \c_@@_section_after_skip {
     \l_tmpa_dim
@@ -2083,9 +2159,10 @@
       \l_tmpa_dim
       - \fp_to_dim:n {\c_@@_normalsize_leading_dim / 1.701}
     }
+    - \g_@@_parskip
   }
 \group_end:
-%</cv>
+%</parskip>
 
 \NewDocumentCommand{\section}{}{
   \@startsection{section}{1}{\c_zero_dim}
@@ -2103,10 +2180,10 @@
 %    to return the text to baseline
 %    where nececessary.
 %
-%    Don't do this in the \textacro{CV} subclass,
+%    Don't do this in subclasses where \tn{parskip} is non-zero,
 %    since it is not trying to align the text to a baseline grid.
 %    \begin{macrocode}
-%<!cv>\flushbottom
+%<!parskip>\flushbottom
 %    \end{macrocode}
 % \end{imacro}
 
@@ -2127,8 +2204,10 @@
 %    and only \tn{section} and \tn{subsection} are provided.
 %    More subheads shouldn't be necessary,
 %    and I don't want to design them.)
+%
+%    TODO: define subheadings for subclasses with non-zero parskip
 %    \begin{macrocode}
-%<*!cv>
+%<*!parskip>
 \NewDocumentCommand{\subsection}{}{
   \@startsection{subsection}{2}{\c_zero_dim}
     {-\c_@@_normalsize_leading_dim}{\c_@@_normalsize_leading_dim}
@@ -2150,7 +2229,7 @@
   \@startsection{subparagraph}{5}{\c_zero_dim}
     {\c_@@_normalsize_leading_dim}{-1em}{\normalfont\itshape\normalsize}
 }
-%</!cv>
+%</!parskip>
 %    \end{macrocode}
 %
 %    Again,
@@ -2170,7 +2249,7 @@
 %    both before and after the subhead,
 %    they would still have the proportion \num{1.701:1}).
 %    \begin{macrocode}
-%<*cv>
+%<*parskip>
 \dim_const:Nn \c_@@_subsection_beforeafter_dim {
   3\c_@@_normalsize_leading_dim - \c_@@_normalsize_leading_dim
 }
@@ -2186,6 +2265,7 @@
   \skip_const:Nn \c_@@_subsection_before_skip {
     \l_tmpb_dim
     minus \dim_eval:n {\l_tmpb_dim - \c_@@_normalsize_leading_dim}
+    - \g_@@_parskip
   }
   \skip_const:Nn \c_@@_subsection_after_skip {
     \l_tmpa_dim
@@ -2193,6 +2273,7 @@
       \l_tmpa_dim
       - \fp_to_dim:n {\c_@@_normalsize_leading_dim / 1.701}
     }
+    - \g_@@_parskip
   }
 \group_end:
 
@@ -2201,7 +2282,7 @@
     {-\c_@@_subsection_before_skip}{\c_@@_subsection_after_skip}
     {\normalfont\itshape\normalsize}
 }
-%</cv>
+%</parskip>
 %    \end{macrocode}
 % \end{imacro}
 
@@ -2225,11 +2306,11 @@
 %    \begin{macrocode}
 \newcounter{section}
 \newcounter{subsection}[section]
-%<*!cv>
+%<*!parskip>
 \newcounter{subsubsection}[subsection]
 \newcounter{paragraph}[subsubsection]
 \newcounter{subparagraph}[paragraph]
-%</!cv>
+%</!parskip>
 %    \end{macrocode}
 % \end{lcounter}
 
@@ -2244,11 +2325,11 @@
 %    \begin{macrocode}
 \cs_set:Npn \thesection {\arabic{section}}
 \cs_set:Npn \thesubsection {\thesection.\arabic{subsection}}
-%<*!cv>
+%<*!parskip>
 \cs_set:Npn \thesubsubsection {\thesubsection.\arabic{subsubsection}}
 \cs_set:Npn \theparagraph {\thesubsubsection.\arabic{paragraph}}
 \cs_set:Npn \thesubparagraph {\theparagraph.\arabic{subparagraph}}
-%</!cv>
+%</!parskip>
 %    \end{macrocode}
 % \end{lmacro}
 
