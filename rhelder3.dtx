@@ -2196,7 +2196,7 @@
 \NewDocumentCommand{\section}{}{
   \@startsection{section}{1}{\c_zero_dim}
     {-\c_@@_section_before_skip}{\c_@@_section_after_skip}
-    {\normalfont\scshape\large}
+    {\normalfont\scshape\large\hook_use:n {rhelder3/section/display}}
 }
 %    \end{macrocode}
 
@@ -2240,23 +2240,25 @@
 \NewDocumentCommand{\subsection}{}{
   \@startsection{subsection}{2}{\c_zero_dim}
     {-\c_@@_normalsize_leading_dim}{\c_@@_normalsize_leading_dim}
-    {\normalfont\scshape\normalsize}
+    {\normalfont\scshape\normalsize\hook_use:n {rhelder3/section/display}}
 }
 
 \NewDocumentCommand{\subsubsection}{}{
   \@startsection{subsubsection}{3}{\c_zero_dim}
     {-\c_@@_normalsize_leading_dim}{\c_@@_normalsize_leading_dim}
-    {\normalfont\itshape\normalsize}
+    {\normalfont\itshape\normalsize\hook_use:n {rhelder3/section/display}}
 }
 
 \NewDocumentCommand{\paragraph}{}{
   \@startsection{paragraph}{4}{\c_zero_dim}
-    {\c_@@_normalsize_leading_dim}{-1em}{\normalfont\bfseries\normalsize}
+    {\c_@@_normalsize_leading_dim}{-1em}
+    {\normalfont\bfseries\normalsize\hook_use:n {rhelder3/section/runin}}
 }
 
 \NewDocumentCommand{\subparagraph}{}{
   \@startsection{subparagraph}{5}{\c_zero_dim}
-    {\c_@@_normalsize_leading_dim}{-1em}{\normalfont\itshape\normalsize}
+    {\c_@@_normalsize_leading_dim}{-1em}
+    {\normalfont\itshape\normalsize\hook_use:n {rhelder3/section/runin}}
 }
 %</!parskip>
 %    \end{macrocode}
@@ -2309,7 +2311,7 @@
 \NewDocumentCommand{\subsection}{}{
   \@startsection{subsection}{2}{\c_zero_dim}
     {-\c_@@_subsection_before_skip}{\c_@@_subsection_after_skip}
-    {\normalfont\itshape\normalsize}
+    {\normalfont\itshape\normalsize\hook_use:n {rhelder3/section/display}}
 }
 %</parskip>
 %    \end{macrocode}
@@ -2368,6 +2370,20 @@
 %<!cv>\cs_set_protected:Npn \@seccntformat #1 {\normalfont\use:c {the#1}\quad}
 %    \end{macrocode}
 % \end{lmacro}
+
+% \begin{imacro}{\SectionFormat}
+%    \marg{display\textbar runin}\marg{code}\\
+%    Specify formatting commands to be executed
+%    before typesetting display headings or run-in headings.
+%    \begin{macrocode}
+\hook_new:n {rhelder3/section/display}
+\hook_new:n {rhelder3/section/runin}
+
+\NewDocumentCommand{\SectionFormat}{mm}{%
+  \hook_gput_code:nnn {rhelder3/section/#1}{.}{#2}
+}
+%    \end{macrocode}
+% \end{imacro}
 
 % \section{Footnotes}
 %
