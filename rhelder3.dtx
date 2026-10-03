@@ -340,6 +340,7 @@
 %    \begin{macrocode}
 %<article>\ProvidesExplClass{rhelder3}{2026/08/16}{0.2.0}{Personal article class}
 %<cv>\ProvidesExplClass{rhelder3cv}{2026/08/16}{0.2.0}{Personal CV class}
+%<handout>\ProvidesExplClass{rhelder3handout}{2026/08/16}{0.2.0}{Personal handout class}
 %    \end{macrocode}
 
 % \section{Initialization}
@@ -1463,6 +1464,34 @@
 %    \begin{macrocode}
     \dim_set:Nn \l_tmpb_dim {\box_ht_plus_dp:N \l_tmpb_box}
 %</article>
+%    \end{macrocode}
+%    The handout subclass has a title heading
+%    like that of the article subclass,
+%    except that it does not have to be shifted
+%    so that the subsequent text returns to the baseline.
+%    There is thus no need to construct a vertical box
+%    to calculate the height of the title heading.
+%    \begin{macrocode}
+%<*handout>
+    \rule{\c_zero_dim}{\c_zero_dim}
+    \begin{center}
+%    \end{macrocode}
+%    Locally set \tn{parskip} to zero
+%    to avoid inserting excess white space into the title heading.
+%    \begin{macrocode}
+      \skip_set_eq:NN \parskip \c_zero_skip
+      \normalfont\large
+      \textcaps{\tl_use:N \g_@@_maketitle_title}\par
+      \skip_vertical:n {\baselineskip}
+      \dim_set:Nn \lineskip {
+        \baselineskip - (\l_tmpa_dim + \box_dp:N \strutbox)
+      }
+      \begin{tabular}[t]{c}
+        \tl_use:N \g_@@_maketitle_author
+      \end{tabular}\par
+      \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
+    \end{center}
+%</handout>
 
     \RenewCommandCopy\footnote\thanks
 %</!cv>
