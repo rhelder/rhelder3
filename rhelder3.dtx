@@ -401,7 +401,7 @@
 %    \begin{macrocode}
     \skip_set:Nn \abovedisplayskip {0.5\baselineskip plus 0.5\baselineskip}
     \skip_set_eq:NN \belowdisplayskip \abovedisplayskip
-    \skip_set:Nn \abovedisplayshortskip {0pt}
+    \skip_set_eq:NN \abovedisplayshortskip \c_zero_skip
     \skip_set_eq:NN \belowdisplayshortskip \belowdisplayskip
   }
 }
@@ -958,9 +958,9 @@
 %    \begin{macrocode}
 \NewDocumentCommand{\ShowGrid}{mmm}{
   \vbox_set:Nn #1 {
-    \skip_set:Nn \baselineskip {0pt}
-    \skip_set:Nn \lineskip {0pt}
-    \dim_set:Nn \lineskiplimit {0pt}
+    \skip_set_eq:NN \baselineskip \c_zero_skip
+    \skip_set_eq:NN \lineskip \c_zero_skip
+    \dim_set_eq:NN \lineskiplimit \c_zero_dim
     \@@_showgrid_vbox_to_zero:n {#1}{#2}{#3}
     \box_use_drop:N #1
   }
@@ -972,7 +972,7 @@
       \skip_vertical:n {#3}
       \vbox_to_zero:n {
         \vss
-        \hrule height 0.2pt depth 0pt width \box_wd:N #1
+        \hrule height 0.2pt depth \c_zero_dim width \box_wd:N #1
       }
 
       \group_begin:
@@ -982,7 +982,7 @@
           \skip_vertical:n {#2}
           \vbox_to_zero:n {
             \vss
-            \hrule height 0.2pt depth 0pt width \box_wd:N #1
+            \hrule height 0.2pt depth \c_zero_dim width \box_wd:N #1
           }
           \dim_add:Nn \l_tmpa_dim {#2}
         }
@@ -1020,7 +1020,7 @@
 %    Don't put any stretchable space between paragraphs,
 %    so that the text snaps to baseline.
 %    \begin{macrocode}
-\skip_set:Nn \parskip {0pt}
+\skip_set_eq:NN \parskip \c_zero_dim
 %    \end{macrocode}
 % \end{lskip}
 
@@ -1389,7 +1389,7 @@
 %    Insert a zero-width and zero-height rule
 %    So that \tn{baselineskip} is inserted before the first \tn{hbox}.
 %    \begin{macrocode}
-      \rule{0pt}{0pt}
+      \rule{\c_zero_dim}{\c_zero_dim}
       \begin{center}
         \normalfont\large
         \textcaps{\tl_use:N \g_@@_maketitle_title}\par
@@ -1493,7 +1493,7 @@
 %    because it's at the top of a page.
 %    \begin{macrocode}
 %<*!cv>
-    \rule{0pt}{0pt}
+    \rule{\c_zero_dim}{\c_zero_dim}
     \skip_vertical:n {
 %    \end{macrocode}
 %
@@ -1642,12 +1642,12 @@
   \dim_set_eq:NN \leftmargin \leftmargini
 %<!cv>  \skip_set_eq:NN \topsep \baselineskip
 %<cv>  \skip_set:Nn \topsep {0.5\baselineskip plus 0.5\baselineskip}
-  \skip_set:Nn \partopsep {0pt}
-  \skip_set:Nn \itemsep {0pt}
+  \skip_set_eq:NN \partopsep \c_zero_skip
+  \skip_set_eq:NN \itemsep \c_zero_skip
 %    \end{macrocode}
 %    Style paragraphs as in the main body text.
 %    \begin{macrocode}
-  \skip_set:Nn \parsep {0pt}
+  \skip_set_eq:NN \parsep \c_zero_skip
   \dim_set_eq:NN \listparindent \parindent
 %    \end{macrocode}
 
@@ -1701,10 +1701,10 @@
 \cs_new:Npn \@@_list_def:n #1 {
   \cs_new_protected:cpn {@list\int_to_roman:n {#1}} {
     \dim_set_eq:Nc \leftmargin {leftmargin\int_to_roman:n {#1}}
-    \skip_set:Nn \topsep {0pt}
-    \skip_set:Nn \partopsep {0pt}
-    \skip_set:Nn \itemsep {0pt}
-    \skip_set:Nn \parsep {0pt}
+    \skip_set_eq:NN \topsep \c_zero_skip
+    \skip_set_eq:NN \partopsep \c_zero_skip
+    \skip_set_eq:NN \itemsep \c_zero_skip
+    \skip_set_eq:NN \parsep \c_zero_skip
     \dim_set_eq:NN \listparindent \parindent
   }
 }
@@ -1731,7 +1731,7 @@
 %    \begin{macrocode}
 \NewDocumentEnvironment{quotation}{}{
   \list{}{
-    \dim_set:Nn \itemindent {0pt}
+    \dim_set_eq:NN \itemindent \c_zero_dim
     \dim_set_eq:NN \listparindent \parindent
     \dim_set_eq:NN \rightmargin \leftmargin
   }
@@ -1972,7 +1972,7 @@
 \newenvironment{description}{
   \list{}{
     \dim_set_eq:NN \labelsep \thickspaceamount
-    \dim_set:Nn \labelwidth {0pt}
+    \dim_set_eq:NN \labelwidth \c_zero_dim
     \dim_set:Nn \itemindent {-\leftmargin}
     \cs_set_eq:NN \makelabel \descriptionlabel
   }
@@ -2088,7 +2088,7 @@
 %</cv>
 
 \NewDocumentCommand{\section}{}{
-  \@startsection{section}{1}{0pt}
+  \@startsection{section}{1}{\c_zero_dim}
     {-\c_@@_section_before_skip}{\c_@@_section_after_skip}
     {\normalfont\scshape\large}
 }
@@ -2130,24 +2130,24 @@
 %    \begin{macrocode}
 %<*!cv>
 \NewDocumentCommand{\subsection}{}{
-  \@startsection{subsection}{2}{0pt}
+  \@startsection{subsection}{2}{\c_zero_dim}
     {-\c_@@_normalsize_leading_dim}{\c_@@_normalsize_leading_dim}
     {\normalfont\scshape\normalsize}
 }
 
 \NewDocumentCommand{\subsubsection}{}{
-  \@startsection{subsubsection}{3}{0pt}
+  \@startsection{subsubsection}{3}{\c_zero_dim}
     {-\c_@@_normalsize_leading_dim}{\c_@@_normalsize_leading_dim}
     {\normalfont\itshape\normalsize}
 }
 
 \NewDocumentCommand{\paragraph}{}{
-  \@startsection{paragraph}{4}{0pt}
+  \@startsection{paragraph}{4}{\c_zero_dim}
     {\c_@@_normalsize_leading_dim}{-1em}{\normalfont\bfseries\normalsize}
 }
 
 \NewDocumentCommand{\subparagraph}{}{
-  \@startsection{subparagraph}{5}{0pt}
+  \@startsection{subparagraph}{5}{\c_zero_dim}
     {\c_@@_normalsize_leading_dim}{-1em}{\normalfont\itshape\normalsize}
 }
 %</!cv>
@@ -2197,7 +2197,7 @@
 \group_end:
 
 \NewDocumentCommand{\subsection}{}{
-  \@startsection{subsection}{2}{0pt}
+  \@startsection{subsection}{2}{\c_zero_dim}
     {-\c_@@_subsection_before_skip}{\c_@@_subsection_after_skip}
     {\normalfont\itshape\normalsize}
 }
