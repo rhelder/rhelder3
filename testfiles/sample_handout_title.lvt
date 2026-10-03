@@ -1,0 +1,13 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3handout}
+
+\title{Reading Response}
+\author{Russell Wright Helder}
+\date{October 3, \textdigits{2026}}
+
+\showoutput
+\begin{document}
+\START
+\maketitle
+\autokant[2]
+\end{document}
