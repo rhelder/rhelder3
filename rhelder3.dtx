@@ -1405,6 +1405,14 @@
     \hbox_set:Nn \l_tmpa_box {\normalfont\normalsize\g_@@_maketitle_date}
     \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
 
+%    \end{macrocode}
+%    In the article subclass,
+%    typeset the  entire title in a saved vertical box
+%    and save the height of the saved vertical box,
+%    so that we can calculate how much space to insert before the title,
+%    such that the total height of the space plus the title
+%    is equal to some integer multiple of \tn{baselineskip}.
+%    \begin{macrocode}
 %<*article>
     \vbox_set:Nn \l_tmpb_box {
 %    \end{macrocode}
@@ -1413,6 +1421,7 @@
 %    So that \tn{baselineskip} is inserted before the first \tn{hbox}.
 %    \begin{macrocode}
       \rule{\c_zero_dim}{\c_zero_dim}
+
       \begin{center}
         \normalfont\large
         \textcaps{\tl_use:N \g_@@_maketitle_title}\par
@@ -1452,16 +1461,11 @@
         \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
       \end{center}
     }
-%    \end{macrocode}
-%
-%    Save the total height of the title
-%    so that we can calculate how much space to insert before the title,
-%    such that the total height of the space plus the title
-%    is equal to some integer multiple of \tn{baselineskip}.
-%    \begin{macrocode}
+
     \dim_set:Nn \l_tmpb_dim {\box_ht_plus_dp:N \l_tmpb_box}
 %</article>
 %    \end{macrocode}
+%
 %    The handout subclass has a title heading
 %    like that of the article subclass,
 %    except that it does not have to be shifted
@@ -1544,7 +1548,6 @@
     \rule{\c_zero_dim}{\c_zero_dim}
     \skip_vertical:n {
 %    \end{macrocode}
-%
 %    Use the \op{round} operation
 %    (as opposed to \op{floor} or \op{ceil}
 %    so that the title block is shifted
