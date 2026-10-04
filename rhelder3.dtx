@@ -579,7 +579,7 @@
 % \subsubsection{Page Numbering}
 %
 %    \begin{macrocode}
-\geometry{footskip = 3\baselineskip}
+\geometry{footskip = 3\c_@@_normalsize_leading_dim}
 \pagenumbering{arabic}
 \pagestyle{plain}
 %    \end{macrocode}
@@ -1014,7 +1014,7 @@
 %    In the article subclass,
 %    set \tn{parindent} to one lead.
 %    \begin{macrocode}
-%<!parskip>\dim_set_eq:NN \parindent \baselineskip
+%<!parskip>\dim_set_eq:NN \parindent \c_@@_normalsize_leading_dim
 %    \end{macrocode}
 %    In other subclasses,
 %    where \tn{parskip} will be non-zero,
@@ -1042,7 +1042,7 @@
 %<*parskip>
 \skip_new:N \g_@@_parskip
 
-\skip_set:Nn \parskip {0.5\baselineskip plus 2pt minus 2pt}
+\skip_set:Nn \parskip {0.5\c_@@_normalsize_leading_dim plus 2pt minus 2pt}
 \skip_set_eq:NN \g_@@_parskip \parskip
 %</parskip>
 %    \end{macrocode}
@@ -1681,13 +1681,13 @@
 %    (i.e., the same as \tn{parindent} in the article subclass).
 %    \begin{macrocode}
 %<*parskip>
-\dim_set_eq:NN \leftmargin \baselineskip
-\dim_set_eq:NN \leftmargini \baselineskip
-\dim_set_eq:NN \leftmarginii \baselineskip
-\dim_set_eq:NN \leftmarginiii \baselineskip
-\dim_set_eq:NN \leftmarginiv \baselineskip
-\dim_set_eq:NN \leftmarginv \baselineskip
-\dim_set_eq:NN \leftmarginvi \baselineskip
+\dim_set_eq:NN \leftmargin \c_@@_normalsize_leading_dim
+\dim_set_eq:NN \leftmargini \c_@@_normalsize_leading_dim
+\dim_set_eq:NN \leftmarginii \c_@@_normalsize_leading_dim
+\dim_set_eq:NN \leftmarginiii \c_@@_normalsize_leading_dim
+\dim_set_eq:NN \leftmarginiv \c_@@_normalsize_leading_dim
+\dim_set_eq:NN \leftmarginv \c_@@_normalsize_leading_dim
+\dim_set_eq:NN \leftmarginvi \c_@@_normalsize_leading_dim
 %</parskip>
 %    \end{macrocode}
 % \end{ldimen}
