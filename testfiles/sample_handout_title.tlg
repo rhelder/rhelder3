@@ -87,9 +87,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
 ....\penalty -51
-....\glue 15.0 plus 9.5 minus 2.0
-....\glue -15.0 plus -9.5 minus -2.0
-....\glue 7.5 plus 7.5
+....\glue 7.5 plus 2.0 minus 2.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 8.396
@@ -237,7 +235,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty -51
-....\glue 7.5 plus 7.5
+....\glue 7.5 plus 2.0 minus 2.0
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 4.248

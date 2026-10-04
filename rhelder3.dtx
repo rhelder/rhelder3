@@ -1030,23 +1030,8 @@
 %    so that the text snaps to baseline.
 %    \begin{macrocode}
 %<!parskip>\skip_set_eq:NN \parskip \c_zero_dim
+%<parskip>\skip_set:Nn \parskip {0.5\c_@@_normalsize_leading_dim plus 2pt minus 2pt}
 %    \end{macrocode}
-% \begin{variable}{\g_@@_parskip}
-%    In other subclasses,
-%    put stretchable space between paragraphs,
-%    and set \cs{g_@@_parskip} equal to \tn{parskip},
-%    so that calculations can be made
-%    based on the global value of \tn{parskip}
-%    even if the value of \tn{parskip} has changed locally.
-%    \begin{macrocode}
-%<*parskip>
-\skip_new:N \g_@@_parskip
-
-\skip_set:Nn \parskip {0.5\c_@@_normalsize_leading_dim plus 2pt minus 2pt}
-\skip_set_eq:NN \g_@@_parskip \parskip
-%</parskip>
-%    \end{macrocode}
-% \end{variable}
 % \end{lskip}
 
 % \section{Font}
@@ -1404,6 +1389,18 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@maketitle {
   \group_begin:
+%    \end{macrocode}
+%
+%    In subclasses with a non-zero \tn{parskip},
+%    locally set \tn{parskip} to zero
+%    to avoid inserting excess white space into the title heading.
+%    \begin{macrocode}
+%<parskip>    \skip_set_eq:NN \parskip \c_zero_skip
+%    \end{macrocode}
+%
+%    Except in the \textacro{CV} subclass,
+%    find the height of the horizontal box containing the date.
+%    \begin{macrocode}
 %<*!cv>
     \hbox_set:Nn \l_tmpa_box {\normalfont\normalsize\g_@@_maketitle_date}
     \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
@@ -1474,12 +1471,8 @@
 %    \begin{macrocode}
 %<*handout>
     \rule{\c_zero_dim}{\c_zero_dim}
+
     \begin{center}
-%    \end{macrocode}
-%    Locally set \tn{parskip} to zero
-%    to avoid inserting excess white space into the title heading.
-%    \begin{macrocode}
-      \skip_set_eq:NN \parskip \c_zero_skip
       \normalfont\large
       \textcaps{\tl_use:N \g_@@_maketitle_title}\par
       \skip_vertical:n {\baselineskip}
@@ -1597,11 +1590,6 @@
     % \ShowGrid{\l_tmpa_box}{\c_@@_Large_leading_dim}{-22pt + 12.69pt}
     % \vbox_unpack_drop:N \l_tmpa_box
     \begin{center}
-%    \end{macrocode}
-%    Locally set \tn{parskip} to zero
-%    to avoid inserting excess white space into the title heading.
-%    \begin{macrocode}
-      \skip_set_eq:NN \parskip \c_zero_skip
       \Large
       \tl_use:N \g_@@_maketitle_author\par
       \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_large_leading_dim}
@@ -1611,7 +1599,6 @@
       \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normalsize_leading_dim}
       \box_move_right:nn {-\Gm@lmargin} {\box_use_drop:N \l_tmpa_box}
     \end{center}
-    \skip_vertical:n {0.5\baselineskip}
 %</cv>
 %    \end{macrocode}
 %
@@ -1719,7 +1706,7 @@
 %
 %    In other subclasses,
 %    where \tn{parskip} is non-zero,
-%    set \tn{topsep} to zero,
+%    set \tn{topsep} effectively to zero,
 %    so that the list
 %    (which always starts a new paragraph)
 %    is separated from the surrounding text
@@ -1734,15 +1721,15 @@
 \cs_new_protected:Npn \@listi {
   \dim_set_eq:NN \leftmargin \leftmargini
 %<!parskip>  \skip_set_eq:NN \topsep \baselineskip
-%<parskip>  \skip_set:Nn \topsep \c_zero_skip
+%<parskip>  \skip_set:Nn \topsep {0.5\c_@@_normalsize_leading_dim plus 2pt minus 2pt - \parskip}
   \skip_set_eq:NN \partopsep \c_zero_skip
 %<!parskip>  \skip_set_eq:NN \itemsep \c_zero_skip
-%<parskip>  \skip_set:Nn \itemsep {-\g_@@_parskip}
+%<parskip>  \skip_set:Nn \itemsep {-\parskip}
 %    \end{macrocode}
 %    Style paragraphs as in the main body text.
 %    \begin{macrocode}
 %<!parskip>  \skip_set_eq:NN \parsep \c_zero_skip
-%<parskip>  \skip_set_eq:NN \parsep \g_@@_parskip
+%<parskip>  \skip_set_eq:NN \parsep \parskip
   \dim_set_eq:NN \listparindent \parindent
 %    \end{macrocode}
 
@@ -1797,12 +1784,12 @@
   \cs_new_protected:cpn {@list\int_to_roman:n {#1}} {
     \dim_set_eq:Nc \leftmargin {leftmargin\int_to_roman:n {#1}}
 %<!parskip>    \skip_set_eq:NN \topsep \c_zero_skip
-%<parskip>    \skip_set_eq:NN \topsep {-\g_@@_parskip}
+%<parskip>    \skip_set_eq:NN \topsep {-\parskip}
     \skip_set_eq:NN \partopsep \c_zero_skip
 %<!parskip>    \skip_set_eq:NN \itemsep \c_zero_skip
-%<parskip>    \skip_set:Nn \itemsep {-\g_@@_parskip}
+%<parskip>    \skip_set:Nn \itemsep {-\parskip}
 %<!parskip>    \skip_set_eq:NN \parsep \c_zero_skip
-%<parskip>    \skip_set_eq:NN \parsep \g_@@_parskip
+%<parskip>    \skip_set_eq:NN \parsep \parskip
     \dim_set_eq:NN \listparindent \parindent
   }
 }
@@ -2174,7 +2161,7 @@
     \l_tmpb_dim
     plus \dim_eval:n {\c_@@_large_leading_dim - \l_tmpb_dim}
     minus \dim_eval:n {\l_tmpb_dim - \c_@@_normalsize_leading_dim}
-    - \g_@@_parskip
+    - \parskip
   }
   \skip_const:Nn \c_@@_section_after_skip {
     \l_tmpa_dim
@@ -2182,7 +2169,7 @@
       \l_tmpa_dim
       - \fp_to_dim:n {\c_@@_normalsize_leading_dim / 1.701}
     }
-    - \g_@@_parskip
+    - \parskip
   }
 \group_end:
 %</parskip>
@@ -2288,7 +2275,7 @@
   \skip_const:Nn \c_@@_subsection_before_skip {
     \l_tmpb_dim
     minus \dim_eval:n {\l_tmpb_dim - \c_@@_normalsize_leading_dim}
-    - \g_@@_parskip
+    - \parskip
   }
   \skip_const:Nn \c_@@_subsection_after_skip {
     \l_tmpa_dim
