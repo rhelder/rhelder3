@@ -1716,30 +1716,28 @@
 %    don't put any stretchable space between list elements,
 %    and set \tn{topsep} to one lead,
 %    so that the text will snap back to baseline after the end of the list.
+%
+%    In other subclasses,
+%    where \tn{parskip} is non-zero,
+%    set \tn{topsep} to zero,
+%    so that the list
+%    (which always starts a new paragraph)
+%    is separated from the surrounding text
+%    by one \tn{parskip}
+%    (i.e., half a lead;
+%    the more modest \tn{topsep} is attractive
+%    and feasible,
+%    since we are not trying to align the text to the baseline).
+%    Set \tn{itemsep} to offset the inner \tn{parskip}
+%    (given by \tn{parsep}, just below).
 %    \begin{macrocode}
 \cs_new_protected:Npn \@listi {
   \dim_set_eq:NN \leftmargin \leftmargini
-%<*!parskip>
-  \skip_set_eq:NN \topsep \baselineskip
+%<!parskip>  \skip_set_eq:NN \topsep \baselineskip
+%<parskip>  \skip_set:Nn \topsep \c_zero_skip
   \skip_set_eq:NN \partopsep \c_zero_skip
-  \skip_set_eq:NN \itemsep \c_zero_skip
-%</!parskip>
-%    \end{macrocode}
-%    In other subclasses,
-%    where \tn{parskip} is non-zero,
-%    set a more modest \tn{topsep},
-%    which is attractive
-%    (and possible,
-%    since we are not trying to align the text to the baseline);
-%    set \tn{partopsep} to offset the outer \tn{parskip};
-%    and set \tn{itemsep} to offset the inner \tn{parskip}
-%    (given by \tn{parsep}, just below).
-%    \begin{macrocode}
-%<*parskip>
-  \skip_set:Nn \topsep {0.5\baselineskip plus 0.5\baselineskip}
-  \skip_set:Nn \partopsep {-\g_@@_parskip}
-  \skip_set:Nn \itemsep {-\g_@@_parskip}
-%</parskip>
+%<!parskip>  \skip_set_eq:NN \itemsep \c_zero_skip
+%<parskip>  \skip_set:Nn \itemsep {-\g_@@_parskip}
 %    \end{macrocode}
 %    Style paragraphs as in the main body text.
 %    \begin{macrocode}
@@ -1798,17 +1796,13 @@
 \cs_new:Npn \@@_list_def:n #1 {
   \cs_new_protected:cpn {@list\int_to_roman:n {#1}} {
     \dim_set_eq:Nc \leftmargin {leftmargin\int_to_roman:n {#1}}
-    \skip_set_eq:NN \topsep \c_zero_skip
-%<*!parskip>
+%<!parskip>    \skip_set_eq:NN \topsep \c_zero_skip
+%<parskip>    \skip_set_eq:NN \topsep {-\g_@@_parskip}
     \skip_set_eq:NN \partopsep \c_zero_skip
-    \skip_set_eq:NN \itemsep \c_zero_skip
-    \skip_set_eq:NN \parsep \c_zero_skip
-%</!parskip>
-%<*parskip>
-    \skip_set:Nn \partopsep {-\g_@@_parskip}
-    \skip_set:Nn \itemsep {-\g_@@_parskip}
-    \skip_set_eq:NN \parsep \g_@@_parskip
-%</parskip>
+%<!parskip>    \skip_set_eq:NN \itemsep \c_zero_skip
+%<parskip>    \skip_set:Nn \itemsep {-\g_@@_parskip}
+%<!parskip>    \skip_set_eq:NN \parsep \c_zero_skip
+%<parskip>    \skip_set_eq:NN \parsep \g_@@_parskip
     \dim_set_eq:NN \listparindent \parindent
   }
 }

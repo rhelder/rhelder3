@@ -79,7 +79,7 @@ Completed box being shipped out [1]
 .....\hbox(0.0+0.0)x346.0199, direction TLT
 ...\glue 0.0
 ...\glue(\lineskip) 0.0
-...\vbox(582.0+0.0)x480.15746, glue set - 0.26518, direction TLT
+...\vbox(582.0+0.0)x480.15746, glue set - 0.12386, direction TLT
 ....\write1{\babel@aux{english}{}}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 0.0
@@ -408,7 +408,7 @@ Completed box being shipped out [1]
 .......\mathoff
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\glue 7.5
 ....\glue 15.0
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -834,7 +834,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\penalty -300
 ....\glue 9.50371 plus -1.00371 minus 0.00371
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -1289,7 +1289,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\penalty -300
 ....\glue 9.50371 plus -1.00371 minus 0.00371
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -1477,7 +1477,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\penalty -300
 ....\glue 9.50371 plus -1.00371 minus 0.00371
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -4927,7 +4927,7 @@ Completed box being shipped out [2]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\penalty -300
 ....\glue 11.393 plus -2.0 minus 1.893
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -5714,7 +5714,7 @@ Completed box being shipped out [2]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\penalty -300
 ....\glue 11.393 plus -2.0 minus 1.893
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -6060,7 +6060,7 @@ Completed box being shipped out [3]
 .....\hbox(0.0+0.0)x346.0199, direction TLT
 ...\glue 0.0
 ...\glue(\lineskip) 0.0
-...\vbox(582.0+0.0)x346.0199, glue set - 0.78235, direction TLT
+...\vbox(582.0+0.0)x346.0199, glue set - 0.60037, direction TLT
 ....\glue(\topskip) 4.201
 ....\hbox(7.799+3.19)x331.0199, shifted 15.0, direction TLT
 .....\TU/EBGaramond(0)/m/it/11 u
@@ -6812,7 +6812,7 @@ Completed box being shipped out [3]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\penalty -300
 ....\glue 9.50371 plus -1.00371 minus 0.00371
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -7106,7 +7106,7 @@ Completed box being shipped out [3]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\penalty -300
 ....\glue 9.50371 plus -1.00371 minus 0.00371
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -7397,7 +7397,7 @@ Completed box being shipped out [3]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\penalty -300
 ....\glue 9.50371 plus -1.00371 minus 0.00371
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -7687,7 +7687,7 @@ Completed box being shipped out [3]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\penalty -300
 ....\glue 11.393 plus -2.0 minus 1.893
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -8203,7 +8203,7 @@ Completed box being shipped out [3]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\penalty -300
 ....\glue 11.393 plus -2.0 minus 1.893
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -8500,7 +8500,9 @@ Completed box being shipped out [3]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
-....\glue -3.42
+....\penalty -51
+....\glue 0.0
+....\glue 0.0
 ...\glue(\baselineskip) 36.54
 ...\hbox(8.46+3.48)x346.0199, direction TLT
 ....\hbox(8.46+3.48)x346.0199, glue set 170.77795fil, direction TLT
@@ -8903,7 +8905,7 @@ Completed box being shipped out [4]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\penalty -300
 ....\glue 11.393 plus -2.0 minus 1.893
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -9137,7 +9139,7 @@ Completed box being shipped out [4]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\penalty -51
-....\glue 0.0 plus 5.5 minus -2.0
+....\glue 0.0
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ...\glue(\baselineskip) 36.54
