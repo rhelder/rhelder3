@@ -1030,7 +1030,8 @@
 %    so that the text snaps to baseline.
 %    \begin{macrocode}
 %<!parskip>\skip_set_eq:NN \parskip \c_zero_dim
-%<parskip>\skip_set:Nn \parskip {0.5\c_@@_normalsize_leading_dim plus 2pt minus 2pt}
+%<parskip>\skip_const:Nn \c_@@_parskip {0.5\c_@@_normalsize_leading_dim plus 2pt minus 2pt}
+%<parskip>\skip_set_eq:NN \parskip \c_@@_parskip
 %    \end{macrocode}
 % \end{lskip}
 
@@ -1502,7 +1503,7 @@
     \end{center}
 
     \unskip
-    \skip_vertical:n {0.5\c__rh_normalsize_leading_dim plus 2pt minus 2pt}
+    \skip_vertical:n {1\baselineskip plus 4pt minus 4pt - \c_@@_parskip}
 %</handout>
 
     \RenewCommandCopy\footnote\thanks
@@ -2321,13 +2322,13 @@
 
 \NewDocumentCommand{\paragraph}{}{
   \@startsection{paragraph}{4}{\c_zero_dim}
-    {0.5\c_@@_normalsize_leading_dim plus 2pt minus 2pt}{-1em}
+    {\c_@@_parskip}{-1em}
     {\normalfont\bfseries\normalsize\hook_use:n {rhelder3/section/runin}}
 }
 
 \NewDocumentCommand{\subparagraph}{}{
   \@startsection{subparagraph}{5}{\c_zero_dim}
-    {0.5\c_@@_normalsize_leading_dim plus 2pt minus 2pt}{-1em}
+    {\c_@@_parskip}{-1em}
     {\normalfont\itshape\normalsize\hook_use:n {rhelder3/section/runin}}
 }
 %</!cv>
