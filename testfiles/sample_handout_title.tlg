@@ -70,27 +70,10 @@ Completed box being shipped out [1]
 .....\hbox(0.0+0.0)x336.40823, direction TLT
 ...\glue 0.0
 ...\glue(\lineskip) 0.0
-...\vbox(567.0+0.0)x336.40823, glue set 108.0fil, direction TLT
+...\vbox(567.0+0.0)x336.40823, glue set 133.5fil, direction TLT
 ....\write1{\babel@aux{english}{}}
 ....\pdfdest name{Doc-Start} xyz
-....\glue(\topskip) 12.0
-....\hbox(0.0+0.0)x336.40823, glue set 336.40823fil, direction TLT
-.....\localpar
-......\localinterlinepenalty=0
-......\localbrokenpenalty=0
-......\localleftbox=null
-......\localrightbox=null
-.....\hbox(0.0+0.0)x0.0, direction TLT
-.....\hbox(0.0+0.0)x0.0, direction TLT
-......\rule(0.0+0.0)x0.0
-.....\penalty 10000
-.....\glue(\parfillskip) 0.0 plus 1.0fil
-.....\glue(\rightskip) 0.0
-....\penalty -51
-....\glue 7.5 plus 2.0 minus 2.0
-....\glue(\parskip) 0.0
-....\glue(\parskip) 0.0
-....\glue(\baselineskip) 8.396
+....\glue(\topskip) 2.396
 ....\hbox(9.604+0.294)x336.40823, glue set 91.75018fil, direction TLT
 .....\glue(\leftskip) 0.0 plus 1.0fil
 .....\localpar

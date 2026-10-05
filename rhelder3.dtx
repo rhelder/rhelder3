@@ -1473,10 +1473,10 @@
 %    so that the subsequent text returns to the baseline.
 %    There is thus no need to construct a vertical box
 %    to calculate the height of the title heading.
+%    The handout subclass title also begins at the top of the page,
+%    which looks less formal.
 %    \begin{macrocode}
 %<*handout>
-    \rule{\c_zero_dim}{\c_zero_dim}
-
     \begin{center}
 %    \end{macrocode}
 %    Here,
@@ -1487,9 +1487,6 @@
 %    TODO: reconsider this design.
 %    For now it is mainly to avoid changing the appearance of the title heading.
 %    \begin{macrocode}
-      \unskip
-      \skip_vertical:n {0.5\c__rh_normalsize_leading_dim plus 2pt minus 2pt}
-
       \normalfont\large
       \textcaps{\tl_use:N \g_@@_maketitle_title}\par
       \skip_vertical:n {\baselineskip}
@@ -1502,6 +1499,11 @@
       \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
     \end{center}
 
+%    \end{macrocode}
+%    Compensate for the \tn{parskip} inserted by the next paragraph
+%    by removing \tn{topsep},
+%    and then inserting \tn{topsep} minus the global value of \tn{parskip}.
+%    \begin{macrocode}
     \unskip
     \skip_vertical:n {1\baselineskip plus 4pt minus 4pt - \c_@@_parskip}
 %</handout>
