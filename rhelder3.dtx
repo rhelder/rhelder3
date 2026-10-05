@@ -1477,6 +1477,18 @@
     \rule{\c_zero_dim}{\c_zero_dim}
 
     \begin{center}
+%    \end{macrocode}
+%    Here,
+%    and at the end of the \env{center} environment,
+%    remove \tn{topsep} from vertical list
+%    and add back in half of \tn{topsep}.
+%    A full \tn{topsep} looks excessive.
+%    TODO: reconsider this design.
+%    For now it is mainly to avoid changing the appearance of the title heading.
+%    \begin{macrocode}
+      \unskip
+      \skip_vertical:n {0.5\c__rh_normalsize_leading_dim plus 2pt minus 2pt}
+
       \normalfont\large
       \textcaps{\tl_use:N \g_@@_maketitle_title}\par
       \skip_vertical:n {\baselineskip}
@@ -1488,6 +1500,9 @@
       \end{tabular}\par
       \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
     \end{center}
+
+    \unskip
+    \skip_vertical:n {0.5\c__rh_normalsize_leading_dim plus 2pt minus 2pt}
 %</handout>
 
     \RenewCommandCopy\footnote\thanks
@@ -1633,7 +1648,7 @@
         \legacy_if_gset_false:n {@nobreak}
       }
     }
-%<cv>    \skip_vertical:n {\baselineskip}
+%<cv>    \skip_vertical:n {0.5\baselineskip}
   \group_end:
 }
 %    \end{macrocode}
@@ -1724,7 +1739,7 @@
 \cs_new_protected:Npn \@listi {
   \dim_set_eq:NN \leftmargin \leftmargini
 %<!parskip>  \skip_set_eq:NN \topsep \baselineskip
-%<parskip>  \skip_set:Nn \topsep {0.5\c_@@_normalsize_leading_dim plus 2pt minus 2pt - \parskip}
+%<parskip>  \skip_set:Nn \topsep {1\baselineskip plus 4pt minus 4pt - \parskip}
   \skip_set_eq:NN \partopsep \c_zero_skip
 %<!parskip>  \skip_set_eq:NN \itemsep \c_zero_skip
 %<parskip>  \skip_set:Nn \itemsep {-\parskip}
