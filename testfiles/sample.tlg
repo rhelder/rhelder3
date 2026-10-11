@@ -73,7 +73,7 @@ Completed box being shipped out [1]
 .....\hbox(0.0+0.0)x336.40823, direction TLT
 ...\glue 0.0
 ...\glue(\lineskip) 0.0
-...\vbox(567.0+0.0)x336.40823, glue set 1.01828, direction TLT
+...\vbox(567.0+0.0)x336.40823, glue set 0.90717, direction TLT
 ....\write1{\babel@aux{english}{}}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 12.0
@@ -446,6 +446,9 @@ Completed box being shipped out [1]
 ....\glue 15.0
 ....\glue(\lineskip) 0.0
 ....\vbox(176.777+0.209)x336.40823, direction TLT
+.....\penalty -51
+.....\glue(\parskip) 0.0
+.....\glue(\parskip) 0.0
 .....\hbox(7.777+0.187)x336.40823, glue set 151.09912fil, direction TLT
 ......\glue(\leftskip) 0.0 plus 1.0fil
 ......\localpar
@@ -1569,10 +1572,16 @@ Completed box being shipped out [1]
 .....\penalty -51
 ....\glue 5.014
 ....\glue 13.0
+....\glue -13.209
+....\penalty -300
+....\glue 0.209
+....\glue 13.0
+....\glue -13.0
+....\glue 15.0
 ....\pdfdest name{section.1} xyz
 ....\penalty 10000
-....\glue -13.0
-....\glue 13.0
+....\glue -15.0
+....\glue 15.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 10.707
@@ -1691,9 +1700,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
 ....\write3{\protect \BOOKMARK [1][-]{section.1}{\376\377\000T\000h\000e\000\040\000P\000a\000r\000a\000l\000o\000g\000i\000s\000m\000s\000\040\000o\000f\000\040\000P\000r\000a\000c\000t\000i\000c\000a\000l\000\040\000R\000e\000a\000s\000o\000n\000\040\000\050\000S\000e\000c\000t\000i\000o\000n\000\051}{}% 1}
-....\penalty 10000
 ....\write1{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {1}The Paralogisms of Practical Reason (Section)}{\thepage }{section.1}\protected@file@percent }}
-....\penalty 10000
 ....\penalty 10000
 ....\glue 12.0 plus 3.0
 ....\glue(\parskip) 0.0

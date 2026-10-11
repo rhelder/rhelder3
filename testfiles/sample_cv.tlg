@@ -79,7 +79,7 @@ Completed box being shipped out [1]
 .....\hbox(0.0+0.0)x346.0199, direction TLT
 ...\glue 0.0
 ...\glue(\lineskip) 0.0
-...\vbox(582.0+0.0)x480.15746, glue set - 0.0978, direction TLT
+...\vbox(582.0+0.0)x480.15746, glue set - 0.20316, direction TLT
 ....\write1{\babel@aux{english}{}}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 0.0
@@ -412,6 +412,12 @@ Completed box being shipped out [1]
 ....\glue 7.5
 ....\glue -7.5
 ....\glue 7.5
+....\glue -13.5
+....\penalty -300
+....\glue 6.0
+....\glue 7.5
+....\glue -7.5
+....\glue 9.50371 plus -1.00371 minus 0.00371
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
 ....\glue(\parskip) 0.0
 ....\glue(\lineskip) 0.0
@@ -461,9 +467,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 24.0
 ....\write3{\protect \BOOKMARK [1][-]{section*.1}{\376\377\000E\000d\000u\000c\000a\000t\000i\000o\000n}{}% 1}
-....\penalty 10000
 ....\write1{\@writefile{toc}{\protect \contentsline {section}{Education}{\thepage }{section*.1}\protected@file@percent }}
-....\penalty 10000
 ....\penalty 10000
 ....\glue 2.49629 plus -2.0 minus -0.82205
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
@@ -580,7 +584,7 @@ Completed box being shipped out [1]
 .....\kern-0.12 (font)
 .....\TU/EBGaramond(0)/m/n/12 d
 .....\glue(\rightskip) 0.0 plus 24.0
-....\penalty 302
+....\penalty 10152
 ....\glue(\baselineskip) 3.06
 ....\hbox(8.46+3.42)x331.0199, glue set 243.99597fil, shifted 15.0, direction TLT
 .....\TU/EBGaramond(0)/m/n/12 b
