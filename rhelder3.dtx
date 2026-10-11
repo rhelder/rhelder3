@@ -1862,6 +1862,7 @@
 %    Uses the \env{quotation} environement,
 %    as in the standard classes.
 %    \begin{macrocode}
+%<*!parskip>
 \NewDocumentEnvironment{abstract}{+b}{
   \vbox_set:Nn \l_tmpa_box {
     \small
@@ -1882,6 +1883,19 @@
 }{
   \legacy_if_gset_true:n {@nobreak}
 }
+%</!parskip>
+%<*parskip>
+\NewDocumentEnvironment{abstract}{}{
+  \small
+  \begin{center}
+    \itshape\abstractname
+  \end{center}
+  \quotation
+}{
+  \endquotation
+  \legacy_if_gset_true:n {@nobreak}
+}
+%</parskip>
 %    \end{macrocode}
 % \end{environment}
 
