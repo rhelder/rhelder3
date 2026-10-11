@@ -410,7 +410,8 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty -51
 ....\glue 7.5 plus 2.0 minus 2.0
-....\glue 0.0
+....\glue -7.5 plus -2.0 minus -2.0
+....\glue 7.5 plus 2.0 minus 2.0
 ....\glue(\parskip) 7.5 plus 2.0 minus 2.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.74301

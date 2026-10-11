@@ -1349,7 +1349,12 @@
 %    and print footnotes with \tn{@thanks}.
 %    \begin{macrocode}
     \thispagestyle{plain}
-%<!cv>    \@thanks
+    \group_begin:
+      \skip_set_eq:NN \l_tmpa_skip \lastskip
+      \skip_vertical:n {-\lastskip}
+%<!cv>      \@thanks
+      \skip_vertical:n {\l_tmpa_skip}
+    \group_end:
 %    \end{macrocode}
 %
 %    Close the group
@@ -1461,6 +1466,7 @@
         \end{tabular}\par
         \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
       \end{center}
+      \unskip
     }
 
     \dim_set:Nn \l_tmpb_dim {\box_ht_plus_dp:N \l_tmpb_box}
@@ -1583,6 +1589,10 @@
 %    \begin{macrocode}
     % \ShowGrid{\l_tmpb_box}{\c__rh_large_leading_dim}{15pt}
     \box_use_drop:N \l_tmpb_box
+    \group_begin:
+      \@listi
+      \addvspace\topsep
+    \group_end:
 %</article>
 %    \end{macrocode}
 %
@@ -1867,19 +1877,27 @@
   \vbox_set:Nn \l_tmpa_box {
     \small
     \begin{center}
+      \unskip
       \itshape\abstractname
     \end{center}
     \begin{quotation}
       #1
     \end{quotation}
+    \unskip
   }
-
   \dim_set:Nn \l_tmpa_dim {\box_ht_plus_dp:N \l_tmpa_box}
-  \box_use_drop:N \l_tmpa_box
-  \skip_vertical:n {
-    \fp_eval:n {ceil(\l_tmpa_dim / \baselineskip, 0)}\baselineskip
-    - \l_tmpa_dim
-  }
+
+  \group_begin:
+    \small
+    \@listi
+    \addvspace\topsep
+    \box_use_drop:N \l_tmpa_box
+    \skip_vertical:n {
+      \fp_eval:n {ceil(\l_tmpa_dim / \baselineskip, 0)}\baselineskip
+      - \l_tmpa_dim
+    }
+    \skip_vertical:n {\topsep}
+  \group_end:
 }{
   \legacy_if_gset_true:n {@nobreak}
 }
