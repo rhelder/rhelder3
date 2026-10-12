@@ -1400,6 +1400,7 @@
 %    \begin{macrocode}
 \cs_new_protected:Npn \@maketitle {
   \group_begin:
+    \cs_set_eq:NN \footnote \thanks
 %    \end{macrocode}
 %
 %    In subclasses with a non-zero \tn{parskip},
@@ -1407,9 +1408,8 @@
 %    to avoid inserting excess white space into the title heading.
 %    \begin{macrocode}
 %<parskip>    \skip_set_eq:NN \parskip \c_zero_skip
-%<parskip>
 %    \end{macrocode}
-%
+
 %    Find the height of the horizontal box containing the date.
 %    \begin{macrocode}
 %<*article|handout>
@@ -1551,8 +1551,6 @@
     \@listi
     \skip_vertical:n {\topsep - \c_@@_parskip}
 %</handout>
-
-    \RenewCommandCopy\footnote\thanks
 %</article|handout>
 %    \end{macrocode}
 %
