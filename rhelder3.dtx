@@ -1030,8 +1030,8 @@
 %    so that the text snaps to baseline.
 %    \begin{macrocode}
 %<!parskip>\skip_set_eq:NN \parskip \c_zero_dim
-%<parskip>\skip_const:Nn \c_@@_parskip {0.5\c_@@_normalsize_leading_dim plus 2pt minus 2pt}
-%<parskip>\skip_set_eq:NN \parskip \c_@@_parskip
+%<parskip>\skip_const:Nn \c_@@_parskip_skip {0.5\c_@@_normalsize_leading_dim plus 2pt minus 2pt}
+%<parskip>\skip_set_eq:NN \parskip \c_@@_parskip_skip
 %    \end{macrocode}
 % \end{lskip}
 
@@ -1245,18 +1245,18 @@
 % \end{imacro}
 
 % \begin{variable}{
-%   \g_@@_maketitle_title,
-%   \g_@@_maketitle_author,
-%   \g_@@_maketitle_date,
+%   \g_@@_maketitle_title_tl,
+%   \g_@@_maketitle_author_tl,
+%   \g_@@_maketitle_date_tl,
 % }
 %    Internal variables to be used by \tn{maketitle}.
 %    \begin{macrocode}
-\tl_new:N \g_@@_maketitle_title
-\tl_new:N \g_@@_maketitle_author
-\tl_new:N \g_@@_maketitle_date
+\tl_new:N \g_@@_maketitle_title_tl
+\tl_new:N \g_@@_maketitle_author_tl
+\tl_new:N \g_@@_maketitle_date_tl
 %<*cv>
-\tl_new:N \g_@@_maketitle_affiliation
-\tl_new:N \g_@@_maketitle_contact
+\tl_new:N \g_@@_maketitle_affiliation_tl
+\tl_new:N \g_@@_maketitle_contact_tl
 %</cv>
 %    \end{macrocode}
 % \end{variable}
@@ -1269,23 +1269,23 @@
 %    in case any packages expect them.
 %    \begin{macrocode}
 \RenewDocumentCommand{\title}{m}{
-  \tl_gset:Nn \g_@@_maketitle_title {#1}
+  \tl_gset:Nn \g_@@_maketitle_title_tl {#1}
 %    \end{macrocode}
 %    (\tn{title} will be used for a different purpose in the CV subclass.)
 %    \begin{macrocode}
 %<!cv>  \cs_gset:Npn \@title {#1}
 }
 \RenewDocumentCommand{\author}{m}{
-  \tl_gset:Nn \g_@@_maketitle_author {#1}
+  \tl_gset:Nn \g_@@_maketitle_author_tl {#1}
   \cs_gset:Npn \@author {#1}
 }
 \RenewDocumentCommand{\date}{m}{
-  \tl_gset:Nn \g_@@_maketitle_date {#1}
+  \tl_gset:Nn \g_@@_maketitle_date_tl {#1}
   \cs_gset:Npn \@date {#1}
 }
 %    \end{macrocode}
 
-%    Initialize \cs{g_@@_maketitle_date} and \tn{@date} to today's date.
+%    Initialize \cs{g_@@_maketitle_date_tl} and \tn{@date} to today's date.
 %    \begin{macrocode}
 \date{\@@_today:}
 %    \end{macrocode}
@@ -1303,10 +1303,10 @@
 %    \begin{macrocode}
 %<*cv>
 \NewDocumentCommand{\affiliation}{m}{
-  \tl_gset:Nn \g_@@_maketitle_affiliation {#1}
+  \tl_gset:Nn \g_@@_maketitle_affiliation_tl {#1}
 }
 \NewDocumentCommand{\contact}{m}{
-  \tl_gset:Nn \g_@@_maketitle_contact {#1}
+  \tl_gset:Nn \g_@@_maketitle_contact_tl {#1}
 }
 %</cv>
 %    \end{macrocode}
@@ -1368,9 +1368,9 @@
 %    like \tn{thanks} and \tn{and}.
 %    Undefine other macros as in the standard classes,
 %    in case any packages expect them to be undefined.
-%    The variables \cs{g_@@_maketitle_title},
-%    \cs{g_@@_maketitle_author},
-%    and \cs{g_@@_maketitle_date}
+%    The variables \cs{g_@@_maketitle_title_tl},
+%    \cs{g_@@_maketitle_author_tl},
+%    and \cs{g_@@_maketitle_date_tl}
 %    defined by this class are still available.
 %    \begin{macrocode}
   \group_end:
@@ -1413,7 +1413,7 @@
 %    Find the height of the horizontal box containing the date.
 %    \begin{macrocode}
 %<*article|handout>
-    \hbox_set:Nn \l_tmpa_box {\normalfont\normalsize\g_@@_maketitle_date}
+    \hbox_set:Nn \l_tmpa_box {\normalfont\normalsize\g_@@_maketitle_date_tl}
     \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
 
 %    \end{macrocode}
@@ -1435,7 +1435,7 @@
 
       \begin{center}
         \normalfont\large
-        \textcaps{\tl_use:N \g_@@_maketitle_title}\par
+        \textcaps{\tl_use:N \g_@@_maketitle_title_tl}\par
         \skip_vertical:n {\baselineskip}
 %    \end{macrocode}
 %
@@ -1467,7 +1467,7 @@
           \baselineskip - (\l_tmpa_dim + \box_dp:N \strutbox)
         }
         \begin{tabular}[t]{c}
-          \tl_use:N \g_@@_maketitle_author
+          \tl_use:N \g_@@_maketitle_author_tl
         \end{tabular}\par
         \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
       \end{center}
@@ -1532,13 +1532,13 @@
 %<*handout>
     \begin{center}
       \normalfont\large
-      \textcaps{\tl_use:N \g_@@_maketitle_title}\par
+      \textcaps{\tl_use:N \g_@@_maketitle_title_tl}\par
       \skip_vertical:n {\baselineskip}
       \dim_set:Nn \lineskip {
         \baselineskip - (\l_tmpa_dim + \box_dp:N \strutbox)
       }
       \begin{tabular}[t]{c}
-        \tl_use:N \g_@@_maketitle_author
+        \tl_use:N \g_@@_maketitle_author_tl
       \end{tabular}\par
       \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
     \end{center}
@@ -1549,7 +1549,7 @@
 %    \begin{macrocode}
     \unskip
     \@listi
-    \skip_vertical:n {\topsep - \c_@@_parskip}
+    \skip_vertical:n {\topsep - \c_@@_parskip_skip}
 %</handout>
 %</article|handout>
 %    \end{macrocode}
@@ -1574,7 +1574,7 @@
 %<*cv>
     \hbox_set:Nn \l_tmpa_box {
       \begin{tabular}[t]{r}
-        \tl_use:N \g_@@_maketitle_affiliation
+        \tl_use:N \g_@@_maketitle_affiliation_tl
       \end{tabular}
     }
     \dim_set:Nn \l_tmpa_dim {\box_wd:N \l_tmpa_box}
@@ -1588,11 +1588,11 @@
       \hbox_to_wd:nn {\paperwidth} {
         \skip_horizontal:n {0.5\paperwidth - \l_tmpa_dim - 0.5\l_tmpb_dim}
         \begin{tabular}[t]{r}
-          \tl_use:N \g_@@_maketitle_affiliation
+          \tl_use:N \g_@@_maketitle_affiliation_tl
         \end{tabular}
         \quad\adfflatleafright\quad
         \begin{tabular}[t]{l}
-          \tl_use:N \g_@@_maketitle_contact
+          \tl_use:N \g_@@_maketitle_contact_tl
         \end{tabular}
         \hss
       }
@@ -1610,10 +1610,10 @@
     %   \begin{center}
     %     \skip_set_eq:NN \parskip \c_zero_skip
     %     \Large
-    %     \tl_use:N \g_@@_maketitle_author\par
+    %     \tl_use:N \g_@@_maketitle_author_tl\par
     %     \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_large_leading_dim}
     %     \large
-    %     \tl_use:N \g_@@_maketitle_title\par
+    %     \tl_use:N \g_@@_maketitle_title_tl\par
     %     \normalsize
     %     \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normalsize_leading_dim}
     %     \box_move_right:nn {-\Gm@lmargin} {\box_use_drop:N \l_tmpa_box}
@@ -1623,10 +1623,10 @@
     % \vbox_unpack_drop:N \l_tmpa_box
     \begin{center}
       \Large
-      \tl_use:N \g_@@_maketitle_author\par
+      \tl_use:N \g_@@_maketitle_author_tl\par
       \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_large_leading_dim}
       \large
-      \tl_use:N \g_@@_maketitle_title\par
+      \tl_use:N \g_@@_maketitle_title_tl\par
       \normalsize
       \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normalsize_leading_dim}
       \box_move_right:nn {-\Gm@lmargin} {\box_use_drop:N \l_tmpa_box}
@@ -2520,12 +2520,12 @@
   \cs_set:Npn \@oddfoot {
     \hbox_overlap_right:n {
       \normalfont\normalsize
-      \tl_use:N \g_@@_maketitle_author
+      \tl_use:N \g_@@_maketitle_author_tl
     }\hfil
     \normalfont\normalsize\thepage\hfil
     \hbox_overlap_left:n {
       \normalfont\normalsize
-      \tl_use:N \g_@@_maketitle_date
+      \tl_use:N \g_@@_maketitle_date_tl
     }
   }
 }
@@ -2722,8 +2722,8 @@
 %    \end{macrocode}
 % Provide minimal useful PDF metadata.
 %    \begin{macrocode}
-  pdftitle = \g_@@_maketitle_title,
-  pdfauthor = \g_@@_maketitle_author,
+  pdftitle = \g_@@_maketitle_title_tl,
+  pdfauthor = \g_@@_maketitle_author_tl,
 %    \end{macrocode}
 % Don't force the PDF viewer to open the document
 % in any particular mode.
