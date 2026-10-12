@@ -1863,7 +1863,7 @@
     \addvspace\topsep
     \box_use_drop:N \l_tmpa_box
     \skip_vertical:n {
-      \fp_eval:n {ceil(\l_tmpa_dim / \baselineskip, 0)}\baselineskip
+      \fp_eval:n {round(\l_tmpa_dim / \baselineskip, 0)}\baselineskip
       - \l_tmpa_dim
     }
     \skip_vertical:n {\topsep}
