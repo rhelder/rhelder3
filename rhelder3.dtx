@@ -1324,7 +1324,6 @@
 %
 %    Use symbols instead of numerals for footnotes in the title.
 %    \begin{macrocode}
-%<*!cv>
     \cs_set:Npn \thefootnote {\fnsymbol{footnote}}
 %    \end{macrocode}
 %    Typeset the footnote marks in a box of zero width
@@ -1334,7 +1333,6 @@
     \cs_set_protected:Npn \@makefnmark {
       \hbox_overlap_right:n {\normalfont\textsuperscript\@thefnmark}
     }
-%</!cv>
 %    \end{macrocode}
 
 %    Start a new page,
@@ -1352,7 +1350,7 @@
     \group_begin:
       \skip_set_eq:NN \l_tmpa_skip \lastskip
       \skip_vertical:n {-\lastskip}
-%<!cv>      \@thanks
+      \@thanks
       \skip_vertical:n {\l_tmpa_skip}
     \group_end:
 %    \end{macrocode}
@@ -1370,18 +1368,18 @@
 %    \begin{macrocode}
   \group_end:
 
-%<!cv>  \setcounter{footnote}{0}
+  \setcounter{footnote}{0}
   \cs_undefine:N \maketitle
   \cs_undefine:N \title
   \cs_undefine:N \author
   \cs_undefine:N \date
-%<!cv>  \cs_undefine:N \thanks
+  \cs_undefine:N \thanks
   \cs_undefine:N \and
   \cs_undefine:N \@maketitle
 %<!cv>  \cs_undefine:N \@title
   \cs_undefine:N \@author
   \cs_undefine:N \@date
-%<!cv>  \cs_undefine:N \@thanks
+  \cs_undefine:N \@thanks
 %<*cv>
   \cs_undefine:N \affiliation
   \cs_undefine:N \contact
