@@ -1843,12 +1843,25 @@
 %    Typesets an abstract.
 %    Uses the \env{quotation} environement,
 %    as in the standard classes.
+%
+%    Because the abstract is typeset in a smaller size,
+%    the height of the abstract needs to be measured
+%    so that space can be inserted
+%    to align subsequent text to the baseline.
 %    \begin{macrocode}
 %<*!parskip>
 \NewDocumentEnvironment{abstract}{+b}{
   \vbox_set:Nn \l_tmpa_box {
     \small
     \begin{center}
+%    \end{macrocode}
+%    Remove glue from the start of the box
+%    and from the end of the box.
+%    The glue
+%    (\tn{topsep})
+%    will be re-added outside of the box,
+%    so that it can be seen by subsequent \tn{addvspace}s.
+%    \begin{macrocode}
       \unskip
       \itshape\abstractname
     \end{center}
