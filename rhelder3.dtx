@@ -1343,14 +1343,23 @@
     \int_gset:Nn \@topnum {0}
     \@maketitle
 %    \end{macrocode}
-%    Set this page's style to \ps{plain},
-%    and print footnotes with \tn{@thanks}.
+
+%    Print footnotes with \tn{@thanks}.
+%    \tn{@thanks} prevents any subsequent \tn{addvspace}
+%    from seeing the last glue inserted by \tn{@maketitle},
+%    so save the last glue,
+%    remove it,
+%    and add it back after \tn{@thanks}.
 %    \begin{macrocode}
-    \thispagestyle{plain}
     \skip_set_eq:NN \l_tmpa_skip \lastskip
     \skip_vertical:n {-\lastskip}
     \@thanks
     \skip_vertical:n {\l_tmpa_skip}
+%    \end{macrocode}
+
+%    Set this page's style to \ps{plain}.
+%    \begin{macrocode}
+    \thispagestyle{plain}
 %    \end{macrocode}
 %
 %    Close the group
@@ -1398,12 +1407,12 @@
 %    to avoid inserting excess white space into the title heading.
 %    \begin{macrocode}
 %<parskip>    \skip_set_eq:NN \parskip \c_zero_skip
+%<parskip>
 %    \end{macrocode}
 %
-%    Except in the \textacro{CV} subclass,
-%    find the height of the horizontal box containing the date.
+%    Find the height of the horizontal box containing the date.
 %    \begin{macrocode}
-%<*!cv>
+%<*article|handout>
     \hbox_set:Nn \l_tmpa_box {\normalfont\normalsize\g_@@_maketitle_date}
     \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
 
@@ -1462,10 +1471,52 @@
         \end{tabular}\par
         \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
       \end{center}
+%    \end{macrocode}
+%    Remove glue from the end of the box.
+%    The glue
+%    (\tn{topsep})
+%    will be re-added outside of the box,
+%    so that it can be seen by subsequent \tn{addvspace}s.
+%    \begin{macrocode}
       \unskip
     }
 
     \dim_set:Nn \l_tmpb_dim {\box_ht_plus_dp:N \l_tmpb_box}
+%    \end{macrocode}
+
+%    Insert a zero-width and zero-height rule
+%    so that the vertical glue isn't discarded
+%    because it's at the top of a page.
+%    \begin{macrocode}
+    \rule{\c_zero_dim}{\c_zero_dim}
+%    \end{macrocode}
+%    Shift the title down
+%    so that subsequent text will align to baseline.
+%    Use the \op{round} operation
+%    (as opposed to \op{floor} or \op{ceil}
+%    so that the title block is shifted
+%    by the smallest possible absolute value.
+%    \begin{macrocode}
+    \skip_vertical:n {
+      \fp_eval:n {round(\l_tmpb_dim / \baselineskip, 0)}\baselineskip
+      - \l_tmpb_dim
+    }
+%    \end{macrocode}
+%    (Here's an example of how I used \cs{ShowGrid}
+%    to help design the title block.
+%    The offset is just the \tn{topsep}
+%    preceding the \env{center} environment.)
+%    \begin{macrocode}
+    % \ShowGrid{\l_tmpb_box}{\c__rh_large_leading_dim}{15pt}
+    \box_use_drop:N \l_tmpb_box
+%    \end{macrocode}
+%    Add \tn{topsep},
+%    which was removed inside of the box,
+%    back outside of the box,
+%    so that it can be seen by subsequent \tn{addvspace}s.
+%    \begin{macrocode}
+    \@listi
+    \addvspace\topsep
 %</article>
 %    \end{macrocode}
 %
@@ -1480,15 +1531,6 @@
 %    \begin{macrocode}
 %<*handout>
     \begin{center}
-%    \end{macrocode}
-%    Here,
-%    and at the end of the \env{center} environment,
-%    remove \tn{topsep} from vertical list
-%    and add back in half of \tn{topsep}.
-%    A full \tn{topsep} looks excessive.
-%    TODO: reconsider this design.
-%    For now it is mainly to avoid changing the appearance of the title heading.
-%    \begin{macrocode}
       \normalfont\large
       \textcaps{\tl_use:N \g_@@_maketitle_title}\par
       \skip_vertical:n {\baselineskip}
@@ -1506,11 +1548,12 @@
 %    and then inserting \tn{topsep} minus the global value of \tn{parskip}.
 %    \begin{macrocode}
     \unskip
-    \skip_vertical:n {1\baselineskip plus 4pt minus 4pt - \c_@@_parskip}
+    \@listi
+    \skip_vertical:n {\topsep - \c_@@_parskip}
 %</handout>
 
     \RenewCommandCopy\footnote\thanks
-%</!cv>
+%</article|handout>
 %    \end{macrocode}
 %
 %    In the \textacro{CV} subclass,
@@ -1556,48 +1599,15 @@
         \hss
       }
     }
-%</cv>
 %    \end{macrocode}
 
-%    Insert a zero-width and zero-height rule
-%    so that the vertical skip isn't discarded
-%    because it's at the top of a page.
-%    \begin{macrocode}
-%<*article>
-    \rule{\c_zero_dim}{\c_zero_dim}
-    \skip_vertical:n {
-%    \end{macrocode}
-%    Use the \op{round} operation
-%    (as opposed to \op{floor} or \op{ceil}
-%    so that the title block is shifted
-%    by the smallest possible absolute value.
-%    \begin{macrocode}
-      \fp_eval:n {round(\l_tmpb_dim / \baselineskip, 0)}\baselineskip
-      - \l_tmpb_dim
-    }
-%    \end{macrocode}
-%
-%    (Here's an example of how I used \cs{ShowGrid}
-%    to help design the title block.
-%    The offset is just the \tn{topsep}
-%    preceding the \env{center} environment.)
-%    \begin{macrocode}
-    % \ShowGrid{\l_tmpb_box}{\c__rh_large_leading_dim}{15pt}
-    \box_use_drop:N \l_tmpb_box
-    \@listi
-    \addvspace\topsep
-%</article>
-%    \end{macrocode}
-%
-%    In the \textacro{CV} subclass,
-%    don't place any extra space between the top of the text block
+%    Don't place any extra space between the top of the text block
 %    and the beginning of the title,
 %    and don't try to align subsequent text with the baseline grid
 %    (which doesn't matter for non-continuous text like a \textacro{CV}).
 %    (Here is another example of how I used \cs{ShowGrid}
 %    in development.)
 %    \begin{macrocode}
-%<*cv>
     % \vbox_set:Nn \l_tmpa_box {
     %   \begin{center}
     %     \skip_set_eq:NN \parskip \c_zero_skip
@@ -1623,8 +1633,9 @@
       \skip_vertical:n {\c_@@_Large_leading_dim - \c_@@_normalsize_leading_dim}
       \box_move_right:nn {-\Gm@lmargin} {\box_use_drop:N \l_tmpa_box}
     \end{center}
+
+    \skip_vertical:n {0.5\baselineskip}
 %</cv>
-%<cv>    \skip_vertical:n {0.5\baselineskip}
   \group_end:
 }
 %    \end{macrocode}
