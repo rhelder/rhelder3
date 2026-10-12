@@ -1248,16 +1248,22 @@
 %   \g_@@_maketitle_title_tl,
 %   \g_@@_maketitle_author_tl,
 %   \g_@@_maketitle_date_tl,
+%   \l_@@_maketitle_box,
+%   \l_@@_maketitle_date_box,
+%   \l_@@_maketitle_ht_plus_dp_dim,
+%   \l_@@_maketitle_date_ht_dim,
 % }
 %    Internal variables to be used by \tn{maketitle}.
 %    \begin{macrocode}
 \tl_new:N \g_@@_maketitle_title_tl
 \tl_new:N \g_@@_maketitle_author_tl
 \tl_new:N \g_@@_maketitle_date_tl
-%<*cv>
-\tl_new:N \g_@@_maketitle_affiliation_tl
-\tl_new:N \g_@@_maketitle_contact_tl
-%</cv>
+%<article>\box_new:N \l_@@_maketitle_box
+%<article|handout>\box_new:N \l_@@_maketitle_date_box
+%<article>\dim_new:N \l_@@_maketitle_ht_plus_dp_dim
+%<article|handout>\dim_new:N \l_@@_maketitle_date_ht_dim
+%<cv>\tl_new:N \g_@@_maketitle_affiliation_tl
+%<cv>\tl_new:N \g_@@_maketitle_contact_tl
 %    \end{macrocode}
 % \end{variable}
 
@@ -1413,8 +1419,8 @@
 %    Find the height of the horizontal box containing the date.
 %    \begin{macrocode}
 %<*article|handout>
-    \hbox_set:Nn \l_tmpa_box {\normalfont\normalsize\g_@@_maketitle_date_tl}
-    \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box}
+    \hbox_set:Nn \l_@@_maketitle_date_box {\normalfont\normalsize\g_@@_maketitle_date_tl}
+    \dim_set:Nn \l_@@_maketitle_date_ht_dim {\box_ht:N \l_@@_maketitle_date_box}
 
 %    \end{macrocode}
 %    In the article subclass,
@@ -1425,7 +1431,7 @@
 %    is equal to some integer multiple of \tn{baselineskip}.
 %    \begin{macrocode}
 %<*article>
-    \vbox_set:Nn \l_tmpb_box {
+    \vbox_set:Nn \l_@@_maketitle_box {
 %    \end{macrocode}
 %
 %    Insert a zero-width and zero-height rule
@@ -1459,17 +1465,17 @@
 %    to the \tn{baselineskip} glue that would have been added
 %    if the \env{tabular} environment had consisted of one row:
 %    \tn{baselineskip} minus the height of the next box
-%    (saved in \verb+\l_tmpa_dim+)
+%    (saved in \cs{l_@@_maketitle_date_box)
 %    minus what the depth of the previous box would have been
 %    (which is the depth of \tn{strutbox}).
 %    \begin{macrocode}
         \dim_set:Nn \lineskip {
-          \baselineskip - (\l_tmpa_dim + \box_dp:N \strutbox)
+          \baselineskip - (\l_@@_maketitle_date_ht_dim + \box_dp:N \strutbox)
         }
         \begin{tabular}[t]{c}
           \tl_use:N \g_@@_maketitle_author_tl
         \end{tabular}\par
-        \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
+        \mode_leave_vertical: \box_use_drop:N \l_@@_maketitle_date_box
       \end{center}
 %    \end{macrocode}
 %    Remove glue from the end of the box.
@@ -1481,7 +1487,9 @@
       \unskip
     }
 
-    \dim_set:Nn \l_tmpb_dim {\box_ht_plus_dp:N \l_tmpb_box}
+    \dim_set:Nn \l_@@_maketitle_ht_plus_dp_dim {
+      \box_ht_plus_dp:N \l_@@_maketitle_box
+    }
 %    \end{macrocode}
 
 %    Insert a zero-width and zero-height rule
@@ -1498,8 +1506,10 @@
 %    by the smallest possible absolute value.
 %    \begin{macrocode}
     \skip_vertical:n {
-      \fp_eval:n {round(\l_tmpb_dim / \baselineskip, 0)}\baselineskip
-      - \l_tmpb_dim
+      \fp_eval:n {
+        round(\l_@@_maketitle_ht_plus_dp_dim / \baselineskip, 0)
+      }\baselineskip
+      - \l_@@_maketitle_ht_plus_dp_dim
     }
 %    \end{macrocode}
 %    (Here's an example of how I used \cs{ShowGrid}
@@ -1507,8 +1517,8 @@
 %    The offset is just the \tn{topsep}
 %    preceding the \env{center} environment.)
 %    \begin{macrocode}
-    % \ShowGrid{\l_tmpb_box}{\c__rh_large_leading_dim}{15pt}
-    \box_use_drop:N \l_tmpb_box
+    % \ShowGrid{\l_@@_maketitle_box}{\c__rh_large_leading_dim}{15pt}
+    \box_use_drop:N \l_@@_maketitle_box
 %    \end{macrocode}
 %    Add \tn{topsep},
 %    which was removed inside of the box,
@@ -1535,12 +1545,12 @@
       \textcaps{\tl_use:N \g_@@_maketitle_title_tl}\par
       \skip_vertical:n {\baselineskip}
       \dim_set:Nn \lineskip {
-        \baselineskip - (\l_tmpa_dim + \box_dp:N \strutbox)
+        \baselineskip - (\l_@@_maketitle_date_ht_dim + \box_dp:N \strutbox)
       }
       \begin{tabular}[t]{c}
         \tl_use:N \g_@@_maketitle_author_tl
       \end{tabular}\par
-      \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
+      \mode_leave_vertical: \box_use_drop:N \l_@@_maketitle_date_box
     \end{center}
 %    \end{macrocode}
 %    Compensate for the \tn{parskip} inserted by the next paragraph
