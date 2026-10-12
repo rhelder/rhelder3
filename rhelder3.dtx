@@ -1347,12 +1347,10 @@
 %    and print footnotes with \tn{@thanks}.
 %    \begin{macrocode}
     \thispagestyle{plain}
-    \group_begin:
-      \skip_set_eq:NN \l_tmpa_skip \lastskip
-      \skip_vertical:n {-\lastskip}
-      \@thanks
-      \skip_vertical:n {\l_tmpa_skip}
-    \group_end:
+    \skip_set_eq:NN \l_tmpa_skip \lastskip
+    \skip_vertical:n {-\lastskip}
+    \@thanks
+    \skip_vertical:n {\l_tmpa_skip}
 %    \end{macrocode}
 %
 %    Close the group
@@ -1502,7 +1500,6 @@
       \end{tabular}\par
       \mode_leave_vertical: \box_use_drop:N \l_tmpa_box
     \end{center}
-
 %    \end{macrocode}
 %    Compensate for the \tn{parskip} inserted by the next paragraph
 %    by removing \tn{topsep},
@@ -1587,10 +1584,8 @@
 %    \begin{macrocode}
     % \ShowGrid{\l_tmpb_box}{\c__rh_large_leading_dim}{15pt}
     \box_use_drop:N \l_tmpb_box
-    \group_begin:
-      \@listi
-      \addvspace\topsep
-    \group_end:
+    \@listi
+    \addvspace\topsep
 %</article>
 %    \end{macrocode}
 %
@@ -1855,17 +1850,15 @@
   }
   \dim_set:Nn \l_tmpa_dim {\box_ht_plus_dp:N \l_tmpa_box}
 
-  \group_begin:
-    \small
-    \@listi
-    \addvspace\topsep
-    \box_use_drop:N \l_tmpa_box
-    \skip_vertical:n {
-      \fp_eval:n {round(\l_tmpa_dim / \baselineskip, 0)}\baselineskip
-      - \l_tmpa_dim
-    }
-    \skip_vertical:n {\topsep}
-  \group_end:
+  \small
+  \@listi
+  \addvspace\topsep
+  \box_use_drop:N \l_tmpa_box
+  \skip_vertical:n {
+    \fp_eval:n {round(\l_tmpa_dim / \baselineskip, 0)}\baselineskip
+    - \l_tmpa_dim
+  }
+  \skip_vertical:n {\topsep}
 }{}
 %</!parskip>
 %<*parskip>
