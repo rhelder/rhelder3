@@ -1,28 +1,20 @@
 \input{regression-test}
 \documentclass[kant]{rhelder3handout}
 
-\title{The Paralogisms of Practical Reason Define the Phenomena}
-\author{%
-  \initials{R.W.} Helder%
-  \thanks{%
-    I want to thank God,
-    because God gave me this Dundie,
-    and I feel God in this Chili's tonight.%
-  }%
-  \\\textacro{UC} Berkeley\and
-  Immanuel Kant\\University of Königsberg%
-}
-\date{August 3, \textdigits{2026}}
+\title{Reading Response}
+\author{Russell Wright Helder}
+\date{October 3, \textdigits{2026}}
 
 \showoutput
 \begin{document}
 \START
+
 \maketitle
 
 \begin{abstract}
   \autokant
 \end{abstract}
 
-\kantsection
 \autokant
+
 \end{document}

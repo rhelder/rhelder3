@@ -9,5 +9,7 @@
 \begin{document}
 \START
 \maketitle
+
 \autokant[2]
+
 \end{document}

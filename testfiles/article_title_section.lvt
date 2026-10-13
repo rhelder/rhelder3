@@ -8,7 +8,10 @@
 \showoutput
 \begin{document}
 \START
+
 \maketitle
+
 \kantsection
 \autokant[2]
+
 \end{document}
