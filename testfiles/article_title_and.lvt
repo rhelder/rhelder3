@@ -1,0 +1,22 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3}
+
+\title{Reading Response}
+\author{%
+  Russell Wright Helder \\
+  University of California, Berkeley\and
+  Immanuel Kant \\
+  University of Königsberg%
+}
+\date{October 3, \textdigits{2026}}
+
+\showoutput
+\begin{document}
+\START
+
+\maketitle
+
+\kantsection
+\autokant[2]
+
+\end{document}

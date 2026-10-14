@@ -1,0 +1,27 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3handout}
+
+\showoutput
+\begin{document}
+\START
+
+\autokant*[1][1]
+\begin{quotation}
+  \autokant[0][2]
+\end{quotation}
+\autokant[0][1]
+
+\autokant[1][1]\par
+\begin{quotation}
+  \autokant[0][2]
+\end{quotation}\par
+\autokant[1][1]
+
+\autokant*[1][1]
+\begin{quotation}
+  \autokant[0][1]
+  \autokant[1][1]
+\end{quotation}
+\autokant[0][1]
+
+\end{document}

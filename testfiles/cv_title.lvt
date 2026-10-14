@@ -1,0 +1,25 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3cv}
+
+\author{Russell Wright Helder}
+\title{PhD Candidate}
+\affiliation{%
+  Joint Program in Ancient Philosophy \\
+  Department of Philosophy \\
+  University of California, Berkeley%
+}
+\contact{%
+  rwh@russellhelder.net \\
+  \textdigits{(913) 428-0466}%
+}
+\date{August 12, \textdigits{2026}}
+
+\showoutput
+\begin{document}
+\START
+
+\maketitle
+
+\section{Education}
+
+\end{document}

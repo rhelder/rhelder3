@@ -1,0 +1,20 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3}
+
+\showoutput
+\begin{document}
+\START
+
+\autokant*[1][1]\textsf{\autokant*[0][1]}\autokant*[0][1]
+
+\textsf{\autokant[1][2]}
+
+\autokant[1][2]
+
+As is evident upon close examination,
+\texttt{let us suppose that},
+in accordance with the principles of \texttt{time},
+our a priori concepts are the clue to the discovery of philosophy.
+\texttt{Metaphysics exists in the objects in space and time.}
+
+\end{document}

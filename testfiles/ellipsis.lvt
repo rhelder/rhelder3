@@ -1,0 +1,13 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3}
+
+\showoutput
+\begin{document}
+\START
+
+One by one \textellipsis{} and two by two.\thinspace\textellipsis{}
+Trusty bulworks \textellipsis, and crackers too!
+
+\enquote{A \textelp*{lie} for an eye is a \textelp{stye} on the sly \textelp{}}
+
+\end{document}

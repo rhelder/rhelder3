@@ -1,0 +1,15 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3}
+
+\showoutput
+\begin{document}
+\START
+
+\textquote[][.]{The hair is gray, the hay is folly}
+
+\textquote{The sweets are cherry, the lads are merry}.
+
+\textquote[A Loon]{Bye and by and forth to go},
+\textquote[Loon Two][!]{Nary a win is just for show}
+
+\end{document}

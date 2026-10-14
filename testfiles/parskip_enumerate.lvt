@@ -1,0 +1,51 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3handout}
+
+\showoutput
+\begin{document}
+\START
+
+\autokant*[1][1]
+\begin{enumerate}
+  \item \autokant[1][1]
+  \item \autokant[1][1]
+  \item \autokant[1][1]
+\end{enumerate}
+\autokant[1][1]
+
+\autokant[1][1]\par
+\begin{enumerate}
+  \item \autokant[1][1]
+  \item \autokant[1][1]
+  \item \autokant[1][1]
+\end{enumerate}\par
+\autokant[1][1]
+
+\autokant*[1][1]
+\begin{enumerate}
+  \item \autokant[1][1]\autokant[1][1]
+  \item \autokant[1][1]\autokant[1][1]
+  \item \autokant[1][1]\autokant[1][1]
+\end{enumerate}
+\autokant[1][1]
+
+\autokant*[1][1]
+\begin{enumerate}
+  \item \autokant[1][1]
+    \begin{enumerate}
+      \item \autokant[0][1]\autokant[1][1]
+        \begin{enumerate}
+          \item \autokant[0][1]
+            \begin{enumerate}
+              \item \autokant[0][1]
+              \item \autokant[1][1]
+            \end{enumerate}
+          \item \autokant[0][1]
+        \end{enumerate}
+      \item \autokant[0][1]
+    \end{enumerate}
+  \item \autokant[0][1]
+\end{enumerate}
+\autokant[1][1]
+
+\end{document}

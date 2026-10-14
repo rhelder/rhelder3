@@ -1,0 +1,21 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3}
+
+\showoutput
+\begin{document}
+\START
+
+Aristotle perplexingly says
+\foreigntextquote{ancientgreek}{%
+  ἐκ τῶν καθ' ἕκαστα γὰρ τὰ καθόλου·
+  τούτων οὖν ἔχειν δεῖ αἴσθησιν, αὕτη δ' ἐστὶ νοῦς%
+},
+which actually means that \textalt{nous}
+is perception of universals.
+Perhaps Aristotle did not mean it seriously:
+\foreigntextquote{ancientgreek}[][.]{%
+  ἐκ τῶν καθ' ἕκαστα γὰρ \foreigntextquote{ancientgreek}{τὰ καθόλου}·
+  τούτων οὖν ἔχειν δεῖ αἴσθησιν, αὕτη δ' ἐστὶ νοῦς%
+}
+
+\end{document}

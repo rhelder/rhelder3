@@ -1,0 +1,51 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3}
+
+\showoutput
+\begin{document}
+\START
+
+\autokant*[1][1]
+\begin{itemize}
+  \item \autokant[1][1]
+  \item \autokant[1][1]
+  \item \autokant[1][1]
+\end{itemize}
+\autokant[1][1]
+
+\autokant[1][1]\par
+\begin{itemize}
+  \item \autokant[1][1]
+  \item \autokant[1][1]
+  \item \autokant[1][1]
+\end{itemize}\par
+\autokant[1][1]
+
+\autokant*[1][1]
+\begin{itemize}
+  \item \autokant[1][1]\autokant[1][1]
+  \item \autokant[1][1]\autokant[1][1]
+  \item \autokant[1][1]\autokant[1][1]
+\end{itemize}
+\autokant[1][1]
+
+\autokant*[1][1]
+\begin{itemize}
+  \item \autokant[1][1]
+    \begin{itemize}
+      \item \autokant[0][1]\autokant[1][1]
+        \begin{itemize}
+          \item \autokant[0][1]
+            \begin{itemize}
+              \item \autokant[0][1]
+              \item \autokant[1][1]
+            \end{itemize}
+          \item \autokant[0][1]
+        \end{itemize}
+      \item \autokant[0][1]
+    \end{itemize}
+  \item \autokant[0][1]
+\end{itemize}
+\autokant[1][1]
+
+\end{document}

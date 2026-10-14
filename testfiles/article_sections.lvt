@@ -1,0 +1,37 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3}
+
+\showoutput
+\begin{document}
+\START
+
+\autokant[1][2]
+
+\kantsection
+\autokant[1][2]
+\autokant[1][2]
+
+\kantsubsection
+\autokant[1][2]
+\autokant[1][2]
+
+\kantsubsubsection
+\autokant[1][2]
+\autokant[1][2]
+
+\kantparagraph
+\autokant[1][2]
+\autokant[1][2]
+
+\kantsubparagraph
+\autokant[1][2]
+\autokant[1][2]
+\autokant
+
+\section{Nested Sections}
+\subsection{Nested Subections}
+\subsubsection{Nested Subsubsections}
+\autokant[1][2]
+\autokant[1][2]
+
+\end{document}

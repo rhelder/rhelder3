@@ -1,0 +1,20 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3}
+
+\showoutput
+\begin{document}
+\START
+
+\autokant*[1][1]
+\[ \sum_{0\leq k<n} k = \frac{n(n-1)}{2} \]
+\autokant*[0][1]
+\[ \sin \frac{\alpha}{2} = \pm \sqrt{\frac{1-\cos\alpha}{2}} \]
+\autokant*[0][1]
+
+\autokant*[1][1]
+\[ \sin \frac{\alpha}{2} = \pm \sqrt{\frac{1-\cos\alpha}{2}} \]
+\autokant*[1][2]
+\(\sum_{i=1}^n\), \(\int_0^\infty\), \(\lim_{n \to 0}\)
+\autokant*[0][2]
+
+\end{document}
