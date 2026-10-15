@@ -3093,12 +3093,3 @@ Completed box being shipped out [1]
 .....\TU/EBGaramond(0)/m/n/12 󰋕
 .....\glue 0.0 plus 1.0fil
 .\kern0.0
-(article_footnotes.aux)
-Package rerunfilecheck Warning: File `article_footnotes.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-Package rerunfilecheck Info: Checksums for `article_footnotes.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
-***************
-Compilation 1 of test file completed with exit status 0

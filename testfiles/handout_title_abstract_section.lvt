@@ -1,21 +1,36 @@
 \input{regression-test}
+
+\ExplSyntaxOn
+\debug_on:n {check-declarations, deprecation}
+% Define boolean that is not declared by a dependency of adforn
+\bool_new:N \l__fixtounicode_luatex_has_fix_bool
+\ExplSyntaxOff
+
 \documentclass[kant]{rhelder3handout}
 
-\title{Reading Response}
-\author{Russell Wright Helder}
-\date{October 3, \textdigits{2026}}
+\ExplSyntaxOn
+\NewDocumentCommand{\test}{+m}{
+  \vbox_set:Nn \l_tmpa_box {#1}
+  \box_show:N \l_tmpa_box
+}
+\ExplSyntaxOff
 
-\showoutput
+\title{The Paralogisms of Practical Reason Define the Phenomena}
+\author{Russell Wright Helder}
+\date{October 14, \textdigits{2026}}
+
 \begin{document}
 \START
 
-\maketitle
+\TEST{Title with abstract and section heading}{%
+  \test{%
+    \maketitle
+    \begin{abstract}
+      \autokant[1][1]
+    \end{abstract}
+    \kantsection
+    \autokant[1][1]%
+  }%
+}
 
-\begin{abstract}
-  \autokant
-\end{abstract}
-
-\kantsection
-\autokant
-
-\end{document}
+\END

@@ -1,51 +1,80 @@
 \input{regression-test}
+
+\ExplSyntaxOn
+\debug_on:n {check-declarations, deprecation}
+% Define boolean that is not declared by a dependency of adforn
+\bool_new:N \l__fixtounicode_luatex_has_fix_bool
+\ExplSyntaxOff
+
 \documentclass[kant]{rhelder3}
 
-\showoutput
+\ExplSyntaxOn
+\NewDocumentCommand{\test}{+m}{
+  \vbox_set:Nn \l_tmpa_box {#1}
+  \box_show:N \l_tmpa_box
+}
+\ExplSyntaxOff
+
 \begin{document}
 \START
 
-\autokant*[1][1]
-\begin{itemize}
-  \item \autokant[1][1]
-  \item \autokant[1][1]
-  \item \autokant[1][1]
-\end{itemize}
-\autokant[1][1]
-
-\autokant[1][1]\par
-\begin{itemize}
-  \item \autokant[1][1]
-  \item \autokant[1][1]
-  \item \autokant[1][1]
-\end{itemize}\par
-\autokant[1][1]
-
-\autokant*[1][1]
-\begin{itemize}
-  \item \autokant[1][1]\autokant[1][1]
-  \item \autokant[1][1]\autokant[1][1]
-  \item \autokant[1][1]\autokant[1][1]
-\end{itemize}
-\autokant[1][1]
-
-\autokant*[1][1]
-\begin{itemize}
-  \item \autokant[1][1]
+\TEST{itemize within paragraph}{%
+  \test{%
+    \autokant*[1][1]
     \begin{itemize}
-      \item \autokant[0][1]\autokant[1][1]
+      \item \autokant[1][1]
+      \item \autokant[1][1]
+      \item \autokant[1][1]
+    \end{itemize}
+    \autokant[1][1]%
+  }%
+}
+
+\TEST{itemize in new paragraph}{%
+  \test{%
+    \autokant[1][1]\par
+    \begin{itemize}
+      \item \autokant[1][1]
+      \item \autokant[1][1]
+      \item \autokant[1][1]
+    \end{itemize}\par
+    \autokant[1][1]%
+  }%
+}
+
+\TEST{New paragraph in itemize item}{%
+  \test{%
+    \autokant*[1][1]
+    \begin{itemize}
+      \item \autokant[1][1]\autokant[1][1]
+      \item \autokant[1][1]\autokant[1][1]
+      \item \autokant[1][1]\autokant[1][1]
+    \end{itemize}
+    \autokant[1][1]%
+  }%
+}
+
+\TEST{Nested itemize}{%
+  \test{%
+    \autokant*[1][1]
+    \begin{itemize}
+      \item \autokant[1][1]
         \begin{itemize}
-          \item \autokant[0][1]
+          \item \autokant[0][1]\autokant[1][1]
             \begin{itemize}
               \item \autokant[0][1]
-              \item \autokant[1][1]
+                \begin{itemize}
+                  \item \autokant[0][1]
+                  \item \autokant[1][1]
+                \end{itemize}
+              \item \autokant[0][1]
             \end{itemize}
           \item \autokant[0][1]
         \end{itemize}
       \item \autokant[0][1]
     \end{itemize}
-  \item \autokant[0][1]
-\end{itemize}
-\autokant[1][1]
+    \autokant[1][1]%
+  }%
+}
 
-\end{document}
+\END

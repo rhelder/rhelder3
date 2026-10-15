@@ -9,4 +9,6 @@
 
 \autokant*\unskip\footnote{\autokant[1][1]\autokant[1][1]}
 
+\newpage
+\OMIT
 \end{document}

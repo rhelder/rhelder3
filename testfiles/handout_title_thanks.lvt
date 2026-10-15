@@ -1,7 +1,7 @@
 \input{regression-test}
 \documentclass[kant]{rhelder3handout}
 
-\title{Reading Response}
+\title{The Paralogisms of Practical Reason Define the Phenomena}
 \author{%
   Russell Wright Helder\thanks{%
     I want to thank God,
@@ -9,7 +9,7 @@
     and I feel God in this Chili's tonight.%
   }%
 }
-\date{October 3, \textdigits{2026}}
+\date{October 14, \textdigits{2026}}
 
 \showoutput
 \begin{document}
@@ -18,6 +18,8 @@
 \maketitle
 
 \kantsection
-\autokant[2]
+\autokant[1][1]
 
+\newpage
+\OMIT
 \end{document}
