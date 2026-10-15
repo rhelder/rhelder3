@@ -1250,7 +1250,7 @@
 %   \g_@@_maketitle_date_tl,
 %   \l_@@_maketitle_box,
 %   \l_@@_maketitle_date_box,
-%   \l_@@_maketitle_ht_plus_dp_dim,
+%   \l_@@_maketitle_ht_dim,
 %   \l_@@_maketitle_date_ht_dim,
 % }
 %    Internal variables to be used by \tn{maketitle}.
@@ -1260,7 +1260,7 @@
 \tl_new:N \g_@@_maketitle_date_tl
 %<article>\box_new:N \l_@@_maketitle_box
 %<article|handout>\box_new:N \l_@@_maketitle_date_box
-%<article>\dim_new:N \l_@@_maketitle_ht_plus_dp_dim
+%<article>\dim_new:N \l_@@_maketitle_ht_dim
 %<article|handout>\dim_new:N \l_@@_maketitle_date_ht_dim
 %<cv>\tl_new:N \g_@@_maketitle_affiliation_tl
 %<cv>\tl_new:N \g_@@_maketitle_contact_tl
@@ -1487,8 +1487,8 @@
       \unskip
     }
 
-    \dim_set:Nn \l_@@_maketitle_ht_plus_dp_dim {
-      \box_ht_plus_dp:N \l_@@_maketitle_box
+    \dim_set:Nn \l_@@_maketitle_ht_dim {
+      \box_ht:N \l_@@_maketitle_box
     }
 %    \end{macrocode}
 
@@ -1507,9 +1507,9 @@
 %    \begin{macrocode}
     \skip_vertical:n {
       \fp_eval:n {
-        round(\l_@@_maketitle_ht_plus_dp_dim / \baselineskip, 0)
+        round(\l_@@_maketitle_ht_dim / \baselineskip, 0)
       }\baselineskip
-      - \l_@@_maketitle_ht_plus_dp_dim
+      - \l_@@_maketitle_ht_dim
     }
 %    \end{macrocode}
 %    (Here's an example of how I used \cs{ShowGrid}
@@ -1880,10 +1880,9 @@
     \end{quotation}
     \unskip
   }
-  \dim_set:Nn \l_tmpa_dim {\box_ht_plus_dp:N \l_tmpa_box}
+  \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box + \prevdepth}
 
-  \small
-  \@listi
+  \normalsize\@listi
   \addvspace\topsep
   \box_use_drop:N \l_tmpa_box
   \skip_vertical:n {

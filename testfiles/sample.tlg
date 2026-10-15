@@ -73,7 +73,7 @@ Completed box being shipped out [1]
 .....\hbox(0.0+0.0)x336.40823, direction TLT
 ...\glue 0.0
 ...\glue(\lineskip) 0.0
-...\vbox(567.0+0.0)x336.40823, glue set 0.90717, direction TLT
+...\vbox(567.0+0.0)x336.40823, glue set 1.00667, direction TLT
 ....\write1{\babel@aux{english}{}}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 12.0
@@ -89,7 +89,7 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\glue -6.48
+....\glue -3.0
 ....\glue(\lineskip) 0.0
 ....\vbox(123.0+3.48)x336.40823, direction TLT
 .....\hbox(0.0+0.0)x336.40823, glue set 321.40823fil, direction TLT
@@ -1570,13 +1570,11 @@ Completed box being shipped out [1]
 ......\glue(\parfillskip) 0.0 plus 1.0fil
 ......\glue(\rightskip) 0.0
 .....\penalty -51
-....\glue 5.014
-....\glue 13.0
-....\glue -13.209
+....\glue -0.25699
+....\glue 15.0
+....\glue -15.209
 ....\penalty -300
 ....\glue 0.209
-....\glue 13.0
-....\glue -13.0
 ....\glue 15.0
 ....\pdfdest name{section.1} xyz
 ....\penalty 10000
