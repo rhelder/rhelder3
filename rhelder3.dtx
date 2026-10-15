@@ -2513,10 +2513,12 @@
 %    with the bottom of the text block).
 %    Allow at least two full \tn{baselineskip}s.
 %    \begin{macrocode}
-\skip_set:Nn {\skip\footins} {
-  \c_@@_normalsize_leading_dim +
-  \dim_eval:n {\c_@@_normalsize_leading_dim - \c_@@_footnotesize_leading_dim}
-  plus \c_@@_normalsize_leading_dim
+\setlength{\skip\footins}{
+  \skip_eval:n {
+    \c_@@_normalsize_leading_dim +
+    \dim_eval:n {\c_@@_normalsize_leading_dim - \c_@@_footnotesize_leading_dim}
+    plus \c_@@_normalsize_leading_dim
+  }
 }
 %    \end{macrocode}
 % \end{lskip}
