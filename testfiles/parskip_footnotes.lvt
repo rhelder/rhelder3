@@ -5,9 +5,9 @@
 \begin{document}
 \START
 
-\autokant*\unskip\footnote{\autokant[1][1]}
+\autokant*\unskip\footnote{\autokant*[1][1]}
 
-\autokant*\unskip\footnote{\autokant[1][1]\autokant[1][1]}
+\autokant*\unskip\footnote{\autokant[1][1]\autokant*[1][1]}
 
 \newpage
 \OMIT
