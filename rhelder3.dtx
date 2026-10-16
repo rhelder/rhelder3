@@ -1859,7 +1859,6 @@
 %    so that space can be inserted
 %    to align subsequent text to the baseline.
 %    \begin{macrocode}
-%<*!parskip>
 \NewDocumentEnvironment{abstract}{+b}{
   \vbox_set:Nn \l_tmpa_box {
     \small
@@ -1882,27 +1881,18 @@
   }
   \dim_set:Nn \l_tmpa_dim {\box_ht:N \l_tmpa_box + \prevdepth}
 
-  \normalsize\@listi
+%<!parskip>  \normalsize
+  \@listi
   \addvspace\topsep
   \box_use_drop:N \l_tmpa_box
+%<*!parskip>
   \skip_vertical:n {
     \fp_eval:n {round(\l_tmpa_dim / \baselineskip, 0)}\baselineskip
     - \l_tmpa_dim
   }
+%</!parskip>
   \skip_vertical:n {\topsep}
 }{}
-%</!parskip>
-%<*parskip>
-\NewDocumentEnvironment{abstract}{}{
-  \small
-  \begin{center}
-    \itshape\abstractname
-  \end{center}
-  \quotation
-}{
-  \endquotation
-}
-%</parskip>
 %    \end{macrocode}
 % \end{environment}
 
