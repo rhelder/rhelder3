@@ -9,7 +9,7 @@
 \documentclass[kant]{rhelder3handout}
 
 \ExplSyntaxOn
-\NewDocumentCommand{\test}{+m}{
+\ProvideDocumentCommand{\test}{+m}{
   \vbox_set:Nn \l_tmpa_box {#1}
   \box_show:N \l_tmpa_box
 }
