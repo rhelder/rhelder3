@@ -1,0 +1,709 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: Greek quote style
+============================================================
+> \box...=
+\vbox(68.688+2.28)x336.40823, direction TLT
+.\hbox(8.688+3.48)x336.40823, glue set - 0.07835, direction TLT
+..\localpar
+...\localinterlinepenalty=0
+...\localbrokenpenalty=0
+...\localleftbox=null
+...\localrightbox=null
+..\hbox(0.0+0.0)x15.0, direction TLT
+..\TU/EBGaramond(0)/m/n/12 A
+..\TU/EBGaramond(0)/m/n/12 r
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 s
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 t
+..\TU/EBGaramond(0)/m/n/12 o
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 t
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 e
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 p
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 r
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 p
+..\kern-0.18 (font)
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 e
+..\kern-0.18 (font)
+..\TU/EBGaramond(0)/m/n/12 x
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 g
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 y
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 a
+..\kern-0.12 (font)
+..\TU/EBGaramond(0)/m/n/12 y
+..\TU/EBGaramond(0)/m/n/12 s
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\penalty 10000
+..\glue -0.0002
+..\glue 0.0002
+..\TU/EBGaramond(0)/m/n/12 ἐ
+..\TU/EBGaramond(0)/m/n/12 κ
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 ῶ
+..\TU/EBGaramond(0)/m/n/12 ν
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 κ
+..\TU/EBGaramond(0)/m/n/12 α
+..\TU/EBGaramond(0)/m/n/12 θ
+..\TU/EBGaramond(0)/m/n/12 ’
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 ἕ
+..\TU/EBGaramond(0)/m/n/12 κ
+..\TU/EBGaramond(0)/m/n/12 α
+..\TU/EBGaramond(0)/m/n/12 σ
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 α
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 γ
+..\TU/EBGaramond(0)/m/n/12 ὰ
+..\TU/EBGaramond(0)/m/n/12 ρ
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 ὰ
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 κ
+..\TU/EBGaramond(0)/m/n/12 α
+..\TU/EBGaramond(0)/m/n/12 θ
+..\TU/EBGaramond(0)/m/n/12 ό
+..\TU/EBGaramond(0)/m/n/12 λ
+..\TU/EBGaramond(0)/m/n/12 ο
+..\TU/EBGaramond(0)/m/n/12 υ
+..\TU/EBGaramond(0)/m/n/12 ^^b7
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 ο
+..\TU/EBGaramond(0)/m/n/12 ύ
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 ω
+..\TU/EBGaramond(0)/m/n/12 ν
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 ο
+..\TU/EBGaramond(0)/m/n/12 ὖ
+..\TU/EBGaramond(0)/m/n/12 ν
+..\glue(\rightskip) 0.0
+.\penalty 150
+.\glue(\baselineskip) 3.06
+.\hbox(8.46+3.48)x336.40823, glue set - 0.45868, direction TLT
+..\TU/EBGaramond(0)/m/n/12 ἔ
+..\TU/EBGaramond(0)/m/n/12 χ
+..\TU/EBGaramond(0)/m/n/12 ε
+..\TU/EBGaramond(0)/m/n/12 ι
+..\TU/EBGaramond(0)/m/n/12 ν
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 δ
+..\TU/EBGaramond(0)/m/n/12 ε
+..\TU/EBGaramond(0)/m/n/12 ῖ
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 α
+..\TU/EBGaramond(0)/m/n/12 ἴ
+..\TU/EBGaramond(0)/m/n/12 σ
+..\TU/EBGaramond(0)/m/n/12 θ
+..\TU/EBGaramond(0)/m/n/12 η
+..\TU/EBGaramond(0)/m/n/12 σ
+..\TU/EBGaramond(0)/m/n/12 ι
+..\TU/EBGaramond(0)/m/n/12 ν
+..\TU/EBGaramond(0)/m/n/12 ,
+..\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
+..\TU/EBGaramond(0)/m/n/12 α
+..\TU/EBGaramond(0)/m/n/12 ὕ
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 η
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 δ
+..\TU/EBGaramond(0)/m/n/12 ’
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 ἐ
+..\TU/EBGaramond(0)/m/n/12 σ
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 ὶ
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 ν
+..\TU/EBGaramond(0)/m/n/12 ο
+..\TU/EBGaramond(0)/m/n/12 ῦ
+..\TU/EBGaramond(0)/m/n/12 ς
+..\TU/EBGaramond(0)/m/n/12 ,
+..\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
+..\TU/EBGaramond(0)/m/n/12 w
+..\TU/EBGaramond(0)/m/n/12 h
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 c
+..\TU/EBGaramond(0)/m/n/12 h
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 c
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 t
+..\TU/EBGaramond(0)/m/n/12 u
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 y
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 m
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 s
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 t
+..\TU/EBGaramond(0)/m/n/12 h
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 t
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 u
+..\TU/EBGaramond(0)/m/n/12 n
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 d
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 r
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 t
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 d
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 g
+..\glue(\rightskip) 0.0
+.\glue(\baselineskip) 3.048
+.\hbox(8.472+3.42)x336.40823, glue set 0.0005, direction TLT
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 s
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 p
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 r
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 c
+..\kern-0.24 (font)
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 p
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 t
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 n
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 f
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 u
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 i
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 v
+..\kern-0.3 (font)
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 r
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 .
+..\glue(\spaceskip) 3.2 plus 3.59999 minus 0.26666
+..\TU/EBGaramond(0)/m/n/12 P
+..\kern-0.6 (font)
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 r
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 h
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 p
+..\TU/EBGaramond(0)/m/n/12 s
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 A
+..\TU/EBGaramond(0)/m/n/12 r
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 s
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 t
+..\TU/EBGaramond(0)/m/n/12 o
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 t
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 e
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 d
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 d
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 t
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 m
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 n
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 t
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 e
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 r
+..\TU/EBGaramond(0)/m/n/12 i
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 u
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 y
+..\TU/EBGaramond(0)/m/n/12 :
+..\glue(\spaceskip) 3.2 plus 2.4 minus 0.4
+..\penalty 10000
+..\glue -0.0002
+..\glue 0.0002
+..\TU/EBGaramond(0)/m/n/12 ἐ
+..\TU/EBGaramond(0)/m/n/12 κ
+..\glue(\rightskip) 0.0
+.\glue(\baselineskip) 2.892
+.\hbox(8.688+3.48)x336.40823, glue set 0.00385, direction TLT
+..\kern-0.24 (left margin)
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 ῶ
+..\TU/EBGaramond(0)/m/n/12 ν
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 κ
+..\TU/EBGaramond(0)/m/n/12 α
+..\TU/EBGaramond(0)/m/n/12 θ
+..\TU/EBGaramond(0)/m/n/12 ’
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 ἕ
+..\TU/EBGaramond(0)/m/n/12 κ
+..\TU/EBGaramond(0)/m/n/12 α
+..\TU/EBGaramond(0)/m/n/12 σ
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 α
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 γ
+..\TU/EBGaramond(0)/m/n/12 ὰ
+..\TU/EBGaramond(0)/m/n/12 ρ
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 “
+..\penalty 10000
+..\glue -0.0002
+..\glue 0.0002
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 ὰ
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 κ
+..\TU/EBGaramond(0)/m/n/12 α
+..\TU/EBGaramond(0)/m/n/12 θ
+..\TU/EBGaramond(0)/m/n/12 ό
+..\TU/EBGaramond(0)/m/n/12 λ
+..\TU/EBGaramond(0)/m/n/12 ο
+..\TU/EBGaramond(0)/m/n/12 υ
+..\TU/EBGaramond(0)/m/n/12 ”
+..\kern-0.0002
+..\kern0.0002
+..\TU/EBGaramond(0)/m/n/12 ^^b7
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 ο
+..\TU/EBGaramond(0)/m/n/12 ύ
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 ω
+..\TU/EBGaramond(0)/m/n/12 ν
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 ο
+..\TU/EBGaramond(0)/m/n/12 ὖ
+..\TU/EBGaramond(0)/m/n/12 ν
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 ἔ
+..\TU/EBGaramond(0)/m/n/12 χ
+..\TU/EBGaramond(0)/m/n/12 ε
+..\TU/EBGaramond(0)/m/n/12 ι
+..\TU/EBGaramond(0)/m/n/12 ν
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 δ
+..\TU/EBGaramond(0)/m/n/12 ε
+..\TU/EBGaramond(0)/m/n/12 ῖ
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 α
+..\TU/EBGaramond(0)/m/n/12 ἴ
+..\TU/EBGaramond(0)/m/n/12 σ
+..\TU/EBGaramond(0)/m/n/12 θ
+..\TU/EBGaramond(0)/m/n/12 η
+..\TU/EBGaramond(0)/m/n/12 σ
+..\TU/EBGaramond(0)/m/n/12 ι
+..\TU/EBGaramond(0)/m/n/12 ν
+..\TU/EBGaramond(0)/m/n/12 ,
+..\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
+..\TU/EBGaramond(0)/m/n/12 α
+..\TU/EBGaramond(0)/m/n/12 ὕ
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 η
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 δ
+..\TU/EBGaramond(0)/m/n/12 ’
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 ἐ
+..\TU/EBGaramond(0)/m/n/12 σ
+..\TU/EBGaramond(0)/m/n/12 τ
+..\TU/EBGaramond(0)/m/n/12 ὶ
+..\glue(\rightskip) 0.0
+.\penalty 152
+.\glue(\baselineskip) 4.44
+.\hbox(7.08+2.28)x336.40823, glue set 316.29626fil, direction TLT
+..\TU/EBGaramond(0)/m/n/12 ν
+..\TU/EBGaramond(0)/m/n/12 ο
+..\TU/EBGaramond(0)/m/n/12 ῦ
+..\TU/EBGaramond(0)/m/n/12 ς
+..\TU/EBGaramond(0)/m/n/12 .
+..\penalty 10000
+..\kern-1.656 (right margin)
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..\glue(\rightskip) 0.0
+! OK.
+<argument> \l_tmpa_box 
+l. ...}
+============================================================
+============================================================
+TEST 2: Latin quote style
+============================================================
+Package microtype Info: Character `156' is missing
+(microtype)             in font `TU/EBGaramond(0)/m/it/12'.
+(microtype)             Ignoring protrusion settings for this character.
+Package babel Info: 'latin' activates 'latin' shorthands.
+(babel)             Reported on input line ....
+(../loadhyph-la-x-classic.tex UTF-8 Classical Latin hyphenation patterns, v.2.0 ....-..-.. (../hyph-la-x-classic.tex))
+> \box...=
+\vbox(38.472+3.48)x336.40823, direction TLT
+.\hbox(8.472+3.48)x336.40823, glue set - 0.00688, direction TLT
+..\localpar
+...\localinterlinepenalty=0
+...\localbrokenpenalty=0
+...\localleftbox=null
+...\localrightbox=null
+..\hbox(0.0+0.0)x15.0, direction TLT
+..\TU/EBGaramond(0)/m/n/12 T
+..\TU/EBGaramond(0)/m/n/12 h
+..\TU/EBGaramond(0)/m/n/12 e
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/it/12 A
+..\kern-0.42 (font)
+..\TU/EBGaramond(0)/m/it/12 e
+..\TU/EBGaramond(0)/m/it/12 n
+..\TU/EBGaramond(0)/m/it/12 e
+..\TU/EBGaramond(0)/m/it/12 i
+..\kern-0.24 (font)
+..\TU/EBGaramond(0)/m/it/12 d
+..\kern0.288 (italic)
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 b
+..\TU/EBGaramond(0)/m/n/12 e
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 g
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 s
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 w
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 t
+..\TU/EBGaramond(0)/m/n/12 h
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\penalty 10000
+..\glue -0.0002
+..\glue 0.0002
+..\TU/EBGaramond(0)/m/it/12 A
+..\kern-0.24 (font)
+..\TU/EBGaramond(0)/m/it/12 r
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/it/12 -
+..\TU/EBGaramond(0)/m/it/12 m
+..\TU/EBGaramond(0)/m/it/12 a
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/it/12 v
+..\TU/EBGaramond(0)/m/it/12 i
+..\kern-0.18 (font)
+..\TU/EBGaramond(0)/m/it/12 r
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/it/12 -
+..\TU/EBGaramond(0)/m/it/12 m
+..\TU/EBGaramond(0)/m/it/12 u
+..\kern-0.18 (font)
+..\TU/EBGaramond(0)/m/it/12 m
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/it/12 -
+..\TU/EBGaramond(0)/m/it/12 q
+..\TU/EBGaramond(0)/m/it/12 u
+..\kern-0.24 (font)
+..\TU/EBGaramond(0)/m/it/12 e
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/it/12 c
+..\TU/EBGaramond(0)/m/it/12 a
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/it/12 -
+...= \kern-0.24 (font)
+..\TU/EBGaramond(0)/m/it/12 n
+..\TU/EBGaramond(0)/m/it/12 o
+..\TU/EBGaramond(0)/m/n/12 ,
+..\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
+..\TU/EBGaramond(0)/m/n/12 w
+..\TU/EBGaramond(0)/m/n/12 h
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 c
+..\TU/EBGaramond(0)/m/n/12 h
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 f
+..\kern-0.3 (font)
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 r
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 m
+..\TU/EBGaramond(0)/m/n/12 e
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 r
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 a
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 n
+..\glue(\rightskip) 0.0
+.\penalty 150
+.\glue(\baselineskip) 3.048
+.\hbox(8.472+3.48)x336.40823, glue set 0.005, direction TLT
+..\TU/EBGaramond(0)/m/n/12 c
+..\kern-0.24 (font)
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 n
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 f
+..\TU/EBGaramond(0)/m/n/12 u
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 e
+..\kern-0.12 (font)
+..\TU/EBGaramond(0)/m/n/12 d
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 m
+..\TU/EBGaramond(0)/m/n/12 e
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 s
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 a
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 h
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 g
+..\TU/EBGaramond(0)/m/n/12 h
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 c
+..\TU/EBGaramond(0)/m/n/12 h
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 o
+..\kern-0.18 (font)
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 r
+..\TU/EBGaramond(0)/m/n/12 ;
+..\glue(\spaceskip) 2.4 plus 1.79999 minus 0.53333
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 f
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 t
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 r
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 ,
+..\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
+..\TU/EBGaramond(0)/m/n/12 w
+..\TU/EBGaramond(0)/m/n/12 h
+..\kern-0.48 (font)
+..\TU/EBGaramond(0)/m/n/12 y
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 g
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 f
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 h
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 s
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 r
+..\TU/EBGaramond(0)/m/n/12 m
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 ,
+..\glue(\spaceskip) 2.4 plus 1.49998 minus 0.64
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 d
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 t
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 h
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 s
+..\glue(\rightskip) 0.0
+.\penalty 152
+.\glue(\baselineskip) 3.06
+.\hbox(8.46+3.48)x336.40823, glue set 20.10832fil, direction TLT
+..\TU/EBGaramond(0)/m/n/12 l
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 g
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 ?
+..\glue(\spaceskip) 3.2 plus 3.59999 minus 0.26666
+..\TU/EBGaramond(0)/m/n/12 P
+..\kern-0.6 (font)
+..\TU/EBGaramond(0)/m/n/12 e
+..\TU/EBGaramond(0)/m/n/12 r
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 h
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 p
+..\TU/EBGaramond(0)/m/n/12 s
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 V
+..\kern-0.24 (font)
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 r
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 g
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 l
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 w
+..\kern-0.18 (font)
+..\TU/EBGaramond(0)/m/n/12 a
+..\TU/EBGaramond(0)/m/n/12 s
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 t
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 b
+..\TU/EBGaramond(0)/m/n/12 e
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 i
+..\TU/EBGaramond(0)/m/n/12 n
+..\TU/EBGaramond(0)/m/n/12 g
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 o
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 e
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 r
+..\TU/EBGaramond(0)/m/n/12 i
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/n/12 -
+..\TU/EBGaramond(0)/m/n/12 o
+..\TU/EBGaramond(0)/m/n/12 u
+..\TU/EBGaramond(0)/m/n/12 s
+..\TU/EBGaramond(0)/m/n/12 :
+..\glue(\spaceskip) 3.2 plus 2.4 minus 0.4
+..\TU/EBGaramond(0)/m/it/12 ‘
+..\penalty 10000
+..\glue -0.0002
+..\glue 0.0002
+..\penalty 10000
+..\glue -1.08
+..\TU/EBGaramond(0)/m/it/12 A
+..\kern-0.24 (font)
+..\TU/EBGaramond(0)/m/it/12 r
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/it/12 -
+..\TU/EBGaramond(0)/m/it/12 m
+..\TU/EBGaramond(0)/m/it/12 a
+..\kern-0.96 (font)
+..\TU/EBGaramond(0)/m/it/12 ’
+..\kern-0.0002
+..\kern0.0002
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/it/12 v
+..\TU/EBGaramond(0)/m/it/12 i
+..\kern-0.18 (font)
+..\TU/EBGaramond(0)/m/it/12 r
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/it/12 -
+..\TU/EBGaramond(0)/m/it/12 m
+..\TU/EBGaramond(0)/m/it/12 u
+..\kern-0.18 (font)
+..\TU/EBGaramond(0)/m/it/12 m
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/it/12 -
+..\TU/EBGaramond(0)/m/it/12 q
+..\TU/EBGaramond(0)/m/it/12 u
+..\kern-0.24 (font)
+..\TU/EBGaramond(0)/m/it/12 e
+..\glue(\spaceskip) 2.4 plus 1.2 minus 0.8
+..\TU/EBGaramond(0)/m/it/12 c
+..\TU/EBGaramond(0)/m/it/12 a
+..\discretionary (penalty 50)
+...< \TU/EBGaramond(0)/m/it/12 -
+...= \kern-0.24 (font)
+..\TU/EBGaramond(0)/m/it/12 n
+..\TU/EBGaramond(0)/m/it/12 o
+..\TU/EBGaramond(0)/m/n/12 .
+..\penalty 10000
+..\kern-1.656 (right margin)
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..\glue(\rightskip) 0.0
+! OK.
+<argument> \l_tmpa_box 
+l. ...}
+============================================================

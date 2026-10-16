@@ -1,0 +1,25 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3}
+
+\title{The Paralogisms of Practical Reason Define the Phenomena}
+\author{%
+  Russell Wright Helder\thanks{%
+    I want to thank God,
+    because God gave me this Dundie,
+    and I feel God in this Chili's tonight.%
+  }%
+}
+\date{October 14, \textdigits{2026}}
+
+\showoutput
+\begin{document}
+\START
+
+\maketitle
+
+\kantsection
+\autokant[1][1]
+
+\newpage
+\OMIT
+\end{document}

@@ -1,0 +1,14 @@
+\input{regression-test}
+\documentclass[kant]{rhelder3}
+
+\showoutput
+\begin{document}
+\START
+
+\autokant*\unskip\footnote{\autokant*[1][1]}
+
+\autokant*\unskip\footnote{\autokant[1][1]\autokant*[1][1]}
+
+\newpage
+\OMIT
+\end{document}

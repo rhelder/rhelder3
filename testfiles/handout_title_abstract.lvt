@@ -1,28 +1,35 @@
 \input{regression-test}
+
+\ExplSyntaxOn
+\debug_on:n {check-declarations, deprecation}
+% Define boolean that is not declared by a dependency of adforn
+\bool_new:N \l__fixtounicode_luatex_has_fix_bool
+\ExplSyntaxOff
+
 \documentclass[kant]{rhelder3handout}
 
-\title{The Paralogisms of Practical Reason Define the Phenomena}
-\author{%
-  \initials{R.W.} Helder%
-  \thanks{%
-    I want to thank God,
-    because God gave me this Dundie,
-    and I feel God in this Chili's tonight.%
-  }%
-  \\\textacro{UC} Berkeley\and
-  Immanuel Kant\\University of Königsberg%
+\ExplSyntaxOn
+\ProvideDocumentCommand{\test}{+m}{
+  \vbox_set:Nn \l_tmpa_box {#1}
+  \box_show:N \l_tmpa_box
 }
-\date{August 3, \textdigits{2026}}
+\ExplSyntaxOff
 
-\showoutput
+\title{The Paralogisms of Practical Reason Define the Phenomena}
+\author{Russell Wright Helder}
+\date{October 14, \textdigits{2026}}
+
 \begin{document}
 \START
-\maketitle
 
-\begin{abstract}
-  \autokant
-\end{abstract}
+\TEST{Title with abstract}{%
+  \test{%
+    \maketitle
+    \begin{abstract}
+      \autokant[1][1]
+    \end{abstract}
+    \autokant[1][1]%
+  }%
+}
 
-\kantsection
-\autokant
-\end{document}
+\END

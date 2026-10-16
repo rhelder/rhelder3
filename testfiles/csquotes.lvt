@@ -1,0 +1,49 @@
+\input{regression-test}
+
+\ExplSyntaxOn
+\debug_on:n {check-declarations, deprecation}
+% Define boolean that is not declared by a dependency of adforn
+\bool_new:N \l__fixtounicode_luatex_has_fix_bool
+\ExplSyntaxOff
+
+\documentclass[kant]{rhelder3}
+
+\ExplSyntaxOn
+\ProvideDocumentCommand{\test}{+m}{
+  \vbox_set:Nn \l_tmpa_box {#1}
+  \box_show:N \l_tmpa_box
+}
+\ExplSyntaxOff
+
+\begin{document}
+\START
+
+\TEST{Greek quote style}{%
+  \test{%
+    Aristotle perplexingly says
+    \foreigntextquote{ancientgreek}{%
+      ἐκ τῶν καθ' ἕκαστα γὰρ τὰ καθόλου·
+      τούτων οὖν ἔχειν δεῖ αἴσθησιν, αὕτη δ' ἐστὶ νοῦς%
+    },
+    which actually means that understanding
+    is perception of universals.
+    Perhaps Aristotle did not mean it seriously:
+    \foreigntextquote{ancientgreek}[][.]{%
+      ἐκ τῶν καθ' ἕκαστα γὰρ \foreigntextquote{ancientgreek}{τὰ καθόλου}·
+      τούτων οὖν ἔχειν δεῖ αἴσθησιν, αὕτη δ' ἐστὶ νοῦς%
+    }%
+  }%
+}
+
+\TEST{Latin quote style}{%
+  \test{%
+    The \textit{Aeneid} begins with
+    \foreigntextquote{latin}{Arma virmumque cano},
+    which for some reason confused me as a high schooler;
+    after all, why sing of his arms, and not his legs?
+    Perhaps Virgil was not being so serious:
+    \foreigntextquote{latin}{\foreigntextquote{latin}{Arma} virmumque cano}.%
+  }%
+}
+
+\END
