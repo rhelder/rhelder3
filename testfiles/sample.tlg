@@ -2565,6 +2565,7 @@ Completed box being shipped out [1]
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(5.07004+0.0)x0.0, glue set - 12.0fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(5.07004+0.0)x12.0, glue set 7.57999fil, direction TLT
@@ -15807,6 +15808,7 @@ Completed box being shipped out [5]
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(4.06+0.03)x0.0, glue set - 12.0fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(4.06+0.03)x12.0, glue set 9.11fil, direction TLT
@@ -16072,6 +16074,7 @@ Completed box being shipped out [5]
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(4.14+0.04)x0.0, glue set - 12.0fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(4.14+0.04)x12.0, glue set 7.6fil, direction TLT
@@ -34662,6 +34665,7 @@ Completed box being shipped out [11]
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(4.13+1.9)x0.0, glue set - 12.0fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(4.13+1.9)x12.0, glue set 8.28fil, direction TLT

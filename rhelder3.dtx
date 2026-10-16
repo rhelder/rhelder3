@@ -2436,27 +2436,45 @@
 %    Called by \LaTeX{}'s \tn{footnote} and friends
 %    to typeset the actual footnote.
 %
-%    Typesets the footnote label one \tn{parindent} into the left margin.
-%
-%    \tn{parskip} is set to \num{0}\unit{pt}
-%    by \tn{@parboxrestore},
-%    which is invoked before \tn{@makefntext} in \tn{@footnotetext},
-%    so place the footnote mark in a box of size \tn{baselineskip},
-%    which is what \tn{parindent} is supposed to be
-%    (actually, \tn{parindent} is supposed to be \tn{baselineskip}
-%    at normal size.
-%    But that doesn't look as good as \tn{baselineskip}
-%    at footnote size,
-%    so use \tn{baselineskip} at footnote size).
+%    Enter horizontal mode, so that a new paragraph isn't created between the
+%    marker and the footnote text
 %    \begin{macrocode}
 \cs_new_protected:Npn \@makefntext #1 {
-  \dim_set_eq:NN \parindent \baselineskip
-  % Enter horizontal mode, so that a new paragraph isn't created between the
-  % marker and the footnote text
-  \noindent
+  \mode_leave_vertical:
+%    \end{macrocode}
+%
+%    Place the footnote mark in a horizontal box of width \tn{baselineskip}
+%    that protrudes into the left margin.
+%    \begin{macrocode}
   \hbox_overlap_left:n {
-    \hbox_to_wd:nn {\parindent} {\normalfont\@thefnmark\hss}
-  }#1
+    \hbox_to_wd:nn {\baselineskip} {\normalfont\@thefnmark\hss}
+  }
+%    \end{macrocode}
+%
+%    \tn{parindent} is set to \num{0}\unit{pt}
+%    by \tn{@parboxrestore},
+%    which is invoked before \tn{@makefntext} in \tn{@footnotetext}.
+%    So, in classes with a \tn{parskip} of zero,
+%    also set \tn{parindent} to \tn{baselineskip},
+%    as the global \tn{parindent} is set to \tn{baselineskip}
+%    (but at the normal-size \tn{baselineskip}).
+%    Using the footnote-size \tn{baselineskip} here looks better
+%    than using the normal-size \tn{baselineskip}.
+%
+%    Do this after leaving vertical mode,
+%    so that the footnote mark does not get indented.
+%    \begin{macrocode}
+%<!parskip>  \dim_set_eq:NN \parindent \baselineskip
+%    \end{macrocode}
+%
+%    In classes with a non-zero \tn{parskip},
+%    set \tn{parskip} in the same way as the global \tn{parskip},
+%    but at footnote size.
+%    Using the footnote-size \tn{baselineskip} here looks better
+%    than using the normal-size \tn{baselineskip}.
+%    \begin{macrocode}
+%<parskip>  \dim_set:Nn \parskip {0.5\baselineskip plus 2pt minus 2pt}
+  #1
 }
 %    \end{macrocode}
 % \end{lmacro}
