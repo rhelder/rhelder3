@@ -2395,6 +2395,7 @@ Completed box being shipped out [1]
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(4.06+0.03)x0.0, glue set - 12.0fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(4.06+0.03)x12.0, glue set 9.11fil, direction TLT
@@ -2566,6 +2567,7 @@ Completed box being shipped out [1]
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(4.14+0.04)x0.0, glue set - 12.0fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(4.14+0.04)x12.0, glue set 7.6fil, direction TLT

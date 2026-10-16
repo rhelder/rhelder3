@@ -44,7 +44,7 @@ Completed box being shipped out [1]
 .....\hbox(0.0+0.0)x336.40823, direction TLT
 ...\glue 0.0
 ...\glue(\lineskip) 0.0
-...\vbox(567.0+0.0)x336.40823, glue set 85.62004fil, direction TLT
+...\vbox(567.0+0.0)x336.40823, glue set 79.62004fil, direction TLT
 ....\write1{\babel@aux{english}{}}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.528
@@ -2398,6 +2398,7 @@ Completed box being shipped out [1]
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(4.06+0.03)x0.0, glue set - 12.0fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(4.06+0.03)x12.0, glue set 9.11fil, direction TLT
@@ -2569,6 +2570,7 @@ Completed box being shipped out [1]
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
 .....\hbox(4.14+0.04)x0.0, glue set - 12.0fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(4.14+0.04)x12.0, glue set 7.6fil, direction TLT
@@ -2847,16 +2849,17 @@ Completed box being shipped out [1]
 .....\kern-1.38 (right margin)
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\glue(\parskip) 0.0
+....\glue(\parskip) 6.0 plus 2.0 minus 2.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.04001
-....\hbox(7.06+2.87)x336.40823, glue set 0.01051, direction TLT
+....\hbox(7.06+2.87)x336.40823, glue set - 0.08504, direction TLT
+.....\kern-0.47 (left margin)
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x12.0, direction TLT
+.....\hbox(0.0+0.0)x0.0, direction TLT
 .....\TU/EBGaramond(0)/m/n/10 T
 .....\TU/EBGaramond(0)/m/n/10 h
 .....\TU/EBGaramond(0)/m/n/10 e
@@ -2966,16 +2969,15 @@ Completed box being shipped out [1]
 .....\TU/EBGaramond(0)/m/n/10 h
 .....\TU/EBGaramond(0)/m/n/10 a
 .....\TU/EBGaramond(0)/m/n/10 t
-.....\kern-0.22 (right margin)
-.....\glue(\rightskip) 0.0
-....\penalty 402
-....\glue(\baselineskip) 2.07
-....\hbox(7.06+3.60004)x336.40823, glue set 80.00835fil, direction TLT
+.....\glue(\spaceskip) 2.0 plus 1.0 minus 0.66667
 .....\TU/EBGaramond(0)/m/n/10 t
 .....\TU/EBGaramond(0)/m/n/10 h
 .....\TU/EBGaramond(0)/m/n/10 i
 .....\TU/EBGaramond(0)/m/n/10 s
-.....\glue(\spaceskip) 2.0 plus 1.0 minus 0.66667
+.....\glue(\rightskip) 0.0
+....\penalty 402
+....\glue(\baselineskip) 2.07
+....\hbox(7.06+3.60004)x336.40823, glue set 95.97833fil, direction TLT
 .....\TU/EBGaramond(0)/m/n/10 i
 .....\TU/EBGaramond(0)/m/n/10 s
 .....\glue(\spaceskip) 2.0 plus 1.0 minus 0.66667
