@@ -30,7 +30,7 @@ Package fontspec Info:
 Inserting `luaotfload.letterspace' in `pre_linebreak_filter'.
 Inserting `luaotfload.letterspace' in `hpack_filter'.
 > \box...=
-\vbox(215.27405+3.48)x480.15746, direction TLT
+\vbox(205.77034+3.48)x480.15746, direction TLT
 .\glue 0.0 plus 1.0fil
 .\penalty -10000
 .\penalty -51
@@ -363,15 +363,12 @@ Inserting `luaotfload.letterspace' in `hpack_filter'.
 ...\glue 0.0 plus 1.0fil minus 1.0fil
 .\penalty -51
 .\glue 15.0 plus 4.0 minus 4.0
-.\glue 7.5
-.\glue -7.5
-.\glue 7.5
-.\glue -13.5
+.\glue -15.0 plus -4.0 minus -4.0
+.\glue 15.0 plus 4.0 minus 4.0
+.\glue -21.0 plus -4.0 minus -4.0
 .\penalty -300
 .\glue 6.0
-.\glue 7.5
-.\glue -7.5
-.\glue 9.50371 plus -1.00371 minus 0.00371
+.\glue 15.0 plus 4.0 minus 4.0
 .\glue(\parskip) 7.5 plus 2.0 minus 2.0
 .\glue(\parskip) 0.0
 .\glue(\lineskip) 0.0
