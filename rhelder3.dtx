@@ -2565,6 +2565,12 @@
 
 % \section{Page Styles}
 %
+% Use \LaTeX{}'s new mark mechanism.
+%    \begin{macrocode}
+%<handout>\NewMarkClass{rhelder3}
+%<handout>
+%    \end{macrocode}
+%
 % \begin{lmacro}{\ps@handoutplain, \ps@cv}
 %    Define the \ps{handoutplain} and \ps{cs} page styles.
 %    \begin{macrocode}
@@ -2577,8 +2583,34 @@
 %    \end{macrocode}
 % \end{lmacro}
 
+% \begin{lmacro}{\ps@handout}
+%    Define the \ps{handout} page style.
+%    \begin{macrocode}
+%<*handout>
+\cs_new_protected:Npn \ps@handout {
+  \ps@handoutplain
+  \cs_set_protected:Npn \@oddhead {
+    \normalsize
+    \hbox_to_zero:n {\rule[-\box_dp:N \strutbox]{\textwidth}{0.4pt}}
+    \itshape\hfill\FirstMark{rhelder3}
+  }
+
+  \cs_set:Npn \sectionmark ##1 {
+    \InsertMark{rhelder3}{
+      \if_int_compare:w \c@secnumdepth > \c_zero_int \thesection\quad \fi:
+      ##1
+    }
+  }
+}
+
+%</handout>
+%    \end{macrocode}
+% \end{lmacro}
+
 % \begin{macro}{\@@_oddfoot_authordate}
-%    Stores code common to the \ps{handoutplain} and \ps{cs} pagestyles.
+%    Stores code common to the \ps{handout},
+%    \ps{handoutplain},
+%    and \ps{cs} page styles.
 %    \begin{macrocode}
 \cs_new_protected:Npn \@@_oddfoot_authordate: {
   \hbox_overlap_right:n {
