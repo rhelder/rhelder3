@@ -581,7 +581,6 @@
 %    \begin{macrocode}
 \geometry{footskip = 3\c_@@_normalsize_leading_dim}
 \pagenumbering{arabic}
-\pagestyle{plain}
 %    \end{macrocode}
 
 % \section{Options}
@@ -594,7 +593,7 @@
 %     over \cs{l_shipout_box}).
 %     Useful for document design.
 %    \begin{macrocode}
-\keys_define:nn {rh}{
+\keys_define:nn {rh} {
   showgrid .code:n =
     \dim_new:N \g_@@_showgrid_yshift_dim
 %    \end{macrocode}
@@ -739,9 +738,17 @@
     \NewDocumentCommand{\kantsubparagraph}{}{
       \subparagraph{The~Validity~of~the~Categories~(Subparagraph)}
     },
-}
 %    \end{macrocode}
 % \end{imacro}
+
+% \begin{optionenv}{authordatefoot}
+% \begin{variable}{\g_@@_authordatefoot_bool}
+%    \begin{macrocode}
+%<handout>  authordatefoot .bool_set:N = \g_@@_authordatefoot_bool,
+}
+%    \end{macrocode}
+% \end{variable}
+% \end{optionenv}
 
 % Excecute the code for the specified options.
 %    \begin{macrocode}
@@ -1365,9 +1372,16 @@
     \skip_vertical:n {\l_tmpa_skip}
 %    \end{macrocode}
 
-%    Set this page's style to \ps{plain}.
+%    Set this page's style.
 %    \begin{macrocode}
-    \thispagestyle{plain}
+%<!handout>    \thispagestyle{plain}
+%<*handout>
+    \if_bool:N \g_@@_authordatefoot_bool
+      \thispagestyle{handoutplain}
+    \else:
+      \thispagestyle{plain}
+    \fi:
+%</handout>
 %    \end{macrocode}
 %
 %    Close the group
@@ -1545,14 +1559,16 @@
     \begin{center}
       \normalfont\large
       \textcaps{\tl_use:N \g_@@_maketitle_title_tl}\par
-      \skip_vertical:n {\baselineskip}
-      \dim_set:Nn \lineskip {
-        \baselineskip - (\l_@@_maketitle_date_ht_dim + \box_dp:N \strutbox)
+      \bool_if:nF {\g_@@_authordatefoot_bool} {
+        \skip_vertical:n {\baselineskip}
+        \dim_set:Nn \lineskip {
+          \baselineskip - (\l_@@_maketitle_date_ht_dim + \box_dp:N \strutbox)
+        }
+        \begin{tabular}[t]{c}
+          \tl_use:N \g_@@_maketitle_author_tl
+        \end{tabular}\par
+        \mode_leave_vertical: \box_use_drop:N \l_@@_maketitle_date_box
       }
-      \begin{tabular}[t]{c}
-        \tl_use:N \g_@@_maketitle_author_tl
-      \end{tabular}\par
-      \mode_leave_vertical: \box_use_drop:N \l_@@_maketitle_date_box
     \end{center}
 %    \end{macrocode}
 %    Compensate for the \tn{parskip} inserted by the next paragraph
@@ -2534,27 +2550,46 @@
 
 % \section{Page Styles}
 %
+% \begin{macro}{\@@_oddfoot_authordate}
+%    Stores code common to the \ps{handoutplain} and \ps{cs} pagestyles.
 %    \begin{macrocode}
-%<*cv>
-\cs_new_protected:Npn \ps@cv {
-  \ps@empty
-  \cs_set:Npn \@oddfoot {
-    \hbox_overlap_right:n {
-      \normalfont\normalsize
-      \tl_use:N \g_@@_maketitle_author_tl
-    }\hfil
-    \normalfont\normalsize\thepage\hfil
-    \hbox_overlap_left:n {
-      \normalfont\normalsize
-      \tl_use:N \g_@@_maketitle_date_tl
-    }
+%<*handout|cv>
+\cs_new_protected:Npn \@@_oddfoot_authordate: {
+  \hbox_overlap_right:n {
+    \normalfont\normalsize
+    \tl_use:N \g_@@_maketitle_author_tl
+  }\hfil
+  \normalfont\normalsize\thepage\hfil
+  \hbox_overlap_left:n {
+    \normalfont\normalsize
+    \tl_use:N \g_@@_maketitle_date_tl
   }
 }
-
-\pagestyle{cv}
-%</cv>
 %    \end{macrocode}
-%
+% \end{macro}
+
+% \begin{lmacro}{\ps@handoutplain, \ps@cv}
+%    Define the \ps{handoutplain} and \ps{cs} pagestyles.
+%    \begin{macrocode}
+%<handout>\cs_new_protected:Npn \ps@handoutplain {
+%<cv>\cs_new_protected:Npn \ps@cv {
+  \ps@empty
+  \cs_set_eq:NN \@oddfoot \@@_oddfoot_authordate:
+}
+
+%</handout|cv>
+%<article>\pagestyle{plain}
+%<*handout>
+\if_bool:N \g_@@_authordatefoot_bool
+  \pagestyle{handoutplain}
+\else:
+  \pagestyle{plain}
+\fi:
+%</handout>
+%<cv>\pagestyle{cv}
+%    \end{macrocode}
+% \end{lmacro}
+
 % \section{Markup}
 %
 % \begin{imacro}{\initials}
