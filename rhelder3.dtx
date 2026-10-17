@@ -1850,6 +1850,13 @@
     \dim_set_eq:NN \itemindent \c_zero_dim
     \dim_set_eq:NN \listparindent \parindent
     \dim_set_eq:NN \rightmargin \leftmargin
+%    \end{macrocode}
+%
+%    Always use the same \tn{topsep},
+%    even when nested in another list.
+%    \begin{macrocode}
+%<!parskip>    \skip_set_eq:NN \topsep \baselineskip
+%<parskip>    \skip_set:Nn \topsep {1\baselineskip plus 4pt minus 4pt - \parskip}
   }
   \item\relax
 }{
@@ -2550,10 +2557,21 @@
 
 % \section{Page Styles}
 %
+% \begin{lmacro}{\ps@handoutplain, \ps@cv}
+%    Define the \ps{handoutplain} and \ps{cs} page styles.
+%    \begin{macrocode}
+%<*handout|cv>
+%<handout>\cs_new_protected:Npn \ps@handoutplain {
+%<cv>\cs_new_protected:Npn \ps@cv {
+  \ps@empty
+  \cs_set_eq:NN \@oddfoot \@@_oddfoot_authordate:
+}
+%    \end{macrocode}
+% \end{lmacro}
+
 % \begin{macro}{\@@_oddfoot_authordate}
 %    Stores code common to the \ps{handoutplain} and \ps{cs} pagestyles.
 %    \begin{macrocode}
-%<*handout|cv>
 \cs_new_protected:Npn \@@_oddfoot_authordate: {
   \hbox_overlap_right:n {
     \normalfont\normalsize
@@ -2565,19 +2583,12 @@
     \tl_use:N \g_@@_maketitle_date_tl
   }
 }
-%    \end{macrocode}
-% \end{macro}
-
-% \begin{lmacro}{\ps@handoutplain, \ps@cv}
-%    Define the \ps{handoutplain} and \ps{cs} pagestyles.
-%    \begin{macrocode}
-%<handout>\cs_new_protected:Npn \ps@handoutplain {
-%<cv>\cs_new_protected:Npn \ps@cv {
-  \ps@empty
-  \cs_set_eq:NN \@oddfoot \@@_oddfoot_authordate:
-}
 
 %</handout|cv>
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
 %<article>\pagestyle{plain}
 %<*handout>
 \if_bool:N \g_@@_authordatefoot_bool
@@ -2588,7 +2599,6 @@
 %</handout>
 %<cv>\pagestyle{cv}
 %    \end{macrocode}
-% \end{lmacro}
 
 % \section{Markup}
 %
