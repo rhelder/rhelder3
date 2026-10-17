@@ -560,7 +560,7 @@
 \SetTextheight{1.701}
 %</cv>
 %    \end{macrocode}
-%
+
 % Set the bottom margin equal to the horizontal margin.
 % This creates an appealing and undramatic
 % approximately \num{2:3} ratio
@@ -572,14 +572,22 @@
 %    \begin{macrocode}
 \geometry{
   hcentering,
-  bmargin = \dim_eval:n {(\paperwidth - \textwidth) / 2}
-}
+  bmargin = \dim_eval:n {(\paperwidth - \textwidth) / 2},
+%    \end{macrocode}
+
+% \subsubsection{Header}
+%
+%    \begin{macrocode}
+  headheight = \c_@@_normalsize_leading_dim,
+  headsep = 2.2\c_@@_normalsize_leading_dim,
 %    \end{macrocode}
 
 % \subsubsection{Page Numbering}
 %
 %    \begin{macrocode}
-\geometry{footskip = 3\c_@@_normalsize_leading_dim}
+  footskip = 3\c_@@_normalsize_leading_dim,
+}
+
 \pagenumbering{arabic}
 %    \end{macrocode}
 

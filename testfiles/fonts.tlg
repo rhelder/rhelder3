@@ -15,9 +15,9 @@ Package microtype Info: Loading generic protrusion settings for font family
 Completed box being shipped out [1]
 \vbox(628.7566+0.036)x403.08162, direction TLT
 .\hbox(0.0+0.0)x0.0, direction TLT
-.\vbox(0.0+0.0)x0.0, glue set - 15.75287fil, direction TLT
+.\vbox(0.0+0.0)x0.0, glue set 32.24709fil, direction TLT
 ..\kern0.0
-..\kern16.7566
+..\kern-31.24335
 ..\kern-1.00374
 ..\hbox(0.0+0.0)x0.0, glue set - 65.66965fil, direction TLT
 ...\kern0.0
@@ -29,13 +29,13 @@ Completed box being shipped out [1]
 ..\glue 0.0 plus 1.0fil minus 1.0fil
 .\glue(\lineskip) 0.0
 .\vbox(628.7566+0.036)x403.08162, direction TLT
-..\glue 16.7566
-..\vbox(612.0+0.036)x336.40823, shifted 66.67339, direction TLT
-...\vbox(0.0+0.0)x336.40823, direction TLT
+..\glue -31.24335
+..\vbox(659.99995+0.036)x336.40823, shifted 66.67339, direction TLT
+...\vbox(15.0+0.0)x336.40823, glue set 15.0fil, direction TLT
 ....\glue 0.0 plus 1.0fil
 ....\hbox(0.0+0.0)x336.40823, direction TLT
 .....\hbox(0.0+0.0)x336.40823, direction TLT
-...\glue 0.0
+...\glue 32.99995
 ...\glue(\lineskip) 0.0
 ...\vbox(567.0+0.0)x336.40823, glue set 270.0fil, direction TLT
 ....\write1{\babel@aux{english}{}}
