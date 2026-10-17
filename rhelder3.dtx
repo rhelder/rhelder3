@@ -386,9 +386,16 @@
   \exp_args:Nc \DeclareDocumentCommand{#1}{}{
     \exp_args:Nccc \@setfontsize{#1}{c_@@_#1_size_dim}{c_@@_#1_leading_dim}
 
+%<*!parskip>
     \skip_set:Nn \smallskipamount {0.25\baselineskip}
     \skip_set:Nn \medskipamount {0.5\baselineskip}
     \skip_set_eq:NN \bigskipamount \baselineskip
+%</!parskip>
+%<*parskip>
+    \skip_set:Nn \smallskipamount {0.25\baselineskip plus 1pt minus 1pt}
+    \skip_set:Nn \medskipamount {0.5\baselineskip plus 2pt minus 2pt}
+    \skip_set:Nn \bigskipamount {1\baselineskip plus 4pt minus 4pt}
+%</parskip>
 %    \end{macrocode}
 
 %    Alignment to the baseline can't be guaranteed
